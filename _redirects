@@ -1,0 +1,28 @@
+/zh https://www.pseudoyu.com/posts 301!
+/zh/ https://www.pseudoyu.com/posts 301!
+/zh/search https://www.pseudoyu.com/posts 301!
+/zh/search/ https://www.pseudoyu.com/posts 301!
+/zh/about https://www.pseudoyu.com/about 301!
+/zh/about/ https://www.pseudoyu.com/about 301!
+/zh/links https://www.pseudoyu.com/friends 301!
+/zh/links/ https://www.pseudoyu.com/friends 301!
+/zh/category/* https://www.pseudoyu.com/posts 301!
+/zh/tags/* https://www.pseudoyu.com/posts 301!
+
+/en https://www.pseudoyu.com/posts 301
+/en/* https://www.pseudoyu.com/zh/:splat 301
+
+/de https://www.pseudoyu.com/posts 301
+/de/* https://www.pseudoyu.com/zh/:splat 301
+
+/photos https://photography.pseudoyu.com 301!
+
+/github https://github.com/pseudoyu 301
+/gh https://github.com/pseudoyu 301
+/twitter https://twitter.com/pseudo_yu 301
+/sponsor https://github.com/sponsors/pseudoyu 301
+/support https://github.com/sponsors/pseudoyu 301
+/mas https://mas.to/@pseudoyu 301
+/mastodon https://mas.to/@pseudoyu 301
+/instagram https://instagram.com/pseudo.yu 301
+/ig https://instagram.com/pseudo.yu 301

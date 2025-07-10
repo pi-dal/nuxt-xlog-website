@@ -1,0 +1,20 @@
+{
+  "name": "pi-dal's photography",
+  "title": "pi-dal's photography",
+  "description": "Capturing beautiful moments in life, documenting daily warmth and emotions through my lens.",
+  "url": "https://photography.pi-dal.com/",
+  "accentColor": "#20c997",
+  "author": {
+    "name": "pi-dal",
+    "url": "https://pi-dal.com/",
+    "avatar": "https://ipfs.crossbell.io/ipfs/bafkreidoaeybxj5si6tayussqlpbuqsnzgyxghozpzefskcs77oryv7say?img-quality=75&img-format=auto"
+  },
+  "social": {
+    "twitter": "@pidal20",
+    "github": "pi-dal"
+  },
+  "extra": {
+    "accessRepo": true
+  },
+  "map": ["maplibre"]
+}

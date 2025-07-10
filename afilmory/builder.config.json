@@ -4,7 +4,7 @@
     "bucket": "photography",
     "region": "auto",
     "endpoint": "https://50f43c735bfc5ded3bfb8578b3000169.r2.cloudflarestorage.com",
-    "customDomain": "https://pub-6a332d0d4aa44abf9b2711219992f9d4.r2.dev",
+    "customDomain": "https://photography-source.pi-dal.com",
     "forcePathStyle": true,
     "prefix": "photos/",
     "excludeRegex": "\\.(DS_Store|thumbs\\.db)$",

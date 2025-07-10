@@ -1,167 +1,267 @@
 # xLog Website
 
-一个基于 [xLog](https://xlog.app) 的静态网站生成器，使用 Nuxt 3 + Vue 3 + TypeScript 构建。
+A modern static website generator for [xLog](https://xlog.app) blogs, built with Vue 3, Vite, and TypeScript. This project automatically syncs content from xLog (a decentralized blogging platform) and generates optimized static websites with excellent performance and SEO.
 
-## 特性
+## ✨ Features
 
-- 🔄 **自动同步** xLog 博客内容
-- ⚡ **快速** 静态站点生成
-- 🎨 **美观** 可定制的设计
-- 📱 **响应式** 移动端友好
-- 🔍 **SEO优化** 更好的搜索排名
-- 🌙 **暗色模式** 支持
-- 📝 **Markdown** 支持
-- 🏷️ **标签系统**
+- 🔄 **Auto Sync** - Automatically syncs blog content from xLog
+- ⚡ **Fast Build** - Lightning-fast static site generation with Vite
+- 🎨 **Beautiful Design** - Customizable and responsive design
+- 📱 **Mobile-First** - Optimized for all devices
+- 🔍 **SEO Ready** - Built-in SEO optimization
+- 🌙 **Dark Mode** - Automatic dark/light theme switching
+- 📝 **Markdown Support** - Full markdown processing with syntax highlighting
+- 🏷️ **Tag System** - Organize content with tags
+- 🖼️ **Image Optimization** - Automatic image compression and optimization
+- 📡 **RSS Feeds** - Auto-generated RSS/Atom feeds
+- 🚀 **Performance** - Optimized for Core Web Vitals
 
-## 快速开始
+## 🛠️ Tech Stack
 
-### 1. 安装依赖
+- **Frontend**: [Vue 3](https://vuejs.org/) - Progressive JavaScript framework
+- **Build Tool**: [Vite](https://vitejs.dev/) - Next generation frontend tooling
+- **SSG**: [vite-ssg](https://github.com/antfu/vite-ssg) - Static site generation for Vue
+- **TypeScript**: [TypeScript](https://www.typescriptlang.org/) - Type-safe development
+- **Styling**: [UnoCSS](https://github.com/unocss/unocss) - Instant on-demand atomic CSS
+- **xLog SDK**: [sakuin](https://www.npmjs.com/package/sakuin) - xLog JavaScript SDK
+- **Markdown**: [Shiki](https://shiki.matsu.io/) - Syntax highlighting with dual themes
+
+## 📦 Installation
+
+### Prerequisites
+
+- Node.js 18+ 
+- pnpm (recommended) or npm/yarn
+
+### Clone and Install
 
 ```bash
-# 使用 pnpm (推荐)
+# Clone the repository
+git clone https://github.com/pi-dal/nuxt-xlog-website.git
+cd nuxt-xlog-website
+
+# Install dependencies (using pnpm is recommended)
 pnpm install
 
-# 或者使用 npm
+# Or using npm
 npm install
 
-# 或者使用 yarn
+# Or using yarn
 yarn install
 ```
 
-### 2. 配置 xLog
+## 🚀 Quick Start
 
-有两种方式配置你的 xLog：
+### 1. Configure xLog
 
-#### 方式一：通过网页界面配置（推荐）
+There are two ways to configure your xLog integration:
 
-1. 启动开发服务器：
+#### Option 1: Web Interface (Recommended)
 
+1. Start the development server:
    ```bash
    pnpm dev
    ```
 
-2. 访问 `http://localhost:3333/config`
+2. Visit `http://localhost:3333/config`
 
-3. 输入你的 xLog handle（例如：如果你的 xLog 地址是 `https://your-handle.xlog.app`，那么 handle 就是 `your-handle`）
+3. Enter your xLog handle (e.g., if your xLog URL is `https://your-handle.xlog.app`, then your handle is `your-handle`)
 
-4. 点击"测试连接"确认配置正确
+4. Click "Test Connection" to verify the configuration
 
-5. 保存配置
+5. Save the configuration
 
-#### 方式二：通过环境变量配置
+#### Option 2: Environment Variables
 
-创建 `.env` 文件：
+Create a `.env` file in the root directory:
 
 ```bash
-# 你的 xLog handle
+# Your xLog handle
 XLOG_HANDLE=your-xlog-handle
 ```
 
-### 3. 启动开发服务器
+### 2. Development
 
 ```bash
+# Start development server
 pnpm dev
+
+# The site will be available at http://localhost:3333
 ```
 
-访问 `http://localhost:3333` 查看你的网站。
-
-### 4. 构建生产版本
+### 3. Build for Production
 
 ```bash
+# Build the static site
 pnpm build
+
+# Preview the production build
+pnpm preview
 ```
 
-## 项目结构
+The build process includes:
+- Static site generation with vite-ssg
+- Font optimization and copying
+- RSS feed generation
+- Redirect rules setup
+
+## 📁 Project Structure
 
 ```
 ├── src/
-│   ├── components/
-│   │   ├── ListXLogPosts.vue    # xLog 文章列表组件
+│   ├── components/           # Vue components
+│   │   ├── ListXLogPosts.vue # xLog posts list component
 │   │   └── ...
-│   ├── logics/
-│   │   ├── xlog.ts              # xLog API 客户端
-│   │   └── index.ts
-│   └── types.ts                 # TypeScript 类型定义
-├── pages/
-│   ├── index.md                 # 首页
-│   ├── posts.md                 # 文章列表页
-│   ├── config.vue               # 配置页面
-│   └── posts/
-│       └── [slug].vue           # 文章详情页
-└── ...
+│   ├── logics/              # Business logic
+│   │   ├── xlog.ts          # xLog API client
+│   │   ├── site.ts          # Site configuration
+│   │   └── ...
+│   ├── types.ts             # TypeScript type definitions
+│   └── App.vue              # Root component
+├── pages/                   # File-based routing
+│   ├── index.vue            # Homepage
+│   ├── posts/
+│   │   ├── [slug].vue       # Post detail page
+│   │   └── index.md         # Posts listing
+│   ├── config.vue           # Configuration page
+│   └── ...
+├── scripts/                 # Build scripts
+│   ├── rss.ts              # RSS feed generation
+│   ├── og.ts               # Open Graph image generation
+│   └── ...
+├── public/                  # Static assets
+└── dist/                    # Build output
 ```
 
-## API 功能
+## 🎯 API Integration
 
-项目使用 [sakuin](https://www.npmjs.com/package/sakuin) SDK 与 xLog API 交互，支持：
+The project uses the [sakuin](https://www.npmjs.com/package/sakuin) SDK to interact with xLog's API, supporting:
 
-- 获取站点信息
-- 获取所有文章
-- 分页获取文章
-- 根据 slug 获取单篇文章
-- 获取站点统计信息
+- **Site Information**: Fetch site metadata and configuration
+- **Posts**: Retrieve all posts with pagination support
+- **Single Post**: Get individual post by slug
+- **Statistics**: Site analytics and metrics
+- **Error Handling**: Robust error handling with fallbacks
 
-## 自定义
+## 🎨 Customization
 
-### 修改样式
+### Styling
 
-项目使用 [UnoCSS](https://github.com/unocss/unocss) 作为 CSS 框架，你可以：
+The project uses [UnoCSS](https://github.com/unocss/unocss) for styling:
 
-1. 修改 `unocss.config.ts` 配置
-2. 在组件中使用 UnoCSS 类名
-3. 添加自定义 CSS
+1. **Configuration**: Modify `unocss.config.ts` for custom utilities
+2. **Components**: Use UnoCSS classes directly in Vue components
+3. **Custom CSS**: Add custom styles in `src/styles/`
 
-### 修改布局
+### Layout
 
-- 编辑 `src/App.vue` 修改全局布局
-- 编辑各个页面文件自定义页面布局
-- 修改 `src/components/` 中的组件
+- **Global Layout**: Edit `src/App.vue` for site-wide changes
+- **Page Layouts**: Customize individual pages in the `pages/` directory
+- **Components**: Modify or create new components in `src/components/`
 
-### 添加功能
+### Adding Features
 
-- 在 `src/logics/xlog.ts` 中添加新的 API 调用
-- 在 `src/types.ts` 中添加新的类型定义
-- 创建新的 Vue 组件和页面
+- **API Calls**: Extend `src/logics/xlog.ts` for new xLog API endpoints
+- **Type Definitions**: Add new types in `src/types.ts`
+- **Components**: Create new Vue components and pages as needed
 
-## 部署
+## 🚀 Deployment
 
-### Vercel
+### Vercel (Recommended)
 
-1. 连接你的 GitHub 仓库到 Vercel
-2. 设置环境变量 `XLOG_HANDLE`
-3. 部署
+1. Connect your GitHub repository to Vercel
+2. Set the `XLOG_HANDLE` environment variable
+3. Deploy
 
 ### Netlify
 
-1. 连接你的 GitHub 仓库到 Netlify
-2. 设置构建命令：`pnpm build`
-3. 设置发布目录：`dist`
-4. 设置环境变量 `XLOG_HANDLE`
-5. 部署
+1. Connect your GitHub repository to Netlify
+2. Set build command: `pnpm build`
+3. Set publish directory: `dist`
+4. Set environment variable: `XLOG_HANDLE`
+5. Deploy
 
-### 其他平台
+### Other Platforms
 
-生成的 `dist` 目录可以部署到任何静态文件托管服务。
+The generated `dist/` directory can be deployed to any static hosting service like:
 
-## 技术栈
+- GitHub Pages
+- Cloudflare Pages
+- Surge.sh
+- AWS S3 + CloudFront
 
-- [Nuxt 3](https://nuxt.com/) - Vue.js 框架
-- [Vue 3](https://vuejs.org/) - 前端框架
-- [TypeScript](https://www.typescriptlang.org/) - 类型安全
-- [UnoCSS](https://github.com/unocss/unocss) - CSS 框架
-- [sakuin](https://www.npmjs.com/package/sakuin) - xLog SDK
-- [Vite](https://vitejs.dev/) - 构建工具
+## 🧪 Development Commands
 
-## 贡献
+```bash
+# Start development server
+pnpm dev
 
-欢迎提交 Issues 和 Pull Requests！
+# Build for production
+pnpm build
 
-## 许可证
+# Preview production build
+pnpm preview
 
-MIT License
+# Run linting
+pnpm lint
 
-## 相关链接
+# Compress images
+pnpm compress
 
-- [xLog](https://xlog.app) - 去中心化博客平台
+# Manage photos with EXIF data
+pnpm photos
+```
+
+## 📊 Build Features
+
+The build process includes several optimizations:
+
+- **Static Site Generation**: Pre-renders all pages for optimal performance
+- **Image Optimization**: Automatic compression and WebP conversion
+- **Font Optimization**: Subset and optimize web fonts
+- **RSS Generation**: Creates RSS, Atom, and JSON feeds
+- **SEO Optimization**: Automatic meta tags and Open Graph images
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit issues and pull requests.
+
+### Development Setup
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Make your changes
+4. Run tests and linting: `pnpm lint`
+5. Commit your changes: `git commit -m 'Add amazing feature'`
+6. Push to the branch: `git push origin feature/amazing-feature`
+7. Open a Pull Request
+
+### Guidelines
+
+- Follow the existing code style
+- Add TypeScript types for new features
+- Test your changes thoroughly
+- Update documentation as needed
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [xLog](https://xlog.app) - Decentralized blogging platform
 - [sakuin SDK](https://hyoban.xlog.app/xlog-sdk) - xLog JavaScript SDK
-- [原始模板](https://github.com/pseudoyu/pseudoyu.com) - 基于的模板项目
+- [Original Template](https://github.com/pseudoyu/pseudoyu.com) - Base template project
+- [Vue.js](https://vuejs.org/) - The progressive JavaScript framework
+- [Vite](https://vitejs.dev/) - Next generation frontend tooling
+
+## 🔗 Links
+
+- [xLog Platform](https://xlog.app) - Create your decentralized blog
+- [sakuin SDK Documentation](https://hyoban.xlog.app/xlog-sdk) - Learn about xLog SDK
+- [Vue 3 Documentation](https://vuejs.org/guide/) - Vue.js guide
+- [Vite Documentation](https://vitejs.dev/guide/) - Vite build tool guide
+
+---
+
+Built with ❤️ using modern web technologies. Star ⭐ this repo if you find it helpful!

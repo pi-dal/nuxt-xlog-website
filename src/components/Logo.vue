@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { siteInfo, fetchSiteInfo } from '~/logics/site'
+import { fetchSiteInfo, siteInfo } from '~/logics/site'
 
 fetchSiteInfo()
 </script>

@@ -2,5 +2,4 @@
 layout: "posts"
 ---
 
-<SubNav />
-<ListXLogPosts /> 
+<ListXLogPosts />

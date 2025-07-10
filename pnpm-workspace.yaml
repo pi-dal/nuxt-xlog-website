@@ -1,6 +1,7 @@
 packages: []
 catalog:
   '@vercel/og': ^0.6.5
+  sakuin: ^0.2.16
   satori: ^0.12.1
   ts-node: ^10.9.2
 catalogs:

@@ -1,4 +1,4 @@
-import type { XLogPost, XLogSite, XLogPaginatedPosts } from '../types'
+import type { XLogPaginatedPosts, XLogPost, XLogSite } from '../types'
 
 // 获取xLog handle配置
 function getXLogHandle(): string {
@@ -15,7 +15,8 @@ async function createClient() {
   try {
     const { Client } = await import('sakuin')
     return new Client()
-  } catch (error) {
+  }
+  catch (error) {
     console.error('Failed to import sakuin client:', error)
     return null
   }
@@ -25,11 +26,12 @@ async function createClient() {
 async function withErrorHandling<T>(
   operation: () => Promise<T>,
   fallback: T,
-  operationName: string
+  operationName: string,
 ): Promise<T> {
   try {
     return await operation()
-  } catch (error) {
+  }
+  catch (error) {
     console.error(`Error in ${operationName}:`, error)
     // 如果是网络错误或SDK错误，可以在这里添加特定的处理逻辑
     if (error instanceof Error) {
@@ -44,12 +46,14 @@ async function withErrorHandling<T>(
  */
 export async function getSiteInfo(): Promise<XLogSite | null> {
   const handle = getXLogHandle()
-  if (!handle) return null
-  
+  if (!handle)
+    return null
+
   return withErrorHandling(async () => {
     const client = await createClient()
-    if (!client) return null
-    
+    if (!client)
+      return null
+
     const site = await client.site.getInfo(handle)
     return transformSiteData(site)
   }, null, 'getSiteInfo')
@@ -60,12 +64,14 @@ export async function getSiteInfo(): Promise<XLogSite | null> {
  */
 export async function getSiteStats() {
   const handle = getXLogHandle()
-  if (!handle) return null
-  
+  if (!handle)
+    return null
+
   return withErrorHandling(async () => {
     const client = await createClient()
-    if (!client) return null
-    
+    if (!client)
+      return null
+
     return await client.site.getStat(handle)
   }, null, 'getSiteStats')
 }
@@ -75,12 +81,14 @@ export async function getSiteStats() {
  */
 export async function getAllPosts(): Promise<XLogPost[]> {
   const handle = getXLogHandle()
-  if (!handle) return []
-  
+  if (!handle)
+    return []
+
   return withErrorHandling(async () => {
     const client = await createClient()
-    if (!client) return []
-    
+    if (!client)
+      return []
+
     const posts = await client.post.getAll(handle)
     return transformPostsData(posts)
   }, [], 'getAllPosts')
@@ -92,12 +100,14 @@ export async function getAllPosts(): Promise<XLogPost[]> {
 export async function getPosts(cursor?: string, limit: number = 10): Promise<XLogPaginatedPosts> {
   const handle = getXLogHandle()
   const fallback = { posts: [], total: 0, hasMore: false }
-  if (!handle) return fallback
-  
+  if (!handle)
+    return fallback
+
   return withErrorHandling(async () => {
     const client = await createClient()
-    if (!client) return fallback
-    
+    if (!client)
+      return fallback
+
     const result = await client.post.getMany(handle, {
       cursor: cursor || undefined,
       limit,
@@ -118,12 +128,14 @@ export async function getPosts(cursor?: string, limit: number = 10): Promise<XLo
  */
 export async function getPostBySlug(slug: string): Promise<XLogPost | null> {
   const handle = getXLogHandle()
-  if (!handle) return null
-  
+  if (!handle)
+    return null
+
   return withErrorHandling(async () => {
     const client = await createClient()
-    if (!client) return null
-    
+    if (!client)
+      return null
+
     const post = await client.post.getBySlug(handle, slug)
     return transformPostData(post)
   }, null, 'getPostBySlug')
@@ -134,12 +146,14 @@ export async function getPostBySlug(slug: string): Promise<XLogPost | null> {
  */
 export async function getPostById(id: string): Promise<XLogPost | null> {
   const handle = getXLogHandle()
-  if (!handle) return null
-  
+  if (!handle)
+    return null
+
   return withErrorHandling(async () => {
     const client = await createClient()
-    if (!client) return null
-    
+    if (!client)
+      return null
+
     const post = await client.post.get(handle, id)
     return transformPostData(post)
   }, null, 'getPostById')
@@ -181,13 +195,15 @@ function transformPostData(postData: any): XLogPost {
     tags: postData.tags || [],
     summary: postData.summary || postData.excerpt,
     cover: postData.cover,
-    author: postData.author ? {
-      id: postData.author.id || '',
-      name: postData.author.name || '',
-      username: postData.author.username || '',
-      avatar: postData.author.avatar,
-      bio: postData.author.bio,
-    } : undefined,
+    author: postData.author
+      ? {
+          id: postData.author.id || '',
+          name: postData.author.name || '',
+          username: postData.author.username || '',
+          avatar: postData.author.avatar,
+          bio: postData.author.bio,
+        }
+      : undefined,
     external_urls: postData.external_urls || [],
     views: postData.views || 0,
     comments: postData.comments || 0,
@@ -199,4 +215,4 @@ function transformPostData(postData: any): XLogPost {
  */
 function transformPostsData(postsData: any[]): XLogPost[] {
   return postsData.map(transformPostData)
-} 
+}

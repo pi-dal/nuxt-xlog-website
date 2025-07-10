@@ -19,5 +19,5 @@ export const media: MediaData = {
   book: [],
   movie: [],
   anime: [],
-  game: []
-} 
+  game: [],
+}

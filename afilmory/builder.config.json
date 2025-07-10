@@ -1,0 +1,35 @@
+{
+  "storage": {
+    "provider": "s3",
+    "bucket": "photography",
+    "region": "auto",
+    "endpoint": "https://50f43c735bfc5ded3bfb8578b3000169.r2.cloudflarestorage.com",
+    "customDomain": "https://pub-6a332d0d4aa44abf9b2711219992f9d4.r2.dev",
+    "forcePathStyle": true,
+    "prefix": "photos/",
+    "excludeRegex": "\\.(DS_Store|thumbs\\.db)$",
+    "accessKeyId": "${ACCESS_KEY_ID}",
+    "secretAccessKey": "${SECRET_ACCESS_KEY}"
+  },
+  "repo": {
+    "enable": false
+  },
+  "options": {
+    "defaultConcurrency": 4,
+    "enableLivePhotoDetection": true,
+    "showProgress": true,
+    "showDetailedStats": true
+  },
+  "performance": {
+    "worker": {
+      "workerCount": 4,
+      "timeout": 30000,
+      "useClusterMode": false
+    }
+  },
+  "logging": {
+    "verbose": false,
+    "level": "info",
+    "outputToFile": false
+  }
+}

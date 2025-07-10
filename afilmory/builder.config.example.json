@@ -1,0 +1,33 @@
+{
+  "storage": {
+    "provider": "s3",
+    "bucket": "your-photos-bucket",
+    "region": "auto",
+    "endpoint": "https://your-account-id.r2.cloudflarestorage.com",
+    "customDomain": "https://your-custom-domain.com",
+    "prefix": "photos/",
+    "excludeRegex": "\\.(DS_Store|thumbs\\.db)$"
+  },
+  "repo": {
+    "enable": false,
+    "url": "https://github.com/your-username/your-photos-cache"
+  },
+  "options": {
+    "defaultConcurrency": 4,
+    "enableLivePhotoDetection": true,
+    "showProgress": true,
+    "showDetailedStats": true
+  },
+  "performance": {
+    "worker": {
+      "workerCount": 4,
+      "timeout": 30000,
+      "useClusterMode": false
+    }
+  },
+  "logging": {
+    "verbose": false,
+    "level": "info",
+    "outputToFile": false
+  }
+}

@@ -76,6 +76,9 @@ catalogs:
     '@vercel/og':
       specifier: ^0.6.5
       version: 0.6.5
+    sakuin:
+      specifier: ^0.2.16
+      version: 0.2.16
     satori:
       specifier: ^0.12.1
       version: 0.12.1
@@ -295,7 +298,7 @@ importers:
         specifier: catalog:frontend
         version: 8.9.1
       sakuin:
-        specifier: ^0.2.16
+        specifier: 'catalog:'
         version: 0.2.16(@astrojs/markdown-remark@6.3.2)(astro@5.10.1(@types/node@22.13.10)(jiti@2.4.2)(rollup@4.34.7)(terser@5.31.3)(tsx@4.19.3)(typescript@5.8.2)(yaml@2.7.0))(viem@2.31.4(typescript@5.8.2)(zod@3.25.67))
       satori:
         specifier: 'catalog:'
@@ -5035,7 +5038,7 @@ snapshots:
 
   '@emnapi/runtime@1.4.3':
     dependencies:
-      tslib: 2.7.0
+      tslib: 2.8.1
     optional: true
 
   '@es-joy/jsdoccomment@0.49.0':

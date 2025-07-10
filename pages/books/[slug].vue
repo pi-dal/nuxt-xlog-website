@@ -14,6 +14,10 @@ import { getCommentsDirect, getPostBySlugDirect } from '~/logics/xlog-direct'
 const route = useRoute()
 const slug = route.params.slug as string
 
+console.log('Books detail page - slug:', slug)
+console.log('Route params:', route.params)
+console.log('Route path:', route.path)
+
 // 响应式数据
 const post = ref<XLogPost | null>(null)
 const pending = ref(true)
@@ -28,15 +32,15 @@ const { render: renderMarkdown } = useMarkdown()
 
 // 设置页面meta
 useHead(() => ({
-  title: post.value?.title || 'Post',
+  title: post.value?.title || 'Book',
   meta: [
     { name: 'description', content: post.value?.excerpt || post.value?.summary || '' },
-    { property: 'og:title', content: post.value?.title || 'Post' },
+    { property: 'og:title', content: post.value?.title || 'Book' },
     { property: 'og:description', content: post.value?.excerpt || post.value?.summary || '' },
     { property: 'og:image', content: post.value?.cover || 'https://xlog.app/og.png' },
     { property: 'og:type', content: 'article' },
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: post.value?.title || 'Post' },
+    { name: 'twitter:title', content: post.value?.title || 'Book' },
     { name: 'twitter:description', content: post.value?.excerpt || post.value?.summary || '' },
     { name: 'twitter:image', content: post.value?.cover || '' },
   ],
@@ -46,16 +50,13 @@ useHead(() => ({
 async function fetchPost() {
   try {
     pending.value = true
-    console.log('Fetching post with slug:', slug)
 
     const foundPost = await getPostBySlugDirect(slug)
 
     if (!foundPost) {
-      console.log('Post not found for slug:', slug)
-      error.value = 'Post not found'
+      error.value = 'Book not found'
     }
     else {
-      console.log('Post found:', foundPost.title)
       post.value = foundPost
       error.value = null
 
@@ -63,13 +64,11 @@ async function fetchPost() {
       if (foundPost.content) {
         try {
           renderedContent.value = await renderMarkdown(foundPost.content)
-          console.log('Markdown rendered successfully')
 
           // 解析TOC
           parseToc()
         }
         catch (renderError) {
-          console.error('Failed to render markdown:', renderError)
           // 如果渲染失败，使用原始内容
           renderedContent.value = foundPost.content.replace(/\n/g, '<br>')
         }
@@ -80,7 +79,6 @@ async function fetchPost() {
     }
   }
   catch (err) {
-    console.error('Failed to fetch xLog post:', err)
     error.value = err.toString()
   }
   finally {
@@ -115,7 +113,6 @@ async function fetchComments() {
     const { characterId, id: noteId } = post.value
     if (characterId && noteId) {
       comments.value = await getCommentsDirect(characterId, noteId)
-      console.log(`Found ${comments.value.length} comments.`)
     }
   }
   catch (commentError) {
@@ -198,24 +195,24 @@ onMounted(async () => {
       <div v-if="pending" class="py-20 text-center">
         <div class="animate-spin inline-block w-8 h-8 border-4 border-current border-t-transparent rounded-full" />
         <div class="mt-4 opacity-50">
-          Loading post...
+          Loading book...
         </div>
       </div>
 
       <!-- 错误状态 -->
       <div v-else-if="error" class="py-20 text-center">
         <div class="text-red-500 text-lg mb-2">
-          Post not found
+          Book not found
         </div>
         <div class="mb-4 text-sm opacity-75">
           Slug: "{{ slug }}"
         </div>
-        <RouterLink to="/posts" class="text-blue-500 hover:text-blue-600">
-          ← Back to Blog
+        <RouterLink to="/books" class="text-blue-500 hover:text-blue-600">
+          ← Back to Books
         </RouterLink>
       </div>
 
-      <!-- 文章 -->
+      <!-- 书籍详情 -->
       <div v-else-if="post" class="max-w-4xl mx-auto">
         <header class="text-center mb-12">
           <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-gray-50 mb-4">

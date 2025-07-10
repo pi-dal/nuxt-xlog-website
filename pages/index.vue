@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { getPageBySlugDirect } from '~/logics/xlog-direct'
-import { useMarkdown } from '~/logics/markdown'
-import { useHead } from '@unhead/vue'
-import { siteInfo, fetchSiteInfo } from '~/logics/site'
 import type { SocialLink } from '~/types'
+import { useHead } from '@unhead/vue'
+import { onMounted, ref } from 'vue'
+import { useMarkdown } from '~/logics/markdown'
+import { fetchSiteInfo, siteInfo } from '~/logics/site'
+import { getPageBySlugDirect } from '~/logics/xlog-direct'
 
 const aboutContent = ref('')
 const loading = ref(true)
@@ -24,7 +24,8 @@ useHead({
  * that are incorrectly formatted as code blocks, while preserving all line breaks.
  */
 function preprocessMarkdown(markdown: string): string {
-  if (!markdown) return ''
+  if (!markdown)
+    return ''
 
   return markdown
     .split('\n')
@@ -53,7 +54,8 @@ onMounted(async () => {
     if (page && page.content) {
       const processedContent = preprocessMarkdown(page.content)
       aboutContent.value = await renderMarkdown(processedContent)
-    } else {
+    }
+    else {
       aboutContent.value = '<p>Could not load about page. Please make sure you have a page with the slug "about" on your xLog.</p>'
     }
 
@@ -61,11 +63,12 @@ onMounted(async () => {
       console.log('Social Links from API:', siteInfo.social_links)
       socialLinks.value = siteInfo.social_links
     }
-
-  } catch (error) {
+  }
+  catch (error) {
     console.error('Failed to load page data:', error)
     aboutContent.value = '<p>Error loading page data.</p>'
-  } finally {
+  }
+  finally {
     loading.value = false
   }
 })
@@ -73,8 +76,8 @@ onMounted(async () => {
 
 <template>
   <div>
-    <div 
-      v-if="loading" 
+    <div
+      v-if="loading"
       class="prose m-auto"
     >
       <p>Loading intro...</p>
@@ -86,7 +89,7 @@ onMounted(async () => {
     />
 
     <div flex-auto />
-    
+
     <div class="prose m-auto mt-8 mb-8 max-w-3xl mx-auto">
       ---
     </div>
@@ -128,4 +131,4 @@ onMounted(async () => {
     transform: translateY(0);
   }
 }
-</style> 
+</style>

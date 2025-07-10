@@ -1,12 +1,12 @@
-import MarkdownIt from 'markdown-it'
 import MarkdownItShiki from '@shikijs/markdown-it'
 import { transformerNotationDiff, transformerNotationHighlight, transformerNotationWordHighlight } from '@shikijs/transformers'
+import MarkdownIt from 'markdown-it'
 // import { rendererRich, transformerTwoslash } from '@shikijs/twoslash' // Temporarily disabled due to client-side loading issues
 import anchor from 'markdown-it-anchor'
-import LinkAttributes from 'markdown-it-link-attributes'
-import MarkdownItMagicLink from 'markdown-it-magic-link'
 // @ts-expect-error missing types
 import GitHubAlerts from 'markdown-it-github-alerts'
+import LinkAttributes from 'markdown-it-link-attributes'
+import MarkdownItMagicLink from 'markdown-it-magic-link'
 // @ts-expect-error missing types
 import TOC from 'markdown-it-table-of-contents'
 import { slugify } from '../../scripts/slugify'
@@ -20,14 +20,15 @@ let mdInstance: MarkdownIt | null = null
  * https://ipfs.io/ipfs/QmXXX -> https://ipfs.crossbell.io/ipfs/QmXXX
  */
 function convertIpfsUrls(content: string): string {
-  if (!content) return content
-  
+  if (!content)
+    return content
+
   let convertedContent = content
-  
+
   // 转换IPFS协议链接为HTTP链接
   // 支持各种IPFS CID格式：Qm开头的v0格式和bafy/bafk等开头的v1格式
-  convertedContent = convertedContent.replace(/ipfs:\/\/([a-zA-Z0-9_-]+)/g, 'https://ipfs.crossbell.io/ipfs/$1')
-  
+  convertedContent = convertedContent.replace(/ipfs:\/\/([\w-]+)/g, 'https://ipfs.crossbell.io/ipfs/$1')
+
   // 转换其他IPFS网关为crossbell网关
   // 支持常见的IPFS网关
   const ipfsGateways = [
@@ -37,12 +38,12 @@ function convertIpfsUrls(content: string): string {
     'https://dweb.link/ipfs/',
     'https://cf-ipfs.com/ipfs/',
   ]
-  
+
   for (const gateway of ipfsGateways) {
-    const regex = new RegExp(gateway.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '([a-zA-Z0-9_-]+)', 'g')
+    const regex = new RegExp(`${gateway.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}([a-zA-Z0-9_-]+)`, 'g')
     convertedContent = convertedContent.replace(regex, 'https://ipfs.crossbell.io/ipfs/$1')
   }
-  
+
   return convertedContent
 }
 
@@ -135,15 +136,17 @@ export async function createMarkdownRenderer(): Promise<MarkdownIt> {
 }
 
 export async function renderMarkdown(content: string): Promise<string> {
-  if (!content) return ''
-  
+  if (!content)
+    return ''
+
   try {
     // 首先转换IPFS URL
     const convertedContent = convertIpfsUrls(content)
-    
+
     const md = await createMarkdownRenderer()
     return md.render(convertedContent)
-  } catch (error) {
+  }
+  catch (error) {
     console.error('Failed to render markdown:', error)
     // 失败时返回原始内容，用简单的换行处理
     return content.replace(/\n/g, '<br>')
@@ -159,4 +162,4 @@ export function useMarkdown() {
   return {
     render,
   }
-} 
+}

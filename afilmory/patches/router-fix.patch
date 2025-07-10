@@ -1,0 +1,10 @@
+# Fix for duplicate route paths in Afilmory
+# This patch should be applied to the Afilmory source after cloning
+
+# You can manually apply this if needed:
+# 1. Remove duplicate route definitions in the router config
+# 2. Add HydrateFallback component for better hydration
+# 3. Update deprecated meta tags
+
+# Note: These are warnings/errors from the original Afilmory codebase
+# and don't affect the basic functionality of the photo gallery

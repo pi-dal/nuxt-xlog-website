@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { getPostBySlugDirect, getCommentsDirect } from '~/logics/xlog-direct'
-import { formatDate } from '~/logics'
-import { useMarkdown } from '~/logics/markdown'
+import type { TocItem } from '~/components/Toc.vue'
+import type { XLogComment } from '~/types'
 import { useHead } from '@unhead/vue'
 import { useEventListener } from '@vueuse/core'
-import type { XLogComment } from '~/types'
+import { onMounted, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import CommentList from '~/components/CommentList.vue'
 import Toc from '~/components/Toc.vue'
-import type { TocItem } from '~/components/Toc.vue'
-import { Suspense } from 'vue'
+import { formatDate } from '~/logics'
+import { useMarkdown } from '~/logics/markdown'
+import { getCommentsDirect, getPostBySlugDirect } from '~/logics/xlog-direct'
 
 const route = useRoute()
 const slug = route.params.slug as string
@@ -27,48 +26,52 @@ const tocItems = ref<TocItem[]>([])
 const { render: renderMarkdown } = useMarkdown()
 
 // 获取文章数据
-const fetchPost = async () => {
+async function fetchPost() {
   try {
     pending.value = true
     console.log('Fetching post with slug:', slug)
-    
+
     const foundPost = await getPostBySlugDirect(slug)
-    
+
     if (!foundPost) {
       console.log('Post not found for slug:', slug)
       error.value = new Error('Post not found')
-    } else {
+    }
+    else {
       console.log('Post found:', foundPost.title)
       post.value = foundPost
       error.value = null
-      
+
       // 渲染Markdown内容
       if (foundPost.content) {
         try {
           renderedContent.value = await renderMarkdown(foundPost.content)
           console.log('Markdown rendered successfully')
-          
+
           // 解析TOC
           parseToc()
-        } catch (renderError) {
+        }
+        catch (renderError) {
           console.error('Failed to render markdown:', renderError)
           // 如果渲染失败，使用原始内容
           renderedContent.value = foundPost.content.replace(/\n/g, '<br>')
         }
       }
-      
+
       // 获取评论
       await fetchComments()
     }
-  } catch (err) {
+  }
+  catch (err) {
     console.error('Failed to fetch xLog post:', err)
     error.value = err
-  } finally {
+  }
+  finally {
     pending.value = false
   }
 }
 
-const parseToc = () => {
+function parseToc() {
   const contentEl = document.createElement('div')
   contentEl.innerHTML = renderedContent.value
 
@@ -81,22 +84,24 @@ const parseToc = () => {
       items.push({
         id: heading.id,
         text,
-        level: parseInt(heading.tagName.substring(1)),
+        level: Number.parseInt(heading.tagName.substring(1)),
       })
     }
   })
   tocItems.value = items
 }
 
-const fetchComments = async () => {
-  if (!post.value) return
+async function fetchComments() {
+  if (!post.value)
+    return
   try {
     const { characterId, id: noteId } = post.value
     if (characterId && noteId) {
       comments.value = await getCommentsDirect(characterId, noteId)
       console.log(`Found ${comments.value.length} comments.`)
     }
-  } catch (commentError) {
+  }
+  catch (commentError) {
     console.error('Failed to fetch comments:', commentError)
   }
 }
@@ -104,10 +109,11 @@ const fetchComments = async () => {
 // 在组件挂载时获取数据
 onMounted(async () => {
   await fetchPost()
-  
+
   // 添加锚点导航功能
   const content = document.querySelector('article')
-  if (!content) return
+  if (!content)
+    return
 
   const navigate = () => {
     if (location.hash) {
@@ -190,13 +196,19 @@ useHead(() => ({
       <!-- 加载状态 -->
       <div v-if="pending" class="py-20 text-center">
         <div class="animate-spin inline-block w-8 h-8 border-4 border-current border-t-transparent rounded-full" />
-        <div class="mt-4 opacity-50">Loading post...</div>
+        <div class="mt-4 opacity-50">
+          Loading post...
+        </div>
       </div>
 
       <!-- 错误状态 -->
       <div v-else-if="error" class="py-20 text-center">
-        <div class="text-red-500 text-lg mb-2">Post not found</div>
-        <div class="mb-4 text-sm opacity-75">Slug: "{{ slug }}"</div>
+        <div class="text-red-500 text-lg mb-2">
+          Post not found
+        </div>
+        <div class="mb-4 text-sm opacity-75">
+          Slug: "{{ slug }}"
+        </div>
         <RouterLink to="/posts" class="text-blue-500 hover:text-blue-600">
           ← Back to Blog
         </RouterLink>
@@ -205,15 +217,17 @@ useHead(() => ({
       <!-- 文章 -->
       <div v-else-if="post" class="max-w-4xl mx-auto">
         <header class="text-center mb-12">
-          <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-gray-50 mb-4">{{ post.title }}</h1>
+          <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-gray-50 mb-4">
+            {{ post.title }}
+          </h1>
           <div class="flex items-center justify-center gap-4 text-gray-500 dark:text-gray-400">
             <div v-if="post.author" class="flex items-center gap-2">
-              <img 
+              <img
                 v-if="post.author.avatar"
-                :src="post.author.avatar" 
-                :alt="post.author.name" 
+                :src="post.author.avatar"
+                :alt="post.author.name"
                 class="w-8 h-8 rounded-full"
-              />
+              >
               <span>{{ post.author.name }}</span>
             </div>
             <span>·</span>
@@ -224,7 +238,9 @@ useHead(() => ({
         </header>
 
         <div class="mb-8 text-center">
-          <h1 class="text-3xl lg:text-4xl font-bold">{{ post.title }}</h1>
+          <h1 class="text-3xl lg:text-4xl font-bold">
+            {{ post.title }}
+          </h1>
           <p class="mt-4 text-gray-500 dark:text-gray-400">
             {{ formatDate(post.date_published) }}
           </p>
@@ -233,7 +249,7 @@ useHead(() => ({
         <!-- AI Summary -->
         <div v-if="post.aiSummary" class="prose dark:prose-invert max-w-none bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6 mb-8 text-blue-800 dark:text-blue-200">
           <h3 class="!mt-0 !text-lg !font-semibold text-blue-900 dark:text-blue-100">
-            <span class="i-ri-robot-2-line align-middle mr-2"></span>
+            <span class="i-ri-robot-2-line align-middle mr-2" />
             AI Summary
           </h3>
           <p class="!text-base">
@@ -241,15 +257,15 @@ useHead(() => ({
           </p>
         </div>
 
-        <img 
+        <img
           v-if="post.cover"
           :src="post.cover"
           :alt="post.title"
           class="w-full h-auto rounded-lg my-8 shadow-lg"
-        />
+        >
 
-        <article 
-          ref="content" 
+        <article
+          ref="content"
           class="prose dark:prose-invert max-w-none slide-enter-content"
         >
           <div v-if="renderedContent" v-html="renderedContent" />
@@ -272,7 +288,7 @@ useHead(() => ({
           </Suspense>
 
           <div class="mt-10 text-center">
-            <a 
+            <a
               :href="`https://xlog.pi-dal.com/${post.slug}`"
               target="_blank"
               class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded no-underline"
@@ -286,10 +302,10 @@ useHead(() => ({
         </div>
       </div>
     </div>
-    
+
     <!-- TOC Sidebar -->
-    <div 
-      v-if="tocItems.length > 0" 
+    <div
+      v-if="tocItems.length > 0"
       class="hidden lg:block col-span-3"
     >
       <Toc :items="tocItems" />
@@ -312,4 +328,4 @@ useHead(() => ({
     transform: translateY(0);
   }
 }
-</style> 
+</style>

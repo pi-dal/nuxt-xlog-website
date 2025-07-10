@@ -26,7 +26,7 @@
     "p5i": "catalog:frontend",
     "pinia": "catalog:frontend",
     "pixi.js": "catalog:frontend",
-    "sakuin": "^0.2.16",
+    "sakuin": "catalog:",
     "satori": "catalog:",
     "shiki": "catalog:frontend",
     "shiki-magic-move": "catalog:frontend",

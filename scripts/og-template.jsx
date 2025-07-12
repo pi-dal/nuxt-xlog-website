@@ -81,7 +81,7 @@
           marginBottom: '4px',
         }}
       >
-        pseudoyu
+        pi-dal
       </div>
 
       <div

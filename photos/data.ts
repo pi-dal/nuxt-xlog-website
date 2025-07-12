@@ -62,7 +62,7 @@ const remotePhotoFiles = [
   'DSCF1823.JPG',
 ]
 
-const baseUrl = 'https://image.pseudoyu.com/images/'
+const baseUrl = 'https://images.pi-dal.com/images/'
 
 // Convert filenames to photo objects
 const remotePhotos = remotePhotoFiles.map(filename => ({

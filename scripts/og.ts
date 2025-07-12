@@ -120,7 +120,7 @@ export async function generateOGImage(options: OGImageOptions, outputPath: strin
                 alignItems: 'flex-start',
                 width: '100%',
                 padding: '80px',
-                zIndex: 10,
+                zIndex: '10',
               },
               children: [
                 {

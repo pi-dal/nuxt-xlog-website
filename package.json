@@ -3,7 +3,7 @@
   "private": true,
   "packageManager": "pnpm@10.6.2",
   "scripts": {
-    "build": "cross-env NODE_ENV=production vite-ssg build && tsx ./scripts/copy-fonts.ts && tsx ./scripts/rss.ts && cp _redirects dist/_redirects",
+    "build": "cross-env NODE_ENV=production tsx ./scripts/generate-xlog-og.ts && vite-ssg build && tsx ./scripts/copy-fonts.ts && tsx ./scripts/rss.ts && cp _redirects dist/_redirects",
     "dev": "vite --port 3333 --open",
     "preview": "vite preview",
     "lint": "eslint .",

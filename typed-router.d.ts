@@ -19,17 +19,12 @@ declare module 'vue-router/auto-routes' {
    */
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
-    '/[...404]': RouteRecordInfo<'/[...404]', '/:404(.*)', { 404: ParamValue<true> }, { 404: ParamValue<false> }>,
-    '/about': RouteRecordInfo<'/about', '/about', Record<never, never>, Record<never, never>>,
     '/blog/[slug]': RouteRecordInfo<'/blog/[slug]', '/blog/:slug', { slug: ParamValue<true> }, { slug: ParamValue<false> }>,
     '/books/': RouteRecordInfo<'/books/', '/books', Record<never, never>, Record<never, never>>,
     '/books/[slug]': RouteRecordInfo<'/books/[slug]', '/books/:slug', { slug: ParamValue<true> }, { slug: ParamValue<false> }>,
     '/chat': RouteRecordInfo<'/chat', '/chat', Record<never, never>, Record<never, never>>,
     '/config': RouteRecordInfo<'/config', '/config', Record<never, never>, Record<never, never>>,
     '/media': RouteRecordInfo<'/media', '/media', Record<never, never>, Record<never, never>>,
-    '/photos': RouteRecordInfo<'/photos', '/photos', Record<never, never>, Record<never, never>>,
-    '/podcasts': RouteRecordInfo<'/podcasts', '/podcasts', Record<never, never>, Record<never, never>>,
-    '/posts/': RouteRecordInfo<'/posts/', '/posts', Record<never, never>, Record<never, never>>,
     '/posts/[slug]': RouteRecordInfo<'/posts/[slug]', '/posts/:slug', { slug: ParamValue<true> }, { slug: ParamValue<false> }>,
     '/projects': RouteRecordInfo<'/projects', '/projects', Record<never, never>, Record<never, never>>,
     '/sponsors': RouteRecordInfo<'/sponsors', '/sponsors', Record<never, never>, Record<never, never>>,

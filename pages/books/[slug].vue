@@ -27,20 +27,25 @@ const _loading = ref(true)
 const { render: renderMarkdown } = useMarkdown()
 
 // 设置页面meta
-useHead(() => ({
-  title: post.value?.title || 'Book',
-  meta: [
-    { name: 'description', content: post.value?.excerpt || post.value?.summary || '' },
-    { property: 'og:title', content: post.value?.title || 'Book' },
-    { property: 'og:description', content: post.value?.excerpt || post.value?.summary || '' },
-    { property: 'og:image', content: post.value?.cover || 'https://xlog.app/og.png' },
-    { property: 'og:type', content: 'article' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: post.value?.title || 'Book' },
-    { name: 'twitter:description', content: post.value?.excerpt || post.value?.summary || '' },
-    { name: 'twitter:image', content: post.value?.cover || '' },
-  ],
-}))
+useHead(() => {
+  const ogImage = post.value?.cover || `https://pi-dal.com/og/${slug}.png`
+
+  return {
+    title: post.value?.title || 'Book',
+    meta: [
+      { name: 'description', content: post.value?.excerpt || post.value?.summary || '' },
+      { property: 'og:title', content: post.value?.title || 'Book' },
+      { property: 'og:description', content: post.value?.excerpt || post.value?.summary || '' },
+      { property: 'og:image', content: ogImage },
+      { property: 'og:type', content: 'article' },
+      { property: 'og:url', content: `https://pi-dal.com/books/${slug}` },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: post.value?.title || 'Book' },
+      { name: 'twitter:description', content: post.value?.excerpt || post.value?.summary || '' },
+      { name: 'twitter:image', content: ogImage },
+    ],
+  }
+})
 
 // 获取文章数据
 async function fetchPost() {

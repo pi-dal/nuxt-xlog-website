@@ -168,20 +168,25 @@ onMounted(async () => {
 })
 
 // 设置页面meta
-useHead(() => ({
-  title: post.value?.title || 'Post',
-  meta: [
-    { name: 'description', content: post.value?.summary || post.value?.excerpt || '' },
-    { property: 'og:title', content: post.value?.title || 'Post' },
-    { property: 'og:description', content: post.value?.summary || post.value?.excerpt || '' },
-    { property: 'og:image', content: post.value?.cover || '' },
-    { property: 'og:type', content: 'article' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: post.value?.title || 'Post' },
-    { name: 'twitter:description', content: post.value?.summary || post.value?.excerpt || '' },
-    { name: 'twitter:image', content: post.value?.cover || '' },
-  ],
-}))
+useHead(() => {
+  const ogImage = post.value?.cover || `https://pi-dal.com/og/${slug}.png`
+
+  return {
+    title: post.value?.title || 'Post',
+    meta: [
+      { name: 'description', content: post.value?.summary || post.value?.excerpt || '' },
+      { property: 'og:title', content: post.value?.title || 'Post' },
+      { property: 'og:description', content: post.value?.summary || post.value?.excerpt || '' },
+      { property: 'og:image', content: ogImage },
+      { property: 'og:type', content: 'article' },
+      { property: 'og:url', content: `https://pi-dal.com/blog/${slug}` },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: post.value?.title || 'Post' },
+      { name: 'twitter:description', content: post.value?.summary || post.value?.excerpt || '' },
+      { name: 'twitter:image', content: ogImage },
+    ],
+  }
+})
 </script>
 
 <template>

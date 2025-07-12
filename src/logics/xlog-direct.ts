@@ -99,6 +99,38 @@ const GET_COMMENTS_QUERY = `
   }
 `
 
+// GraphQL 查询：根据 slug 获取页面
+const GET_PAGE_BY_SLUG_QUERY = `
+  query getPageBySlug($characterId: Int!, $slug: String!) {
+    notes(
+      where: {
+        characterId: { equals: $characterId },
+        deleted: { equals: false },
+        metadata: {
+          content: {
+            path: ["attributes"],
+            array_contains: [{
+              trait_type: "xlog_slug",
+              value: $slug
+            }]
+          }
+        }
+      },
+      take: 1
+    ) {
+      noteId
+      characterId
+      createdAt
+      updatedAt
+      publishedAt
+      metadata {
+        uri
+        content
+      }
+    }
+  }
+`
+
 /**
  * 直接调用 xLog GraphQL API
  */
@@ -317,38 +349,6 @@ export async function getPostBySlugDirect(slug: string): Promise<XLogPost | null
       avatar: (siteInfo.avatar || '').replace('ipfs://', 'https://ipfs.crossbell.io/ipfs/'),
       bio: siteInfo.bio,
     }
-
-    // GraphQL query for page by slug
-    const GET_PAGE_BY_SLUG_QUERY = `
-      query getPageBySlug($characterId: Int!, $slug: String!) {
-        notes(
-          where: {
-            characterId: { equals: $characterId },
-            deleted: { equals: false },
-            metadata: {
-              content: {
-                path: ["attributes"],
-                array_contains: [{
-                  trait_type: "xlog_slug",
-                  value: $slug
-                }]
-              }
-            }
-          },
-          take: 1
-        ) {
-          noteId
-          characterId
-          createdAt
-          updatedAt
-          publishedAt
-          metadata {
-            uri
-            content
-          }
-        }
-      }
-    `
 
     // 直接通过GraphQL查询特定slug的文章，不受getAllPostsDirect的过滤限制
     const data = await callXLogAPI(GET_PAGE_BY_SLUG_QUERY, { characterId, slug })

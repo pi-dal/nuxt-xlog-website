@@ -60,7 +60,6 @@ onMounted(async () => {
     }
 
     if (siteInfo && siteInfo.social_links) {
-      console.log('Social Links from API:', siteInfo.social_links)
       socialLinks.value = siteInfo.social_links
     }
   }
@@ -109,10 +108,6 @@ onMounted(async () => {
           <span class="capitalize text-sm">{{ link.platform }}</span>
         </a>
       </p>
-    </div>
-
-    <div class="prose m-auto mt-8 mb-8 max-w-3xl mx-auto">
-      <SponsorButtons />
     </div>
   </div>
 </template>

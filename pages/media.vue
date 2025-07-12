@@ -20,9 +20,7 @@ onMounted(async () => {
   if (type.value === 'book') {
     try {
       loading.value = true
-      console.log('Loading books...')
       allBooks.value = await getBooksDirect()
-      console.log('Books loaded:', allBooks.value.length)
       updateDisplayedBooks()
     }
     catch (err) {

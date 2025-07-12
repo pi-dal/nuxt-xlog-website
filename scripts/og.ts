@@ -10,7 +10,7 @@ interface OGImageOptions {
 }
 
 export async function generateOGImage(options: OGImageOptions, outputPath: string) {
-  const { title, author = 'pseudoyu' } = options
+  const { title, author = 'pi-dal' } = options
 
   // Using a direct approach with known URLs for Noto Sans SC
   const notoSansRegularUrl = 'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400&display=swap'

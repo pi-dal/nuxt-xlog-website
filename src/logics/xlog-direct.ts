@@ -1,4 +1,5 @@
-import type { SocialLink, XLogAuthor, XLogComment, XLogPortfolio, XLogPost, XLogSite } from '../types'
+import type { EnhancedXLogPost, SocialLink, XLogAuthor, XLogComment, XLogPortfolio, XLogPost, XLogSite } from '../types'
+import { enhancePostsWithMetadata, enhancePostWithMetadata } from './metadata'
 
 // 获取xLog handle配置
 function getXLogHandle(): string {
@@ -158,11 +159,21 @@ export async function getSiteInfoDirect(): Promise<XLogSite | null> {
         const [, handle, platform] = match
         let url = ''
         switch (platform.toLowerCase()) {
-          case 'twitter': url = `https://x.com/${handle}`; break
-          case 'github': url = `https://github.com/${handle}`; break
-          case 'telegram': url = `https://t.me/${handle}`; break
-          case 'bilibili': url = `https://space.bilibili.com/${handle}`; break
-          case 'youtube': url = `https://www.youtube.com/@${handle}`; break
+          case 'twitter':
+            url = `https://x.com/${handle}`
+            break
+          case 'github':
+            url = `https://github.com/${handle}`
+            break
+          case 'telegram':
+            url = `https://t.me/${handle}`
+            break
+          case 'bilibili':
+            url = `https://space.bilibili.com/${handle}`
+            break
+          case 'youtube':
+            url = `https://www.youtube.com/@${handle}`
+            break
           case 'mastodon':
             if (handle.includes('@')) {
               const [user, instance] = handle.split('@')
@@ -202,6 +213,14 @@ export async function getSiteInfoDirect(): Promise<XLogSite | null> {
 /**
  * 获取文章列表
  */
+export async function getAllEnhancedPostsDirect(): Promise<EnhancedXLogPost[]> {
+  const posts = await getAllPostsDirect()
+  return await enhancePostsWithMetadata(posts)
+}
+
+/**
+ * 获取所有博客文章
+ */
 export async function getAllPostsDirect(): Promise<XLogPost[]> {
   const handle = getXLogHandle()
   if (!handle)
@@ -211,18 +230,18 @@ export async function getAllPostsDirect(): Promise<XLogPost[]> {
     // 首先获取characterId
     const siteInfo = await getSiteInfoDirect()
     if (!siteInfo || !siteInfo.id) {
-      console.log('No site info found for handle:', handle)
+      console.warn('No site info found for handle:', handle)
       return []
     }
 
     const characterId = Number.parseInt(siteInfo.id)
-    console.log('Using characterId:', characterId)
+    console.warn('Using characterId:', characterId)
 
     // 然后用characterId获取文章
     const data = await callXLogAPI(GET_POSTS_QUERY, { characterId })
     const notes = data.notes || []
 
-    console.log('Raw notes from API:', notes.length)
+    console.warn('Raw notes from API:', notes.length)
 
     return notes
       .filter((note: any) => {
@@ -266,6 +285,16 @@ export async function getCommentsDirect(characterId: string, noteId: string): Pr
 }
 
 /**
+ * 根据slug获取单篇文章 (增强版，包含元数据补充)
+ */
+export async function getEnhancedPostBySlugDirect(slug: string): Promise<EnhancedXLogPost | null> {
+  const post = await getPostBySlugDirect(slug)
+  if (!post)
+    return null
+  return await enhancePostWithMetadata(post)
+}
+
+/**
  * 根据slug获取单篇文章
  */
 export async function getPostBySlugDirect(slug: string): Promise<XLogPost | null> {
@@ -277,7 +306,7 @@ export async function getPostBySlugDirect(slug: string): Promise<XLogPost | null
     // 首先获取characterId 和作者信息
     const siteInfo = await getSiteInfoDirect()
     if (!siteInfo || !siteInfo.id) {
-      console.log('No site info found for handle:', handle)
+      console.warn('No site info found for handle:', handle)
       return null
     }
     const characterId = Number.parseInt(siteInfo.id)
@@ -288,6 +317,38 @@ export async function getPostBySlugDirect(slug: string): Promise<XLogPost | null
       avatar: (siteInfo.avatar || '').replace('ipfs://', 'https://ipfs.crossbell.io/ipfs/'),
       bio: siteInfo.bio,
     }
+
+    // GraphQL query for page by slug
+    const GET_PAGE_BY_SLUG_QUERY = `
+      query getPageBySlug($characterId: Int!, $slug: String!) {
+        notes(
+          where: {
+            characterId: { equals: $characterId },
+            deleted: { equals: false },
+            metadata: {
+              content: {
+                path: ["attributes"],
+                array_contains: [{
+                  trait_type: "xlog_slug",
+                  value: $slug
+                }]
+              }
+            }
+          },
+          take: 1
+        ) {
+          noteId
+          characterId
+          createdAt
+          updatedAt
+          publishedAt
+          metadata {
+            uri
+            content
+          }
+        }
+      }
+    `
 
     // 直接通过GraphQL查询特定slug的文章，不受getAllPostsDirect的过滤限制
     const data = await callXLogAPI(GET_PAGE_BY_SLUG_QUERY, { characterId, slug })
@@ -413,36 +474,6 @@ function generateSlug(title: string): string {
 /**
  * 根据 slug 获取单个页面 (如 about)
  */
-const GET_PAGE_BY_SLUG_QUERY = `
-  query getPageBySlug($characterId: Int!, $slug: String!) {
-    notes(
-      where: {
-        characterId: { equals: $characterId },
-        deleted: { equals: false },
-        metadata: {
-          content: {
-            path: ["attributes"],
-            array_contains: [{
-              trait_type: "xlog_slug",
-              value: $slug
-            }]
-          }
-        }
-      },
-      take: 1
-    ) {
-      noteId
-      characterId
-      createdAt
-      updatedAt
-      publishedAt
-      metadata {
-        uri
-        content
-      }
-    }
-  }
-`
 
 export async function getPageBySlugDirect(slug: string): Promise<XLogPost | null> {
   const handle = getXLogHandle()
@@ -452,7 +483,7 @@ export async function getPageBySlugDirect(slug: string): Promise<XLogPost | null
   try {
     const siteInfo = await getSiteInfoDirect()
     if (!siteInfo || !siteInfo.id) {
-      console.log('No site info found for handle:', handle)
+      console.warn('No site info found for handle:', handle)
       return null
     }
     const characterId = Number.parseInt(siteInfo.id)
@@ -522,7 +553,7 @@ export async function getPortfolioDirect(): Promise<XLogPortfolio[]> {
       return tags.includes('portfolio')
     })
 
-    console.log(`Found ${portfolioNotes.length} portfolio item(s) with "portfolio" tag out of ${notes.length} total notes`)
+    console.warn(`Found ${portfolioNotes.length} portfolio item(s) with "portfolio" tag out of ${notes.length} total notes`)
     return portfolioNotes.map((note: any) => transformNoteToPortfolio(note))
   }
   catch (error) {
@@ -560,7 +591,7 @@ export async function getBooksDirect(): Promise<XLogPost[]> {
       return tags.includes('微信读书')
     })
 
-    console.log(`Found ${bookNotes.length} book item(s) with "微信读书" tag out of ${notes.length} total notes`)
+    console.warn(`Found ${bookNotes.length} book item(s) with "微信读书" tag out of ${notes.length} total notes`)
     return bookNotes.map((note: any) => transformNoteToPost(note))
   }
   catch (error) {
@@ -588,6 +619,49 @@ function transformNoteToPortfolio(note: any): XLogPortfolio {
     date_published: note.createdAt || note.publishedAt || new Date().toISOString(),
     cover: (content.cover || content.attachments?.[0]?.address || '').replace('ipfs://', 'https://ipfs.crossbell.io/ipfs/'),
     characterId: note.characterId?.toString() || '',
+  }
+}
+
+/**
+ * 根据标签获取文章
+ */
+export async function getPostsByTagDirect(tag: string): Promise<XLogPost[]> {
+  const handle = getXLogHandle()
+  if (!handle)
+    return []
+
+  try {
+    // 首先获取characterId
+    const siteInfo = await getSiteInfoDirect()
+    if (!siteInfo || !siteInfo.id) {
+      console.warn('No site info found for handle:', handle)
+      return []
+    }
+
+    const characterId = Number.parseInt(siteInfo.id)
+    console.warn('Using characterId:', characterId, 'for tag:', tag)
+
+    // 然后用characterId获取文章
+    const data = await callXLogAPI(GET_POSTS_QUERY, { characterId })
+    const notes = data.notes || []
+
+    console.warn('Raw notes from API:', notes.length)
+
+    return notes
+      .filter((note: any) => {
+        const content = note.metadata?.content || {}
+        if (!content.title)
+          return false // 必须有标题
+
+        const tags = content.tags || []
+        // 检查是否包含指定标签（不区分大小写）
+        return tags.some((t: string) => t.toLowerCase() === tag.toLowerCase())
+      })
+      .map((note: any) => transformNoteToPost(note))
+  }
+  catch (error) {
+    console.error('Error fetching posts by tag:', error)
+    return []
   }
 }
 

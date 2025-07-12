@@ -38,15 +38,7 @@ const { y: scroll } = useWindowScroll()
           <span class="lt-md:hidden">Projects</span>
           <div i-ri-lightbulb-line class="md:hidden" />
         </RouterLink>
-        <RouterLink to="/podcasts" title="Podcasts">
-          <span class="lt-md:hidden">Podcasts</span>
-          <div i-ri-mic-line class="md:hidden" />
-        </RouterLink>
-        <RouterLink to="/books" title="Books">
-          <span class="lt-md:hidden">Books</span>
-          <div i-ri-book-line class="md:hidden" />
-        </RouterLink>
-        <RouterLink to="/sponsors-list" title="Sponsors">
+        <RouterLink to="/sponsors" title="Sponsors">
           <span class="lt-md:hidden">Sponsors</span>
           <div i-ri-heart-line class="md:hidden" />
         </RouterLink>
@@ -54,18 +46,18 @@ const { y: scroll } = useWindowScroll()
           <span class="lt-md:hidden">Let's Chat</span>
           <div i-ri-chat-1-line class="md:hidden" />
         </RouterLink>
-        <RouterLink to="/friends" class="lt-md:hidden" title="Friends">
-          <div i-ri-user-heart-line />
+        <RouterLink to="/podcasts" title="Podcasts">
+          <div i-ri-mic-line />
         </RouterLink>
-        <a href="https://photography.pseudoyu.com" target="_blank" title="Photos">
+        <RouterLink to="/books" title="Books">
+          <div i-ri-book-line />
+        </RouterLink>
+        <a href="https://photography.pi-dal.com" target="_blank" title="Photos">
           <div i-ri-camera-3-line />
         </a>
-        <a href="https://github.com/pseudoyu" target="_blank" title="GitHub" class="lt-md:hidden">
+        <a href="https://github.com/pi-dal" target="_blank" title="GitHub" class="lt-md:hidden">
           <div i-uil-github-alt />
         </a>
-        <!-- <a href="https://bsky.app/profile/pseudoyu" target="_blank" title="Bluesky" class="lt-md:hidden">
-          <div i-ri-bluesky-line />
-        </a> -->
         <a href="/feed.xml" target="_blank" title="RSS" class="lt-md:hidden">
           <div i-la-rss-square style="font-size:1.25rem; margin: 0 -0.125rem;" />
         </a>

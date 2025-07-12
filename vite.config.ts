@@ -172,7 +172,7 @@ export default defineConfig({
               ? fs.copy(`${id.slice(0, -3)}.png`, `public/${path}`)
               : generateOg(frontmatter.title!.trim(), `public/${path}`),
           )
-          frontmatter.image = `https://www.pseudoyu.com/${path}`
+          frontmatter.image = `https://pi-dal.com/${path}`
         })()
         const head = defaults(frontmatter, options)
         return { head, frontmatter }

@@ -14,10 +14,6 @@ import { getCommentsDirect, getPostBySlugDirect } from '~/logics/xlog-direct'
 const route = useRoute()
 const slug = route.params.slug as string
 
-console.log('Books detail page - slug:', slug)
-console.log('Route params:', route.params)
-console.log('Route path:', route.path)
-
 // 响应式数据
 const post = ref<XLogPost | null>(null)
 const pending = ref(true)
@@ -25,7 +21,7 @@ const error = ref<string | null>(null)
 const renderedContent = ref('')
 const comments = ref<XLogComment[]>([])
 const tocItems = ref<TocItem[]>([])
-const loading = ref(true)
+const _loading = ref(true)
 
 // Markdown渲染器
 const { render: renderMarkdown } = useMarkdown()
@@ -68,7 +64,7 @@ async function fetchPost() {
           // 解析TOC
           parseToc()
         }
-        catch (renderError) {
+        catch {
           // 如果渲染失败，使用原始内容
           renderedContent.value = foundPost.content.replace(/\n/g, '<br>')
         }
@@ -243,7 +239,6 @@ onMounted(async () => {
         >
 
         <article
-          ref="content"
           class="prose dark:prose-invert max-w-none slide-enter-content"
         >
           <div v-if="renderedContent" v-html="renderedContent" />

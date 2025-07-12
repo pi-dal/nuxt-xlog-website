@@ -98,7 +98,6 @@ function slug(name: string) {
         <a href="https://antfu.me/stars-rank" target="_blank" op50>All projects sort by Stars</a>
       </div> -->
       <hr>
-      <SponsorButtons />
     </div>
   </div>
   <!-- <div>

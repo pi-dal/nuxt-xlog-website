@@ -4,8 +4,6 @@ import { computed, onMounted, ref } from 'vue'
 import { formatDate } from '~/logics'
 import { getBooksDirect } from '~/logics/xlog-direct'
 
-console.log('Books index page loaded')
-
 const allBooks = ref<XLogPost[]>([])
 const books = ref<XLogPost[]>([])
 const loading = ref(true)

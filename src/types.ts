@@ -57,6 +57,53 @@ export interface XLogPost {
   comments?: XLogComment[]
   external_urls?: string[]
   author?: XLogAuthor
+  tags?: string[]
+}
+
+// Raw API response types for transformation
+export interface RawXLogPost {
+  id?: string
+  characterId?: string
+  title?: string
+  content?: string
+  excerpt?: string
+  summary?: string
+  slug?: string
+  date_published?: string
+  date_updated?: string
+  created_at?: string
+  updated_at?: string
+  cover?: string
+  views?: number
+  comments?: number | XLogComment[]
+  external_urls?: string[]
+  author?: RawXLogAuthor
+  tags?: string[]
+}
+
+export interface RawXLogSite {
+  id?: string
+  name?: string
+  subdomain?: string
+  custom_domain?: string
+  description?: string
+  bio?: string
+  avatar?: string
+  cover?: string
+  navigation?: XLogNavigation[]
+  css?: string
+  ga?: string
+  ua?: string
+  social_platforms?: Record<string, string>
+  social_links?: SocialLink[]
+}
+
+export interface RawXLogAuthor {
+  id?: string
+  name?: string
+  username?: string
+  avatar?: string
+  bio?: string
 }
 
 export interface XLogSite {
@@ -73,7 +120,7 @@ export interface XLogSite {
   ga?: string
   ua?: string
   social_platforms?: Record<string, string>
-  social_links: SocialLink[]
+  social_links?: SocialLink[]
 }
 
 export interface XLogAuthor {
@@ -120,3 +167,73 @@ export interface XLogPortfolio {
   characterId?: string
   author?: XLogAuthor
 }
+
+// Metadata supplements for enhancing xLog posts
+export interface MetadataSupplements {
+  title?: string
+  description?: string
+  image?: string
+  art?: string
+  place?: string
+  duration?: string
+  lang?: string
+  // Additional typed fields
+  category?: string
+  tags?: string[]
+  featured?: boolean
+  priority?: number
+  external_links?: string[]
+  related_posts?: string[]
+  seo_title?: string
+  seo_description?: string
+  canonical_url?: string
+  // Allow additional string or primitive values only
+  [key: string]: string | number | boolean | string[] | undefined
+}
+
+export interface MetadataSupplementsConfig {
+  [slug: string]: MetadataSupplements
+}
+
+// Enhanced XLogPost with merged metadata
+export interface EnhancedXLogPost extends XLogPost {
+  // Additional fields from supplements
+  description?: string
+  image?: string
+  art?: string
+  place?: string
+  duration?: string
+  lang?: string
+}
+
+// Error handling types
+export interface XLogError extends Error {
+  code?: string
+  status?: number
+  details?: any
+  category?: string
+  context?: any
+  originalError?: Error
+}
+
+export type XLogOperation = 'getSiteInfo' | 'getAllPosts' | 'getPosts' | 'getPostBySlug' | 'getPostById' | 'getSiteStats'
+
+// API client configuration
+export interface XLogClientConfig {
+  handle: string
+  retries?: number
+  timeout?: number
+  baseURL?: string
+}
+
+// Constants
+export const XLOG_CONSTANTS = {
+  DEFAULT_HANDLE: 'pi-dal',
+  STORAGE_KEY: 'xlog-handle',
+  ENV_KEY: 'XLOG_HANDLE',
+  DEFAULT_LIMIT: 10,
+  MAX_RETRIES: 3,
+  TIMEOUT: 5000,
+} as const
+
+export type XLogConstant = keyof typeof XLOG_CONSTANTS

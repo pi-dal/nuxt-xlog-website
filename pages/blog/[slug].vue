@@ -29,16 +29,13 @@ const { render: renderMarkdown } = useMarkdown()
 async function fetchPost() {
   try {
     pending.value = true
-    console.log('Fetching post with slug:', slug)
 
     const foundPost = await getPostBySlugDirect(slug)
 
     if (!foundPost) {
-      console.log('Post not found for slug:', slug)
       error.value = new Error('Post not found')
     }
     else {
-      console.log('Post found:', foundPost.title)
       post.value = foundPost
       error.value = null
 
@@ -46,7 +43,6 @@ async function fetchPost() {
       if (foundPost.content) {
         try {
           renderedContent.value = await renderMarkdown(foundPost.content)
-          console.log('Markdown rendered successfully')
 
           // 解析TOC
           parseToc()
@@ -98,7 +94,6 @@ async function fetchComments() {
     const { characterId, id: noteId } = post.value
     if (characterId && noteId) {
       comments.value = await getCommentsDirect(characterId, noteId)
-      console.log(`Found ${comments.value.length} comments.`)
     }
   }
   catch (commentError) {
@@ -265,7 +260,6 @@ useHead(() => ({
         >
 
         <article
-          ref="content"
           class="prose dark:prose-invert max-w-none slide-enter-content"
         >
           <div v-if="renderedContent" v-html="renderedContent" />

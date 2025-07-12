@@ -30,7 +30,7 @@ A modern static website generator for [xLog](https://xlog.app) blogs, built with
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - pnpm (recommended) or npm/yarn
 
 ### Clone and Install
@@ -59,6 +59,7 @@ There are two ways to configure your xLog integration:
 #### Option 1: Web Interface (Recommended)
 
 1. Start the development server:
+
    ```bash
    pnpm dev
    ```
@@ -100,6 +101,7 @@ pnpm preview
 ```
 
 The build process includes:
+
 - Static site generation with vite-ssg
 - Font optimization and copying
 - RSS feed generation

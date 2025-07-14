@@ -4,6 +4,9 @@ const route = useRoute()
 const imageModel = ref<HTMLImageElement>()
 const imageAlt = ref<string>()
 
+// Add the tree branch background animation component
+const ArtPlum = defineAsyncComponent(() => import('./components/ArtPlum.vue'))
+
 function setImageModel(img: HTMLImageElement) {
   imageModel.value = img
   imageAlt.value = img.alt
@@ -74,6 +77,11 @@ onKeyStroke('Escape', (e) => {
 </script>
 
 <template>
+  <!-- Add the animated tree branch background -->
+  <ClientOnly>
+    <ArtPlum />
+  </ClientOnly>
+
   <NavBar />
   <main class="px-7 py-10">
     <RouterView />

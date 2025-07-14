@@ -129,5 +129,10 @@ onMounted(fetchChatContent)
         Create a post with "Chat-With-Me" tag to display content here.
       </p>
     </div>
+
+    <!-- 支付组件 - 简洁设计，总是显示在底部 -->
+    <div class="max-w-4xl mx-auto">
+      <PayMe />
+    </div>
   </div>
 </template>

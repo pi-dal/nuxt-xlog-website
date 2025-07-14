@@ -15,6 +15,8 @@ const start = ref<Fn>(() => {})
 const MIN_BRANCH = 30
 const len = ref(6)
 const stopped = ref(false)
+const startTime = ref(0)
+const ANIMATION_DURATION = 45000 // 45秒总时长上限
 
 function initCanvas(canvas: HTMLCanvasElement, width = 400, height = 400, _dpi?: number) {
   const ctx = canvas.getContext('2d')!
@@ -80,24 +82,35 @@ onMounted(async () => {
   }
 
   let lastTime = performance.now()
-  const interval = 1000 / 40 // 50fps
+  const interval = 1000 / 40 // 40fps，接近原始设置
 
   let controls: ReturnType<typeof useRafFn>
 
   const frame = () => {
-    if (performance.now() - lastTime < interval)
+    const currentTime = performance.now()
+    const elapsed = currentTime - startTime.value
+
+    // 检查是否达到45秒时间上限
+    if (elapsed >= ANIMATION_DURATION) {
+      controls.pause()
+      stopped.value = true
+      return
+    }
+
+    if (currentTime - lastTime < interval)
       return
 
     prevSteps = steps
     steps = []
-    lastTime = performance.now()
+    lastTime = currentTime
 
     if (!prevSteps.length) {
       controls.pause()
       stopped.value = true
+      return
     }
 
-    // Execute all the steps from the previous frame
+    // Execute all the steps from the previous frame (恢复原始逻辑)
     prevSteps.forEach((i) => {
       // 50% chance to keep the step for the next frame, to create a more organic look
       if (random() < 0.5)
@@ -128,11 +141,19 @@ onMounted(async () => {
     ]
     if (size.width < 500)
       steps = steps.slice(0, 2)
+
+    // 重置开始时间
+    startTime.value = performance.now()
+    lastTime = performance.now()
+
     controls.resume()
     stopped.value = false
   }
 
-  start.value()
+  // 稍微延迟启动，避免页面加载时的卡顿
+  setTimeout(() => {
+    start.value()
+  }, 300)
 })
 const mask = computed(() => 'radial-gradient(circle, transparent, black);')
 </script>

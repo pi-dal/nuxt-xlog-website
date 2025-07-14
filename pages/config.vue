@@ -72,7 +72,7 @@ useHead({
 
 <template>
   <div class="max-w-2xl mx-auto py-8">
-    <div class="mb-8">
+    <div class="mb-8 text-center">
       <h1 class="text-3xl font-bold mb-2">
         Configuration
       </h1>

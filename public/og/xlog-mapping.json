@@ -1,0 +1,536 @@
+{
+  "chat-with-me": {
+    "title": "Let's Chat",
+    "author": "pi-dal",
+    "date": "2025-07-11T14:18:44.533Z",
+    "ogImage": "https://pi-dal.com/og/chat-with-me.png"
+  },
+  "蒂姆-库克传-苹果公司的反思与商业的未来": {
+    "title": "《蒂姆·库克传：苹果公司的反思与商业的未来》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T14:17:38.453Z",
+    "ogImage": "https://pi-dal.com/og/蒂姆-库克传-苹果公司的反思与商业的未来.png"
+  },
+  "创新者的窘境": {
+    "title": "《创新者的窘境》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T14:17:27.524Z",
+    "ogImage": "https://pi-dal.com/og/创新者的窘境.png"
+  },
+  "clear-thinking-turning-ordinary-moments-into-extraordinary-results": {
+    "title": "《Clear Thinking: Turning Ordinary Moments into Extraordinary Results》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T14:14:21.841Z",
+    "ogImage": "https://pi-dal.com/og/clear-thinking-turning-ordinary-moments-into-extraordinary-results.png"
+  },
+  "一九八四-译文经典": {
+    "title": "《一九八四（译文经典）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T14:09:09.430Z",
+    "ogImage": "https://pi-dal.com/og/一九八四-译文经典.png"
+  },
+  "高敏感是种天赋": {
+    "title": "《高敏感是种天赋》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T14:08:56.826Z",
+    "ogImage": "https://pi-dal.com/og/高敏感是种天赋.png"
+  },
+  "荒原狼-果麦经典": {
+    "title": "《荒原狼（果麦经典）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T14:08:45.645Z",
+    "ogImage": "https://pi-dal.com/og/荒原狼-果麦经典.png"
+  },
+  "人生的智慧": {
+    "title": "《人生的智慧》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T14:08:35.430Z",
+    "ogImage": "https://pi-dal.com/og/人生的智慧.png"
+  },
+  "高敏感人士的幸福清单": {
+    "title": "《高敏感人士的幸福清单》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T14:08:22.484Z",
+    "ogImage": "https://pi-dal.com/og/高敏感人士的幸福清单.png"
+  },
+  "活过": {
+    "title": "《活过》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T14:08:09.083Z",
+    "ogImage": "https://pi-dal.com/og/活过.png"
+  },
+  "传习录": {
+    "title": "《传习录》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T14:07:54.845Z",
+    "ogImage": "https://pi-dal.com/og/传习录.png"
+  },
+  "最优解人生": {
+    "title": "《最优解人生》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T14:07:40.999Z",
+    "ogImage": "https://pi-dal.com/og/最优解人生.png"
+  },
+  "人类简史-从动物到上帝": {
+    "title": "《人类简史：从动物到上帝》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T14:07:25.204Z",
+    "ogImage": "https://pi-dal.com/og/人类简史-从动物到上帝.png"
+  },
+  "穷查理宝典-查理-芒格智慧箴言录-全新增订本-价值投资圣经-人生智慧宝典-全新升级版发布-97岁的查理-芒格还在不断学习精进-我们怎么能停止自我更新": {
+    "title": "《穷查理宝典：查理·芒格智慧箴言录（全新增订本）（价值投资圣经，人生智慧宝典。全新升级版发布！97岁的查理•芒格还在不断学习精进 我们怎么能停止自我更新？）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T14:07:06.823Z",
+    "ogImage": "https://pi-dal.com/og/穷查理宝典-查理-芒格智慧箴言录-全新增订本-价值投资圣经-人生智慧宝典-全新升级版发布-97岁的查理-芒格还在不断学习精进-我们怎么能停止自我更新.png"
+  },
+  "影响力-经典版": {
+    "title": "《影响力（经典版）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T14:06:49.815Z",
+    "ogImage": "https://pi-dal.com/og/影响力-经典版.png"
+  },
+  "刷新-重新发现商业与未来": {
+    "title": "《刷新：重新发现商业与未来》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T14:06:39.351Z",
+    "ogImage": "https://pi-dal.com/og/刷新-重新发现商业与未来.png"
+  },
+  "当下的力量-白金版": {
+    "title": "《当下的力量（白金版）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T14:06:29.828Z",
+    "ogImage": "https://pi-dal.com/og/当下的力量-白金版.png"
+  },
+  "一个瑜伽行者的自传": {
+    "title": "《一个瑜伽行者的自传》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T14:06:16.681Z",
+    "ogImage": "https://pi-dal.com/og/一个瑜伽行者的自传.png"
+  },
+  "make-something-wonderful": {
+    "title": "《Make Something Wonderful》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T14:05:29.005Z",
+    "ogImage": "https://pi-dal.com/og/make-something-wonderful.png"
+  },
+  "世界在你心中": {
+    "title": "《世界在你心中》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T14:05:14.432Z",
+    "ogImage": "https://pi-dal.com/og/世界在你心中.png"
+  },
+  "高敏感孩子的内心世界": {
+    "title": "《高敏感孩子的内心世界》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:56:31.526Z",
+    "ogImage": "https://pi-dal.com/og/高敏感孩子的内心世界.png"
+  },
+  "苏东坡传-纪念典藏版": {
+    "title": "《苏东坡传（纪念典藏版）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:53:57.766Z",
+    "ogImage": "https://pi-dal.com/og/苏东坡传-纪念典藏版.png"
+  },
+  "宝贵的人生建议": {
+    "title": "《宝贵的人生建议》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:53:45.716Z",
+    "ogImage": "https://pi-dal.com/og/宝贵的人生建议.png"
+  },
+  "纳瓦尔宝典": {
+    "title": "《纳瓦尔宝典》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:53:31.197Z",
+    "ogImage": "https://pi-dal.com/og/纳瓦尔宝典.png"
+  },
+  "qed-光和物质的奇妙理论": {
+    "title": "《QED：光和物质的奇妙理论》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:53:16.503Z",
+    "ogImage": "https://pi-dal.com/og/qed-光和物质的奇妙理论.png"
+  },
+  "一个悲观主义者的积极思考": {
+    "title": "《一个悲观主义者的积极思考》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:53:04.431Z",
+    "ogImage": "https://pi-dal.com/og/一个悲观主义者的积极思考.png"
+  },
+  "悉达多-果麦经典": {
+    "title": "《悉达多（果麦经典）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:52:51.816Z",
+    "ogImage": "https://pi-dal.com/og/悉达多-果麦经典.png"
+  },
+  "看世界-2024年第13期": {
+    "title": "《看世界（2024年第13期）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:52:40.045Z",
+    "ogImage": "https://pi-dal.com/og/看世界-2024年第13期.png"
+  },
+  "生命是什么": {
+    "title": "《生命是什么》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:52:28.465Z",
+    "ogImage": "https://pi-dal.com/og/生命是什么.png"
+  },
+  "我看见的世界": {
+    "title": "《我看见的世界》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:52:18.125Z",
+    "ogImage": "https://pi-dal.com/og/我看见的世界.png"
+  },
+  "我想太多啦-高敏感人更容易成功": {
+    "title": "《我想太多啦：高敏感人更容易成功》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:43:05.205Z",
+    "ogImage": "https://pi-dal.com/og/我想太多啦-高敏感人更容易成功.png"
+  },
+  "unix传奇-历史与回忆-unix的诞生记与发展史-贝尔实验室的幕后故事": {
+    "title": "《UNIX传奇：历史与回忆（UNIX的诞生记与发展史，贝尔实验室的幕后故事！ ）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:42:56.290Z",
+    "ogImage": "https://pi-dal.com/og/unix传奇-历史与回忆-unix的诞生记与发展史-贝尔实验室的幕后故事.png"
+  },
+  "我还能看到多少次满月升起": {
+    "title": "《我还能看到多少次满月升起》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:42:45.840Z",
+    "ogImage": "https://pi-dal.com/og/我还能看到多少次满月升起.png"
+  },
+  "克林索尔的最后夏天-果麦经典": {
+    "title": "《克林索尔的最后夏天（果麦经典）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:42:37.041Z",
+    "ogImage": "https://pi-dal.com/og/克林索尔的最后夏天-果麦经典.png"
+  },
+  "看世界-2024年第24期": {
+    "title": "《看世界（2024年第24期）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:42:27.293Z",
+    "ogImage": "https://pi-dal.com/og/看世界-2024年第24期.png"
+  },
+  "看世界-2024年第8期": {
+    "title": "《看世界（2024年第8期）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:42:15.709Z",
+    "ogImage": "https://pi-dal.com/og/看世界-2024年第8期.png"
+  },
+  "瓦尔登湖": {
+    "title": "《瓦尔登湖》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:42:05.694Z",
+    "ogImage": "https://pi-dal.com/og/瓦尔登湖.png"
+  },
+  "美丽新世界-译文经典": {
+    "title": "《美丽新世界（译文经典）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:41:54.457Z",
+    "ogImage": "https://pi-dal.com/og/美丽新世界-译文经典.png"
+  },
+  "我会一直跑-直到太阳下山-抑郁症疗愈手记-微信读书出品": {
+    "title": "《我会一直跑，直到太阳下山（抑郁症疗愈手记｜微信读书出品）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:41:43.193Z",
+    "ogImage": "https://pi-dal.com/og/我会一直跑-直到太阳下山-抑郁症疗愈手记-微信读书出品.png"
+  },
+  "看天下-2025年第16期": {
+    "title": "《看天下（2025年第16期）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:41:34.380Z",
+    "ogImage": "https://pi-dal.com/og/看天下-2025年第16期.png"
+  },
+  "这就是chatgpt": {
+    "title": "《这就是ChatGPT》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:41:24.066Z",
+    "ogImage": "https://pi-dal.com/og/这就是chatgpt.png"
+  },
+  "生命的礼物-关于爱-死亡和存在的意义": {
+    "title": "《生命的礼物（关于爱、死亡和存在的意义）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:41:14.060Z",
+    "ogImage": "https://pi-dal.com/og/生命的礼物-关于爱-死亡和存在的意义.png"
+  },
+  "幸福的勇气-自我启发之父-阿德勒的哲学课2": {
+    "title": "《幸福的勇气：“自我启发之父”阿德勒的哲学课2》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:41:04.868Z",
+    "ogImage": "https://pi-dal.com/og/幸福的勇气-自我启发之父-阿德勒的哲学课2.png"
+  },
+  "三体前传-球状闪电": {
+    "title": "《三体前传：球状闪电》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:39:31.500Z",
+    "ogImage": "https://pi-dal.com/og/三体前传-球状闪电.png"
+  },
+  "how-ai-will-revolutionize-education-and-why-that-s-a-good-thing": {
+    "title": "《How AI Will Revolutionize Education (and Why That's a Good Thing)》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:39:21.498Z",
+    "ogImage": "https://pi-dal.com/og/how-ai-will-revolutionize-education-and-why-that-s-a-good-thing.png"
+  },
+  "idea-makers-personal-perspectives-on-the-lives-ideas-of-some-notable-people": {
+    "title": "《Idea Makers: Personal Perspectives on the Lives & Ideas of Some Notable People》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:39:11.806Z",
+    "ogImage": "https://pi-dal.com/og/idea-makers-personal-perspectives-on-the-lives-ideas-of-some-notable-people.png"
+  },
+  "在轮下": {
+    "title": "《在轮下》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:39:02.424Z",
+    "ogImage": "https://pi-dal.com/og/在轮下.png"
+  },
+  "total-freedom-the-essential-krishnamurti": {
+    "title": "《Total Freedom: The Essential Krishnamurti》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:38:50.589Z",
+    "ogImage": "https://pi-dal.com/og/total-freedom-the-essential-krishnamurti.png"
+  },
+  "德米安-果麦经典": {
+    "title": "《德米安（果麦经典）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:38:38.326Z",
+    "ogImage": "https://pi-dal.com/og/德米安-果麦经典.png"
+  },
+  "史蒂夫-乔布斯传-修订版": {
+    "title": "《史蒂夫·乔布斯传（修订版）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:37:22.121Z",
+    "ogImage": "https://pi-dal.com/og/史蒂夫-乔布斯传-修订版.png"
+  },
+  "沙丘六部曲-电影沙丘2原著小说": {
+    "title": "《沙丘六部曲（电影《沙丘2》原著小说）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:37:11.651Z",
+    "ogImage": "https://pi-dal.com/og/沙丘六部曲-电影沙丘2原著小说.png"
+  },
+  "玻璃球游戏": {
+    "title": "《玻璃球游戏》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:37:02.227Z",
+    "ogImage": "https://pi-dal.com/og/玻璃球游戏.png"
+  },
+  "生命之书-365天的静心冥想-豆瓣评分高达8-8-20世纪伟大的心灵导师克里希那穆提-他的言论和著作无法归属于哪一种宗教-既非东方也非西方-而是属于全世界": {
+    "title": "《生命之书:365天的静心冥想【豆瓣评分高达8.8！20世纪伟大的心灵导师克里希那穆提，他的言论和著作无法归属于哪一种宗教，既非东方也非西方，而是属于全世界！】》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:36:50.375Z",
+    "ogImage": "https://pi-dal.com/og/生命之书-365天的静心冥想-豆瓣评分高达8-8-20世纪伟大的心灵导师克里希那穆提-他的言论和著作无法归属于哪一种宗教-既非东方也非西方-而是属于全世界.png"
+  },
+  "被讨厌的勇气-自我启发之父-阿德勒的哲学课": {
+    "title": "《被讨厌的勇气：“自我启发之父”阿德勒的哲学课》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:36:37.351Z",
+    "ogImage": "https://pi-dal.com/og/被讨厌的勇气-自我启发之父-阿德勒的哲学课.png"
+  },
+  "黑塞四季诗文集": {
+    "title": "《黑塞四季诗文集》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:36:26.176Z",
+    "ogImage": "https://pi-dal.com/og/黑塞四季诗文集.png"
+  },
+  "a-brief-history-of-information-networks-from-the-stone-age-to-ai": {
+    "title": "《A Brief History of Information Networks from the Stone Age to AI》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:36:16.891Z",
+    "ogImage": "https://pi-dal.com/og/a-brief-history-of-information-networks-from-the-stone-age-to-ai.png"
+  },
+  "人类简史-从动物到上帝-图文精编版-开放历史系列": {
+    "title": "《人类简史：从动物到上帝（图文精编版） (开放历史系列)》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:36:07.640Z",
+    "ogImage": "https://pi-dal.com/og/人类简史-从动物到上帝-图文精编版-开放历史系列.png"
+  },
+  "my-beginnings": {
+    "title": "《My Beginnings》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:30:30.081Z",
+    "ogImage": "https://pi-dal.com/og/my-beginnings.png"
+  },
+  "黄仁勋-英伟达之芯": {
+    "title": "《黄仁勋：英伟达之芯》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:30:19.531Z",
+    "ogImage": "https://pi-dal.com/og/黄仁勋-英伟达之芯.png"
+  },
+  "像哲学家一样生活-斯多葛哲学的生活艺术": {
+    "title": "《像哲学家一样生活：斯多葛哲学的生活艺术》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:30:08.955Z",
+    "ogImage": "https://pi-dal.com/og/像哲学家一样生活-斯多葛哲学的生活艺术.png"
+  },
+  "三体全集-全三册": {
+    "title": "《三体全集（全三册）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:29:56.340Z",
+    "ogImage": "https://pi-dal.com/og/三体全集-全三册.png"
+  },
+  "天生敏感": {
+    "title": "《天生敏感》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:29:43.355Z",
+    "ogImage": "https://pi-dal.com/og/天生敏感.png"
+  },
+  "活出生命的意义": {
+    "title": "《活出生命的意义》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:29:30.614Z",
+    "ogImage": "https://pi-dal.com/og/活出生命的意义.png"
+  },
+  "埃隆-马斯克-elon-musk": {
+    "title": "《埃隆·马斯克 - Elon Musk》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:29:18.995Z",
+    "ogImage": "https://pi-dal.com/og/埃隆-马斯克-elon-musk.png"
+  },
+  "成为乔布斯": {
+    "title": "《成为乔布斯》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:29:08.222Z",
+    "ogImage": "https://pi-dal.com/og/成为乔布斯.png"
+  },
+  "量子怪才-保罗-狄拉克传": {
+    "title": "《量子怪才：保罗·狄拉克传》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:27:43.862Z",
+    "ogImage": "https://pi-dal.com/og/量子怪才-保罗-狄拉克传.png"
+  },
+  "只有偏执狂才能生存-特种经理人的培训手册-新版": {
+    "title": "《只有偏执狂才能生存:特种经理人的培训手册(新版)》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:26:51.616Z",
+    "ogImage": "https://pi-dal.com/og/只有偏执狂才能生存-特种经理人的培训手册-新版.png"
+  },
+  "今日简史-人类命运大议题": {
+    "title": "《今日简史：人类命运大议题》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:26:40.000Z",
+    "ogImage": "https://pi-dal.com/og/今日简史-人类命运大议题.png"
+  },
+  "岩田先生-任天堂传奇社长如是说-全球授权10语种-从天才程序员-到世界顶尖企业管理者-扭转颓势-带领公司股价翻番的传奇社长亲授企业经营管理理念": {
+    "title": "《岩田先生:任天堂传奇社长如是说(全球授权10语种!从天才程序员,到世界顶尖企业管理者,扭转颓势,带领公司股价翻番的传奇社长亲授企业经营管理理念!）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:26:28.135Z",
+    "ogImage": "https://pi-dal.com/og/岩田先生-任天堂传奇社长如是说-全球授权10语种-从天才程序员-到世界顶尖企业管理者-扭转颓势-带领公司股价翻番的传奇社长亲授企业经营管理理念.png"
+  },
+  "reading-notes-xin-sheng-xue-cheng": {
+    "title": "《心：稻盛和夫的一生嘱托（“稻盛哲学”集大成之作）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T13:21:30.061Z",
+    "ogImage": "https://pi-dal.com/og/reading-notes-xin-sheng-xue-cheng.png"
+  },
+  "reading-notes-063917": {
+    "title": "《苏东坡传（纪念典藏版）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T12:41:03.917Z",
+    "ogImage": "https://pi-dal.com/og/reading-notes-063917.png"
+  },
+  "reading-notes-567364": {
+    "title": "《纳瓦尔宝典》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T12:32:47.364Z",
+    "ogImage": "https://pi-dal.com/og/reading-notes-567364.png"
+  },
+  "reading-notes-makesomethingwonderful": {
+    "title": "《Make Something Wonderful》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-07T12:25:53.115Z",
+    "ogImage": "https://pi-dal.com/og/reading-notes-makesomethingwonderful.png"
+  },
+  "2024-13": {
+    "title": "《看世界（2024年第13期）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-06T14:06:33.338Z",
+    "ogImage": "https://pi-dal.com/og/2024-13.png"
+  },
+  "qed-光和物质的奇妙理论读书笔记": {
+    "title": "《QED：光和物质的奇妙理论》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-06T07:20:32.792Z",
+    "ogImage": "https://pi-dal.com/og/qed-光和物质的奇妙理论读书笔记.png"
+  },
+  "生命是什么读书笔记": {
+    "title": "《生命是什么》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-06T07:12:23.508Z",
+    "ogImage": "https://pi-dal.com/og/生命是什么读书笔记.png"
+  },
+  "我看见的世界读书笔记": {
+    "title": "《我看见的世界》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-06T07:07:29.873Z",
+    "ogImage": "https://pi-dal.com/og/我看见的世界读书笔记.png"
+  },
+  "宝贵的人生建议读书笔记": {
+    "title": "《宝贵的人生建议》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-06T03:30:44.519Z",
+    "ogImage": "https://pi-dal.com/og/宝贵的人生建议读书笔记.png"
+  },
+  "悉达多果麦经典读书笔记": {
+    "title": "《悉达多（果麦经典）》读书笔记",
+    "author": "pi-dal",
+    "date": "2025-07-06T06:38:52.168Z",
+    "ogImage": "https://pi-dal.com/og/悉达多果麦经典读书笔记.png"
+  },
+  "test-upload": {
+    "title": "Test Upload",
+    "author": "pi-dal",
+    "date": "2025-07-05T23:12:15.253Z",
+    "ogImage": "https://pi-dal.com/og/test-upload.png"
+  },
+  "test-upload-updated": {
+    "title": "Test Upload (Updated)",
+    "author": "pi-dal",
+    "date": "2025-07-05T12:00:00.000Z",
+    "ogImage": "https://pi-dal.com/og/test-upload-updated.png"
+  },
+  "zAv7cc3RTxqvTm2lwL5in": {
+    "title": "django-vditor",
+    "author": "pi-dal",
+    "date": "2025-06-27T01:36:57.452Z",
+    "ogImage": "https://pi-dal.com/og/zAv7cc3RTxqvTm2lwL5in.png"
+  },
+  "oz2sy-Js-UmirrRBAiaF5": {
+    "title": "arozos",
+    "author": "pi-dal",
+    "date": "2025-06-27T01:35:08.534Z",
+    "ogImage": "https://pi-dal.com/og/oz2sy-Js-UmirrRBAiaF5.png"
+  },
+  "2023-Hangzhou-Travelling": {
+    "title": "2023年物竞外出培训—杭州行 ",
+    "author": "pi-dal",
+    "date": "2023-07-27T03:50:18.000Z",
+    "ogImage": "https://pi-dal.com/og/2023-Hangzhou-Travelling.png"
+  },
+  "To-My-16-Year-Old-Self": {
+    "title": "写给16岁的自己",
+    "author": "pi-dal",
+    "date": "2023-04-15T12:06:00.000Z",
+    "ogImage": "https://pi-dal.com/og/To-My-16-Year-Old-Self.png"
+  },
+  "2022-Hunan-Travelling": {
+    "title": "2022湖南之旅",
+    "author": "pi-dal",
+    "date": "2022-07-22T00:37:00.000Z",
+    "ogImage": "https://pi-dal.com/og/2022-Hunan-Travelling.png"
+  },
+  "Summary-Of-Junior-High-School-Life": {
+    "title": "初中生活总结",
+    "author": "pi-dal",
+    "date": "2022-06-28T15:25:00.000Z",
+    "ogImage": "https://pi-dal.com/og/Summary-Of-Junior-High-School-Life.png"
+  },
+  "How-To-Build-A-RPI-NAS-Server": {
+    "title": "树莓派NAS搭建 ",
+    "author": "pi-dal",
+    "date": "2022-02-03T15:12:00.000Z",
+    "ogImage": "https://pi-dal.com/og/How-To-Build-A-RPI-NAS-Server.png"
+  },
+  "ArozOS-RPI-Tutorial": {
+    "title": "树莓派 ArozOS 指北 ",
+    "author": "pi-dal",
+    "date": "2021-10-22T15:03:00.000Z",
+    "ogImage": "https://pi-dal.com/og/ArozOS-RPI-Tutorial.png"
+  }
+}

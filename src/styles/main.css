@@ -39,20 +39,6 @@ html.dark {
   scrollbar-color: var(--c-scrollbar) var(--c-bg);
 }
 
-.sponsorkit-avatar {
-  cursor: pointer;
-}
-.sponsorkit-tier-title {
-  font-weight: 600;
-  font-size: 20px;
-  fill: currentColor;
-}
-.sponsorkit-name {
-  font-weight: 300;
-  font-size: 15px;
-  transform: translateY(8px);
-}
-
 ::-webkit-scrollbar {
   width: 6px;
 }

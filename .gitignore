@@ -13,3 +13,10 @@ sponsors.*
 drafts
 *.log
 src/data/sponsors-circles.json
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

@@ -191,9 +191,12 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="grid grid-cols-12 gap-x-8 px-4 py-8">
+  <div class="px-4 py-8">
+    <!-- Hidden TOC for posts with content -->
+    <Toc v-if="tocItems.length > 0" :items="tocItems" />
+
     <!-- Main content -->
-    <div class="col-span-12 lg:col-span-9">
+    <div class="max-w-4xl mx-auto">
       <!-- 加载状态 -->
       <div v-if="pending" class="py-20 text-center">
         <div class="animate-spin inline-block w-8 h-8 border-4 border-current border-t-transparent rounded-full" />
@@ -216,7 +219,7 @@ onMounted(async () => {
       </div>
 
       <!-- 文章 -->
-      <div v-else-if="post" class="max-w-4xl mx-auto">
+      <div v-else-if="post">
         <header class="text-center mb-12">
           <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-gray-50 mb-4">
             {{ post.title }}
@@ -281,14 +284,6 @@ onMounted(async () => {
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- TOC Sidebar -->
-    <div
-      v-if="tocItems.length > 0"
-      class="hidden lg:block col-span-3"
-    >
-      <Toc :items="tocItems" />
     </div>
   </div>
 </template>

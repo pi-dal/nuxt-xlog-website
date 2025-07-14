@@ -22,7 +22,7 @@ onMounted(async () => {
 <template>
   <div class="prose dark:prose-invert max-w-3xl mx-auto">
     <!-- Header -->
-    <div class="mb-8">
+    <div class="mb-8 text-center">
       <h1 class="!mb-2">
         Projects
       </h1>

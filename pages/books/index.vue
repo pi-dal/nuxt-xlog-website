@@ -50,7 +50,7 @@ const getPostUrl = (post: XLogPost) => `/books/${post.slug}`
 <template>
   <div class="prose dark:prose-invert max-w-3xl mx-auto">
     <!-- Header -->
-    <div class="mb-8">
+    <div class="mb-8 text-center">
       <h1 class="!mb-2">
         Reading Notes
       </h1>

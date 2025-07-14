@@ -178,37 +178,92 @@ h6:focus .header-anchor {
 
 .table-of-contents {
   position: fixed;
-  top: 90px;
-  bottom: 0;
-  font-size: 0.8em;
+  top: 50%;
   left: 20px;
+  transform: translateY(-50%);
+  font-size: 0.8em;
   z-index: 200;
-  overflow: hidden;
-  --uno: hidden lg-flex flex-col w-100px lg-w-200px xl-w-300px;
+  --uno: hidden lg-flex flex-col;
+  max-height: 60vh;
+  width: 32px; /* 只显示图标的宽度 */
+  transition: all 0.3s ease;
+}
+
+.table-of-contents:hover {
+  width: 280px; /* 展开时的宽度 */
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+}
+
+.dark .table-of-contents:hover {
+  background: rgba(26, 26, 26, 0.95);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 .table-of-contents-anchor {
-  --uno: 'mx2 w-7 h-7 text-lg flex items-center justify-center bg-base rounded text-hex-8887 border border-base shadow md:border-transparent md:shadow-none transition duration-400';
+  --uno: 'w-8 h-8 text-lg flex items-center justify-center bg-white dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-300 shadow-md border border-gray-200 dark:border-gray-600 transition duration-300 cursor-pointer';
+  flex-shrink: 0;
+}
+
+.table-of-contents-anchor:hover {
+  --uno: 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-600';
 }
 
 .table-of-contents > ul {
   text-overflow: ellipsis;
   height: 100%;
   overflow-y: auto;
-  --uno: rounded op0 mt-1 pb-5 transition duration-700;
+  opacity: 0;
+  visibility: hidden;
+  margin-top: 8px;
+  padding-right: 8px;
+  transition: all 0.3s ease;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.3) transparent;
 }
 
-*:hover > .table-of-contents > .table-of-contents-anchor,
-.toc-always-on .table-of-contents > .table-of-contents-anchor {
-  --uno: text-inherit;
+.table-of-contents > ul::-webkit-scrollbar {
+  width: 4px;
+}
+
+.table-of-contents > ul::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.table-of-contents > ul::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.3);
+  border-radius: 2px;
+}
+
+.table-of-contents > ul::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.5);
+}
+
+.table-of-contents:hover > ul {
+  opacity: 1;
+  visibility: visible;
+}
+
+.toc-always-on .table-of-contents {
+  width: 280px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+}
+
+.dark .toc-always-on .table-of-contents {
+  background: rgba(26, 26, 26, 0.95);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 .toc-always-on .table-of-contents > ul {
-  opacity: 0.6;
-}
-
-*:hover > .table-of-contents > ul {
-  opacity: 0.75;
+  opacity: 0.8;
+  visibility: visible;
 }
 
 .table-of-contents ul > li::before {
@@ -217,12 +272,25 @@ h6:focus .header-anchor {
 
 .table-of-contents ul > li {
   padding-left: 0.8rem;
-  line-height: 1.5em;
-  margin-top: 0.5em;
+  line-height: 1.4em;
+  margin-top: 0.3em;
 }
 
 .table-of-contents ul > li > a {
-  --uno: op75 hover-op100 transition;
+  --uno: op80 hover-op100 transition hover-text-blue-600 dark: hover-text-blue-400 text-sm;
+  display: block;
+  padding: 2px 4px;
+  border-radius: 4px;
+  text-decoration: none;
+  border: none !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table-of-contents ul > li > a:hover {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--fg-deep);
 }
 
 .code-wrap .line {

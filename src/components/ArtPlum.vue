@@ -16,7 +16,7 @@ const MIN_BRANCH = 30
 const len = ref(6)
 const stopped = ref(false)
 const startTime = ref(0)
-const ANIMATION_DURATION = 45000 // 45秒总时长上限
+const ANIMATION_DURATION = 30000 // 30秒总时长上限
 
 function initCanvas(canvas: HTMLCanvasElement, width = 400, height = 400, _dpi?: number) {
   const ctx = canvas.getContext('2d')!
@@ -127,9 +127,28 @@ onMounted(async () => {
    */
   const randomMiddle = () => random() * 0.6 + 0.2
 
+  const drawBackgroundDots = () => {
+    ctx.fillStyle = '#88888860' // 增加透明度让点更明显
+    const spacing = 20 // 减小间距让点更密集
+    const dotSize = 1 // 增大点的大小
+
+    // 绘制均匀的点网格，不使用随机
+    for (let x = spacing; x < size.width; x += spacing) {
+      for (let y = spacing; y < size.height; y += spacing) {
+        ctx.beginPath()
+        ctx.arc(x, y, dotSize, 0, 2 * Math.PI)
+        ctx.fill()
+      }
+    }
+  }
+
   start.value = () => {
     controls.pause()
     ctx.clearRect(0, 0, width, height)
+
+    // Draw background dots
+    drawBackgroundDots()
+
     ctx.lineWidth = 1
     ctx.strokeStyle = color
     prevSteps = []

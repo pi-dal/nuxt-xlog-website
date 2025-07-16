@@ -69,8 +69,6 @@ async function buildAllPostsRSS() {
       link: 'https://pi-dal.com/',
       copyright: 'CC BY-NC-SA 4.0 2020 © pi-dal',
       feedLinks: {
-        json: 'https://pi-dal.com/feed.json',
-        atom: 'https://pi-dal.com/feed.atom',
         rss: 'https://pi-dal.com/feed.xml',
       },
     }
@@ -110,8 +108,6 @@ async function buildBlogPostsRSS() {
       link: 'https://pi-dal.com/blog/',
       copyright: 'CC BY-NC-SA 4.0 2020 © pi-dal',
       feedLinks: {
-        json: 'https://pi-dal.com/blog-feed.json',
-        atom: 'https://pi-dal.com/blog-feed.atom',
         rss: 'https://pi-dal.com/blog-feed.xml',
       },
     }
@@ -151,8 +147,6 @@ async function buildReadingNotesRSS() {
       link: 'https://pi-dal.com/books/',
       copyright: 'CC BY-NC-SA 4.0 2020 © pi-dal',
       feedLinks: {
-        json: 'https://pi-dal.com/books-feed.json',
-        atom: 'https://pi-dal.com/books-feed.atom',
         rss: 'https://pi-dal.com/books-feed.xml',
       },
     }
@@ -242,14 +236,16 @@ async function writeFeed(name: string, options: FeedOptions, items: Item[]) {
   items.forEach(item => feed.addItem(item))
 
   await fs.ensureDir(dirname(`./dist/${name}`))
+
+  // 只生成RSS XML格式
   await fs.writeFile(`./dist/${name}.xml`, feed.rss2(), 'utf-8')
-  await fs.writeFile(`./dist/${name}.atom`, feed.atom1(), 'utf-8')
-  await fs.writeFile(`./dist/${name}.json`, feed.json1(), 'utf-8')
+  console.log(`📝 Generated RSS file: ${name}.xml`)
 
   // Generate zh/index.xml to maintain compatibility with the former setup (only for main feed)
   if (name === 'feed') {
     await fs.ensureDir('./dist/zh')
     await fs.writeFile('./dist/zh/index.xml', feed.rss2(), 'utf-8')
+    console.log(`📝 Generated compatibility RSS file: zh/index.xml`)
   }
 }
 

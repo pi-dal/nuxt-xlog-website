@@ -161,7 +161,7 @@ async function callXLogAPI(query: string, variables: any) {
     return data.data
   }
   catch (error) {
-    logger.error('xLog API call failed:', { error, handle }, 'XLOG_API')
+    logger.error('xLog API call failed:', { error }, 'XLOG_API')
     throw error
   }
 }

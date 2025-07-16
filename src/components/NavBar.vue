@@ -51,9 +51,9 @@ const { y: scroll } = useWindowScroll()
         <a href="https://photography.pi-dal.com" target="_blank" title="Photos">
           <div i-ri-camera-3-line />
         </a>
-        <a href="/feed.xml" target="_blank" title="RSS" class="lt-md:hidden">
-          <div i-la-rss-square style="font-size:1.25rem; margin: 0 -0.125rem;" />
-        </a>
+        <div class="lt-md:hidden">
+          <RSSMenu />
+        </div>
         <ToggleTheme />
       </div>
     </nav>

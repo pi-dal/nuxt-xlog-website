@@ -2,6 +2,8 @@
 import type { XLogPost } from '~/types'
 import { useHead } from '@unhead/vue'
 import { onMounted, ref } from 'vue'
+
+import ArtPlum from '~/components/ArtPlum.vue'
 import { formatDate } from '~/logics'
 import { getAllPostsDirect } from '~/logics/xlog-direct'
 
@@ -49,6 +51,11 @@ onMounted(fetchPosts)
 
 <template>
   <div>
+    <!-- 树枝动画效果 -->
+    <ClientOnly>
+      <ArtPlum />
+    </ClientOnly>
+
     <!-- 页面头部 -->
     <div class="mb-8 text-center">
       <h1 class="text-3xl lg:text-4xl font-bold mb-4">

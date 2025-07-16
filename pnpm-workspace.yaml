@@ -33,11 +33,8 @@ catalogs:
   dev:
     '@antfu/eslint-config': ^4.10.0
     '@iconify/json': ^2.2.316
-    '@octokit/core': ^6.1.4
-    '@octokit/rest': ^21.1.1
     ansis: ^3.17.0
     cross-env: ^7.0.3
-    degit: ^2.8.4
     diacritics: ^1.3.0
     eslint: ^9.22.0
     eslint-plugin-format: ^1.0.1
@@ -64,22 +61,16 @@ catalogs:
     d3-shape: ^3.2.0
     dayjs: ^1.11.13
     floating-vue: ^5.2.2
-    matter-attractors: ^0.1.6
-    matter-js: ^0.20.0
     nprogress: ^0.2.0
-    p5i: ^0.0.0
     pinia: ^3.0.1
-    pixi.js: ^8.9.1
     shiki: ^3.2.1
     shiki-magic-move: ^1.0.1
-    simplex-noise: ^4.0.3
     vue: ^3.5.13
     vue-router: ^4.5.0
     vue-router-better-scroller: ^0.0.0
   types:
     '@types/d3-hierarchy': ^3.1.7
     '@types/d3-shape': ^3.1.7
-    '@types/degit': ^2.8.6
     '@types/diacritics': ^1.3.3
     '@types/fs-extra': ^11.0.4
     '@types/markdown-it': ^14.1.2

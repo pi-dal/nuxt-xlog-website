@@ -1,4 +1,5 @@
 import type { EnhancedXLogPost, SocialLink, XLogAuthor, XLogComment, XLogPortfolio, XLogPost, XLogSite } from '../types'
+import { logger } from './logger'
 import { enhancePostsWithMetadata, enhancePostWithMetadata } from './metadata'
 
 // 获取xLog handle配置
@@ -160,7 +161,7 @@ async function callXLogAPI(query: string, variables: any) {
     return data.data
   }
   catch (error) {
-    console.error('xLog API call failed:', error)
+    logger.error('xLog API call failed:', { error, handle }, 'XLOG_API')
     throw error
   }
 }
@@ -237,7 +238,7 @@ export async function getSiteInfoDirect(): Promise<XLogSite | null> {
     }
   }
   catch (error) {
-    console.error('Error fetching site info:', error)
+    logger.error('Error fetching site info:', { error, handle }, 'XLOG_SITE')
     return null
   }
 }
@@ -262,18 +263,18 @@ export async function getAllPostsDirect(): Promise<XLogPost[]> {
     // 首先获取characterId
     const siteInfo = await getSiteInfoDirect()
     if (!siteInfo || !siteInfo.id) {
-      console.warn('No site info found for handle:', handle)
+      logger.warn('No site info found for handle:', { handle }, 'XLOG_SITE')
       return []
     }
 
     const characterId = Number.parseInt(siteInfo.id)
-    console.warn('Using characterId:', characterId)
+    logger.debug('Using characterId:', { characterId }, 'XLOG_POSTS')
 
     // 然后用characterId获取文章
     const data = await callXLogAPI(GET_POSTS_QUERY, { characterId })
     const notes = data.notes || []
 
-    console.warn('Raw notes from API:', notes.length)
+    logger.debug('Raw notes from API:', { count: notes.length }, 'XLOG_POSTS')
 
     return notes
       .filter((note: any) => {
@@ -288,7 +289,7 @@ export async function getAllPostsDirect(): Promise<XLogPost[]> {
       .map((note: any) => transformNoteToPost(note))
   }
   catch (error) {
-    console.error('Error fetching posts:', error)
+    logger.error('Error fetching posts:', { error, handle }, 'XLOG_POSTS')
     return []
   }
 }
@@ -311,7 +312,7 @@ export async function getCommentsDirect(characterId: string, noteId: string): Pr
     return commentNotes.map((note: any) => transformCommentNoteToComment(note))
   }
   catch (error) {
-    console.error('Error fetching comments:', error)
+    logger.error('Error fetching comments:', { error, handle }, 'XLOG_COMMENTS')
     return []
   }
 }
@@ -338,7 +339,7 @@ export async function getPostBySlugDirect(slug: string): Promise<XLogPost | null
     // 首先获取characterId 和作者信息
     const siteInfo = await getSiteInfoDirect()
     if (!siteInfo || !siteInfo.id) {
-      console.warn('No site info found for handle:', handle)
+      logger.warn('No site info found for handle:', { handle }, 'XLOG_SITE')
       return null
     }
     const characterId = Number.parseInt(siteInfo.id)
@@ -365,7 +366,7 @@ export async function getPostBySlugDirect(slug: string): Promise<XLogPost | null
     return post
   }
   catch (error) {
-    console.error('Error fetching post by slug:', error)
+    logger.error('Error fetching post by slug:', { error, slug }, 'XLOG_POST')
     return null
   }
 }
@@ -380,7 +381,7 @@ export async function getPostByIdDirect(id: string): Promise<XLogPost | null> {
     return allPosts.find(post => post.id === id) || null
   }
   catch (error) {
-    console.error('Error fetching post by id:', error)
+    logger.error('Error fetching post by id:', { error, id }, 'XLOG_POST')
     return null
   }
 }
@@ -409,6 +410,7 @@ function transformNoteToPost(note: any): XLogPost {
     views: 0, // 简化版本暂不获取浏览量
     comments: [], // 先初始化为空数组，稍后填充
     external_urls: content.external_urls || [],
+    tags: content.tags || [], // 添加标签字段
   }
 }
 
@@ -483,7 +485,7 @@ export async function getPageBySlugDirect(slug: string): Promise<XLogPost | null
   try {
     const siteInfo = await getSiteInfoDirect()
     if (!siteInfo || !siteInfo.id) {
-      console.warn('No site info found for handle:', handle)
+      logger.warn('No site info found for handle:', { handle }, 'XLOG_SITE')
       return null
     }
     const characterId = Number.parseInt(siteInfo.id)
@@ -498,7 +500,7 @@ export async function getPageBySlugDirect(slug: string): Promise<XLogPost | null
     return transformNoteToPost(notes[0])
   }
   catch (error) {
-    console.error(`Error fetching page with slug "${slug}":`, error)
+    logger.error(`Error fetching page with slug "${slug}":`, { error, slug }, 'XLOG_PAGE')
     return null
   }
 }
@@ -553,11 +555,11 @@ export async function getPortfolioDirect(): Promise<XLogPortfolio[]> {
       return tags.includes('portfolio')
     })
 
-    console.warn(`Found ${portfolioNotes.length} portfolio item(s) with "portfolio" tag out of ${notes.length} total notes`)
+    logger.debug(`Found ${portfolioNotes.length} portfolio item(s) with "portfolio" tag out of ${notes.length} total notes`, { portfolioCount: portfolioNotes.length, totalNotes: notes.length }, 'XLOG_PORTFOLIO')
     return portfolioNotes.map((note: any) => transformNoteToPortfolio(note))
   }
   catch (error) {
-    console.error('Error fetching portfolio:', error)
+    logger.error('Error fetching portfolio:', { error, handle }, 'XLOG_PORTFOLIO')
     return []
   }
 }
@@ -591,11 +593,11 @@ export async function getBooksDirect(): Promise<XLogPost[]> {
       return tags.includes('微信读书')
     })
 
-    console.warn(`Found ${bookNotes.length} book item(s) with "微信读书" tag out of ${notes.length} total notes`)
+    logger.debug(`Found ${bookNotes.length} book item(s) with "微信读书" tag out of ${notes.length} total notes`, { bookCount: bookNotes.length, totalNotes: notes.length }, 'XLOG_BOOKS')
     return bookNotes.map((note: any) => transformNoteToPost(note))
   }
   catch (error) {
-    console.error('Error fetching books:', error)
+    logger.error('Error fetching books:', { error, handle }, 'XLOG_BOOKS')
     return []
   }
 }
@@ -634,18 +636,18 @@ export async function getPostsByTagDirect(tag: string): Promise<XLogPost[]> {
     // 首先获取characterId
     const siteInfo = await getSiteInfoDirect()
     if (!siteInfo || !siteInfo.id) {
-      console.warn('No site info found for handle:', handle)
+      logger.warn('No site info found for handle:', { handle }, 'XLOG_SITE')
       return []
     }
 
     const characterId = Number.parseInt(siteInfo.id)
-    console.warn('Using characterId:', characterId, 'for tag:', tag)
+    logger.debug('Using characterId:', { characterId, tag }, 'XLOG_TAGS')
 
     // 然后用characterId获取文章
     const data = await callXLogAPI(GET_POSTS_QUERY, { characterId })
     const notes = data.notes || []
 
-    console.warn('Raw notes from API:', notes.length)
+    logger.debug('Raw notes from API:', { count: notes.length }, 'XLOG_POSTS')
 
     return notes
       .filter((note: any) => {
@@ -660,7 +662,7 @@ export async function getPostsByTagDirect(tag: string): Promise<XLogPost[]> {
       .map((note: any) => transformNoteToPost(note))
   }
   catch (error) {
-    console.error('Error fetching posts by tag:', error)
+    logger.error('Error fetching posts by tag:', { error, tag }, 'XLOG_TAGS')
     return []
   }
 }
@@ -684,7 +686,7 @@ export async function getAiSummary(characterId: string, noteId: string): Promise
     return data.summary || null
   }
   catch (error) {
-    console.warn('Error fetching AI summary:', error)
+    logger.warn('Error fetching AI summary:', { error, content }, 'XLOG_AI')
     return null
   }
 }

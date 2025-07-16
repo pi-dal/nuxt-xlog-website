@@ -1,4 +1,5 @@
 import dayjs from 'dayjs'
+import { logger } from './logger'
 
 // Theme management
 export const isDark = useDark()
@@ -67,19 +68,8 @@ export {
   siteInfo,
 } from './site'
 
-// Re-export main API functions for clean imports
-export {
-  getAllEnhancedPosts,
-  getAllPosts,
-  getEnhancedPostBySlug,
-  getEnhancedPostsByTag,
-  getPostById,
-  getPostBySlug,
-  getPosts,
-  getPostsByTag,
-  getSiteInfo,
-  getSiteStats,
-} from './xlog'
+// Note: API functions are now imported directly from xlog-direct.ts where needed
+// The xlog.ts wrapper has been removed as it was unused
 
 /**
  * Credit to [@hooray](https://github.com/hooray)
@@ -136,7 +126,7 @@ export function formatDate(d: string | Date, onlyDate = true): string {
 
   const date = dayjs(d)
   if (!date.isValid()) {
-    console.warn('Invalid date provided to formatDate:', d)
+    logger.warn('Invalid date provided to formatDate:', { date: d }, 'DATE_FORMAT')
     return ''
   }
 
@@ -151,7 +141,7 @@ export function formatDateRelative(d: string | Date): string {
 
   const date = dayjs(d)
   if (!date.isValid()) {
-    console.warn('Invalid date provided to formatDateRelative:', d)
+    logger.warn('Invalid date provided to formatDateRelative:', { date: d }, 'DATE_FORMAT')
     return ''
   }
 

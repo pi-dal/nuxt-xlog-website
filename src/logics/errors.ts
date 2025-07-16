@@ -1,4 +1,5 @@
 import type { XLogError, XLogOperation } from '~/types'
+import { logger } from './logger'
 
 // Error types for different categories
 export enum ErrorCategory {
@@ -140,20 +141,16 @@ export async function withErrorHandling<T>(
       )
 
       // Log error with context
-      if (process.env.NODE_ENV === 'development') {
-        console.error(`Error in ${operationName} (attempt ${attempt + 1}/${retries + 1}):`, {
-          message: xlogError.message,
-          category: xlogError.category,
-          context: xlogError.context,
-          stack: xlogError.stack,
-        })
-      }
+      logger.error(`Error in ${operationName} (attempt ${attempt + 1}/${retries + 1}):`, {
+        message: xlogError.message,
+        category: xlogError.category,
+        context: xlogError.context,
+        stack: xlogError.stack,
+      }, operationName)
 
       // Retry logic for specific error types
       if (attempt < retries && shouldRetry(category)) {
-        if (process.env.NODE_ENV === 'development') {
-          console.warn(`Retrying ${operationName} in ${retryDelay}ms...`)
-        }
+        logger.warn(`Retrying ${operationName} in ${retryDelay}ms...`, { attempt, retries }, operationName)
         await new Promise(resolve => setTimeout(resolve, retryDelay))
         continue
       }
@@ -204,14 +201,10 @@ export function handleApiError(operation: XLogOperation, status: number, message
 
 // Development helper for error reporting
 export function reportError(error: XLogError): void {
-  if (process.env.NODE_ENV === 'development') {
-    console.error(`🚨 XLog Error Report: ${error.code}`)
-    console.error('Message:', error.message)
-    console.error('Category:', error.category)
-    console.error('Context:', error.context)
-    if (error.originalError) {
-      console.error('Original Error:', error.originalError)
-    }
-    console.error('--- End Error Report ---')
-  }
+  logger.error(`🚨 XLog Error Report: ${error.code}`, {
+    message: error.message,
+    category: error.category,
+    context: error.context,
+    originalError: error.originalError,
+  }, 'ERROR_REPORT')
 }

@@ -18,7 +18,6 @@ import '@shikijs/twoslash/style-rich.css'
 import 'shiki-magic-move/style.css'
 import './styles/main.css'
 import './styles/prose.css'
-import './styles/markdown.css'
 import 'uno.css'
 
 export const createApp = ViteSSG(

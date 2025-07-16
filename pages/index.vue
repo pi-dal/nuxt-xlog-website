@@ -2,6 +2,7 @@
 import type { SocialLink } from '~/types'
 import { useHead } from '@unhead/vue'
 import { onMounted, ref } from 'vue'
+import ArtPlum from '~/components/ArtPlum.vue'
 import { useMarkdown } from '~/logics/markdown'
 import { fetchSiteInfo, siteInfo } from '~/logics/site'
 import { getPageBySlugDirect } from '~/logics/xlog-direct'
@@ -75,6 +76,11 @@ onMounted(async () => {
 
 <template>
   <div>
+    <!-- 树枝动画效果 -->
+    <ClientOnly>
+      <ArtPlum />
+    </ClientOnly>
+
     <div
       v-if="loading"
       class="prose m-auto"

@@ -2,6 +2,8 @@
 import type { XLogPost } from '~/types'
 import { useHead } from '@unhead/vue'
 import { onMounted, ref } from 'vue'
+
+import ArtPlum from '~/components/ArtPlum.vue'
 import { formatDate } from '~/logics'
 import { useMarkdown } from '~/logics/markdown'
 import { getPostsByTagDirect } from '~/logics/xlog-direct'
@@ -68,6 +70,11 @@ onMounted(fetchChatContent)
 
 <template>
   <div>
+    <!-- 树枝动画效果 -->
+    <ClientOnly>
+      <ArtPlum />
+    </ClientOnly>
+
     <!-- 加载状态 -->
     <div v-if="pending" class="py-20 text-center">
       <div class="animate-spin inline-block w-8 h-8 border-4 border-current border-t-transparent rounded-full" />

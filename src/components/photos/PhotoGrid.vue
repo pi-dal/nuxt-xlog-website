@@ -3,13 +3,15 @@ import { computed } from 'vue'
 import raw from '../../../photos/data'
 
 const props = defineProps<{
+  photos?: Array<any>
   limit?: number
 }>()
 
 const photos = computed(() => {
+  const source = props.photos || raw
   if (props.limit)
-    return raw.slice(0, props.limit)
-  return raw
+    return source.slice(0, props.limit)
+  return source
 })
 </script>
 

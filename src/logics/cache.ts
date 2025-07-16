@@ -1,3 +1,5 @@
+import { logger } from './logger'
+
 export interface CacheEntry<T> {
   data: T
   timestamp: number
@@ -64,7 +66,7 @@ export class CacheManager {
       }
     }
     catch (error) {
-      console.warn('Failed to load cache from storage:', error)
+      logger.warn('Failed to load cache from storage:', { error }, 'CACHE')
     }
   }
 
@@ -77,7 +79,7 @@ export class CacheManager {
       localStorage.setItem('xlog-cache', JSON.stringify(cacheObj))
     }
     catch (error) {
-      console.warn('Failed to save cache to storage:', error)
+      logger.warn('Failed to save cache to storage:', { error }, 'CACHE')
     }
   }
 

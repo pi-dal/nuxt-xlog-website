@@ -5,6 +5,8 @@ import { useHead } from '@unhead/vue'
 import { useEventListener } from '@vueuse/core'
 import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+
+import ArtPlum from '~/components/ArtPlum.vue'
 import CommentList from '~/components/CommentList.vue'
 import Toc from '~/components/Toc.vue'
 import { formatDate } from '~/logics'
@@ -190,124 +192,131 @@ useHead(() => {
 </script>
 
 <template>
-  <div class="grid grid-cols-12 gap-x-8 px-4 py-8">
-    <!-- Main content -->
-    <div class="col-span-12 lg:col-span-9">
-      <!-- 加载状态 -->
-      <div v-if="pending" class="py-20 text-center">
-        <div class="animate-spin inline-block w-8 h-8 border-4 border-current border-t-transparent rounded-full" />
-        <div class="mt-4 opacity-50">
-          Loading post...
-        </div>
-      </div>
+  <div>
+    <!-- 树枝动画效果 -->
+    <ClientOnly>
+      <ArtPlum />
+    </ClientOnly>
 
-      <!-- 错误状态 -->
-      <div v-else-if="error" class="py-20 text-center">
-        <div class="text-red-500 text-lg mb-2">
-          Post not found
-        </div>
-        <div class="mb-4 text-sm opacity-75">
-          Slug: "{{ slug }}"
-        </div>
-        <RouterLink to="/posts" class="text-blue-500 hover:text-blue-600">
-          ← Back to Blog
-        </RouterLink>
-      </div>
-
-      <!-- 文章 -->
-      <div v-else-if="post" class="max-w-4xl mx-auto">
-        <header class="text-center mb-12">
-          <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-gray-50 mb-4">
-            {{ post.title }}
-          </h1>
-          <div class="flex items-center justify-center gap-4 text-gray-500 dark:text-gray-400">
-            <div v-if="post.author" class="flex items-center gap-2">
-              <img
-                v-if="post.author.avatar"
-                :src="post.author.avatar"
-                :alt="post.author.name"
-                class="w-8 h-8 rounded-full"
-              >
-              <span>{{ post.author.name }}</span>
-            </div>
-            <span>·</span>
-            <time :datetime="post.date_published">
-              {{ formatDate(post.date_published, false) }}
-            </time>
+    <div class="grid grid-cols-12 gap-x-8 px-4 py-8">
+      <!-- Main content -->
+      <div class="col-span-12 lg:col-span-9">
+        <!-- 加载状态 -->
+        <div v-if="pending" class="py-20 text-center">
+          <div class="animate-spin inline-block w-8 h-8 border-4 border-current border-t-transparent rounded-full" />
+          <div class="mt-4 opacity-50">
+            Loading post...
           </div>
-        </header>
-
-        <div class="mb-8 text-center">
-          <h1 class="text-3xl lg:text-4xl font-bold">
-            {{ post.title }}
-          </h1>
-          <p class="mt-4 text-gray-500 dark:text-gray-400">
-            {{ formatDate(post.date_published) }}
-          </p>
         </div>
 
-        <!-- AI Summary -->
-        <div v-if="post.aiSummary" class="prose dark:prose-invert max-w-none bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6 mb-8 text-blue-800 dark:text-blue-200">
-          <h3 class="!mt-0 !text-lg !font-semibold text-blue-900 dark:text-blue-100">
-            <span class="i-ri-robot-2-line align-middle mr-2" />
-            AI Summary
-          </h3>
-          <p class="!text-base">
-            {{ post.aiSummary }}
-          </p>
-        </div>
-
-        <img
-          v-if="post.cover"
-          :src="post.cover"
-          :alt="post.title"
-          class="w-full h-auto rounded-lg my-8 shadow-lg"
-        >
-
-        <article
-          class="prose dark:prose-invert max-w-none slide-enter-content"
-        >
-          <div v-if="renderedContent" v-html="renderedContent" />
-          <div v-else class="text-center italic opacity-70">
-            No content available.
+        <!-- 错误状态 -->
+        <div v-else-if="error" class="py-20 text-center">
+          <div class="text-red-500 text-lg mb-2">
+            Post not found
           </div>
-        </article>
+          <div class="mb-4 text-sm opacity-75">
+            Slug: "{{ slug }}"
+          </div>
+          <RouterLink to="/posts" class="text-blue-500 hover:text-blue-600">
+            ← Back to Blog
+          </RouterLink>
+        </div>
 
-        <div class="border-t dark:border-gray-700 my-12" />
-
-        <!-- 评论区 -->
-        <div id="comments" class="w-full">
-          <Suspense>
-            <CommentList :comments="comments" />
-            <template #fallback>
-              <div class="text-center py-8 opacity-70">
-                Loading comments...
+        <!-- 文章 -->
+        <div v-else-if="post" class="max-w-4xl mx-auto">
+          <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-gray-50 mb-4">
+              {{ post.title }}
+            </h1>
+            <div class="flex items-center justify-center gap-4 text-gray-500 dark:text-gray-400">
+              <div v-if="post.author" class="flex items-center gap-2">
+                <img
+                  v-if="post.author.avatar"
+                  :src="post.author.avatar"
+                  :alt="post.author.name"
+                  class="w-8 h-8 rounded-full"
+                >
+                <span>{{ post.author.name }}</span>
               </div>
-            </template>
-          </Suspense>
+              <span>·</span>
+              <time :datetime="post.date_published">
+                {{ formatDate(post.date_published, false) }}
+              </time>
+            </div>
+          </header>
 
-          <div class="mt-10 text-center">
-            <a
-              :href="`https://xlog.pi-dal.com/${post.slug}`"
-              target="_blank"
-              class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded no-underline"
-            >
-              在 xLog 上发表评论
-            </a>
-            <p class="text-sm opacity-60 mt-2">
-              您的评论将永久记录在区块链上
+          <div class="mb-8 text-center">
+            <h1 class="text-3xl lg:text-4xl font-bold">
+              {{ post.title }}
+            </h1>
+            <p class="mt-4 text-gray-500 dark:text-gray-400">
+              {{ formatDate(post.date_published) }}
             </p>
           </div>
+
+          <!-- AI Summary -->
+          <div v-if="post.aiSummary" class="prose dark:prose-invert max-w-none bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6 mb-8 text-blue-800 dark:text-blue-200">
+            <h3 class="!mt-0 !text-lg !font-semibold text-blue-900 dark:text-blue-100">
+              <span class="i-ri-robot-2-line align-middle mr-2" />
+              AI Summary
+            </h3>
+            <p class="!text-base">
+              {{ post.aiSummary }}
+            </p>
+          </div>
+
+          <img
+            v-if="post.cover"
+            :src="post.cover"
+            :alt="post.title"
+            class="w-full h-auto rounded-lg my-8 shadow-lg"
+          >
+
+          <article
+            class="prose dark:prose-invert max-w-none slide-enter-content"
+          >
+            <div v-if="renderedContent" v-html="renderedContent" />
+            <div v-else class="text-center italic opacity-70">
+              No content available.
+            </div>
+          </article>
+
+          <div class="border-t dark:border-gray-700 my-12" />
+
+          <!-- 评论区 -->
+          <div id="comments" class="w-full">
+            <Suspense>
+              <CommentList :comments="comments" />
+              <template #fallback>
+                <div class="text-center py-8 opacity-70">
+                  Loading comments...
+                </div>
+              </template>
+            </Suspense>
+
+            <div class="mt-10 text-center">
+              <a
+                :href="`https://xlog.pi-dal.com/${post.slug}`"
+                target="_blank"
+                class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded no-underline"
+              >
+                在 xLog 上发表评论
+              </a>
+              <p class="text-sm opacity-60 mt-2">
+                您的评论将永久记录在区块链上
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- TOC Sidebar -->
-    <div
-      v-if="tocItems.length > 0"
-      class="hidden lg:block col-span-3"
-    >
-      <Toc :items="tocItems" />
+      <!-- TOC Sidebar -->
+      <div
+        v-if="tocItems.length > 0"
+        class="hidden lg:block col-span-3"
+      >
+        <Toc :items="tocItems" />
+      </div>
     </div>
   </div>
 </template>

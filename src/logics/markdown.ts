@@ -10,6 +10,7 @@ import MarkdownItMagicLink from 'markdown-it-magic-link'
 // @ts-expect-error missing types
 import TOC from 'markdown-it-table-of-contents'
 import { slugify } from '../../scripts/slugify'
+import { logger } from './logger'
 
 let mdInstance: MarkdownIt | null = null
 
@@ -145,7 +146,7 @@ export async function renderMarkdown(content: string): Promise<string> {
     return md.render(convertedContent)
   }
   catch (error) {
-    console.error('Failed to render markdown:', error)
+    logger.error('Failed to render markdown:', { error, content: content.slice(0, 100) }, 'MARKDOWN')
     // 失败时返回原始内容，用简单的换行处理
     return content.replace(/\n/g, '<br>')
   }

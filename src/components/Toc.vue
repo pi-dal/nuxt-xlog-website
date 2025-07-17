@@ -38,7 +38,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <nav v-if="items.length > 0" class="hidden-toc-nav">
+  <nav v-if="items.length > 0" class="hidden-toc-nav hidden md:flex">
     <!-- 隐藏式目录触发器 -->
     <div class="hidden-toc-trigger" title="目录">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

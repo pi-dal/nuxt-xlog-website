@@ -42,9 +42,6 @@ const { y: scroll } = useWindowScroll()
           <span class="lt-md:hidden">Let's Chat</span>
           <div i-ri-chat-1-line class="md:hidden" />
         </RouterLink>
-        <RouterLink to="/podcasts" title="Podcasts">
-          <div i-ri-mic-line />
-        </RouterLink>
         <RouterLink to="/books" title="Books">
           <div i-ri-book-line />
         </RouterLink>

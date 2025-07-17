@@ -9,7 +9,6 @@ async function generatePageOGImages() {
     { title: 'Posts', filename: 'posts.png' },
     { title: 'Projects', filename: 'projects.png' },
     { title: 'Media', filename: 'media.png' },
-    { title: 'Podcasts', filename: 'podcasts.png' },
     { title: 'Chat with pi-dal', filename: 'chat.png' },
     { title: 'pi-dal\'s Website', filename: 'og.png' },
   ]

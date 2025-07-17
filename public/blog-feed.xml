@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>pi-dal - Blog Posts</title>
+        <link>https://pi-dal.com/blog/</link>
+        <description>pi-dal's Blog Posts</description>
+        <lastBuildDate>Wed, 16 Jul 2025 10:29:44 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <image>
+            <title>pi-dal - Blog Posts</title>
+            <url>https://pi-dal.com/avatar.webp</url>
+            <link>https://pi-dal.com/blog/</link>
+        </image>
+        <copyright>CC BY-NC-SA 4.0 2020 © pi-dal</copyright>
+        <atom:link href="https://pi-dal.com/blog-feed.xml" rel="self" type="application/rss+xml"/>
+    </channel>
+</rss>

@@ -48,9 +48,7 @@ const { y: scroll } = useWindowScroll()
         <a href="https://photography.pi-dal.com" target="_blank" title="Photos">
           <div i-ri-camera-3-line />
         </a>
-        <div class="lt-md:hidden">
-          <RSSMenu />
-        </div>
+        <RSSMenu />
         <ToggleTheme />
       </div>
     </nav>

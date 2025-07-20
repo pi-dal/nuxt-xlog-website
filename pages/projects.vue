@@ -1,9 +1,15 @@
 <script setup lang="ts">
 import type { XLogPortfolio } from '~/types'
 import { onMounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
 
 import ArtPlum from '~/components/ArtPlum.vue'
 import { getPortfolioDirect } from '~/logics/xlog-direct'
+
+const route = useRoute()
+
+// Twitter URL
+const tweetUrl = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Reading @pi_dal's https://pi-dal.com${route.path}\n\nI think...`)}`)
 
 const portfolios = ref<XLogPortfolio[]>([])
 const loading = ref(true)
@@ -117,6 +123,21 @@ onMounted(async () => {
             Projects will show articles tagged with "portfolio" in your xLog.
           </p>
         </div>
+      </div>
+
+      <!-- 底部导航 -->
+      <div class="prose m-auto mt-8 mb-8 slide-enter animate-delay-500 print:hidden">
+        <span class="font-mono opacity-50">> </span>
+        <span class="opacity-50">comment on </span>
+        <a :href="tweetUrl" target="_blank" class="opacity-50 hover:opacity-75">twitter</a>
+        <br>
+        <span class="font-mono opacity-50">> </span>
+        <RouterLink
+          :to="route.path.split('/').slice(0, -1).join('/') || '/'"
+          class="font-mono opacity-50 hover:opacity-75"
+        >
+          cd ..
+        </RouterLink>
       </div>
     </div>
   </div>

@@ -1,29 +1,29 @@
 <script setup lang="ts">
 import type { TocItem } from '~/components/Toc.vue'
-import type { XLogComment, XLogPost } from '~/types'
+import type { XLogPost } from '~/types'
 import { useHead } from '@unhead/vue'
 import { useEventListener } from '@vueuse/core'
 import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 import ArtPlum from '~/components/ArtPlum.vue'
-import CommentList from '~/components/CommentList.vue'
 import Toc from '~/components/Toc.vue'
 import { formatDate } from '~/logics'
 import { useMarkdown } from '~/logics/markdown'
-import { getCommentsDirect, getPostBySlugDirect } from '~/logics/xlog-direct'
+import { getPostBySlugDirect } from '~/logics/xlog-direct'
 
 const route = useRoute()
 const slug = route.params.slug as string
+
+// Twitter URL
+const tweetUrl = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Reading @pi_dal's https://pi-dal.com${route.path}\n\nI think...`)}`)
 
 // 响应式数据
 const post = ref<XLogPost | null>(null)
 const pending = ref(true)
 const error = ref<string | null>(null)
 const renderedContent = ref('')
-const comments = ref<XLogComment[]>([])
 const tocItems = ref<TocItem[]>([])
-const _loading = ref(true)
 
 // Markdown渲染器
 const { render: renderMarkdown } = useMarkdown()
@@ -76,9 +76,6 @@ async function fetchPost() {
           renderedContent.value = foundPost.content.replace(/\n/g, '<br>')
         }
       }
-
-      // 获取评论
-      await fetchComments()
     }
   }
   catch (err) {
@@ -107,20 +104,6 @@ function parseToc() {
     }
   })
   tocItems.value = items
-}
-
-async function fetchComments() {
-  if (!post.value)
-    return
-  try {
-    const { characterId, id: noteId } = post.value
-    if (characterId && noteId) {
-      comments.value = await getCommentsDirect(characterId, noteId)
-    }
-  }
-  catch (commentError) {
-    console.error('Failed to fetch comments:', commentError)
-  }
 }
 
 // 在组件挂载时获取数据
@@ -256,31 +239,19 @@ onMounted(async () => {
             </div>
           </article>
 
-          <div class="border-t dark:border-gray-700 my-12" />
-
-          <!-- 评论区 -->
-          <div id="comments" class="w-full">
-            <Suspense>
-              <CommentList :comments="comments" />
-              <template #fallback>
-                <div class="text-center py-8 opacity-70">
-                  Loading comments...
-                </div>
-              </template>
-            </Suspense>
-
-            <div class="mt-10 text-center">
-              <a
-                :href="`https://xlog.pi-dal.com/${post.slug}`"
-                target="_blank"
-                class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded no-underline"
-              >
-                在 xLog 上发表评论
-              </a>
-              <p class="text-sm opacity-60 mt-2">
-                您的评论将永久记录在区块链上
-              </p>
-            </div>
+          <!-- 底部导航 -->
+          <div class="prose m-auto mt-8 mb-8 slide-enter animate-delay-500 print:hidden">
+            <span class="font-mono opacity-50">> </span>
+            <span class="opacity-50">comment on </span>
+            <a :href="tweetUrl" target="_blank" class="opacity-50 hover:opacity-75">twitter</a>
+            <br>
+            <span class="font-mono opacity-50">> </span>
+            <RouterLink
+              :to="route.path.split('/').slice(0, -1).join('/') || '/'"
+              class="font-mono opacity-50 hover:opacity-75"
+            >
+              cd ..
+            </RouterLink>
           </div>
         </div>
       </div>

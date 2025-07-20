@@ -9,7 +9,7 @@ import { getAllPostsDirect, getBooksDirect, getSiteInfoDirect } from '../src/log
 const DOMAIN = 'https://pi-dal.com'
 const AUTHOR = {
   name: 'pi-dal',
-  email: 'pi-dal@connect.hku.hk',
+  email: 'hi@pi-dal.com',
   link: DOMAIN,
 }
 const markdown = MarkdownIt({

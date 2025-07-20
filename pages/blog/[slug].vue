@@ -171,7 +171,7 @@ onMounted(async () => {
 
 // 设置页面meta
 useHead(() => {
-  const ogImage = post.value?.cover || `https://pi-dal.com/og/${slug}.png`
+  const ogImage = `https://pi-dal.com/og/${slug}.png`
 
   return {
     title: post.value?.title || 'Post',
@@ -266,8 +266,7 @@ useHead(() => {
           </div>
 
           <img
-            v-if="post.cover"
-            :src="post.cover"
+            :src="ogImage"
             :alt="post.title"
             class="w-full h-auto rounded-lg my-8 shadow-lg"
           >

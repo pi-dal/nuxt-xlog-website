@@ -100,9 +100,9 @@ onMounted(fetchPosts)
             class="block transition-colors"
           >
             <!-- 文章封面 -->
-            <div v-if="post.cover" class="mb-4 rounded-lg overflow-hidden">
+            <div class="mb-4 rounded-lg overflow-hidden">
               <img
-                :src="post.cover"
+                :src="`https://pi-dal.com/og/${post.slug}.png`"
                 :alt="post.title"
                 class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
               >

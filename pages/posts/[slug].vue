@@ -249,12 +249,6 @@ onMounted(async () => {
             </div>
           </header>
 
-          <img
-            :src="ogImage"
-            :alt="post.title"
-            class="w-full h-auto rounded-lg my-8 shadow-lg"
-          >
-
           <article
             class="prose dark:prose-invert max-w-none slide-enter-content"
           >

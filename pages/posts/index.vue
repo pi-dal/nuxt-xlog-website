@@ -99,15 +99,6 @@ onMounted(fetchPosts)
             :to="`/posts/${post.slug}`"
             class="block transition-colors"
           >
-            <!-- 文章封面 -->
-            <div class="mb-4 rounded-lg overflow-hidden">
-              <img
-                :src="`https://pi-dal.com/og/${post.slug}.png`"
-                :alt="post.title"
-                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-              >
-            </div>
-
             <!-- 文章信息 -->
             <div>
               <h2 class="text-2xl font-bold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">

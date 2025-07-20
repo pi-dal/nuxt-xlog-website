@@ -4,7 +4,7 @@
         <title>pi-dal - Blog Posts</title>
         <link>https://pi-dal.com/blog/</link>
         <description>pi-dal's Blog Posts</description>
-        <lastBuildDate>Sun, 20 Jul 2025 11:20:51 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 20 Jul 2025 11:41:54 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -138,7 +138,7 @@ $$<br>
 \text{又因为y-z空间的变化为恒等变换，应该有}<br>
 $$<br>
 $$<br>
-a_{22}=a{33}=1 \ , \ a_{23}=a_{32}=0<br>
+a_{22}=a_{33}=1 \ , \ a_{23}=a_{32}=0<br>
 $$<br>
 $$<br>
 \text{再由v=0的变换为恒等变换可知 } \gamma \text{ 为正}<br>

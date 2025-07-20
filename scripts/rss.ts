@@ -104,8 +104,8 @@ async function buildBlogPostsRSS() {
     const options = {
       title: 'pi-dal - Blog Posts',
       description: 'pi-dal\'s Blog Posts',
-      id: 'https://pi-dal.com/blog/',
-      link: 'https://pi-dal.com/blog/',
+      id: 'https://pi-dal.com/posts/',
+      link: 'https://pi-dal.com/posts/',
       copyright: 'CC BY-NC-SA 4.0 2020 © pi-dal',
       feedLinks: {
         rss: 'https://pi-dal.com/blog-feed.xml',
@@ -198,7 +198,7 @@ async function convertXLogPostsToFeedItems(posts: XLogPost[]): Promise<Item[]> {
         postUrl = `${DOMAIN}/posts/${post.slug}`
       }
       else {
-        postUrl = `${DOMAIN}/blog/${post.slug}`
+        postUrl = `${DOMAIN}/posts/${post.slug}`
       }
 
       // 创建feed item

@@ -17,5 +17,7 @@
 
 /photos https://photography.pi-dal.com 301!
 
+/blog/* /posts/:splat 301!
+
 /github https://github.com/pi-dal 301
 /gh https://github.com/pi-dal 301

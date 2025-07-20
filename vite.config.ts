@@ -2,14 +2,13 @@ import { basename, resolve } from 'node:path'
 import MarkdownItShiki from '@shikijs/markdown-it'
 import { transformerNotationDiff, transformerNotationHighlight, transformerNotationWordHighlight } from '@shikijs/transformers'
 import { rendererRich, transformerTwoslash } from '@shikijs/twoslash'
+import MarkdownItKatex from '@traptitech/markdown-it-katex'
 import Vue from '@vitejs/plugin-vue'
 import fs from 'fs-extra'
 import matter from 'gray-matter'
 import anchor from 'markdown-it-anchor'
 // @ts-expect-error missing types
 import GitHubAlerts from 'markdown-it-github-alerts'
-// @ts-expect-error missing types
-import MarkdownItKatex from 'markdown-it-katex'
 import LinkAttributes from 'markdown-it-link-attributes'
 import MarkdownItMagicLink from 'markdown-it-magic-link'
 // @ts-expect-error missing types
@@ -111,6 +110,26 @@ export default defineConfig({
         quotes: '""\'\'',
       },
       async markdownItSetup(md) {
+        // 首先添加 LaTeX 数学公式支持 (必须在其他插件之前)
+        md.use(MarkdownItKatex, {
+          throwOnError: false,
+          errorColor: '#cc0000',
+          strict: 'ignore',
+          trust: (context: any) => context.command !== '\\url',
+          displayMode: false,
+          fleqn: false,
+          leqno: false,
+          output: 'html',
+          macros: {
+            '\\text': '\\textrm',
+            '\\RR': '\\mathbb{R}',
+            '\\NN': '\\mathbb{N}',
+            '\\ZZ': '\\mathbb{Z}',
+            '\\QQ': '\\mathbb{Q}',
+            '\\CC': '\\mathbb{C}',
+          },
+        })
+
         md.use(await MarkdownItShiki({
           themes: {
             dark: 'vitesse-dark',
@@ -174,8 +193,6 @@ export default defineConfig({
         })
 
         md.use(GitHubAlerts)
-
-        md.use(MarkdownItKatex)
       },
       frontmatterPreprocess(frontmatter, options, id, defaults) {
         (() => {

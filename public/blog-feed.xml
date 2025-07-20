@@ -4,7 +4,7 @@
         <title>pi-dal - Blog Posts</title>
         <link>https://pi-dal.com/blog/</link>
         <description>pi-dal's Blog Posts</description>
-        <lastBuildDate>Fri, 18 Jul 2025 05:11:02 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 20 Jul 2025 11:20:51 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -14,6 +14,398 @@
         </image>
         <copyright>CC BY-NC-SA 4.0 2020 © pi-dal</copyright>
         <atom:link href="https://pi-dal.com/blog-feed.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[如何用四维矢量来解决狭义相对论问题（基础的时空与碰撞的变换）]]></title>
+            <link>https://pi-dal.com/posts/STR-Four-Vector</link>
+            <guid>112</guid>
+            <pubDate>Sun, 20 Jul 2025 11:05:34 GMT</pubDate>
+            <description><![CDATA[在学习物理竞赛的过程中，我曾发现中文资料中关于狭义相对论( STR )四维矢量的文章乃至书籍都极为稀缺。鉴于此，我希望能结合个人所学，撰写一篇相关文章，以期为有志于此的同学提供一份学习参考。  为什么要使用四维矢量 在学习STR的时候，我时常会为各种场景的“本征”状态而烦恼，很多练习题的解析甚至是题目本身存在着一定的谬误，这也是我对场景的理解变得紊乱。可是用这种“经典”的变换式为什么会感到这么的违...]]></description>
+            <content:encoded><![CDATA[<p>在学习物理竞赛的过程中，我曾发现中文资料中关于狭义相对论( STR )四维矢量的文章乃至书籍都极为稀缺。鉴于此，我希望能结合个人所学，撰写一篇相关文章，以期为有志于此的同学提供一份学习参考。</p>
+<h2>为什么要使用四维矢量</h2>
+<p>在学习STR的时候，我时常会为各种场景的“本征”状态而烦恼，很多练习题的解析甚至是题目本身存在着一定的谬误，这也是我对场景的理解变得紊乱。可是用这种“经典”的变换式为什么会感到这么的违反直觉？究其根本，大概是我们脑中对时间，空间的理解建立在经典的<strong>伽利略时空</strong>，可是这在爱因斯坦的狭义相对论理论是行不通的，因为它的时空并不是独立的，这基于狭义相对论的两个公设：</p>
+<ol>
+<li>光速不变原理：<strong>真空中的光速</strong>在所有惯性参考系中都是同一个常数，与光源和观察者的运动状态无关。</li>
+<li>相对性原理：物理定律在所有惯性参考系中的形式都相同；不存在一个“绝对静止”的惯性系。</li>
+</ol>
+<p>根据这些我们可以得到什么结论呢？<br>
+$$<br>
+由光速不变，我们可以导出<br>
+x^2+y^2+z^2-c^2t^2=0<br>
+$$<br>
+这一结论的导出只需设想不同时间段两束光的波阵面的方程即可得到（这里不再赘述，比较不是介绍STR的基础文章）</p>
+<p>看到这里，既然是旧有的时空体系导致了理解的复杂度，那么是否有一种方式来解决呢。答案是肯定的，闵可夫斯基就提出了这样的一种空间，因为其实狭义相对论本质上就是洛伦兹群的不变式的理论，故而只要构造这样的一种时空，便可以优雅地解决这个问题，那就是闵可夫斯基时空。</p>
+<h2>闵可夫斯基时空中的基础四维矢量</h2>
+<h1>由上述的不变式<br>
+$$<br>
+x^2+y^2+z^2-c^2t^2=0<br>
+$$<br>
+我们可以得到第一组四维矢量<br>
+$$<br>
+(x,y,z,ict)<br>
+$$<br>
+很显然它在任何情况下模长都为0。那么如何由他得到基础的洛伦兹变换呢？也即是 (x,y,z,ict) 与 (x',y',z',ict')的关系。<br>
+$$<br>
+\text{从一般变化式出发}<br>
+$$<br>
+$$<br>
+\begin{pmatrix}<br>
+x' \<br>
+y' \<br>
+z' \<br>
+ict'<br>
+\end{pmatrix}</h1>
+<h1>\begin{pmatrix}<br>
+a_{11} &amp; a_{12} &amp; a_{13} &amp; a_{14} \<br>
+a_{21} &amp; a_{22} &amp; a_{23} &amp; a_{24} \<br>
+a_{31} &amp; a_{32} &amp; a_{33} &amp; a_{34} \ % 这里修正了a_31, a_32，如果原意就是a_31,a_31可以改回去<br>
+a_{41} &amp; a_{42} &amp; a_{43} &amp; a_{44}<br>
+\end{pmatrix}<br>
+\begin{pmatrix}<br>
+x \<br>
+y \<br>
+z \<br>
+ict<br>
+\end{pmatrix}<br>
+$$<br>
+$$<br>
+\text{接下来就是考虑坐标原点 $O$ 在 $S'$ 系中的运动方程}<br>
+$$<br>
+$$<br>
+x' = a_{14} t \ , \quad y' = a_{24} t \ , \ z'=a_{34} t \ , \ t'=a_{44} t<br>
+$$<br>
+$$<br>
+\text{所以有}<br>
+$$<br>
+$$<br>
+v_x'=\frac{dx'}{dt'}=-v \ , \ v_y'=\frac{dy'}{dt'}=0 \ , \ v_z'=\frac{dz'}{dt'}=0<br>
+$$<br>
+$$<br>
+\text{对坐标原点O'，应有速度关系}<br>
+$$<br>
+$$<br>
+\begin{gathered} % 这些密切相关的公式可以放在一个gathered里<br>
+a_{11}v_x+a_{12}v_y+a_{13}v_z+a_{14}=0 \<br>
+a_{21}v_x+a_{22}v_y+a_{23}v_z+a_{24}=0 \<br>
+a_{31}v_x+a_{32}v_y+a_{33}v_z+a_{34}=0<br>
+\end{gathered}<br>
+$$<br>
+$$<br>
+\text{又有速度}<br>
+$$<br>
+$$<br>
+v_x=x \ , \ v_y=0 \ , \ v_z=0<br>
+$$<br>
+$$<br>
+\text{不妨令}<br>
+$$<br>
+$$<br>
+a_{44}=\gamma<br>
+$$<br>
+$$<br>
+\text{则由以上式子可以得到}<br>
+$$<br>
+$$<br>
+\begin{gathered} % 这些密切相关的公式可以放在一个gathered里<br>
+x'=\gamma x+a_{12}y+a_{13}z-\gamma vt \<br>
+y'=a_{22}y+a{23}z \<br>
+z'=a_{32}y+a{33}z \<br>
+t'=a_{41}x+a_{12}y+a_{13}z+\gamma t<br>
+\end{gathered}<br>
+$$<br>
+$$<br>
+\text{将上式代入}<br>
+$$<br>
+$$<br>
+x'^2+y'^2+z'^2-c^2t'^2=0<br>
+$$<br>
+$$<br>
+\text{再加上位置空间的各向异性得}<br>
+$$<br>
+$$<br>
+x'^2+y'^2+z'^2-c^2t'^2=x^2+y^2+z^2-c^2t^2<br>
+$$<br>
+$$<br>
+\text{由系数对比可知}<br>
+$$<br>
+$$<br>
+\begin{gathered} % 这些密切相关的公式可以放在一个gathered里<br>
+\gamma = \pm \frac{1}{\sqrt{1-\beta^2}} \ , \ \beta=\frac{v}{c} \<br>
+a_{41}=\frac{\gamma v}{c^2} \ , \ a_{12}=a_{13}=a_{42}=a_{43}=0 \<br>
+a_{22}^2+a_{23}^2=a_{32}^2+a_{33}^2=1 \ , \ a_{22}a_{23}+a_{32}a_{33}=0<br>
+\end{gathered}<br>
+$$<br>
+$$<br>
+\text{又因为y-z空间的变化为恒等变换，应该有}<br>
+$$<br>
+$$<br>
+a_{22}=a{33}=1 \ , \ a_{23}=a_{32}=0<br>
+$$<br>
+$$<br>
+\text{再由v=0的变换为恒等变换可知 } \gamma \text{ 为正}<br>
+$$<br>
+$$<br>
+\text{综上可得到}<br>
+$$<br>
+$$<br>
+\begin{pmatrix}<br>
+x' \<br>
+y' \<br>
+z' \<br>
+ict'<br>
+\end{pmatrix}</h1>
+<p>\begin{pmatrix}<br>
+\gamma &amp; 0 &amp; 0 &amp; i \gamma \beta \<br>
+0 &amp; 1 &amp; 0 &amp; 0 \<br>
+0 &amp; 0 &amp; 1 &amp; 0 \<br>
+-i \gamma \beta &amp; 0 &amp; 0 &amp; \gamma<br>
+\end{pmatrix}<br>
+\begin{pmatrix}<br>
+x \<br>
+y \<br>
+z \<br>
+ict<br>
+\end{pmatrix}<br>
+$$<br>
+这就是最基础的时空坐标四维矢量，那么还有哪些比较基础的四维矢量呢</p>
+<ol>
+<li>四维波矢$$k_p=(k_x \ ,\ k_y \ , \ k_z \ , \ i\frac{\omega}{c})$$可以通过$$kr-wt=0$$来理解</li>
+<li>四维电流密度矢量$$j_p=(j_x \ ,\ j_y \ , \ j_z \ , \ ic\rho)$$可以通过$$\nabla j + \frac{\partial \rho}{\partial t}=0$$来理解</li>
+<li>四维动量矢量$$p_\mu = (p_x \ ,\ p_y \ , \ p_z \ , \ i\frac{W}{c})$$</li>
+</ol>
+<blockquote>
+<p>其实我们可以用这些量来推导很多的四维矢量<br>
+比如四维速度，就是对时空坐标进行微分，不难得到<br>
+$$U_\mu = \frac{dx_\mu}{d\tau}=\gamma(u,ic)$$<br>
+不难看出<br>
+$$p_\mu = mU_\mu \ , \ j_p=\rho U_p$$<br>
+而对于动力学，对P进行微分既可以得到四维力矢量K，这里不再赘述（btw，其实他也可以用四维加速度去得到，有兴趣的读者可以自己推导一下）</p>
+</blockquote>
+<h2>四维矢量的特性</h2>
+<p>其实讲了这么多，我们还是没有很好介绍一下四维矢量的特性，但这是我们后边解决实际问题的关键，下面我来介绍一下几个四维矢量的特性</p>
+<h3>洛伦兹协变性</h3>
+<p>这是四维矢量的一个重要性质，下面我们来推导一下<br>
+$$<br>
+\text{对一个四维矢量}<br>
+X_i=(x_1 \ , \ x_2 \ , \ x_3 \ , \ x_4)<br>
+$$<br>
+$$<br>
+\text{我们可以使用一下闵可夫斯基度规}<br>
+$$<br>
+$$<br>
+\eta_{\mu \nu} =<br>
+\begin{pmatrix}<br>
+-1 &amp; 0 &amp; 0 &amp; 0 \<br>
+0 &amp; -1 &amp; 0 &amp; 0 \<br>
+0 &amp; 0 &amp; -1 &amp; 0 \<br>
+0 &amp; 0 &amp; 0 &amp; +1<br>
+\end{pmatrix}<br>
+$$<br>
+$$<br>
+\text{可以看出来他是一个实对称矩阵，会有}<br>
+$$<br>
+$$<br>
+\eta_{\mu \nu}^T=\eta_{\mu \nu}=\eta_{\mu \nu}^{-1}<br>
+$$<br>
+$$<br>
+\text{在这种情况下构造的四维矢量就可以满足洛伦兹不变性}<br>
+$$<br>
+$$<br>
+\text{在这种度规下，我们可以看到他们的内积}<br>
+$$<br>
+$$<br>
+X^i \circ Y^i =  -x_1 \cdot y_1 -x_2 \cdot y_2-x_3 \cdot y_3+x_4 \cdot y_4 = X_i \cdot Y^i % 注意这里Y^j我改成了Y^i，和X^i保持一致，否则内积定义有歧义。如果原意就是J，请自行改回<br>
+$$<br>
+$$<br>
+\text{又是因为洛伦兹变换矩阵式厄米特矩阵，可以得到}<br>
+$$<br>
+$$<br>
+\begin{gathered} % 这一部分是一个推导过程，多行放在一起比较合适<br>
+X'<em>i = (X^i)^T \cdot \eta = (L \cdot X^i)^T \cdot \eta = (X^i)^T \cdot L^T \cdot \eta = (X^i)^T \cdot L \cdot \eta \[8pt] % 这里增加了行间距<br>
+= (X^i)^T \cdot (\eta \cdot \eta^{-1}) \cdot L \cdot \eta = [(X^i)^T \cdot \eta] \cdot [\eta^{-1} \cdot L \cdot \eta] = X_i \cdot L^{-1}<br>
+\end{gathered}<br>
+$$<br>
+$$<br>
+\text{所以对四维矢量有}<br>
+$$<br>
+$$<br>
+\begin{gathered} % 这一部分也是一个推导过程，多行放在一起比较合适<br>
+X^{i'} \circ Y^{i'} = X'</em>{i} \cdot Y^{i'} = (X_i \cdot L^{-1}) \cdot (L \cdot Y^i) \[8pt] % 这里增加了行间距<br>
+= X_i \cdot (L^{-1} \cdot L) \cdot Y^i = X_i \cdot Y^i = X^i \circ Y^i<br>
+\end{gathered}<br>
+$$<br>
+$$<br>
+\text{这就证明了洛伦兹协变性：}<br>
+$$<br>
+$$<br>
+\text{在经过洛伦兹变换后，四维矢量内积数值保持不变}<br>
+$$</p>
+<h3>一些特殊四维矢量的内积与守恒</h3>
+<ol>
+<li>四维速度的内积<br>
+$$U \circ U =U \circ U =c^2$$</li>
+<li>四维动量的内积<br>
+$$<br>
+P \circ U = m(U \circ U)=mc^2=E_0 \ , <br>
+P \circ P = m^2c^2<br>
+$$</li>
+<li>四维动量是守恒的</li>
+</ol>
+<blockquote>
+<p>你是否注意到因为洛伦兹协变性，我们可以得到<br>
+$$<br>
+P \circ P = (\frac{E_{tot}}{c})^2 - p^2 \ , <br>
+P' \circ P' = (\frac{E_0}{c})^2<br>
+$$<br>
+这就是著名的相对论能量-动量关系<br>
+$$E_{tot}^2 = E_0^2 + p^2c^2$$<br>
+那么这样的话对光子就有<br>
+$$<br>
+E_{tot}=p \cdot c \ , <br>
+P \circ P = 0<br>
+$$</p>
+</blockquote>
+<h2>四维矢量解决各类时空与碰撞问题的妙用</h2>
+<h3>相对论情形下的多普勒效应</h3>
+<p>由四维波矢，可以得到<br>
+$$<br>
+k'_x = \gamma\left(k_x - \frac{v}{c^2}\omega\right) \ , \ k'_y = k_y \ , \ k'_z = k_z \ , \ \omega' = \gamma(\omega - v k_x)<br>
+$$<br>
+即有<br>
+$$ \omega' = \gamma\omega(1 - \frac{v}{c}cos\theta) $$<br>
+这就是相对论情形下的多普勒效应</p>
+<h3>粒子碰撞堙灭产生光子</h3>
+<p><img src="ipfs://QmWiEvNNRqwNHLR5kWSjtMKs7MUCYsGkvNNWGFKrRLEs5K" alt="pair_annihilation_hd"></p>
+<p>对各个粒子，会有以下四维动量：</p>
+<ol>
+<li>入射粒子：$$P_1=\gamma m \cdot (v \ , \ 0 \ , \ 0 , \ ic)$$</li>
+<li>静止粒子：$$P_2=M \cdot (0 \ , \ 0 \ , \ 0 , \ ic)$$</li>
+<li>垂直出射的光子束：$$P_3=\frac{hf_1}{c} \cdot (0 \ , \ 1 \ , \ 0 \ , \ i)$$</li>
+<li>倾斜出射的光子束：$$P_4=\frac{hf_2}{c} \cdot (cos(\theta) \ , \ -sin(\theta) \ , \ 0 \ , \ i)$$<br>
+由四维动量守恒有 $$P_1 + P_2 = P_3 + P_4$$<br>
+可以得到：<br>
+$$\begin{gathered}<br>
+E_1 + E_2 = E_3 + E_4\<br>
+E_1 \cdot \frac{v}{c} = E_4 \cdot cos(\theta) \<br>
+E_3 = -E_4 \cdot sin(\theta)<br>
+\end{gathered}<br>
+$$<br>
+所以可以有<br>
+$$<br>
+\begin{gathered}<br>
+E_4^2 - E_3^2=E_1^2 \cdot \frac{v^2}{c^2} \<br>
+(E_1 + E_2) \cdot (E_4 - E_3)=E_4^2 - E_3^2 \<br>
+E_4 - E_3 = \frac{E_1^2 \cdot \frac{v^2}{c^2}}{E_1 + E_2}<br>
+\end{gathered}<br>
+$$<br>
+又有$$\frac{v^2}{c^2} = 1 - \frac{1}{\gamma^2} = 1 - \frac{E_2^2}{E_1^2} = \frac{E_1^2 - E_2^2}{E_1^2}$$<br>
+得到$$2 \cdot E_4 = E_1 + E_2 + \frac{E_1^2}{E_1+E_2} \cdot \frac{E_1^2-E_2^2}{E_1^2} = E_1 + E_2 + E_1 - E_2 = 2 \cdot E_1$$<br>
+所以<br>
+$$\begin{gathered}<br>
+E_1 = E_4 \<br>
+E_2 = E_3<br>
+\end{gathered}<br>
+$$<br>
+得到了<br>
+$$cos(\theta) = \frac{v}{c} = \sqrt{1 - \frac{E_2^2}{E_1^2}}$$</li>
+</ol>
+<h3>光照射粒子产生新粒子</h3>
+<p><img src="ipfs://QmbEfwP45sxa7SRFwmNb6gDAr9qMPm21L4UaujckECB9zi" alt="pair_production_hd"></p>
+<p>对各个粒子，会有以下四维动量：</p>
+<ol>
+<li>入射的光：$$P_1=\frac{hf}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
+<li>静止粒子$$P_2=M \cdot (0 \ , \ 0 \ , \ 0 \ , \ ic)$$</li>
+<li>新粒子$$P_3$$<br>
+由四维动量守恒可以得到$$P_1 + P_2 = P_3$$<br>
+平方有$$P_1 \circ P_1+2 P_1 \circ P_2+P_2 \circ P_2=P_3 \circ P_3$$<br>
+若原来的粒子相当中&gt;&gt;新的粒子，则有：<br>
+$$0 + 2 \cdot h \cdot f \cdot M + (M \cdot c)^2 \approx (M + 2 \cdot m)^2 \cdot c^2$$<br>
+化简就可以得到$$h \cdot f \approx 2 \cdot m_0 \cdot c^2 + 2 \cdot m_0^2 \cdot c^2 / M = 2 \cdot m_0 \cdot c^2 \cdot \left(1 + \frac{m_0}{M}\right)$$</li>
+</ol>
+<blockquote>
+<p>由此可知：如果涉及的粒子是电子，那么入射量子的能量必须至少是产生粒子的静止能量的两倍。</p>
+</blockquote>
+<h3>粒子的完全非弹性碰撞生成一个新粒子</h3>
+<p><img src="ipfs://QmTJ7dRaV5mqWUs7pmeKfcnHdJEPoBbu4Wh4TcJpYcymG7" alt="relativistic_collision_hd"></p>
+<p>对各个粒子，有以下四维矢量：</p>
+<ol>
+<li>入射粒子：$$P_1$$</li>
+<li>被入射粒子：$$P_2$$</li>
+<li>生成粒子 ：$$P_3$$<br>
+由四维动量守恒可得：$$P_1 + P_2 = P_3$$<br>
+平方可得$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3$$<br>
+即为$$m_1^2 + 2 \gamma_1 \gamma_2m_1m_2 \cdot \frac{(c^2-v_1v_2)}{c^2} + m_2^2 = m_3^2$$<br>
+这就可以得到$$m_3$$<br>
+而由四维动量守恒可以得到：$$v_3 = \frac{\gamma_1 \cdot m_1 \cdot v_1 + \gamma_2 \cdot m_2 \cdot v_2}{\gamma_1 \cdot m_1 + \gamma_2 \cdot m_2}$$</li>
+</ol>
+<h3>粒子的完全弹性碰撞</h3>
+<p><img src="ipfs://QmY97pBhJFpUn4LVsAmof4t3CqjZz3iYmiqrDBKSc5dQ8G" alt="elastic_collision_theta_alpha_hd"></p>
+<p>对各个粒子，有以下四维矢量：</p>
+<ol>
+<li>入射粒子：$$P_1=\gamma_1 m \cdot (v \ , \ 0 \ , \ 0 , \ ic)$$</li>
+<li>静止粒子：$$P_2=M \cdot (0 \ , \ 0 \ , \ 0 , \ ic)$$</li>
+<li>生成粒子1：$$P_3 = \gamma_3 M \cdot (wcos(\theta) \ , \ wsin(\theta) \ , \ 0 \ , \ ic)$$</li>
+<li>生成粒子2：$$P_4 = \gamma_4 m \cdot (wcos(\alpha) \ , \ wsin(\alpha) \ , \ 0 \ , \ ic)$$<br>
+由四维动量守恒有 $$P_1 + P_2 = P_3 + P_4$$<br>
+平方可以得到$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3 +P_4 \circ P_4 + 2P_3 \circ P_4$$<br>
+又因为$$P_1 \circ P_3 + P_2 \circ P_3 = P_3 \circ P_3 + P_4 \circ P_3 = P_3 \circ P_3 + P_1 \circ P_2$$<br>
+可以得到$$<br>
+\begin{gathered}<br>
+P_1 \circ P_3 = \gamma_1 \cdot \gamma_3 \cdot m \cdot M \cdot (c^2 - v \cdot w \cdot \cos(\alpha))\<br>
+P_2 \circ P_3 = \gamma_3 \cdot M^2 \cdot c^2, P_3 \circ P_3 = M^2 \cdot c^2 \<br>
+P_1 \circ P_2 = \gamma_1 \cdot m \cdot M \cdot c^2<br>
+\end{gathered}<br>
+$$<br>
+可以解得$$w = \frac{2 \cdot \left(1+\frac{M}{m}\cdot \frac{1}{\gamma_1}\right) \cdot v \cdot \cos(\alpha)}{\left(1+\frac{M}{m}\cdot \frac{1}{\gamma_1}\right)^2 + v^2 \cdot \cos^2(\alpha)}<br>
+$$<br>
+由能量守恒和动量守恒便可以解得了<br>
+$$<br>
+\begin{gathered}<br>
+\gamma_4 = \gamma_1 + \frac{M}{m} - \frac{M}{m} \cdot \gamma_3 \<br>
+r_x = \left(\gamma_1 \cdot v - \gamma_w \cdot \frac{M}{m} \cdot w_x\right)/\gamma_r \<br>
+w_x = w \cdot cos(\alpha) \<br>
+\beta = \sin^{-1}(r_x/r)<br>
+\end{gathered}<br>
+$$</li>
+</ol>
+<h3>康普顿散射</h3>
+<p><img src="ipfs://QmeRvop5dyJsTxmaCYu56J4Bczbt8pR3J513bNjKuC27ph" alt="compton_scattering_hd"></p>
+<p>对各个粒子，有以下四维矢量：</p>
+<ol>
+<li>入射的光：$$P_1=\frac{hf}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
+<li>静止粒子$$P_2=m \cdot (0 \ , \ 0 \ , \ 0 \ , \ ic)$$</li>
+<li>新粒子1$$P_3 = \frac{hf'}{c} \cdot (cos(\theta) \ , \ sin(\theta) \ , \ 0 \ , \ i)$$</li>
+<li>新粒子2$$P_4 = \gamma m \cdot ( \vec{v}\ , \ ic)$$<br>
+由四维动量守恒有 $$P_1 + P_2 = P_3 + P_4$$<br>
+平方可以得到$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3 +P_4 \circ P_4 + 2P_3 \circ P_4$$<br>
+即是$$P_1 \circ P_2 = P_3 \circ P_4$$<br>
+又因为$$P_1 \circ P_3 + P_2 \circ P_3 = P_3 \circ P_3 + P_4 \circ P_3 = P_1 \circ P_2$$<br>
+即是$$\frac{h}{\lambda} \cdot \frac{h}{\lambda'}(1-\cos \theta)+m_0 \cdot c \cdot \frac{h}{\lambda'}=m_0 \cdot c \cdot \frac{h}{\lambda}$$<br>
+得到了$$\lambda'-\lambda = \frac{h}{m_0\cdot c} \cdot (1-\cos \theta)$$<br>
+这就是康普顿散射的经典结论！</li>
+</ol>
+<h3>逆康普顿散射</h3>
+<p><img src="ipfs://QmaAnPA7hPVCzb693hvLysqvXtEa5PM3UnUqNMGkq8BAWw" alt="inverse_compton_scattering_hd"></p>
+<p>对各个粒子，有以下四维矢量：</p>
+<ol>
+<li>入射的光：$$P_1=\frac{hf}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
+<li>高速粒子$$P_2 = \gamma_2 m \cdot (v \ , \ 0 \ , \ 0 \ , \ ic)$$</li>
+<li>新粒子1$$P_3 = \frac{hf'}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
+<li>新粒子2$$P_4 = \gamma_4 m \cdot (v' \ , \ 0 \ , \ 0 \ , \ ic)$$<br>
+由四维动量守恒有 $$P_1 + P_2 = P_3 + P_4$$<br>
+平方可以得到$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3 +P_4 \circ P_4 + 2P_3 \circ P_4$$<br>
+即是$$P_1 \circ P_2 = P_3 \circ P_4$$<br>
+又因为$$P_1 \circ P_3 + P_2 \circ P_3 = P_3 \circ P_3 + P_4 \circ P_3 = P_1 \circ P_2$$即是$$\frac{2}{\gamma_2 m c^2} \cdot h \cdot f \cdot h \cdot f' + h \cdot f' \cdot \left(1-\frac{v}{c}\right) = h \cdot f \cdot \left(1+\frac{v}{c}\right) \approx 2 \cdot h \cdot f$$<br>
+若v接近于c，会有$$h \cdot f' \cdot \left(\frac{1}{\gamma_2 m_0 c^2} \cdot h \cdot f + \frac{1}{2} \cdot \left(1-\frac{v}{c}\right)\right) = h \cdot f$$<br>
+这就得到了f与f‘的关系！</li>
+</ol>
+<h2>对四维矢量的思考</h2>
+<p>我希望这篇基础的介绍性文章可以给你一些启示，但其实四维矢量的妙用远不只于此，鉴于篇幅问题这篇文章便想在此作结了（也许后边可以开个系列记录一下：P 我们看到四维矢量为理解相对论现象提供了统一且优雅的数学框架，希望这些可以给你一些启示与思考，也许有时候抽象的数学工具可以大大推动我们对物理的思考。</p>
+<blockquote>
+<p>PS：对于四维矢量可不可以再中学物理竞赛使用的问题，我目前的经验是对于极其有把握的题目可以尝试，但是一旦出错不要有念想会有过程的分数，没办法物理竞赛也是应试，最基础的最经典的方法往往最受青睐（但是四维矢量用来验证还是很好的：D</p>
+</blockquote>
+]]></content:encoded>
+            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+        </item>
         <item>
             <title><![CDATA[2023年物竞外出培训—杭州行 ]]></title>
             <link>https://pi-dal.com/posts/2023-Hangzhou-Travelling</link>

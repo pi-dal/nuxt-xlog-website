@@ -1,5 +1,6 @@
 import MarkdownItShiki from '@shikijs/markdown-it'
 import { transformerNotationDiff, transformerNotationHighlight, transformerNotationWordHighlight } from '@shikijs/transformers'
+import MarkdownItKatex from '@traptitech/markdown-it-katex'
 import MarkdownIt from 'markdown-it'
 // import { rendererRich, transformerTwoslash } from '@shikijs/twoslash' // Temporarily disabled due to client-side loading issues
 import anchor from 'markdown-it-anchor'
@@ -58,6 +59,26 @@ export async function createMarkdownRenderer(): Promise<MarkdownIt> {
     linkify: true,
     typographer: true,
     quotes: '""\'\'',
+  })
+
+  // 首先添加 LaTeX 数学公式支持 (必须在其他插件之前)
+  md.use(MarkdownItKatex, {
+    throwOnError: false,
+    errorColor: '#cc0000',
+    strict: 'ignore',
+    trust: (context: any) => context.command !== '\\url',
+    displayMode: false,
+    fleqn: false,
+    leqno: false,
+    output: 'html',
+    macros: {
+      '\\text': '\\textrm',
+      '\\RR': '\\mathbb{R}',
+      '\\NN': '\\mathbb{N}',
+      '\\ZZ': '\\mathbb{Z}',
+      '\\QQ': '\\mathbb{Q}',
+      '\\CC': '\\mathbb{C}',
+    },
   })
 
   // 添加Shiki代码高亮

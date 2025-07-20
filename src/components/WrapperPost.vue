@@ -73,12 +73,10 @@ onMounted(() => {
 const ArtComponent = computed(() => {
   let art = frontmatter.art
   if (art === 'random')
-    art = 'plum' // Math.random() > 0.5 ? 'plum' : 'dots'
+    art = 'plum'
   if (typeof window !== 'undefined') {
     if (art === 'plum')
       return defineAsyncComponent(() => import('./ArtPlum.vue'))
-    // else if (art === 'dots')
-    //   return defineAsyncComponent(() => import('./ArtDots.vue'))
   }
   return undefined
 })

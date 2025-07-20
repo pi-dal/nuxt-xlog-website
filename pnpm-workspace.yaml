@@ -2,7 +2,6 @@ packages: []
 catalog:
   '@vercel/og': ^0.6.5
   katex: ^0.16.22
-  markdown-it-katex: ^2.0.3
   sakuin: ^0.2.16
   satori: ^0.12.1
   ts-node: ^10.9.2
@@ -11,6 +10,7 @@ catalogs:
     '@shikijs/markdown-it': ^3.2.1
     '@shikijs/transformers': ^3.2.1
     '@shikijs/twoslash': ^3.2.1
+    '@traptitech/markdown-it-katex': ^3.6.0
     '@unocss/preset-web-fonts': ^66.0.0
     '@vitejs/plugin-vue': ^5.2.1
     gray-matter: ^4.0.3

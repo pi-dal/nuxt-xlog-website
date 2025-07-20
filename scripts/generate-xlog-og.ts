@@ -121,8 +121,16 @@ async function generateXLogOGImages() {
     const xlogHandle = process.env.XLOG_HANDLE || 'pi-dal'
     console.log(`📝 Fetching posts from xLog handle: ${xlogHandle}`)
 
-    // First, get the character ID
-    const character = await fetchCharacterByHandle(xlogHandle)
+    // First, get the character ID with timeout handling
+    let character
+    try {
+      character = await fetchCharacterByHandle(xlogHandle)
+    }
+    catch (error) {
+      console.warn(`⚠️  Failed to fetch character data: ${error}`)
+      console.log(`📝 Skipping OG image generation due to API timeout`)
+      return
+    }
     if (!character) {
       console.log(`❌ Character not found for handle: ${xlogHandle}`)
       return
@@ -130,8 +138,16 @@ async function generateXLogOGImages() {
 
     console.log(`👤 Found character: ${character.handle} (ID: ${character.characterId})`)
 
-    // Fetch all notes for this character
-    const notes = await fetchXLogPosts(Number(character.characterId), 100)
+    // Fetch all notes for this character with timeout handling
+    let notes
+    try {
+      notes = await fetchXLogPosts(Number(character.characterId), 100)
+    }
+    catch (error) {
+      console.warn(`⚠️  Failed to fetch posts: ${error}`)
+      console.log(`📝 Skipping OG image generation due to API timeout`)
+      return
+    }
 
     if (!notes || notes.length === 0) {
       console.log('📭 No notes found')

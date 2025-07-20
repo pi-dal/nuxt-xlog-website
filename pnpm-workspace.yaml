@@ -1,6 +1,8 @@
 packages: []
 catalog:
   '@vercel/og': ^0.6.5
+  katex: ^0.16.22
+  markdown-it-katex: ^2.0.3
   sakuin: ^0.2.16
   satori: ^0.12.1
   ts-node: ^10.9.2

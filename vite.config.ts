@@ -8,6 +8,8 @@ import matter from 'gray-matter'
 import anchor from 'markdown-it-anchor'
 // @ts-expect-error missing types
 import GitHubAlerts from 'markdown-it-github-alerts'
+// @ts-expect-error missing types
+import MarkdownItKatex from 'markdown-it-katex'
 import LinkAttributes from 'markdown-it-link-attributes'
 import MarkdownItMagicLink from 'markdown-it-magic-link'
 // @ts-expect-error missing types
@@ -172,6 +174,8 @@ export default defineConfig({
         })
 
         md.use(GitHubAlerts)
+
+        md.use(MarkdownItKatex)
       },
       frontmatterPreprocess(frontmatter, options, id, defaults) {
         (() => {

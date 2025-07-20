@@ -15,6 +15,9 @@ catalogs:
     '@shikijs/twoslash':
       specifier: ^3.2.1
       version: 3.2.1
+    '@traptitech/markdown-it-katex':
+      specifier: ^3.6.0
+      version: 3.6.0
     '@unocss/preset-web-fonts':
       specifier: ^66.0.0
       version: 66.0.0
@@ -299,7 +302,7 @@ importers:
         specifier: catalog:build
         version: 3.2.1(typescript@5.8.2)
       '@traptitech/markdown-it-katex':
-        specifier: ^3.6.0
+        specifier: catalog:build
         version: 3.6.0
       '@types/d3-hierarchy':
         specifier: catalog:types

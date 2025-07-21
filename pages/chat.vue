@@ -11,9 +11,6 @@ import { getPostsByTagDirect } from '~/logics/xlog-direct'
 
 const route = useRoute()
 
-// Twitter URL
-const tweetUrl = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Reading @pi_dal's https://pi-dal.com${route.path}\n\nI think...`)}`)
-
 // SEO
 useHead({
   title: 'Chat With Me - pi-dal',
@@ -150,10 +147,6 @@ onMounted(fetchChatContent)
 
     <!-- 底部导航 -->
     <div class="prose m-auto mt-8 mb-8 slide-enter animate-delay-500 print:hidden">
-      <span class="font-mono opacity-50">> </span>
-      <span class="opacity-50">comment on </span>
-      <a :href="tweetUrl" target="_blank" class="opacity-50 hover:opacity-75">twitter</a>
-      <br>
       <span class="font-mono opacity-50">> </span>
       <RouterLink
         :to="route.path.split('/').slice(0, -1).join('/') || '/'"

@@ -243,7 +243,9 @@ onMounted(async () => {
           <div class="prose dark:prose-invert max-w-none mt-8 mb-8 slide-enter animate-delay-500 print:hidden">
             <span class="font-mono opacity-50">> </span>
             <span class="opacity-50">comment on </span>
-            <a :href="tweetUrl" target="_blank" class="opacity-50 hover:opacity-75">twitter</a>
+            <a :href="tweetUrl" target="_blank" class="opacity-50 hover:opacity-75">
+              <div class="i-ri-twitter-x-line inline-block" />
+            </a>
             <br>
             <span class="font-mono opacity-50">> </span>
             <RouterLink

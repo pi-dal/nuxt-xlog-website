@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>pi-dal - Blog Posts</title>
-        <link>https://pi-dal.com/blog/</link>
+        <link>https://pi-dal.com/posts/</link>
         <description>pi-dal's Blog Posts</description>
-        <lastBuildDate>Sun, 20 Jul 2025 11:41:54 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 21 Jul 2025 02:46:10 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
             <title>pi-dal - Blog Posts</title>
             <url>https://pi-dal.com/avatar.webp</url>
-            <link>https://pi-dal.com/blog/</link>
+            <link>https://pi-dal.com/posts/</link>
         </image>
         <copyright>CC BY-NC-SA 4.0 2020 © pi-dal</copyright>
         <atom:link href="https://pi-dal.com/blog-feed.xml" rel="self" type="application/rss+xml"/>
@@ -168,9 +168,16 @@ ict<br>
 $$<br>
 这就是最基础的时空坐标四维矢量，那么还有哪些比较基础的四维矢量呢</p>
 <ol>
-<li>四维波矢$$k_p=(k_x \ ,\ k_y \ , \ k_z \ , \ i\frac{\omega}{c})$$可以通过$$kr-wt=0$$来理解</li>
-<li>四维电流密度矢量$$j_p=(j_x \ ,\ j_y \ , \ j_z \ , \ ic\rho)$$可以通过$$\nabla j + \frac{\partial \rho}{\partial t}=0$$来理解</li>
-<li>四维动量矢量$$p_\mu = (p_x \ ,\ p_y \ , \ p_z \ , \ i\frac{W}{c})$$</li>
+<li>四维波矢<br>
+$$k_p=(k_x \ ,\ k_y \ , \ k_z \ , \ i\frac{\omega}{c})$$<br>
+可以通过$$kr-wt=0$$来理解</li>
+<li>四维电流密度矢量<br>
+$$j_p=(j_x \ ,\ j_y \ , \ j_z \ , \ ic\rho)$$<br>
+可以通过<br>
+$$\nabla j + \frac{\partial \rho}{\partial t}=0$$<br>
+来理解</li>
+<li>四维动量矢量<br>
+$$p_\mu = (p_x \ ,\ p_y \ , \ p_z \ , \ i\frac{W}{c})$$</li>
 </ol>
 <blockquote>
 <p>其实我们可以用这些量来推导很多的四维矢量<br>
@@ -277,11 +284,16 @@ $$ \omega' = \gamma\omega(1 - \frac{v}{c}cos\theta) $$<br>
 <p><img src="ipfs://QmWiEvNNRqwNHLR5kWSjtMKs7MUCYsGkvNNWGFKrRLEs5K" alt="pair_annihilation_hd"></p>
 <p>对各个粒子，会有以下四维动量：</p>
 <ol>
-<li>入射粒子：$$P_1=\gamma m \cdot (v \ , \ 0 \ , \ 0 , \ ic)$$</li>
-<li>静止粒子：$$P_2=M \cdot (0 \ , \ 0 \ , \ 0 , \ ic)$$</li>
-<li>垂直出射的光子束：$$P_3=\frac{hf_1}{c} \cdot (0 \ , \ 1 \ , \ 0 \ , \ i)$$</li>
-<li>倾斜出射的光子束：$$P_4=\frac{hf_2}{c} \cdot (cos(\theta) \ , \ -sin(\theta) \ , \ 0 \ , \ i)$$<br>
-由四维动量守恒有 $$P_1 + P_2 = P_3 + P_4$$<br>
+<li>入射粒子：<br>
+$$P_1=\gamma m \cdot (v \ , \ 0 \ , \ 0 , \ ic)$$</li>
+<li>静止粒子：<br>
+$$P_2=M \cdot (0 \ , \ 0 \ , \ 0 , \ ic)$$</li>
+<li>垂直出射的光子束：<br>
+$$P_3=\frac{hf_1}{c} \cdot (0 \ , \ 1 \ , \ 0 \ , \ i)$$</li>
+<li>倾斜出射的光子束：<br>
+$$P_4=\frac{hf_2}{c} \cdot (cos(\theta) \ , \ -sin(\theta) \ , \ 0 \ , \ i)$$<br>
+由四维动量守恒有<br>
+$$P_1 + P_2 = P_3 + P_4$$<br>
 可以得到：<br>
 $$\begin{gathered}<br>
 E_1 + E_2 = E_3 + E_4\<br>
@@ -297,29 +309,36 @@ E_4^2 - E_3^2=E_1^2 \cdot \frac{v^2}{c^2} \<br>
 E_4 - E_3 = \frac{E_1^2 \cdot \frac{v^2}{c^2}}{E_1 + E_2}<br>
 \end{gathered}<br>
 $$<br>
-又有$$\frac{v^2}{c^2} = 1 - \frac{1}{\gamma^2} = 1 - \frac{E_2^2}{E_1^2} = \frac{E_1^2 - E_2^2}{E_1^2}$$<br>
-得到$$2 \cdot E_4 = E_1 + E_2 + \frac{E_1^2}{E_1+E_2} \cdot \frac{E_1^2-E_2^2}{E_1^2} = E_1 + E_2 + E_1 - E_2 = 2 \cdot E_1$$<br>
+又有<br>
+$$\frac{v^2}{c^2} = 1 - \frac{1}{\gamma^2} = 1 - \frac{E_2^2}{E_1^2} = \frac{E_1^2 - E_2^2}{E_1^2}$$<br>
+得到<br>
+$$2 \cdot E_4 = E_1 + E_2 + \frac{E_1^2}{E_1+E_2} \cdot \frac{E_1^2-E_2^2}{E_1^2} = E_1 + E_2 + E_1 - E_2 = 2 \cdot E_1$$<br>
 所以<br>
 $$\begin{gathered}<br>
 E_1 = E_4 \<br>
 E_2 = E_3<br>
 \end{gathered}<br>
 $$<br>
-得到了<br>
 $$cos(\theta) = \frac{v}{c} = \sqrt{1 - \frac{E_2^2}{E_1^2}}$$</li>
 </ol>
 <h3>光照射粒子产生新粒子</h3>
 <p><img src="ipfs://QmbEfwP45sxa7SRFwmNb6gDAr9qMPm21L4UaujckECB9zi" alt="pair_production_hd"></p>
 <p>对各个粒子，会有以下四维动量：</p>
 <ol>
-<li>入射的光：$$P_1=\frac{hf}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
-<li>静止粒子$$P_2=M \cdot (0 \ , \ 0 \ , \ 0 \ , \ ic)$$</li>
-<li>新粒子$$P_3$$<br>
-由四维动量守恒可以得到$$P_1 + P_2 = P_3$$<br>
-平方有$$P_1 \circ P_1+2 P_1 \circ P_2+P_2 \circ P_2=P_3 \circ P_3$$<br>
+<li>入射的光：<br>
+$$P_1=\frac{hf}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
+<li>静止粒子<br>
+$$P_2=M \cdot (0 \ , \ 0 \ , \ 0 \ , \ ic)$$</li>
+<li>新粒子<br>
+$$P_3$$<br>
+由四维动量守恒可以得到<br>
+$$P_1 + P_2 = P_3$$<br>
+平方有<br>
+$$P_1 \circ P_1+2 P_1 \circ P_2+P_2 \circ P_2=P_3 \circ P_3$$<br>
 若原来的粒子相当中&gt;&gt;新的粒子，则有：<br>
 $$0 + 2 \cdot h \cdot f \cdot M + (M \cdot c)^2 \approx (M + 2 \cdot m)^2 \cdot c^2$$<br>
-化简就可以得到$$h \cdot f \approx 2 \cdot m_0 \cdot c^2 + 2 \cdot m_0^2 \cdot c^2 / M = 2 \cdot m_0 \cdot c^2 \cdot \left(1 + \frac{m_0}{M}\right)$$</li>
+化简就可以得到<br>
+$$h \cdot f \approx 2 \cdot m_0 \cdot c^2 + 2 \cdot m_0^2 \cdot c^2 / M = 2 \cdot m_0 \cdot c^2 \cdot \left(1 + \frac{m_0}{M}\right)$$</li>
 </ol>
 <blockquote>
 <p>由此可知：如果涉及的粒子是电子，那么入射量子的能量必须至少是产生粒子的静止能量的两倍。</p>
@@ -328,34 +347,51 @@ $$0 + 2 \cdot h \cdot f \cdot M + (M \cdot c)^2 \approx (M + 2 \cdot m)^2 \cdot 
 <p><img src="ipfs://QmTJ7dRaV5mqWUs7pmeKfcnHdJEPoBbu4Wh4TcJpYcymG7" alt="relativistic_collision_hd"></p>
 <p>对各个粒子，有以下四维矢量：</p>
 <ol>
-<li>入射粒子：$$P_1$$</li>
-<li>被入射粒子：$$P_2$$</li>
-<li>生成粒子 ：$$P_3$$<br>
-由四维动量守恒可得：$$P_1 + P_2 = P_3$$<br>
-平方可得$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3$$<br>
-即为$$m_1^2 + 2 \gamma_1 \gamma_2m_1m_2 \cdot \frac{(c^2-v_1v_2)}{c^2} + m_2^2 = m_3^2$$<br>
-这就可以得到$$m_3$$<br>
-而由四维动量守恒可以得到：$$v_3 = \frac{\gamma_1 \cdot m_1 \cdot v_1 + \gamma_2 \cdot m_2 \cdot v_2}{\gamma_1 \cdot m_1 + \gamma_2 \cdot m_2}$$</li>
+<li>入射粒子：<br>
+$$P_1$$</li>
+<li>被入射粒子：<br>
+$$P_2$$</li>
+<li>生成粒子 ：<br>
+$$P_3$$<br>
+由四维动量守恒可得：<br>
+$$P_1 + P_2 = P_3$$<br>
+平方可得<br>
+$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3$$<br>
+即为<br>
+$$m_1^2 + 2 \gamma_1 \gamma_2m_1m_2 \cdot \frac{(c^2-v_1v_2)}{c^2} + m_2^2 = m_3^2$$<br>
+这就可以得到<br>
+$$m_3$$<br>
+而由四维动量守恒可以得到：<br>
+$$v_3 = \frac{\gamma_1 \cdot m_1 \cdot v_1 + \gamma_2 \cdot m_2 \cdot v_2}{\gamma_1 \cdot m_1 + \gamma_2 \cdot m_2}$$</li>
 </ol>
 <h3>粒子的完全弹性碰撞</h3>
 <p><img src="ipfs://QmY97pBhJFpUn4LVsAmof4t3CqjZz3iYmiqrDBKSc5dQ8G" alt="elastic_collision_theta_alpha_hd"></p>
 <p>对各个粒子，有以下四维矢量：</p>
 <ol>
-<li>入射粒子：$$P_1=\gamma_1 m \cdot (v \ , \ 0 \ , \ 0 , \ ic)$$</li>
-<li>静止粒子：$$P_2=M \cdot (0 \ , \ 0 \ , \ 0 , \ ic)$$</li>
-<li>生成粒子1：$$P_3 = \gamma_3 M \cdot (wcos(\theta) \ , \ wsin(\theta) \ , \ 0 \ , \ ic)$$</li>
-<li>生成粒子2：$$P_4 = \gamma_4 m \cdot (wcos(\alpha) \ , \ wsin(\alpha) \ , \ 0 \ , \ ic)$$<br>
-由四维动量守恒有 $$P_1 + P_2 = P_3 + P_4$$<br>
-平方可以得到$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3 +P_4 \circ P_4 + 2P_3 \circ P_4$$<br>
-又因为$$P_1 \circ P_3 + P_2 \circ P_3 = P_3 \circ P_3 + P_4 \circ P_3 = P_3 \circ P_3 + P_1 \circ P_2$$<br>
-可以得到$$<br>
+<li>入射粒子：<br>
+$$P_1=\gamma_1 m \cdot (v \ , \ 0 \ , \ 0 , \ ic)$$</li>
+<li>静止粒子：<br>
+$$P_2=M \cdot (0 \ , \ 0 \ , \ 0 , \ ic)$$</li>
+<li>生成粒子1：<br>
+$$P_3 = \gamma_3 M \cdot (wcos(\theta) \ , \ wsin(\theta) \ , \ 0 \ , \ ic)$$</li>
+<li>生成粒子2：<br>
+$$P_4 = \gamma_4 m \cdot (wcos(\alpha) \ , \ wsin(\alpha) \ , \ 0 \ , \ ic)$$<br>
+由四维动量守恒有<br>
+$$P_1 + P_2 = P_3 + P_4$$<br>
+平方可以得到<br>
+$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3 +P_4 \circ P_4 + 2P_3 \circ P_4$$<br>
+又因为<br>
+$$P_1 \circ P_3 + P_2 \circ P_3 = P_3 \circ P_3 + P_4 \circ P_3 = P_3 \circ P_3 + P_1 \circ P_2$$<br>
+可以得到<br>
+$$<br>
 \begin{gathered}<br>
 P_1 \circ P_3 = \gamma_1 \cdot \gamma_3 \cdot m \cdot M \cdot (c^2 - v \cdot w \cdot \cos(\alpha))\<br>
 P_2 \circ P_3 = \gamma_3 \cdot M^2 \cdot c^2, P_3 \circ P_3 = M^2 \cdot c^2 \<br>
 P_1 \circ P_2 = \gamma_1 \cdot m \cdot M \cdot c^2<br>
 \end{gathered}<br>
 $$<br>
-可以解得$$w = \frac{2 \cdot \left(1+\frac{M}{m}\cdot \frac{1}{\gamma_1}\right) \cdot v \cdot \cos(\alpha)}{\left(1+\frac{M}{m}\cdot \frac{1}{\gamma_1}\right)^2 + v^2 \cdot \cos^2(\alpha)}<br>
+可以解得<br>
+$$w = \frac{2 \cdot \left(1+\frac{M}{m}\cdot \frac{1}{\gamma_1}\right) \cdot v \cdot \cos(\alpha)}{\left(1+\frac{M}{m}\cdot \frac{1}{\gamma_1}\right)^2 + v^2 \cdot \cos^2(\alpha)}<br>
 $$<br>
 由能量守恒和动量守恒便可以解得了<br>
 $$<br>
@@ -371,31 +407,52 @@ $$</li>
 <p><img src="ipfs://QmeRvop5dyJsTxmaCYu56J4Bczbt8pR3J513bNjKuC27ph" alt="compton_scattering_hd"></p>
 <p>对各个粒子，有以下四维矢量：</p>
 <ol>
-<li>入射的光：$$P_1=\frac{hf}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
-<li>静止粒子$$P_2=m \cdot (0 \ , \ 0 \ , \ 0 \ , \ ic)$$</li>
-<li>新粒子1$$P_3 = \frac{hf'}{c} \cdot (cos(\theta) \ , \ sin(\theta) \ , \ 0 \ , \ i)$$</li>
-<li>新粒子2$$P_4 = \gamma m \cdot ( \vec{v}\ , \ ic)$$<br>
-由四维动量守恒有 $$P_1 + P_2 = P_3 + P_4$$<br>
-平方可以得到$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3 +P_4 \circ P_4 + 2P_3 \circ P_4$$<br>
-即是$$P_1 \circ P_2 = P_3 \circ P_4$$<br>
-又因为$$P_1 \circ P_3 + P_2 \circ P_3 = P_3 \circ P_3 + P_4 \circ P_3 = P_1 \circ P_2$$<br>
-即是$$\frac{h}{\lambda} \cdot \frac{h}{\lambda'}(1-\cos \theta)+m_0 \cdot c \cdot \frac{h}{\lambda'}=m_0 \cdot c \cdot \frac{h}{\lambda}$$<br>
-得到了$$\lambda'-\lambda = \frac{h}{m_0\cdot c} \cdot (1-\cos \theta)$$<br>
+<li>入射的光：<br>
+$$P_1=\frac{hf}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
+<li>静止粒子<br>
+$$P_2=m \cdot (0 \ , \ 0 \ , \ 0 \ , \ ic)$$</li>
+<li>新粒子1<br>
+$$P_3 = \frac{hf'}{c} \cdot (cos(\theta) \ , \ sin(\theta) \ , \ 0 \ , \ i)$$</li>
+<li>新粒子2<br>
+$$P_4 = \gamma m \cdot ( \vec{v}\ , \ ic)$$<br>
+由四维动量守恒有<br>
+$$P_1 + P_2 = P_3 + P_4$$<br>
+平方可以得到<br>
+$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3 +P_4 \circ P_4 + 2P_3 \circ P_4$$<br>
+即是<br>
+$$P_1 \circ P_2 = P_3 \circ P_4$$<br>
+又因为<br>
+$$P_1 \circ P_3 + P_2 \circ P_3 = P_3 \circ P_3 + P_4 \circ P_3 = P_1 \circ P_2$$<br>
+即是<br>
+$$\frac{h}{\lambda} \cdot \frac{h}{\lambda'}(1-\cos \theta)+m_0 \cdot c \cdot \frac{h}{\lambda'}=m_0 \cdot c \cdot \frac{h}{\lambda}$$<br>
+得到了<br>
+$$\lambda'-\lambda = \frac{h}{m_0\cdot c} \cdot (1-\cos \theta)$$<br>
 这就是康普顿散射的经典结论！</li>
 </ol>
 <h3>逆康普顿散射</h3>
 <p><img src="ipfs://QmaAnPA7hPVCzb693hvLysqvXtEa5PM3UnUqNMGkq8BAWw" alt="inverse_compton_scattering_hd"></p>
 <p>对各个粒子，有以下四维矢量：</p>
 <ol>
-<li>入射的光：$$P_1=\frac{hf}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
-<li>高速粒子$$P_2 = \gamma_2 m \cdot (v \ , \ 0 \ , \ 0 \ , \ ic)$$</li>
-<li>新粒子1$$P_3 = \frac{hf'}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
-<li>新粒子2$$P_4 = \gamma_4 m \cdot (v' \ , \ 0 \ , \ 0 \ , \ ic)$$<br>
-由四维动量守恒有 $$P_1 + P_2 = P_3 + P_4$$<br>
-平方可以得到$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3 +P_4 \circ P_4 + 2P_3 \circ P_4$$<br>
-即是$$P_1 \circ P_2 = P_3 \circ P_4$$<br>
-又因为$$P_1 \circ P_3 + P_2 \circ P_3 = P_3 \circ P_3 + P_4 \circ P_3 = P_1 \circ P_2$$即是$$\frac{2}{\gamma_2 m c^2} \cdot h \cdot f \cdot h \cdot f' + h \cdot f' \cdot \left(1-\frac{v}{c}\right) = h \cdot f \cdot \left(1+\frac{v}{c}\right) \approx 2 \cdot h \cdot f$$<br>
-若v接近于c，会有$$h \cdot f' \cdot \left(\frac{1}{\gamma_2 m_0 c^2} \cdot h \cdot f + \frac{1}{2} \cdot \left(1-\frac{v}{c}\right)\right) = h \cdot f$$<br>
+<li>入射的光：<br>
+$$P_1=\frac{hf}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
+<li>高速粒子<br>
+$$P_2 = \gamma_2 m \cdot (v \ , \ 0 \ , \ 0 \ , \ ic)$$</li>
+<li>新粒子1<br>
+$$P_3 = \frac{hf'}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
+<li>新粒子2<br>
+$$P_4 = \gamma_4 m \cdot (v' \ , \ 0 \ , \ 0 \ , \ ic)$$<br>
+由四维动量守恒有<br>
+$$P_1 + P_2 = P_3 + P_4$$<br>
+平方可以得到<br>
+$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3 +P_4 \circ P_4 + 2P_3 \circ P_4$$<br>
+即是<br>
+$$P_1 \circ P_2 = P_3 \circ P_4$$<br>
+又因为<br>
+$$P_1 \circ P_3 + P_2 \circ P_3 = P_3 \circ P_3 + P_4 \circ P_3 = P_1 \circ P_2$$<br>
+即是<br>
+$$\frac{2}{\gamma_2 m c^2} \cdot h \cdot f \cdot h \cdot f' + h \cdot f' \cdot \left(1-\frac{v}{c}\right) = h \cdot f \cdot \left(1+\frac{v}{c}\right) \approx 2 \cdot h \cdot f$$<br>
+若v接近于c，会有<br>
+$$h \cdot f' \cdot \left(\frac{1}{\gamma_2 m_0 c^2} \cdot h \cdot f + \frac{1}{2} \cdot \left(1-\frac{v}{c}\right)\right) = h \cdot f$$<br>
 这就得到了f与f‘的关系！</li>
 </ol>
 <h2>对四维矢量的思考</h2>
@@ -404,7 +461,7 @@ $$</li>
 <p>PS：对于四维矢量可不可以再中学物理竞赛使用的问题，我目前的经验是对于极其有把握的题目可以尝试，但是一旦出错不要有念想会有过程的分数，没办法物理竞赛也是应试，最基础的最经典的方法往往最受青睐（但是四维矢量用来验证还是很好的：D</p>
 </blockquote>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[2023年物竞外出培训—杭州行 ]]></title>
@@ -512,7 +569,7 @@ $$</li>
 <p><img src="ipfs://bafybeick4wdl5jggbpybdslrqi526szthkrcbwj2kaihbsvuutvm53z6qq" alt="43ad0ba0e025dea7f3d926cbe7ce1fe9"></p>
 <p>最后在这里祝愿物营的各位能学得开心（最重要的捏），复赛取得一个自己想要的成绩！</p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[写给16岁的自己]]></title>
@@ -602,7 +659,7 @@ $$</li>
 <h1>总结</h1>
 <p>这一年的生活还是蛮多样的，虽然时常emo，但是好在有物理营各位的陪伴—坏叔叔小灰灰，高冷的搞笑女ax姐，表面粗鲁实际上人还不错的CAN…一不小心也写到了11点多了，希望16岁的自己可以想开一点，多看看生活的美好，冲前二十，进省队！</p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[2022湖南之旅]]></title>
@@ -707,7 +764,7 @@ $$</li>
 </ol>
 <p>最后，希望大家可以也到湖南旅游，看看祖国大好河山，带动带动当地经济发展。也希望疫情早日过去，让我们出行无阻💪💪💪。</p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[初中生活总结]]></title>
@@ -754,7 +811,7 @@ $$</li>
 <h2>青春期的朦胧情感</h2>
 <p>笑死根本没有好吧。</p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[树莓派NAS搭建 ]]></title>
@@ -825,7 +882,7 @@ $$</li>
 <p>也欢迎大家来参与帮忙维护<a href="https://github.com/tobychui/arozos">ArozOS</a> 。</p>
 <p>也欢迎加入我们的<a href="https://t.me/ArOZBeta">telegram群组</a>。</p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[树莓派 ArozOS 指北 ]]></title>
@@ -1079,7 +1136,7 @@ sudo systemctl start arozos
 <p><a href="https://t.me/ArOZBeta">ArozOS Dev</a></p>
 <p>谢谢你的阅读！</p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
     </channel>
 </rss>

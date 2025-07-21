@@ -4,7 +4,7 @@
         <title>pi-dal</title>
         <link>https://pi-dal.com/</link>
         <description>pi-dal's Blog &amp; Reading Notes</description>
-        <lastBuildDate>Sun, 20 Jul 2025 11:41:52 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 21 Jul 2025 02:46:09 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -168,9 +168,16 @@ ict<br>
 $$<br>
 这就是最基础的时空坐标四维矢量，那么还有哪些比较基础的四维矢量呢</p>
 <ol>
-<li>四维波矢$$k_p=(k_x \ ,\ k_y \ , \ k_z \ , \ i\frac{\omega}{c})$$可以通过$$kr-wt=0$$来理解</li>
-<li>四维电流密度矢量$$j_p=(j_x \ ,\ j_y \ , \ j_z \ , \ ic\rho)$$可以通过$$\nabla j + \frac{\partial \rho}{\partial t}=0$$来理解</li>
-<li>四维动量矢量$$p_\mu = (p_x \ ,\ p_y \ , \ p_z \ , \ i\frac{W}{c})$$</li>
+<li>四维波矢<br>
+$$k_p=(k_x \ ,\ k_y \ , \ k_z \ , \ i\frac{\omega}{c})$$<br>
+可以通过$$kr-wt=0$$来理解</li>
+<li>四维电流密度矢量<br>
+$$j_p=(j_x \ ,\ j_y \ , \ j_z \ , \ ic\rho)$$<br>
+可以通过<br>
+$$\nabla j + \frac{\partial \rho}{\partial t}=0$$<br>
+来理解</li>
+<li>四维动量矢量<br>
+$$p_\mu = (p_x \ ,\ p_y \ , \ p_z \ , \ i\frac{W}{c})$$</li>
 </ol>
 <blockquote>
 <p>其实我们可以用这些量来推导很多的四维矢量<br>
@@ -277,11 +284,16 @@ $$ \omega' = \gamma\omega(1 - \frac{v}{c}cos\theta) $$<br>
 <p><img src="ipfs://QmWiEvNNRqwNHLR5kWSjtMKs7MUCYsGkvNNWGFKrRLEs5K" alt="pair_annihilation_hd"></p>
 <p>对各个粒子，会有以下四维动量：</p>
 <ol>
-<li>入射粒子：$$P_1=\gamma m \cdot (v \ , \ 0 \ , \ 0 , \ ic)$$</li>
-<li>静止粒子：$$P_2=M \cdot (0 \ , \ 0 \ , \ 0 , \ ic)$$</li>
-<li>垂直出射的光子束：$$P_3=\frac{hf_1}{c} \cdot (0 \ , \ 1 \ , \ 0 \ , \ i)$$</li>
-<li>倾斜出射的光子束：$$P_4=\frac{hf_2}{c} \cdot (cos(\theta) \ , \ -sin(\theta) \ , \ 0 \ , \ i)$$<br>
-由四维动量守恒有 $$P_1 + P_2 = P_3 + P_4$$<br>
+<li>入射粒子：<br>
+$$P_1=\gamma m \cdot (v \ , \ 0 \ , \ 0 , \ ic)$$</li>
+<li>静止粒子：<br>
+$$P_2=M \cdot (0 \ , \ 0 \ , \ 0 , \ ic)$$</li>
+<li>垂直出射的光子束：<br>
+$$P_3=\frac{hf_1}{c} \cdot (0 \ , \ 1 \ , \ 0 \ , \ i)$$</li>
+<li>倾斜出射的光子束：<br>
+$$P_4=\frac{hf_2}{c} \cdot (cos(\theta) \ , \ -sin(\theta) \ , \ 0 \ , \ i)$$<br>
+由四维动量守恒有<br>
+$$P_1 + P_2 = P_3 + P_4$$<br>
 可以得到：<br>
 $$\begin{gathered}<br>
 E_1 + E_2 = E_3 + E_4\<br>
@@ -297,29 +309,36 @@ E_4^2 - E_3^2=E_1^2 \cdot \frac{v^2}{c^2} \<br>
 E_4 - E_3 = \frac{E_1^2 \cdot \frac{v^2}{c^2}}{E_1 + E_2}<br>
 \end{gathered}<br>
 $$<br>
-又有$$\frac{v^2}{c^2} = 1 - \frac{1}{\gamma^2} = 1 - \frac{E_2^2}{E_1^2} = \frac{E_1^2 - E_2^2}{E_1^2}$$<br>
-得到$$2 \cdot E_4 = E_1 + E_2 + \frac{E_1^2}{E_1+E_2} \cdot \frac{E_1^2-E_2^2}{E_1^2} = E_1 + E_2 + E_1 - E_2 = 2 \cdot E_1$$<br>
+又有<br>
+$$\frac{v^2}{c^2} = 1 - \frac{1}{\gamma^2} = 1 - \frac{E_2^2}{E_1^2} = \frac{E_1^2 - E_2^2}{E_1^2}$$<br>
+得到<br>
+$$2 \cdot E_4 = E_1 + E_2 + \frac{E_1^2}{E_1+E_2} \cdot \frac{E_1^2-E_2^2}{E_1^2} = E_1 + E_2 + E_1 - E_2 = 2 \cdot E_1$$<br>
 所以<br>
 $$\begin{gathered}<br>
 E_1 = E_4 \<br>
 E_2 = E_3<br>
 \end{gathered}<br>
 $$<br>
-得到了<br>
 $$cos(\theta) = \frac{v}{c} = \sqrt{1 - \frac{E_2^2}{E_1^2}}$$</li>
 </ol>
 <h3>光照射粒子产生新粒子</h3>
 <p><img src="ipfs://QmbEfwP45sxa7SRFwmNb6gDAr9qMPm21L4UaujckECB9zi" alt="pair_production_hd"></p>
 <p>对各个粒子，会有以下四维动量：</p>
 <ol>
-<li>入射的光：$$P_1=\frac{hf}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
-<li>静止粒子$$P_2=M \cdot (0 \ , \ 0 \ , \ 0 \ , \ ic)$$</li>
-<li>新粒子$$P_3$$<br>
-由四维动量守恒可以得到$$P_1 + P_2 = P_3$$<br>
-平方有$$P_1 \circ P_1+2 P_1 \circ P_2+P_2 \circ P_2=P_3 \circ P_3$$<br>
+<li>入射的光：<br>
+$$P_1=\frac{hf}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
+<li>静止粒子<br>
+$$P_2=M \cdot (0 \ , \ 0 \ , \ 0 \ , \ ic)$$</li>
+<li>新粒子<br>
+$$P_3$$<br>
+由四维动量守恒可以得到<br>
+$$P_1 + P_2 = P_3$$<br>
+平方有<br>
+$$P_1 \circ P_1+2 P_1 \circ P_2+P_2 \circ P_2=P_3 \circ P_3$$<br>
 若原来的粒子相当中&gt;&gt;新的粒子，则有：<br>
 $$0 + 2 \cdot h \cdot f \cdot M + (M \cdot c)^2 \approx (M + 2 \cdot m)^2 \cdot c^2$$<br>
-化简就可以得到$$h \cdot f \approx 2 \cdot m_0 \cdot c^2 + 2 \cdot m_0^2 \cdot c^2 / M = 2 \cdot m_0 \cdot c^2 \cdot \left(1 + \frac{m_0}{M}\right)$$</li>
+化简就可以得到<br>
+$$h \cdot f \approx 2 \cdot m_0 \cdot c^2 + 2 \cdot m_0^2 \cdot c^2 / M = 2 \cdot m_0 \cdot c^2 \cdot \left(1 + \frac{m_0}{M}\right)$$</li>
 </ol>
 <blockquote>
 <p>由此可知：如果涉及的粒子是电子，那么入射量子的能量必须至少是产生粒子的静止能量的两倍。</p>
@@ -328,34 +347,51 @@ $$0 + 2 \cdot h \cdot f \cdot M + (M \cdot c)^2 \approx (M + 2 \cdot m)^2 \cdot 
 <p><img src="ipfs://QmTJ7dRaV5mqWUs7pmeKfcnHdJEPoBbu4Wh4TcJpYcymG7" alt="relativistic_collision_hd"></p>
 <p>对各个粒子，有以下四维矢量：</p>
 <ol>
-<li>入射粒子：$$P_1$$</li>
-<li>被入射粒子：$$P_2$$</li>
-<li>生成粒子 ：$$P_3$$<br>
-由四维动量守恒可得：$$P_1 + P_2 = P_3$$<br>
-平方可得$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3$$<br>
-即为$$m_1^2 + 2 \gamma_1 \gamma_2m_1m_2 \cdot \frac{(c^2-v_1v_2)}{c^2} + m_2^2 = m_3^2$$<br>
-这就可以得到$$m_3$$<br>
-而由四维动量守恒可以得到：$$v_3 = \frac{\gamma_1 \cdot m_1 \cdot v_1 + \gamma_2 \cdot m_2 \cdot v_2}{\gamma_1 \cdot m_1 + \gamma_2 \cdot m_2}$$</li>
+<li>入射粒子：<br>
+$$P_1$$</li>
+<li>被入射粒子：<br>
+$$P_2$$</li>
+<li>生成粒子 ：<br>
+$$P_3$$<br>
+由四维动量守恒可得：<br>
+$$P_1 + P_2 = P_3$$<br>
+平方可得<br>
+$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3$$<br>
+即为<br>
+$$m_1^2 + 2 \gamma_1 \gamma_2m_1m_2 \cdot \frac{(c^2-v_1v_2)}{c^2} + m_2^2 = m_3^2$$<br>
+这就可以得到<br>
+$$m_3$$<br>
+而由四维动量守恒可以得到：<br>
+$$v_3 = \frac{\gamma_1 \cdot m_1 \cdot v_1 + \gamma_2 \cdot m_2 \cdot v_2}{\gamma_1 \cdot m_1 + \gamma_2 \cdot m_2}$$</li>
 </ol>
 <h3>粒子的完全弹性碰撞</h3>
 <p><img src="ipfs://QmY97pBhJFpUn4LVsAmof4t3CqjZz3iYmiqrDBKSc5dQ8G" alt="elastic_collision_theta_alpha_hd"></p>
 <p>对各个粒子，有以下四维矢量：</p>
 <ol>
-<li>入射粒子：$$P_1=\gamma_1 m \cdot (v \ , \ 0 \ , \ 0 , \ ic)$$</li>
-<li>静止粒子：$$P_2=M \cdot (0 \ , \ 0 \ , \ 0 , \ ic)$$</li>
-<li>生成粒子1：$$P_3 = \gamma_3 M \cdot (wcos(\theta) \ , \ wsin(\theta) \ , \ 0 \ , \ ic)$$</li>
-<li>生成粒子2：$$P_4 = \gamma_4 m \cdot (wcos(\alpha) \ , \ wsin(\alpha) \ , \ 0 \ , \ ic)$$<br>
-由四维动量守恒有 $$P_1 + P_2 = P_3 + P_4$$<br>
-平方可以得到$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3 +P_4 \circ P_4 + 2P_3 \circ P_4$$<br>
-又因为$$P_1 \circ P_3 + P_2 \circ P_3 = P_3 \circ P_3 + P_4 \circ P_3 = P_3 \circ P_3 + P_1 \circ P_2$$<br>
-可以得到$$<br>
+<li>入射粒子：<br>
+$$P_1=\gamma_1 m \cdot (v \ , \ 0 \ , \ 0 , \ ic)$$</li>
+<li>静止粒子：<br>
+$$P_2=M \cdot (0 \ , \ 0 \ , \ 0 , \ ic)$$</li>
+<li>生成粒子1：<br>
+$$P_3 = \gamma_3 M \cdot (wcos(\theta) \ , \ wsin(\theta) \ , \ 0 \ , \ ic)$$</li>
+<li>生成粒子2：<br>
+$$P_4 = \gamma_4 m \cdot (wcos(\alpha) \ , \ wsin(\alpha) \ , \ 0 \ , \ ic)$$<br>
+由四维动量守恒有<br>
+$$P_1 + P_2 = P_3 + P_4$$<br>
+平方可以得到<br>
+$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3 +P_4 \circ P_4 + 2P_3 \circ P_4$$<br>
+又因为<br>
+$$P_1 \circ P_3 + P_2 \circ P_3 = P_3 \circ P_3 + P_4 \circ P_3 = P_3 \circ P_3 + P_1 \circ P_2$$<br>
+可以得到<br>
+$$<br>
 \begin{gathered}<br>
 P_1 \circ P_3 = \gamma_1 \cdot \gamma_3 \cdot m \cdot M \cdot (c^2 - v \cdot w \cdot \cos(\alpha))\<br>
 P_2 \circ P_3 = \gamma_3 \cdot M^2 \cdot c^2, P_3 \circ P_3 = M^2 \cdot c^2 \<br>
 P_1 \circ P_2 = \gamma_1 \cdot m \cdot M \cdot c^2<br>
 \end{gathered}<br>
 $$<br>
-可以解得$$w = \frac{2 \cdot \left(1+\frac{M}{m}\cdot \frac{1}{\gamma_1}\right) \cdot v \cdot \cos(\alpha)}{\left(1+\frac{M}{m}\cdot \frac{1}{\gamma_1}\right)^2 + v^2 \cdot \cos^2(\alpha)}<br>
+可以解得<br>
+$$w = \frac{2 \cdot \left(1+\frac{M}{m}\cdot \frac{1}{\gamma_1}\right) \cdot v \cdot \cos(\alpha)}{\left(1+\frac{M}{m}\cdot \frac{1}{\gamma_1}\right)^2 + v^2 \cdot \cos^2(\alpha)}<br>
 $$<br>
 由能量守恒和动量守恒便可以解得了<br>
 $$<br>
@@ -371,31 +407,52 @@ $$</li>
 <p><img src="ipfs://QmeRvop5dyJsTxmaCYu56J4Bczbt8pR3J513bNjKuC27ph" alt="compton_scattering_hd"></p>
 <p>对各个粒子，有以下四维矢量：</p>
 <ol>
-<li>入射的光：$$P_1=\frac{hf}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
-<li>静止粒子$$P_2=m \cdot (0 \ , \ 0 \ , \ 0 \ , \ ic)$$</li>
-<li>新粒子1$$P_3 = \frac{hf'}{c} \cdot (cos(\theta) \ , \ sin(\theta) \ , \ 0 \ , \ i)$$</li>
-<li>新粒子2$$P_4 = \gamma m \cdot ( \vec{v}\ , \ ic)$$<br>
-由四维动量守恒有 $$P_1 + P_2 = P_3 + P_4$$<br>
-平方可以得到$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3 +P_4 \circ P_4 + 2P_3 \circ P_4$$<br>
-即是$$P_1 \circ P_2 = P_3 \circ P_4$$<br>
-又因为$$P_1 \circ P_3 + P_2 \circ P_3 = P_3 \circ P_3 + P_4 \circ P_3 = P_1 \circ P_2$$<br>
-即是$$\frac{h}{\lambda} \cdot \frac{h}{\lambda'}(1-\cos \theta)+m_0 \cdot c \cdot \frac{h}{\lambda'}=m_0 \cdot c \cdot \frac{h}{\lambda}$$<br>
-得到了$$\lambda'-\lambda = \frac{h}{m_0\cdot c} \cdot (1-\cos \theta)$$<br>
+<li>入射的光：<br>
+$$P_1=\frac{hf}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
+<li>静止粒子<br>
+$$P_2=m \cdot (0 \ , \ 0 \ , \ 0 \ , \ ic)$$</li>
+<li>新粒子1<br>
+$$P_3 = \frac{hf'}{c} \cdot (cos(\theta) \ , \ sin(\theta) \ , \ 0 \ , \ i)$$</li>
+<li>新粒子2<br>
+$$P_4 = \gamma m \cdot ( \vec{v}\ , \ ic)$$<br>
+由四维动量守恒有<br>
+$$P_1 + P_2 = P_3 + P_4$$<br>
+平方可以得到<br>
+$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3 +P_4 \circ P_4 + 2P_3 \circ P_4$$<br>
+即是<br>
+$$P_1 \circ P_2 = P_3 \circ P_4$$<br>
+又因为<br>
+$$P_1 \circ P_3 + P_2 \circ P_3 = P_3 \circ P_3 + P_4 \circ P_3 = P_1 \circ P_2$$<br>
+即是<br>
+$$\frac{h}{\lambda} \cdot \frac{h}{\lambda'}(1-\cos \theta)+m_0 \cdot c \cdot \frac{h}{\lambda'}=m_0 \cdot c \cdot \frac{h}{\lambda}$$<br>
+得到了<br>
+$$\lambda'-\lambda = \frac{h}{m_0\cdot c} \cdot (1-\cos \theta)$$<br>
 这就是康普顿散射的经典结论！</li>
 </ol>
 <h3>逆康普顿散射</h3>
 <p><img src="ipfs://QmaAnPA7hPVCzb693hvLysqvXtEa5PM3UnUqNMGkq8BAWw" alt="inverse_compton_scattering_hd"></p>
 <p>对各个粒子，有以下四维矢量：</p>
 <ol>
-<li>入射的光：$$P_1=\frac{hf}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
-<li>高速粒子$$P_2 = \gamma_2 m \cdot (v \ , \ 0 \ , \ 0 \ , \ ic)$$</li>
-<li>新粒子1$$P_3 = \frac{hf'}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
-<li>新粒子2$$P_4 = \gamma_4 m \cdot (v' \ , \ 0 \ , \ 0 \ , \ ic)$$<br>
-由四维动量守恒有 $$P_1 + P_2 = P_3 + P_4$$<br>
-平方可以得到$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3 +P_4 \circ P_4 + 2P_3 \circ P_4$$<br>
-即是$$P_1 \circ P_2 = P_3 \circ P_4$$<br>
-又因为$$P_1 \circ P_3 + P_2 \circ P_3 = P_3 \circ P_3 + P_4 \circ P_3 = P_1 \circ P_2$$即是$$\frac{2}{\gamma_2 m c^2} \cdot h \cdot f \cdot h \cdot f' + h \cdot f' \cdot \left(1-\frac{v}{c}\right) = h \cdot f \cdot \left(1+\frac{v}{c}\right) \approx 2 \cdot h \cdot f$$<br>
-若v接近于c，会有$$h \cdot f' \cdot \left(\frac{1}{\gamma_2 m_0 c^2} \cdot h \cdot f + \frac{1}{2} \cdot \left(1-\frac{v}{c}\right)\right) = h \cdot f$$<br>
+<li>入射的光：<br>
+$$P_1=\frac{hf}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
+<li>高速粒子<br>
+$$P_2 = \gamma_2 m \cdot (v \ , \ 0 \ , \ 0 \ , \ ic)$$</li>
+<li>新粒子1<br>
+$$P_3 = \frac{hf'}{c} \cdot (1 \ , \ 0 \ , \ 0 \ , \ i)$$</li>
+<li>新粒子2<br>
+$$P_4 = \gamma_4 m \cdot (v' \ , \ 0 \ , \ 0 \ , \ ic)$$<br>
+由四维动量守恒有<br>
+$$P_1 + P_2 = P_3 + P_4$$<br>
+平方可以得到<br>
+$$P_1 \circ P_1 +P_2 \circ P_2 + 2P_1 \circ P_2 = P_3 \circ P_3 +P_4 \circ P_4 + 2P_3 \circ P_4$$<br>
+即是<br>
+$$P_1 \circ P_2 = P_3 \circ P_4$$<br>
+又因为<br>
+$$P_1 \circ P_3 + P_2 \circ P_3 = P_3 \circ P_3 + P_4 \circ P_3 = P_1 \circ P_2$$<br>
+即是<br>
+$$\frac{2}{\gamma_2 m c^2} \cdot h \cdot f \cdot h \cdot f' + h \cdot f' \cdot \left(1-\frac{v}{c}\right) = h \cdot f \cdot \left(1+\frac{v}{c}\right) \approx 2 \cdot h \cdot f$$<br>
+若v接近于c，会有<br>
+$$h \cdot f' \cdot \left(\frac{1}{\gamma_2 m_0 c^2} \cdot h \cdot f + \frac{1}{2} \cdot \left(1-\frac{v}{c}\right)\right) = h \cdot f$$<br>
 这就得到了f与f‘的关系！</li>
 </ol>
 <h2>对四维矢量的思考</h2>
@@ -404,7 +461,7 @@ $$</li>
 <p>PS：对于四维矢量可不可以再中学物理竞赛使用的问题，我目前的经验是对于极其有把握的题目可以尝试，但是一旦出错不要有念想会有过程的分数，没办法物理竞赛也是应试，最基础的最经典的方法往往最受青睐（但是四维矢量用来验证还是很好的：D</p>
 </blockquote>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《蒂姆·库克传：苹果公司的反思与商业的未来》读书笔记]]></title>
@@ -493,7 +550,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《创新者的窘境》读书笔记]]></title>
@@ -516,7 +573,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《Clear Thinking: Turning Ordinary Moments into Extraordinary Results》读书笔记]]></title>
@@ -1237,7 +1294,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《一九八四（译文经典）》读书笔记]]></title>
@@ -1856,7 +1913,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《高敏感是种天赋》读书笔记]]></title>
@@ -1879,7 +1936,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《荒原狼（果麦经典）》读书笔记]]></title>
@@ -2240,7 +2297,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《人生的智慧》读书笔记]]></title>
@@ -2349,7 +2406,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《高敏感人士的幸福清单》读书笔记]]></title>
@@ -2372,7 +2429,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《活过》读书笔记]]></title>
@@ -2407,7 +2464,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《传习录》读书笔记]]></title>
@@ -2436,7 +2493,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《最优解人生》读书笔记]]></title>
@@ -2765,7 +2822,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《人类简史：从动物到上帝》读书笔记]]></title>
@@ -2816,7 +2873,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《穷查理宝典：查理·芒格智慧箴言录（全新增订本）（价值投资圣经，人生智慧宝典。全新升级版发布！97岁的查理•芒格还在不断学习精进 我们怎么能停止自我更新？）》读书笔记]]></title>
@@ -4029,7 +4086,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《影响力（经典版）》读书笔记]]></title>
@@ -4098,7 +4155,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《刷新：重新发现商业与未来》读书笔记]]></title>
@@ -4221,7 +4278,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《当下的力量（白金版）》读书笔记]]></title>
@@ -4270,7 +4327,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《一个瑜伽行者的自传》读书笔记]]></title>
@@ -4389,7 +4446,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《Make Something Wonderful》读书笔记]]></title>
@@ -4858,7 +4915,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《世界在你心中》读书笔记]]></title>
@@ -5737,7 +5794,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《高敏感孩子的内心世界》读书笔记]]></title>
@@ -5784,7 +5841,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《苏东坡传（纪念典藏版）》读书笔记]]></title>
@@ -5839,7 +5896,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《宝贵的人生建议》读书笔记]]></title>
@@ -6332,7 +6389,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《纳瓦尔宝典》读书笔记]]></title>
@@ -7363,7 +7420,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《QED：光和物质的奇妙理论》读书笔记]]></title>
@@ -7398,7 +7455,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《一个悲观主义者的积极思考》读书笔记]]></title>
@@ -8469,7 +8526,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《悉达多（果麦经典）》读书笔记]]></title>
@@ -8894,7 +8951,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《看世界（2024年第13期）》读书笔记]]></title>
@@ -8917,7 +8974,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《生命是什么》读书笔记]]></title>
@@ -9048,7 +9105,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《我看见的世界》读书笔记]]></title>
@@ -9235,7 +9292,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《我想太多啦：高敏感人更容易成功》读书笔记]]></title>
@@ -9838,7 +9895,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《UNIX传奇：历史与回忆（UNIX的诞生记与发展史，贝尔实验室的幕后故事！ ）》读书笔记]]></title>
@@ -10021,7 +10078,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《我还能看到多少次满月升起》读书笔记]]></title>
@@ -10142,7 +10199,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《克林索尔的最后夏天（果麦经典）》读书笔记]]></title>
@@ -10397,7 +10454,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《看世界（2024年第24期）》读书笔记]]></title>
@@ -10420,7 +10477,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《看世界（2024年第8期）》读书笔记]]></title>
@@ -10443,7 +10500,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《瓦尔登湖》读书笔记]]></title>
@@ -10682,7 +10739,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《美丽新世界（译文经典）》读书笔记]]></title>
@@ -10915,7 +10972,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《我会一直跑，直到太阳下山（抑郁症疗愈手记｜微信读书出品）》读书笔记]]></title>
@@ -10970,7 +11027,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《看天下（2025年第16期）》读书笔记]]></title>
@@ -10993,7 +11050,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《这就是ChatGPT》读书笔记]]></title>
@@ -11016,7 +11073,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《生命的礼物（关于爱、死亡和存在的意义）》读书笔记]]></title>
@@ -11065,7 +11122,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《幸福的勇气：“自我启发之父”阿德勒的哲学课2》读书笔记]]></title>
@@ -11534,7 +11591,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《三体前传：球状闪电》读书笔记]]></title>
@@ -11595,7 +11652,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《How AI Will Revolutionize Education (and Why That's a Good Thing)》读书笔记]]></title>
@@ -11874,7 +11931,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《Idea Makers: Personal Perspectives on the Lives & Ideas of Some Notable People》读书笔记]]></title>
@@ -11903,7 +11960,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《在轮下》读书笔记]]></title>
@@ -11926,7 +11983,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《Total Freedom: The Essential Krishnamurti》读书笔记]]></title>
@@ -12021,7 +12078,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《德米安（果麦经典）》读书笔记]]></title>
@@ -12228,7 +12285,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《史蒂夫·乔布斯传（修订版）》读书笔记]]></title>
@@ -12651,7 +12708,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《沙丘六部曲（电影《沙丘2》原著小说）》读书笔记]]></title>
@@ -12792,7 +12849,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《玻璃球游戏》读书笔记]]></title>
@@ -12899,7 +12956,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《生命之书:365天的静心冥想【豆瓣评分高达8.8！20世纪伟大的心灵导师克里希那穆提，他的言论和著作无法归属于哪一种宗教，既非东方也非西方，而是属于全世界！】》读书笔记]]></title>
@@ -14442,7 +14499,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《被讨厌的勇气：“自我启发之父”阿德勒的哲学课》读书笔记]]></title>
@@ -15063,7 +15120,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《黑塞四季诗文集》读书笔记]]></title>
@@ -15236,7 +15293,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《A Brief History of Information Networks from the Stone Age to AI》读书笔记]]></title>
@@ -15259,7 +15316,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《人类简史：从动物到上帝（图文精编版） (开放历史系列)》读书笔记]]></title>
@@ -15484,7 +15541,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《My Beginnings》读书笔记]]></title>
@@ -15605,7 +15662,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《黄仁勋：英伟达之芯》读书笔记]]></title>
@@ -15768,7 +15825,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《像哲学家一样生活：斯多葛哲学的生活艺术》读书笔记]]></title>
@@ -15805,7 +15862,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《三体全集（全三册）》读书笔记]]></title>
@@ -16076,7 +16133,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《天生敏感》读书笔记]]></title>
@@ -17051,7 +17108,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《活出生命的意义》读书笔记]]></title>
@@ -17106,7 +17163,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《埃隆·马斯克 - Elon Musk》读书笔记]]></title>
@@ -17323,7 +17380,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《成为乔布斯》读书笔记]]></title>
@@ -17384,7 +17441,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《量子怪才：保罗·狄拉克传》读书笔记]]></title>
@@ -17463,7 +17520,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《只有偏执狂才能生存:特种经理人的培训手册(新版)》读书笔记]]></title>
@@ -17670,7 +17727,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《今日简史：人类命运大议题》读书笔记]]></title>
@@ -18005,7 +18062,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《岩田先生:任天堂传奇社长如是说(全球授权10语种!从天才程序员,到世界顶尖企业管理者,扭转颓势,带领公司股价翻番的传奇社长亲授企业经营管理理念!）》读书笔记]]></title>
@@ -18206,7 +18263,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《心：稻盛和夫的一生嘱托（“稻盛哲学”集大成之作）》读书笔记]]></title>
@@ -18407,7 +18464,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《苏东坡传（纪念典藏版）》读书笔记]]></title>
@@ -18462,7 +18519,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《纳瓦尔宝典》读书笔记]]></title>
@@ -19493,7 +19550,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《Make Something Wonderful》读书笔记]]></title>
@@ -19962,7 +20019,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《蒂姆·库克传：苹果公司的反思与商业的未来》读书笔记]]></title>
@@ -20051,7 +20108,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《刷新：重新发现商业与未来》读书笔记]]></title>
@@ -20174,7 +20231,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《世界在你心中》读书笔记]]></title>
@@ -21053,7 +21110,7 @@ $$</li>
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《高敏感孩子的内心世界》读书笔记]]></title>
@@ -21105,7 +21162,7 @@ excerpt: [法]克莉司德·布提可南作品《高敏感孩子的内心世界�
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《一个悲观主义者的积极思考》读书笔记]]></title>
@@ -22181,7 +22238,7 @@ excerpt: 叔本华作品《一个悲观主义者的积极思考》的读书笔�
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《看世界（2024年第13期）》读书笔记]]></title>
@@ -22204,7 +22261,7 @@ excerpt: 叔本华作品《一个悲观主义者的积极思考》的读书笔�
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《QED：光和物质的奇妙理论》读书笔记]]></title>
@@ -22230,7 +22287,7 @@ excerpt: 叔本华作品《一个悲观主义者的积极思考》的读书笔�
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《生命是什么》读书笔记]]></title>
@@ -22304,7 +22361,7 @@ excerpt: 叔本华作品《一个悲观主义者的积极思考》的读书笔�
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《我看见的世界》读书笔记]]></title>
@@ -22416,7 +22473,7 @@ excerpt: 叔本华作品《一个悲观主义者的积极思考》的读书笔�
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[2023年物竞外出培训—杭州行 ]]></title>
@@ -22524,7 +22581,7 @@ excerpt: 叔本华作品《一个悲观主义者的积极思考》的读书笔�
 <p><img src="ipfs://bafybeick4wdl5jggbpybdslrqi526szthkrcbwj2kaihbsvuutvm53z6qq" alt="43ad0ba0e025dea7f3d926cbe7ce1fe9"></p>
 <p>最后在这里祝愿物营的各位能学得开心（最重要的捏），复赛取得一个自己想要的成绩！</p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[写给16岁的自己]]></title>
@@ -22614,7 +22671,7 @@ excerpt: 叔本华作品《一个悲观主义者的积极思考》的读书笔�
 <h1>总结</h1>
 <p>这一年的生活还是蛮多样的，虽然时常emo，但是好在有物理营各位的陪伴—坏叔叔小灰灰，高冷的搞笑女ax姐，表面粗鲁实际上人还不错的CAN…一不小心也写到了11点多了，希望16岁的自己可以想开一点，多看看生活的美好，冲前二十，进省队！</p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[2022湖南之旅]]></title>
@@ -22719,7 +22776,7 @@ excerpt: 叔本华作品《一个悲观主义者的积极思考》的读书笔�
 </ol>
 <p>最后，希望大家可以也到湖南旅游，看看祖国大好河山，带动带动当地经济发展。也希望疫情早日过去，让我们出行无阻💪💪💪。</p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[初中生活总结]]></title>
@@ -22766,7 +22823,7 @@ excerpt: 叔本华作品《一个悲观主义者的积极思考》的读书笔�
 <h2>青春期的朦胧情感</h2>
 <p>笑死根本没有好吧。</p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[树莓派NAS搭建 ]]></title>
@@ -22837,7 +22894,7 @@ excerpt: 叔本华作品《一个悲观主义者的积极思考》的读书笔�
 <p>也欢迎大家来参与帮忙维护<a href="https://github.com/tobychui/arozos">ArozOS</a> 。</p>
 <p>也欢迎加入我们的<a href="https://t.me/ArOZBeta">telegram群组</a>。</p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[树莓派 ArozOS 指北 ]]></title>
@@ -23091,7 +23148,7 @@ sudo systemctl start arozos
 <p><a href="https://t.me/ArOZBeta">ArozOS Dev</a></p>
 <p>谢谢你的阅读！</p>
 ]]></content:encoded>
-            <author>pi-dal@connect.hku.hk (pi-dal)</author>
+            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
     </channel>
 </rss>

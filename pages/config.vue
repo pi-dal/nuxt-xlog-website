@@ -212,7 +212,7 @@ useHead({
       </div>
 
       <!-- 底部导航 -->
-      <div class="prose m-auto mt-8 mb-8 slide-enter animate-delay-500 print:hidden">
+      <div class="mt-8 mb-8 slide-enter animate-delay-500 print:hidden">
         <span class="font-mono opacity-50">> </span>
         <RouterLink
           :to="route.path.split('/').slice(0, -1).join('/') || '/'"

@@ -44,23 +44,25 @@ function handleKeyDown(event: KeyboardEvent) {
 }
 
 // Prevent background scroll when mobile TOC is open
-watchEffect(() => {
+watchEffect((onInvalidate) => {
   if (isMobileOpen.value) {
     document.body.style.overflow = 'hidden'
     document.addEventListener('keydown', handleKeyDown)
-  } else {
-    document.body.style.overflow = ''
-    document.removeEventListener('keydown', handleKeyDown)
+
+    onInvalidate(() => {
+      document.body.style.overflow = ''
+      document.removeEventListener('keydown', handleKeyDown)
+    })
   }
 })
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true })
   handleScroll() // Set initial active heading
+})
 
-  onUnmounted(() => {
-    window.removeEventListener('scroll', handleScroll)
-  })
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
 })
 </script>
 
@@ -427,8 +429,7 @@ onMounted(() => {
 
 .mobile-toc-link:hover {
   background: rgba(0, 0, 0, 0.05);
-  text-decoration: none;
-  border: none;
+  transition: all 0.2s ease;
 }
 
 .mobile-toc-link.active {

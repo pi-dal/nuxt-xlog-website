@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref, watch } from 'vue'
 
 export interface TocItem {
   id: string
@@ -36,12 +36,31 @@ function closeMobileToc() {
   isMobileOpen.value = false
 }
 
+function handleKeyDown(event: KeyboardEvent) {
+  if (event.key === 'Escape' && isMobileOpen.value) {
+    closeMobileToc()
+  }
+}
+
+// Prevent background scroll when mobile TOC is open
+watch(isMobileOpen, (isOpen) => {
+  if (isOpen) {
+    document.body.style.overflow = 'hidden'
+    document.addEventListener('keydown', handleKeyDown)
+  } else {
+    document.body.style.overflow = ''
+    document.removeEventListener('keydown', handleKeyDown)
+  }
+})
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true })
   handleScroll() // Set initial active heading
 
   onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll)
+    document.removeEventListener('keydown', handleKeyDown)
+    document.body.style.overflow = ''
   })
 })
 </script>
@@ -51,7 +70,7 @@ onMounted(() => {
     <!-- Desktop TOC (existing hover-based design) -->
     <nav class="hidden-toc-nav hidden lg:flex">
       <!-- 隐藏式目录触发器 -->
-      <div class="hidden-toc-trigger" title="目录">
+      <div class="hidden-toc-trigger" title="Table of Contents">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" fill="currentColor" />
         </svg>
@@ -63,9 +82,7 @@ onMounted(() => {
           <li v-for="item in items" :key="item.id">
             <a
               :href="`#${item.id}`"
-              class="toc-link" :class="[
-                activeId === item.id ? 'active' : '',
-              ]"
+              class="toc-link" :class="{ 'active': activeId === item.id }"
               :style="{ paddingLeft: `${(item.level - 1) * 0.75 + 0.5}rem` }"
             >
               {{ item.text }}
@@ -107,7 +124,7 @@ onMounted(() => {
                 :href="`#${item.id}`"
                 @click="closeMobileToc"
                 class="mobile-toc-link" 
-                :class="[activeId === item.id ? 'active' : '']"
+                :class="{ 'active': activeId === item.id }"
                 :style="{ paddingLeft: `${(item.level - 1) * 0.75 + 0.75}rem` }"
               >
                 {{ item.text }}
@@ -212,7 +229,7 @@ onMounted(() => {
 
 .toc-link {
   text-decoration: none;
-  border: none !important;
+  border: none;
   opacity: 0.75;
   transition: opacity 0.3s ease;
   display: block;
@@ -221,7 +238,7 @@ onMounted(() => {
 
 .toc-link:hover {
   text-decoration: none;
-  border: none !important;
+  border: none;
   opacity: 1;
 }
 
@@ -291,11 +308,6 @@ onMounted(() => {
   background: rgba(17, 24, 39, 1);
 }
 
-.dark .mobile-toc-button.active {
-  background: #3b82f6;
-  color: white;
-  border-color: #3b82f6;
-}
 
 .mobile-toc-overlay {
   position: fixed;
@@ -317,6 +329,8 @@ onMounted(() => {
   border-radius: 16px 16px 0 0;
   overflow: hidden;
   animation: slideUp 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .dark .mobile-toc-content {
@@ -374,7 +388,7 @@ onMounted(() => {
   list-style: none;
   padding: 0;
   margin: 0;
-  max-height: calc(70vh - 80px);
+  flex: 1;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(156, 163, 175, 0.3) transparent;
@@ -406,7 +420,7 @@ onMounted(() => {
   padding: 12px 24px;
   text-decoration: none;
   color: #374151;
-  border: none !important;
+  border: none;
   transition: all 0.2s ease;
   border-left: 3px solid transparent;
 }
@@ -414,7 +428,7 @@ onMounted(() => {
 .mobile-toc-link:hover {
   background: rgba(0, 0, 0, 0.05);
   text-decoration: none;
-  border: none !important;
+  border: none;
 }
 
 .mobile-toc-link.active {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref, watchEffect, nextTick } from 'vue'
 
 export interface TocItem {
   id: string
@@ -13,6 +13,9 @@ defineProps<{
 }>()
 
 const activeId = ref<string | null>(null)
+const isMobileOpen = ref(false)
+const mobileToggleButton = ref<HTMLButtonElement>()
+const mobileCloseButton = ref<HTMLButtonElement>()
 
 function handleScroll() {
   let currentId = ''
@@ -27,45 +30,160 @@ function handleScroll() {
   activeId.value = currentId
 }
 
+function toggleMobileToc() {
+  isMobileOpen.value = !isMobileOpen.value
+  if (isMobileOpen.value) {
+    nextTick(() => {
+      // Focus the close button when modal opens
+      mobileCloseButton.value?.focus()
+    })
+  }
+}
+
+function closeMobileToc() {
+  isMobileOpen.value = false
+  // Return focus to the toggle button
+  nextTick(() => {
+    mobileToggleButton.value?.focus()
+  })
+}
+
+function handleKeyDown(event: KeyboardEvent) {
+  if (event.key === 'Escape' && isMobileOpen.value) {
+    event.stopPropagation()
+    closeMobileToc()
+    return
+  }
+
+  // Focus trapping for Tab key
+  if (event.key === 'Tab' && isMobileOpen.value) {
+    const modalContent = document.querySelector('.mobile-toc-content')
+    if (!modalContent) return
+
+    const focusableElements = modalContent.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    )
+    const focusableArray = Array.from(focusableElements) as HTMLElement[]
+    
+    if (focusableArray.length === 0) return
+
+    const firstFocusable = focusableArray[0]
+    const lastFocusable = focusableArray[focusableArray.length - 1]
+
+    if (event.shiftKey) {
+      // Shift+Tab: if at first element, go to last
+      if (document.activeElement === firstFocusable) {
+        event.preventDefault()
+        lastFocusable.focus()
+      }
+    } else {
+      // Tab: if at last element, go to first
+      if (document.activeElement === lastFocusable) {
+        event.preventDefault()
+        firstFocusable.focus()
+      }
+    }
+  }
+}
+
+// Prevent background scroll when mobile TOC is open
+watchEffect((onInvalidate) => {
+  if (isMobileOpen.value) {
+    document.body.style.overflow = 'hidden'
+    document.addEventListener('keydown', handleKeyDown)
+  }
+
+  onInvalidate(() => {
+    document.body.style.overflow = ''
+    document.removeEventListener('keydown', handleKeyDown)
+  })
+})
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true })
   handleScroll() // Set initial active heading
+})
 
-  onUnmounted(() => {
-    window.removeEventListener('scroll', handleScroll)
-  })
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
 })
 </script>
 
 <template>
-  <nav v-if="items.length > 0" class="hidden-toc-nav hidden lg:flex">
-    <!-- 隐藏式目录触发器 -->
-    <div class="hidden-toc-trigger" title="目录">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" fill="currentColor" />
-      </svg>
-    </div>
+  <div v-if="items.length > 0">
+    <!-- Desktop TOC (existing hover-based design) -->
+    <nav class="hidden-toc-nav hidden lg:flex">
+      <!-- Hidden TOC trigger -->
+      <div class="hidden-toc-trigger" title="Table of Contents">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" fill="currentColor" />
+        </svg>
+      </div>
 
-    <!-- 目录内容 -->
-    <div class="hidden-toc-content">
-      <ul>
-        <li v-for="item in items" :key="item.id">
-          <a
-            :href="`#${item.id}`"
-            class="toc-link" :class="[
-              activeId === item.id ? 'active' : '',
-            ]"
-            :style="{ paddingLeft: `${(item.level - 1) * 0.75 + 0.5}rem` }"
-          >
-            {{ item.text }}
-          </a>
-        </li>
-      </ul>
+      <!-- TOC content -->
+      <div class="hidden-toc-content">
+        <ul>
+          <li v-for="item in items" :key="item.id">
+            <a
+              :href="`#${item.id}`"
+              class="toc-link" :class="{ 'active': activeId === item.id }"
+              :style="{ paddingLeft: `${(item.level - 1) * 0.75 + 0.5}rem` }"
+            >
+              {{ item.text }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Mobile TOC (collapsible button design) -->
+    <div class="mobile-toc lg:hidden">
+      <!-- Mobile TOC toggle button -->
+      <button 
+        ref="mobileToggleButton"
+        @click="toggleMobileToc"
+        class="mobile-toc-button"
+        :class="{ 'active': isMobileOpen }"
+        title="Table of Contents"
+        aria-label="Toggle table of contents"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" fill="currentColor" />
+        </svg>
+      </button>
+
+      <!-- Mobile TOC content (collapsible) -->
+      <div v-if="isMobileOpen" class="mobile-toc-overlay" @click="closeMobileToc">
+        <div class="mobile-toc-content" @click.stop role="dialog" aria-modal="true" aria-labelledby="mobile-toc-title">
+          <div class="mobile-toc-header">
+            <h3 id="mobile-toc-title">Table of Contents</h3>
+            <button ref="mobileCloseButton" @click="closeMobileToc" class="mobile-toc-close" aria-label="Close table of contents">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          <ul class="mobile-toc-list">
+            <li v-for="item in items" :key="item.id">
+              <a
+                :href="`#${item.id}`"
+                @click="closeMobileToc"
+                class="mobile-toc-link" 
+                :class="{ 'active': activeId === item.id }"
+                :style="{ paddingLeft: `${(item.level - 1) * 0.75 + 0.75}rem` }"
+              >
+                {{ item.text }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </nav>
+  </div>
 </template>
 
 <style scoped>
+/* Desktop TOC Styles */
 .hidden-toc-nav {
   position: fixed;
   top: 50%;
@@ -157,7 +275,7 @@ onMounted(() => {
 
 .toc-link {
   text-decoration: none;
-  border: none !important;
+  border: none;
   opacity: 0.75;
   transition: opacity 0.3s ease;
   display: block;
@@ -166,7 +284,7 @@ onMounted(() => {
 
 .toc-link:hover {
   text-decoration: none;
-  border: none !important;
+  border: none;
   opacity: 1;
 }
 
@@ -175,7 +293,7 @@ onMounted(() => {
   color: #3b82f6;
 }
 
-/* 悬停时显示 */
+/* Show on hover */
 .hidden-toc-nav:hover .hidden-toc-trigger {
   color: inherit;
 }
@@ -184,8 +302,214 @@ onMounted(() => {
   opacity: 0.75;
 }
 
-/* 永远显示模式 */
+/* Always on mode */
 .hidden-toc-nav.toc-always-on .hidden-toc-content {
   opacity: 0.6;
+}
+
+/* Mobile TOC Styles */
+.mobile-toc {
+  position: relative;
+  z-index: 200;
+}
+
+.mobile-toc-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  color: #6b7280;
+  z-index: 250;
+}
+
+.mobile-toc-button:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.mobile-toc-button.active {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.dark .mobile-toc-button {
+  background: rgba(17, 24, 39, 0.95);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #9ca3af;
+}
+
+.dark .mobile-toc-button:hover {
+  background: rgba(17, 24, 39, 1);
+}
+
+
+.mobile-toc-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 300;
+  display: flex;
+  align-items: flex-end;
+  animation: fadeIn 0.3s ease;
+}
+
+.mobile-toc-content {
+  background: white;
+  width: 100%;
+  max-height: 70vh;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.dark .mobile-toc-content {
+  background: #1f2937;
+}
+
+.mobile-toc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark .mobile-toc-header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-toc-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.dark .mobile-toc-header h3 {
+  color: #f9fafb;
+}
+
+.mobile-toc-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  color: #6b7280;
+  transition: all 0.2s ease;
+}
+
+.mobile-toc-close:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #374151;
+}
+
+.dark .mobile-toc-close {
+  color: #9ca3af;
+}
+
+.dark .mobile-toc-close:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #d1d5db;
+}
+
+.mobile-toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.3) transparent;
+}
+
+.mobile-toc-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.mobile-toc-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mobile-toc-list::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.3);
+  border-radius: 2px;
+}
+
+.mobile-toc-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.5);
+}
+
+.mobile-toc-list li {
+  margin: 0;
+}
+
+.mobile-toc-link {
+  display: block;
+  padding: 12px 24px;
+  text-decoration: none;
+  color: #374151;
+  border: none;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.mobile-toc-link:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.mobile-toc-link.active {
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+  border-left-color: #3b82f6;
+}
+
+.dark .mobile-toc-link {
+  color: #d1d5db;
+}
+
+.dark .mobile-toc-link:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dark .mobile-toc-link.active {
+  color: #60a5fa;
+  background: rgba(59, 130, 246, 0.2);
+  border-left-color: #60a5fa;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 </style>

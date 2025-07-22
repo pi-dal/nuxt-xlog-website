@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, watchEffect } from 'vue'
+import { onMounted, onUnmounted, ref, watchEffect, nextTick } from 'vue'
 
 export interface TocItem {
   id: string
@@ -14,6 +14,8 @@ defineProps<{
 
 const activeId = ref<string | null>(null)
 const isMobileOpen = ref(false)
+const mobileToggleButton = ref<HTMLButtonElement>()
+const mobileCloseButton = ref<HTMLButtonElement>()
 
 function handleScroll() {
   let currentId = ''
@@ -30,16 +32,57 @@ function handleScroll() {
 
 function toggleMobileToc() {
   isMobileOpen.value = !isMobileOpen.value
+  if (isMobileOpen.value) {
+    nextTick(() => {
+      // Focus the close button when modal opens
+      mobileCloseButton.value?.focus()
+    })
+  }
 }
 
 function closeMobileToc() {
   isMobileOpen.value = false
+  // Return focus to the toggle button
+  nextTick(() => {
+    mobileToggleButton.value?.focus()
+  })
 }
 
 function handleKeyDown(event: KeyboardEvent) {
   if (event.key === 'Escape' && isMobileOpen.value) {
     event.stopPropagation()
     closeMobileToc()
+    return
+  }
+
+  // Focus trapping for Tab key
+  if (event.key === 'Tab' && isMobileOpen.value) {
+    const modalContent = document.querySelector('.mobile-toc-content')
+    if (!modalContent) return
+
+    const focusableElements = modalContent.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    )
+    const focusableArray = Array.from(focusableElements) as HTMLElement[]
+    
+    if (focusableArray.length === 0) return
+
+    const firstFocusable = focusableArray[0]
+    const lastFocusable = focusableArray[focusableArray.length - 1]
+
+    if (event.shiftKey) {
+      // Shift+Tab: if at first element, go to last
+      if (document.activeElement === firstFocusable) {
+        event.preventDefault()
+        lastFocusable.focus()
+      }
+    } else {
+      // Tab: if at last element, go to first
+      if (document.activeElement === lastFocusable) {
+        event.preventDefault()
+        firstFocusable.focus()
+      }
+    }
   }
 }
 
@@ -48,12 +91,12 @@ watchEffect((onInvalidate) => {
   if (isMobileOpen.value) {
     document.body.style.overflow = 'hidden'
     document.addEventListener('keydown', handleKeyDown)
-
-    onInvalidate(() => {
-      document.body.style.overflow = ''
-      document.removeEventListener('keydown', handleKeyDown)
-    })
   }
+
+  onInvalidate(() => {
+    document.body.style.overflow = ''
+    document.removeEventListener('keydown', handleKeyDown)
+  })
 })
 
 onMounted(() => {
@@ -97,6 +140,7 @@ onUnmounted(() => {
     <div class="mobile-toc lg:hidden">
       <!-- Mobile TOC toggle button -->
       <button 
+        ref="mobileToggleButton"
         @click="toggleMobileToc"
         class="mobile-toc-button"
         :class="{ 'active': isMobileOpen }"
@@ -110,10 +154,10 @@ onUnmounted(() => {
 
       <!-- Mobile TOC content (collapsible) -->
       <div v-if="isMobileOpen" class="mobile-toc-overlay" @click="closeMobileToc">
-        <div class="mobile-toc-content" @click.stop>
+        <div class="mobile-toc-content" @click.stop role="dialog" aria-modal="true" aria-labelledby="mobile-toc-title">
           <div class="mobile-toc-header">
-            <h3>Table of Contents</h3>
-            <button @click="closeMobileToc" class="mobile-toc-close" aria-label="Close table of contents">
+            <h3 id="mobile-toc-title">Table of Contents</h3>
+            <button ref="mobileCloseButton" @click="closeMobileToc" class="mobile-toc-close" aria-label="Close table of contents">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -429,7 +473,6 @@ onUnmounted(() => {
 
 .mobile-toc-link:hover {
   background: rgba(0, 0, 0, 0.05);
-  transition: all 0.2s ease;
 }
 
 .mobile-toc-link.active {

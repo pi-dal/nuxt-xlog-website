@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, watch } from 'vue'
+import { onMounted, onUnmounted, ref, watchEffect } from 'vue'
 
 export interface TocItem {
   id: string
@@ -38,13 +38,14 @@ function closeMobileToc() {
 
 function handleKeyDown(event: KeyboardEvent) {
   if (event.key === 'Escape' && isMobileOpen.value) {
+    event.stopPropagation()
     closeMobileToc()
   }
 }
 
 // Prevent background scroll when mobile TOC is open
-watch(isMobileOpen, (isOpen) => {
-  if (isOpen) {
+watchEffect(() => {
+  if (isMobileOpen.value) {
     document.body.style.overflow = 'hidden'
     document.addEventListener('keydown', handleKeyDown)
   } else {
@@ -59,8 +60,6 @@ onMounted(() => {
 
   onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll)
-    document.removeEventListener('keydown', handleKeyDown)
-    document.body.style.overflow = ''
   })
 })
 </script>

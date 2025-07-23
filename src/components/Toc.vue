@@ -1,129 +1,52 @@
 <script setup lang="ts">
-import { nextTick, onMounted, onUnmounted, ref, watchEffect } from 'vue'
+import { ref } from 'vue'
+import { useFocusTrap } from '~/composables/useFocusTrap'
+import { useTocObserver } from '~/composables/useTocObserver'
+import TocItem from './TocItem.vue'
 
-export interface TocItem {
+export interface TocItemType {
   id: string
   text: string
   level: number
-  children?: TocItem[]
+  children?: TocItemType[]
 }
 
 defineProps<{
-  items: TocItem[]
+  items: TocItemType[]
 }>()
 
-const activeId = ref<string | null>(null)
+// Use composables for separation of concerns
+const { activeId } = useTocObserver('article h1, article h2, article h3, article h4')
+
+// Mobile TOC state and handlers
 const isMobileOpen = ref(false)
 const mobileToggleButton = ref<HTMLButtonElement>()
-const mobileCloseButton = ref<HTMLButtonElement>()
 
-// Throttle scroll handler for better performance
-let scrollTimeout: ReturnType<typeof setTimeout> | null = null
+// Focus trap for mobile modal
+const {
+  firstFocusElement,
+  focusFirstElement,
+  focusLastElement,
+} = useFocusTrap({
+  isOpen: isMobileOpen,
+  containerSelector: '.mobile-toc-content',
+  onClose: () => {
+    isMobileOpen.value = false
+    focusLastElement()
+  },
+})
 
-function handleScroll() {
-  if (scrollTimeout)
-    return
-
-  scrollTimeout = setTimeout(() => {
-    let currentId = ''
-    const headings = document.querySelectorAll('article h1, article h2, article h3, article h4')
-
-    headings.forEach((heading) => {
-      if (heading.getBoundingClientRect().top < 120) {
-        currentId = heading.id
-      }
-    })
-
-    activeId.value = currentId
-    scrollTimeout = null
-  }, 16) // ~60fps
+function closeMobileToc() {
+  isMobileOpen.value = false
+  focusLastElement()
 }
 
 function toggleMobileToc() {
   isMobileOpen.value = !isMobileOpen.value
   if (isMobileOpen.value) {
-    nextTick(() => {
-      // Focus the close button when modal opens
-      mobileCloseButton.value?.focus()
-    })
+    focusFirstElement()
   }
 }
-
-function closeMobileToc() {
-  isMobileOpen.value = false
-  // Return focus to the toggle button
-  nextTick(() => {
-    mobileToggleButton.value?.focus()
-  })
-}
-
-function handleKeyDown(event: KeyboardEvent) {
-  if (event.key === 'Escape' && isMobileOpen.value) {
-    event.stopPropagation()
-    closeMobileToc()
-    return
-  }
-
-  // Focus trapping for Tab key
-  if (event.key === 'Tab' && isMobileOpen.value) {
-    const modalContent = document.querySelector('.mobile-toc-content')
-    if (!modalContent)
-      return
-
-    const focusableElements = modalContent.querySelectorAll(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
-    )
-    const focusableArray = Array.from(focusableElements) as HTMLElement[]
-
-    if (focusableArray.length === 0)
-      return
-
-    const firstFocusable = focusableArray[0]
-    const lastFocusable = focusableArray[focusableArray.length - 1]
-    const activeElement = document.activeElement
-
-    if (event.shiftKey) {
-      // Shift+Tab: if at first element, go to last
-      if (activeElement === firstFocusable) {
-        event.preventDefault()
-        lastFocusable.focus()
-      }
-    }
-    else {
-      // Tab: if at last element, go to first
-      if (activeElement === lastFocusable) {
-        event.preventDefault()
-        firstFocusable.focus()
-      }
-    }
-  }
-}
-
-// Prevent background scroll when mobile TOC is open
-watchEffect((onInvalidate) => {
-  if (isMobileOpen.value) {
-    document.body.style.overflow = 'hidden'
-    document.addEventListener('keydown', handleKeyDown)
-  }
-
-  onInvalidate(() => {
-    document.body.style.overflow = ''
-    document.removeEventListener('keydown', handleKeyDown)
-  })
-})
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll, { passive: true })
-  handleScroll() // Set initial active heading
-})
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
-  if (scrollTimeout) {
-    clearTimeout(scrollTimeout)
-    scrollTimeout = null
-  }
-})
 </script>
 
 <template>
@@ -140,15 +63,13 @@ onUnmounted(() => {
       <!-- TOC content -->
       <div class="toc-content">
         <ul>
-          <li v-for="item in items" :key="item.id">
-            <a
-              :href="`#${item.id}`"
-              class="toc-link" :class="{ active: activeId === item.id }"
-              :style="{ paddingLeft: `${(item.level - 1) * 0.75 + 0.5}rem` }"
-            >
-              {{ item.text }}
-            </a>
-          </li>
+          <TocItem
+            v-for="item in items"
+            :key="item.id"
+            :item="item"
+            :active-id="activeId"
+            variant="desktop"
+          />
         </ul>
       </div>
     </nav>
@@ -176,24 +97,22 @@ onUnmounted(() => {
             <h3 id="mobile-toc-title">
               Table of Contents
             </h3>
-            <button ref="mobileCloseButton" class="mobile-toc-close" aria-label="Close table of contents" @click="closeMobileToc">
+            <button ref="firstFocusElement" class="mobile-toc-close" aria-label="Close table of contents" @click="closeMobileToc">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </button>
           </div>
           <ul class="mobile-toc-list">
-            <li v-for="item in items" :key="item.id">
-              <a
-                :href="`#${item.id}`"
-                class="mobile-toc-link"
-                :class="{ active: activeId === item.id }"
-                :style="{ paddingLeft: `${(item.level - 1) * 0.75 + 0.75}rem` }"
-                @click="closeMobileToc"
-              >
-                {{ item.text }}
-              </a>
-            </li>
+            <TocItem
+              v-for="(item, index) in items"
+              :key="item.id"
+              :ref="index === items.length - 1 ? 'lastFocusElement' : undefined"
+              :item="item"
+              :active-id="activeId"
+              variant="mobile"
+              @link-click="closeMobileToc"
+            />
           </ul>
         </div>
       </div>
@@ -208,8 +127,8 @@ onUnmounted(() => {
   top: 50%;
   left: 20px;
   transform: translateY(-50%);
-  z-index: 200;
-  width: 240px;
+  z-index: var(--toc-z-index);
+  width: var(--toc-width);
   max-height: 60vh;
   font-size: 0.8em;
   overflow: hidden;
@@ -231,26 +150,26 @@ onUnmounted(() => {
 }
 
 .toc-trigger {
-  width: 28px;
-  height: 28px;
+  width: var(--toc-trigger-size);
+  height: var(--toc-trigger-size);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--toc-bg-light);
   border-radius: 6px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--toc-border-light);
   cursor: pointer;
   transition: all 0.4s ease;
-  color: #888;
+  color: var(--toc-text-muted);
   font-size: 14px;
   flex-shrink: 0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .dark .toc-trigger {
-  background: rgba(0, 0, 0, 0.6);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #888;
+  background: var(--toc-bg-dark);
+  border-color: var(--toc-border-dark);
+  color: var(--toc-text-muted);
 }
 
 .toc-content {
@@ -287,12 +206,12 @@ onUnmounted(() => {
 }
 
 .toc-content::-webkit-scrollbar-thumb {
-  background: rgba(156, 163, 175, 0.3);
+  background: var(--toc-scrollbar-color);
   border-radius: 2px;
 }
 
 .toc-content::-webkit-scrollbar-thumb:hover {
-  background: rgba(156, 163, 175, 0.5);
+  background: var(--toc-scrollbar-hover);
 }
 
 .toc-content ul > li {
@@ -303,26 +222,6 @@ onUnmounted(() => {
 
 .toc-content ul > li::before {
   display: none;
-}
-
-.toc-link {
-  text-decoration: none;
-  border: none;
-  opacity: 0.75;
-  transition: opacity 0.3s ease;
-  display: block;
-  color: inherit;
-}
-
-.toc-link:hover {
-  text-decoration: none;
-  border: none;
-  opacity: 1;
-}
-
-.toc-link.active {
-  opacity: 1;
-  color: #3b82f6;
 }
 
 /* Show on hover */
@@ -341,7 +240,7 @@ onUnmounted(() => {
 
 /* Mobile TOC Styles */
 .mobile-toc {
-  z-index: 200;
+  z-index: var(--toc-z-index);
   display: none; /* Hidden by default */
 }
 
@@ -362,10 +261,10 @@ onUnmounted(() => {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 48px;
-  height: 48px;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: var(--toc-mobile-button-size);
+  height: var(--toc-mobile-button-size);
+  background: var(--toc-bg-light);
+  border: 1px solid var(--toc-border-light);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -374,7 +273,7 @@ onUnmounted(() => {
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   color: #6b7280;
-  z-index: 250;
+  z-index: var(--toc-z-index-mobile);
 }
 
 .mobile-toc-button:hover {
@@ -384,9 +283,9 @@ onUnmounted(() => {
 }
 
 .mobile-toc-button.active {
-  background: #3b82f6;
+  background: var(--toc-primary-color);
   color: white;
-  border-color: #3b82f6;
+  border-color: var(--toc-primary-color);
 }
 
 .dark .mobile-toc-button {
@@ -406,7 +305,7 @@ onUnmounted(() => {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 300;
+  z-index: var(--toc-z-index-overlay);
   display: flex;
   align-items: flex-end;
   animation: fadeIn 0.3s ease;
@@ -493,50 +392,16 @@ onUnmounted(() => {
 }
 
 .mobile-toc-list::-webkit-scrollbar-thumb {
-  background: rgba(156, 163, 175, 0.3);
+  background: var(--toc-scrollbar-color);
   border-radius: 2px;
 }
 
 .mobile-toc-list::-webkit-scrollbar-thumb:hover {
-  background: rgba(156, 163, 175, 0.5);
+  background: var(--toc-scrollbar-hover);
 }
 
 .mobile-toc-list li {
   margin: 0;
-}
-
-.mobile-toc-link {
-  display: block;
-  padding: 12px 24px;
-  text-decoration: none;
-  color: #374151;
-  border: none;
-  transition: all 0.2s ease;
-  border-left: 3px solid transparent;
-}
-
-.mobile-toc-link:hover {
-  background: rgba(0, 0, 0, 0.05);
-}
-
-.mobile-toc-link.active {
-  color: #3b82f6;
-  background: rgba(59, 130, 246, 0.1);
-  border-left-color: #3b82f6;
-}
-
-.dark .mobile-toc-link {
-  color: #d1d5db;
-}
-
-.dark .mobile-toc-link:hover {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.dark .mobile-toc-link.active {
-  color: #60a5fa;
-  background: rgba(59, 130, 246, 0.2);
-  border-left-color: #60a5fa;
 }
 
 @keyframes fadeIn {

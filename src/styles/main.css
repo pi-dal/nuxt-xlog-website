@@ -4,6 +4,22 @@
   --c-bg: #fff;
   --c-scrollbar: #eee;
   --c-scrollbar-hover: #bbb;
+
+  /* TOC Variables */
+  --toc-primary-color: #3b82f6;
+  --toc-width: 240px;
+  --toc-trigger-size: 28px;
+  --toc-mobile-button-size: 48px;
+  --toc-z-index: 200;
+  --toc-z-index-mobile: 250;
+  --toc-z-index-overlay: 300;
+  --toc-bg-light: rgba(255, 255, 255, 0.9);
+  --toc-bg-dark: rgba(0, 0, 0, 0.6);
+  --toc-border-light: rgba(0, 0, 0, 0.1);
+  --toc-border-dark: rgba(255, 255, 255, 0.2);
+  --toc-text-muted: #888;
+  --toc-scrollbar-color: rgba(156, 163, 175, 0.3);
+  --toc-scrollbar-hover: rgba(156, 163, 175, 0.5);
 }
 
 html {

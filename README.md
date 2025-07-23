@@ -112,7 +112,8 @@ The build process includes:
 ```
 ├── src/
 │   ├── components/           # Vue components
-│   │   ├── ListXLogPosts.vue # xLog posts list component
+│   │   ├── DetailPage.vue    # Reusable detail page component
+│   │   ├── ListPage.vue      # Reusable list page component
 │   │   └── ...
 │   ├── logics/              # Business logic
 │   │   ├── xlog.ts          # xLog API client

@@ -127,9 +127,9 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div v-if="items.length > 0">
+  <div>
     <!-- Desktop TOC (floating hover-based design - original design) -->
-    <nav class="desktop-toc">
+    <nav v-if="items.length > 0" class="desktop-toc">
       <!-- TOC trigger -->
       <div class="toc-trigger" title="Table of Contents">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -154,7 +154,7 @@ onUnmounted(() => {
     </nav>
 
     <!-- Mobile TOC (collapsible button design) -->
-    <div class="mobile-toc">
+    <div v-if="items.length > 0" class="mobile-toc">
       <!-- Mobile TOC toggle button -->
       <button
         ref="mobileToggleButton"

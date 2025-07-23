@@ -5,9 +5,7 @@ interface Props {
   variant?: 'default' | 'stroke'
 }
 
-const { variant } = withDefaults(defineProps<Props>(), {
-  variant: 'default',
-})
+const { variant = 'default' } = defineProps<Props>()
 
 fetchSiteInfo()
 </script>

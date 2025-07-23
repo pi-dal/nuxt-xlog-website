@@ -342,6 +342,7 @@ onUnmounted(() => {
 /* Mobile TOC Styles */
 .mobile-toc {
   z-index: 200;
+  display: none; /* Hidden by default */
 }
 
 /* Only show mobile TOC on screens smaller than large */

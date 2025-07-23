@@ -214,6 +214,7 @@ onUnmounted(() => {
   font-size: 0.8em;
   overflow: hidden;
   flex-direction: column;
+  display: none; /* Hidden by default */
 }
 
 /* Only show desktop TOC on large screens */

@@ -1,6 +1,7 @@
 import type { EnhancedXLogPost, SocialLink, XLogAuthor, XLogComment, XLogPortfolio, XLogPost, XLogSite } from '../types'
 import { logger } from './logger'
 import { enhancePostsWithMetadata, enhancePostWithMetadata } from './metadata'
+import { useSiteInfo } from './useSiteInfo'
 
 // 获取xLog handle配置
 function getXLogHandle(): string {
@@ -260,15 +261,17 @@ export async function getAllPostsDirect(): Promise<XLogPost[]> {
     return []
 
   try {
-    // 首先获取characterId
-    const siteInfo = await getSiteInfoDirect()
-    if (!siteInfo || !siteInfo.id) {
-      logger.warn('No site info found for handle:', { handle }, 'XLOG_SITE')
+    // 使用缓存的siteInfo获取characterId
+    const { fetchSiteInfo, getCharacterId } = useSiteInfo()
+    await fetchSiteInfo()
+    const characterId = getCharacterId()
+
+    if (!characterId) {
+      logger.warn('No characterId found for handle:', { handle }, 'XLOG_SITE')
       return []
     }
 
-    const characterId = Number.parseInt(siteInfo.id)
-    logger.debug('Using characterId:', { characterId }, 'XLOG_POSTS')
+    logger.debug('Using cached characterId:', { characterId }, 'XLOG_POSTS')
 
     // 然后用characterId获取文章
     const data = await callXLogAPI(GET_POSTS_QUERY, { characterId })
@@ -336,19 +339,22 @@ export async function getPostBySlugDirect(slug: string): Promise<XLogPost | null
     if (!handle)
       return null
 
-    // 首先获取characterId 和作者信息
-    const siteInfo = await getSiteInfoDirect()
-    if (!siteInfo || !siteInfo.id) {
-      logger.warn('No site info found for handle:', { handle }, 'XLOG_SITE')
+    // 使用缓存的siteInfo获取characterId和作者信息
+    const { fetchSiteInfo, getCharacterId, siteInfo } = useSiteInfo()
+    await fetchSiteInfo()
+    const characterId = getCharacterId()
+
+    if (!characterId || !siteInfo.value) {
+      logger.warn('No characterId or siteInfo found for handle:', { handle }, 'XLOG_SITE')
       return null
     }
-    const characterId = Number.parseInt(siteInfo.id)
+
     const author: XLogAuthor = {
-      id: siteInfo.id,
-      username: siteInfo.subdomain,
-      name: siteInfo.name,
-      avatar: (siteInfo.avatar || '').replace('ipfs://', 'https://ipfs.crossbell.io/ipfs/'),
-      bio: siteInfo.bio,
+      id: siteInfo.value.id,
+      username: siteInfo.value.subdomain,
+      name: siteInfo.value.name,
+      avatar: (siteInfo.value.avatar || '').replace('ipfs://', 'https://ipfs.crossbell.io/ipfs/'),
+      bio: siteInfo.value.bio,
     }
 
     // 直接通过GraphQL查询特定slug的文章，不受getAllPostsDirect的过滤限制
@@ -483,12 +489,15 @@ export async function getPageBySlugDirect(slug: string): Promise<XLogPost | null
     return null
 
   try {
-    const siteInfo = await getSiteInfoDirect()
-    if (!siteInfo || !siteInfo.id) {
-      logger.warn('No site info found for handle:', { handle }, 'XLOG_SITE')
+    // 使用缓存的siteInfo获取characterId
+    const { fetchSiteInfo, getCharacterId } = useSiteInfo()
+    await fetchSiteInfo()
+    const characterId = getCharacterId()
+
+    if (!characterId) {
+      logger.warn('No characterId found for handle:', { handle }, 'XLOG_SITE')
       return null
     }
-    const characterId = Number.parseInt(siteInfo.id)
 
     const data = await callXLogAPI(GET_PAGE_BY_SLUG_QUERY, { characterId, slug })
     const notes = data.notes || []
@@ -537,11 +546,15 @@ export async function getPortfolioDirect(): Promise<XLogPortfolio[]> {
     return []
 
   try {
-    const siteInfo = await getSiteInfoDirect()
-    if (!siteInfo || !siteInfo.id) {
+    // 使用缓存的siteInfo获取characterId
+    const { fetchSiteInfo, getCharacterId } = useSiteInfo()
+    await fetchSiteInfo()
+    const characterId = getCharacterId()
+
+    if (!characterId) {
+      logger.warn('No characterId found for handle:', { handle }, 'XLOG_PORTFOLIO')
       return []
     }
-    const characterId = Number.parseInt(siteInfo.id)
 
     const data = await callXLogAPI(GET_PORTFOLIOS_QUERY, { characterId })
     const notes = data.notes || []
@@ -573,11 +586,15 @@ export async function getBooksDirect(): Promise<XLogPost[]> {
     return []
 
   try {
-    const siteInfo = await getSiteInfoDirect()
-    if (!siteInfo || !siteInfo.id) {
+    // 使用缓存的siteInfo获取characterId
+    const { fetchSiteInfo, getCharacterId } = useSiteInfo()
+    await fetchSiteInfo()
+    const characterId = getCharacterId()
+
+    if (!characterId) {
+      logger.warn('No characterId found for handle:', { handle }, 'XLOG_BOOKS')
       return []
     }
-    const characterId = Number.parseInt(siteInfo.id)
 
     const data = await callXLogAPI(GET_POSTS_QUERY, { characterId })
     const notes = data.notes || []
@@ -633,15 +650,17 @@ export async function getPostsByTagDirect(tag: string): Promise<XLogPost[]> {
     return []
 
   try {
-    // 首先获取characterId
-    const siteInfo = await getSiteInfoDirect()
-    if (!siteInfo || !siteInfo.id) {
-      logger.warn('No site info found for handle:', { handle }, 'XLOG_SITE')
+    // 使用缓存的siteInfo获取characterId
+    const { fetchSiteInfo, getCharacterId } = useSiteInfo()
+    await fetchSiteInfo()
+    const characterId = getCharacterId()
+
+    if (!characterId) {
+      logger.warn('No characterId found for handle:', { handle }, 'XLOG_SITE')
       return []
     }
 
-    const characterId = Number.parseInt(siteInfo.id)
-    logger.debug('Using characterId:', { characterId, tag }, 'XLOG_TAGS')
+    logger.debug('Using cached characterId:', { characterId, tag }, 'XLOG_TAGS')
 
     // 然后用characterId获取文章
     const data = await callXLogAPI(GET_POSTS_QUERY, { characterId })

@@ -57,6 +57,60 @@ const totalPages = computed(() => {
   return Math.ceil(allItems.value.length / props.itemsPerPage)
 })
 
+// 生成分页页码数组
+const paginationItems = computed(() => {
+  const items: (number | 'ellipsis')[] = []
+  const total = totalPages.value
+  const current = currentPage.value
+
+  if (total <= 7) {
+    // 如果总页数不超过7页，显示所有页码
+    for (let i = 1; i <= total; i++) {
+      items.push(i)
+    }
+  }
+  else {
+    // 智能分页：始终显示第1页
+    items.push(1)
+
+    if (current <= 4) {
+      // 当前页在前4页时：1 2 3 4 5 ... total
+      for (let i = 2; i <= 5; i++) {
+        items.push(i)
+      }
+      if (total > 6) {
+        items.push('ellipsis')
+      }
+    }
+    else if (current >= total - 3) {
+      // 当前页在后4页时：1 ... (total-4) (total-3) (total-2) (total-1) total
+      if (total > 6) {
+        items.push('ellipsis')
+      }
+      for (let i = total - 4; i <= total - 1; i++) {
+        if (i > 1) {
+          items.push(i)
+        }
+      }
+    }
+    else {
+      // 当前页在中间时：1 ... (current-1) current (current+1) ... total
+      items.push('ellipsis')
+      for (let i = current - 1; i <= current + 1; i++) {
+        items.push(i)
+      }
+      items.push('ellipsis')
+    }
+
+    // 始终显示最后一页（如果不是第1页）
+    if (total > 1) {
+      items.push(total)
+    }
+  }
+
+  return items
+})
+
 // 获取数据
 async function fetchData() {
   try {
@@ -178,66 +232,27 @@ onMounted(fetchData)
             </button>
 
             <!-- Page Numbers -->
-            <template v-for="page in Math.min(totalPages, 7)" :key="page">
-              <!-- If total pages <= 7, show all pages -->
+            <template v-for="(item, index) in paginationItems" :key="`${item}-${index}`">
+              <!-- Ellipsis -->
+              <span
+                v-if="item === 'ellipsis'"
+                class="px-3 py-2 text-gray-400 dark:text-gray-600"
+              >
+                ...
+              </span>
+              <!-- Page Button -->
               <button
-                v-if="totalPages <= 7"
+                v-else
                 class="px-3 py-2 text-sm font-medium rounded-md transition-colors"
                 :class="[
-                  page === currentPage
+                  item === currentPage
                     ? 'bg-blue-600 text-white'
                     : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800',
                 ]"
-                @click="goToPage(page)"
+                @click="goToPage(item)"
               >
-                {{ page }}
+                {{ item }}
               </button>
-              <!-- If total pages > 7, show smart pagination -->
-              <template v-else>
-                <!-- First page -->
-                <button
-                  v-if="page === 1"
-                  class="px-3 py-2 text-sm font-medium rounded-md transition-colors"
-                  :class="[
-                    1 === currentPage
-                      ? 'bg-blue-600 text-white'
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800',
-                  ]"
-                  @click="goToPage(1)"
-                >
-                  1
-                </button>
-                <!-- Ellipsis -->
-                <span v-if="page === 2 && currentPage > 4" class="px-3 py-2 text-gray-400 dark:text-gray-600">...</span>
-                <!-- Current page and surrounding pages -->
-                <button
-                  v-if="page >= Math.max(2, currentPage - 1) && page <= Math.min(totalPages - 1, currentPage + 1)"
-                  class="px-3 py-2 text-sm font-medium rounded-md transition-colors"
-                  :class="[
-                    page === currentPage
-                      ? 'bg-blue-600 text-white'
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800',
-                  ]"
-                  @click="goToPage(page)"
-                >
-                  {{ page }}
-                </button>
-                <!-- Ellipsis -->
-                <span v-if="page === 6 && currentPage < totalPages - 3" class="px-3 py-2 text-gray-400 dark:text-gray-600">...</span>
-                <!-- Last page -->
-                <button
-                  v-if="page === 7 && totalPages > 1"
-                  class="px-3 py-2 text-sm font-medium rounded-md transition-colors"
-                  :class="[
-                    totalPages === currentPage
-                      ? 'bg-blue-600 text-white'
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800',
-                  ]"
-                  @click="goToPage(totalPages)"
-                >
-                  {{ totalPages }}
-                </button>
-              </template>
             </template>
 
             <!-- Next Page -->

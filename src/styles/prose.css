@@ -710,3 +710,64 @@ html.dark .prose {
 .prose-sm > :last-child {
   margin-bottom: 0;
 }
+
+/* KaTeX Math Formula Styling - Horizontal Scroll for Long Formulas */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  padding: 0.5em 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-scrollbar) transparent;
+}
+
+.katex-display::-webkit-scrollbar {
+  height: 6px;
+}
+
+.katex-display::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.katex-display::-webkit-scrollbar-thumb {
+  background: var(--c-scrollbar);
+  border-radius: 3px;
+}
+
+.katex-display::-webkit-scrollbar-thumb:hover {
+  background: var(--c-scrollbar-hover);
+}
+
+/* Ensure inline math doesn't break layout */
+.katex {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* For very long inline math, allow line breaking */
+.prose .katex {
+  word-break: break-all;
+}
+
+/* Display math container styling */
+.prose .katex-display {
+  margin: 1em 0;
+  text-align: center;
+  position: relative;
+}
+
+/* Mobile optimization for math formulas */
+@media (max-width: 768px) {
+  .katex-display {
+    font-size: 0.9em;
+    padding: 0.5em 1em;
+    margin: 0.8em -1em;
+  }
+
+  .katex {
+    font-size: 0.9em;
+  }
+}

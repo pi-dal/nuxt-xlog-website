@@ -12,7 +12,7 @@ This is a **static website generator** for xLog blogs built with Vue 3 + Vite, u
 - **vite-ssg**: Static site generation for Vue/Vite applications
 - **File-based routing**: Uses `unplugin-vue-router` with pages in the `pages/` directory
 - **Markdown support**: Full markdown processing with frontmatter, syntax highlighting, and Vue components
-- **xLog integration**: Fetches blog content from xLog API using the `sakuin` SDK
+- **xLog integration**: Fetches blog content directly from the Crossbell xLog GraphQL API
 - **UnoCSS**: Atomic CSS framework for styling
 - **TypeScript**: Full type safety throughout the codebase
 
@@ -74,7 +74,7 @@ The xLog handle is stored in localStorage (client-side) and falls back to enviro
 
 ### Data Flow
 
-1. **xLog API**: Content is fetched from xLog via the `sakuin` SDK
+1. **xLog API**: Content is fetched via the Crossbell GraphQL indexer, no SDK required
 2. **Local Storage**: xLog handle configuration is stored client-side
 3. **Static Generation**: vite-ssg pre-renders pages at build time
 4. **Markdown Processing**: Full markdown pipeline with syntax highlighting and Vue components
@@ -89,7 +89,7 @@ The xLog handle is stored in localStorage (client-side) and falls back to enviro
 
 ### xLog Integration
 
-- **API Client**: `src/logics/xlog.ts` - Main xLog SDK wrapper using `sakuin` with comprehensive error handling, caching, and performance tracking
+- **API Client**: GraphQL helpers in `src/logics/xlog-direct.ts` with caching and resilience
 - **Direct API**: `src/logics/xlog-direct.ts` - Direct API calls for operations not covered by SDK
 - **Site State**: `src/logics/site.ts` - Global site information management
 - **Types**: `src/types.ts` - Comprehensive TypeScript interfaces for xLog data structures, including raw API types and enhanced post types

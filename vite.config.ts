@@ -62,11 +62,7 @@ export default defineConfig({
       'dayjs/plugin/localizedFormat',
     ],
     exclude: [
-      'sakuin',
     ],
-  },
-  ssr: {
-    noExternal: ['sakuin'],
   },
   define: {
     global: 'globalThis',

@@ -7,6 +7,9 @@
     "dev": "tsx ./scripts/rss-dev.ts && vite --port 3333 --open",
     "preview": "vite preview",
     "lint": "eslint .",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest run --coverage",
     "compress": "tsx scripts/img-compress-staged.ts",
     "photos": "tsx scripts/photos-manage.ts",
     "prepare": "simple-git-hooks"
@@ -14,15 +17,12 @@
   "dependencies": {
     "@unhead/vue": "catalog:frontend",
     "@unocss/reset": "catalog:frontend",
-    "@vercel/og": "catalog:",
     "@vueuse/core": "catalog:frontend",
-    "d3-hierarchy": "catalog:frontend",
     "d3-shape": "catalog:frontend",
     "dayjs": "catalog:frontend",
     "floating-vue": "catalog:frontend",
     "nprogress": "catalog:frontend",
     "pinia": "catalog:frontend",
-    "sakuin": "catalog:",
     "satori": "catalog:",
     "shiki": "catalog:frontend",
     "shiki-magic-move": "catalog:frontend",
@@ -37,7 +37,6 @@
     "@shikijs/transformers": "catalog:build",
     "@shikijs/twoslash": "catalog:build",
     "@traptitech/markdown-it-katex": "catalog:build",
-    "@types/d3-hierarchy": "catalog:types",
     "@types/d3-shape": "catalog:types",
     "@types/diacritics": "catalog:types",
     "@types/fs-extra": "catalog:types",
@@ -48,6 +47,7 @@
     "@types/prompts": "catalog:types",
     "@unocss/preset-web-fonts": "catalog:build",
     "@vitejs/plugin-vue": "catalog:build",
+    "@vitest/coverage-v8": "^3.2.4",
     "ansis": "catalog:dev",
     "cross-env": "catalog:dev",
     "diacritics": "catalog:dev",
@@ -66,6 +66,7 @@
     "markdown-it-link-attributes": "catalog:build",
     "markdown-it-magic-link": "catalog:build",
     "markdown-it-table-of-contents": "catalog:build",
+    "msw": "^2.11.2",
     "pathe": "catalog:dev",
     "pnpm": "catalog:dev",
     "prompts": "catalog:dev",
@@ -86,7 +87,8 @@
     "vite-plugin-inspect": "catalog:build",
     "vite-plugin-optimize-exclude": "catalog:build",
     "vite-ssg": "catalog:build",
-    "vite-svg-loader": "catalog:build"
+    "vite-svg-loader": "catalog:build",
+    "vitest": "^3.2.4"
   },
   "resolutions": {
     "vite": "catalog:build"

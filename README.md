@@ -23,7 +23,7 @@ A modern static website generator for [xLog](https://xlog.app) blogs, built with
 - **SSG**: [vite-ssg](https://github.com/antfu/vite-ssg) - Static site generation for Vue
 - **TypeScript**: [TypeScript](https://www.typescriptlang.org/) - Type-safe development
 - **Styling**: [UnoCSS](https://github.com/unocss/unocss) - Instant on-demand atomic CSS
-- **xLog SDK**: [sakuin](https://www.npmjs.com/package/sakuin) - xLog JavaScript SDK
+- **xLog API**: Crossbell GraphQL indexer - direct integration without SDK
 - **Markdown**: [Shiki](https://shiki.matsu.io/) - Syntax highlighting with dual themes
 
 ## 📦 Installation
@@ -138,7 +138,7 @@ The build process includes:
 
 ## 🎯 API Integration
 
-The project uses the [sakuin](https://www.npmjs.com/package/sakuin) SDK to interact with xLog's API, supporting:
+The project integrates directly with the xLog GraphQL indexer, enabling:
 
 - **Site Information**: Fetch site metadata and configuration
 - **Posts**: Retrieve all posts with pagination support
@@ -253,7 +253,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - [xLog](https://xlog.app) - Decentralized blogging platform
-- [sakuin SDK](https://hyoban.xlog.app/xlog-sdk) - xLog JavaScript SDK
+- [Crossbell GraphQL](https://docs.crossbell.io/docs/developer/quick-start/) - xLog indexer API
 - [Original Template](https://github.com/pseudoyu/pseudoyu.com) - Base template project
 - [Vue.js](https://vuejs.org/) - The progressive JavaScript framework
 - [Vite](https://vitejs.dev/) - Next generation frontend tooling
@@ -261,7 +261,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🔗 Links
 
 - [xLog Platform](https://xlog.app) - Create your decentralized blog
-- [sakuin SDK Documentation](https://hyoban.xlog.app/xlog-sdk) - Learn about xLog SDK
+- [Crossbell GraphQL Docs](https://docs.crossbell.io/docs/developer/quick-start/) - Learn about the API
 - [Vue 3 Documentation](https://vuejs.org/guide/) - Vue.js guide
 - [Vite Documentation](https://vitejs.dev/guide/) - Vite build tool guide
 

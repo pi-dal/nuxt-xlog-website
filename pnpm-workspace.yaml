@@ -1,8 +1,11 @@
 packages: []
 catalog:
+  '@vitest/coverage-v8': ^3.2.4
   katex: ^0.16.22
+  msw: ^2.11.2
   satori: ^0.12.1
   ts-node: ^10.9.2
+  vitest: ^3.2.4
 catalogs:
   build:
     '@shikijs/markdown-it': ^3.2.1

@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest'
-import { buildAbsoluteUrl, resolveAuthorHandle, resolveSiteUrl } from '~/logics/site-meta'
-
 import type { XLogSite } from '~/types'
+import { describe, expect, it } from 'vitest'
+
+import { buildAbsoluteUrl, resolveAuthorHandle, resolveSiteUrl } from '~/logics/site-meta'
 
 const baseSite: XLogSite = {
   id: '1',

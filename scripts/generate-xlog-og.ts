@@ -3,9 +3,16 @@ import fs from 'fs-extra'
 import { join } from 'pathe'
 import { buildAbsoluteUrl, resolveSiteUrl } from '../src/logics/site-meta'
 import { generateOGImage } from './og'
+import { hashObject, loadManifest, saveManifest } from './utils/manifest'
 
 const publicDir = join(process.cwd(), 'public')
 const ogDir = join(publicDir, 'og')
+
+interface OgManifestEntry {
+  signature: string
+  file: string
+  generatedAt: string
+}
 
 // xLog GraphQL API endpoint
 const XLOG_API_URL = 'https://indexer.crossbell.io/v1/graphql'
@@ -155,6 +162,8 @@ async function generateXLogOGImages() {
   try {
     // Ensure OG directory exists
     await fs.ensureDir(ogDir)
+    const ogManifest = await loadManifest<OgManifestEntry>('og-manifest.json')
+    const nextManifest: Record<string, OgManifestEntry> = {}
 
     // Get xLog handle from environment
     const xlogHandle = process.env.XLOG_HANDLE || 'pi-dal'
@@ -249,11 +258,18 @@ async function generateXLogOGImages() {
       console.log(`📝 Processing: "${content.title}" (slug: ${slug})`)
 
       const ogPath = join(ogDir, `${slug}.png`)
-
-      // Skip if OG image already exists
-      if (await fs.pathExists(ogPath)) {
-        console.log(`⏩ Skipping existing OG image: ${slug}.png`)
+      const signature = hashObject({
+        title: content.title,
+        authorName,
+        updatedAt: note.updatedAt || note.createdAt,
+        cover: content.cover || '',
+      })
+      const previous = ogManifest[slug]
+      const exists = await fs.pathExists(ogPath)
+      if (previous?.signature === signature && exists) {
+        console.log(`⏩ Skipping unchanged OG image: ${slug}.png`)
         skipped++
+        nextManifest[slug] = previous
         continue
       }
 
@@ -267,9 +283,16 @@ async function generateXLogOGImages() {
 
         generated++
         console.log(`✅ Generated: ${slug}.png`)
+        nextManifest[slug] = {
+          signature,
+          file: `og/${slug}.png`,
+          generatedAt: new Date().toISOString(),
+        }
       }
       catch (error) {
         console.error(`❌ Failed to generate OG image for ${slug}:`, error)
+        if (previous)
+          nextManifest[slug] = previous
       }
     }
 
@@ -300,6 +323,9 @@ async function generateXLogOGImages() {
     const mappingPath = join(ogDir, 'xlog-mapping.json')
     await fs.writeJSON(mappingPath, mapping, { spaces: 2 })
     console.log(`📋 Created mapping file with ${Object.keys(mapping).length} entries: ${mappingPath}`)
+
+    // Persist incremental manifest for future runs
+    await saveManifest('og-manifest.json', nextManifest)
   }
   catch (error) {
     console.error('❌ Failed to generate xLog OG images:', error)

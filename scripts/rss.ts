@@ -6,6 +6,7 @@ import fs from 'fs-extra'
 import MarkdownIt from 'markdown-it'
 import { buildAbsoluteUrl, resolveAuthorHandle, resolveSiteUrl } from '../src/logics/site-meta'
 import { getAllPostsDirect, getBooksDirect, getSiteInfoDirect } from '../src/logics/xlog-direct'
+import { hashObject, loadManifest, saveManifest } from './utils/manifest'
 
 interface FeedAuthor {
   name: string
@@ -17,6 +18,11 @@ interface FeedContext {
   domain: string
   author: FeedAuthor
   site: XLogSite
+}
+
+interface RssManifestEntry {
+  signature: string
+  html: string
 }
 
 const markdown = MarkdownIt({
@@ -37,9 +43,14 @@ async function run() {
   const context = createFeedContext(siteInfo)
   console.log(`📝 Generating RSS for site: ${context.author.name} (${context.domain})`)
 
-  await buildAllPostsRSS(context)
-  await buildBlogPostsRSS(context)
-  await buildReadingNotesRSS(context)
+  const manifest = await loadManifest<RssManifestEntry>('rss-manifest.json')
+  const nextManifest: Record<string, RssManifestEntry> = {}
+
+  await buildAllPostsRSS(context, manifest, nextManifest)
+  await buildBlogPostsRSS(context, manifest, nextManifest)
+  await buildReadingNotesRSS(context, manifest, nextManifest)
+
+  await saveManifest('rss-manifest.json', nextManifest)
 
   console.log('✅ RSS generation completed!')
 }
@@ -62,7 +73,11 @@ function createFeedContext(siteInfo: XLogSite): FeedContext {
   }
 }
 
-async function buildAllPostsRSS(context: FeedContext) {
+async function buildAllPostsRSS(
+  context: FeedContext,
+  manifest: Record<string, RssManifestEntry>,
+  nextManifest: Record<string, RssManifestEntry>,
+) {
   console.log('📚 Building all posts RSS...')
 
   try {
@@ -88,8 +103,8 @@ async function buildAllPostsRSS(context: FeedContext) {
       },
     }
 
-    const items = await convertXLogPostsToFeedItems(allPosts, context)
-    console.log(`🔄 Converted ${items.length} posts to feed items`)
+    const { items, reused } = await convertXLogPostsToFeedItems(allPosts, context, manifest, nextManifest)
+    console.log(`🔄 Converted ${items.length} posts to feed items (reused ${reused} cached renders)`)
 
     await writeFeed('feed', options, items, context)
   }
@@ -99,7 +114,11 @@ async function buildAllPostsRSS(context: FeedContext) {
   }
 }
 
-async function buildBlogPostsRSS(context: FeedContext) {
+async function buildBlogPostsRSS(
+  context: FeedContext,
+  manifest: Record<string, RssManifestEntry>,
+  nextManifest: Record<string, RssManifestEntry>,
+) {
   console.log('📝 Building blog posts RSS...')
 
   try {
@@ -120,8 +139,8 @@ async function buildBlogPostsRSS(context: FeedContext) {
       },
     }
 
-    const items = await convertXLogPostsToFeedItems(posts, context)
-    console.log(`🔄 Converted ${items.length} blog posts to feed items`)
+    const { items, reused } = await convertXLogPostsToFeedItems(posts, context, manifest, nextManifest)
+    console.log(`🔄 Converted ${items.length} blog posts to feed items (reused ${reused})`)
 
     await writeFeed('blog-feed', options, items, context)
   }
@@ -131,7 +150,11 @@ async function buildBlogPostsRSS(context: FeedContext) {
   }
 }
 
-async function buildReadingNotesRSS(context: FeedContext) {
+async function buildReadingNotesRSS(
+  context: FeedContext,
+  manifest: Record<string, RssManifestEntry>,
+  nextManifest: Record<string, RssManifestEntry>,
+) {
   console.log('📖 Building reading notes RSS...')
 
   try {
@@ -152,8 +175,8 @@ async function buildReadingNotesRSS(context: FeedContext) {
       },
     }
 
-    const items = await convertXLogPostsToFeedItems(posts, context)
-    console.log(`🔄 Converted ${items.length} reading notes to feed items`)
+    const { items, reused } = await convertXLogPostsToFeedItems(posts, context, manifest, nextManifest)
+    console.log(`🔄 Converted ${items.length} reading notes to feed items (reused ${reused})`)
 
     await writeFeed('books-feed', options, items, context)
   }
@@ -163,16 +186,49 @@ async function buildReadingNotesRSS(context: FeedContext) {
   }
 }
 
-async function convertXLogPostsToFeedItems(posts: XLogPost[], context: FeedContext): Promise<Item[]> {
+async function convertXLogPostsToFeedItems(
+  posts: XLogPost[],
+  context: FeedContext,
+  manifest: Record<string, RssManifestEntry>,
+  nextManifest: Record<string, RssManifestEntry>,
+): Promise<{ items: Item[], reused: number }> {
   const items: Item[] = []
+  let reused = 0
 
   for (const post of posts) {
-    try {
-      const content = post.content || ''
+    if (!post.slug) {
+      console.warn(`⚠️ Skipping post without slug: ${post.title}`)
+      continue
+    }
 
-      const html = markdown.render(content)
-        .replace(/src="\/([^"]+)"/g, `src="${context.domain}/$1`)
-        .replace(/href="\/([^"]+)"/g, `href="${context.domain}/$1`)
+    const signature = hashObject({
+      slug: post.slug,
+      updatedAt: post.date_updated || post.date_published,
+      excerpt: post.excerpt,
+      content: post.content,
+      cover: post.cover,
+      tags: post.tags,
+    })
+
+    const previous = manifest[post.slug]
+
+    try {
+      let html: string
+      if (previous?.signature === signature && previous.html) {
+        html = previous.html
+        reused++
+      }
+      else {
+        const content = post.content || ''
+        html = markdown.render(content)
+          .replace(/src="\/([^"]+)"/g, `src="${context.domain}/$1`)
+          .replace(/href="\/([^"]+)"/g, `href="${context.domain}/$1`)
+      }
+
+      nextManifest[post.slug] = {
+        signature,
+        html,
+      }
 
       let image = post.cover || ''
       if (image && !image.startsWith('http'))
@@ -194,7 +250,7 @@ async function convertXLogPostsToFeedItems(posts: XLogPost[], context: FeedConte
         id: post.id || postUrl,
         link: postUrl,
         description: post.excerpt || post.content?.substring(0, 200) || '',
-        content: html,
+        content: nextManifest[post.slug].html,
         author: [context.author],
         date: new Date(post.date_published || post.date_updated || new Date()),
         image: image || undefined,
@@ -204,12 +260,14 @@ async function convertXLogPostsToFeedItems(posts: XLogPost[], context: FeedConte
     }
     catch (error) {
       console.warn(`⚠️ Error processing post: ${post.title}`, error)
+      if (previous)
+        nextManifest[post.slug] = previous
     }
   }
 
   items.sort((a, b) => new Date(b.date!).getTime() - new Date(a.date!).getTime())
 
-  return items
+  return { items, reused }
 }
 
 async function writeFeed(name: string, options: FeedOptions, items: Item[], context: FeedContext) {

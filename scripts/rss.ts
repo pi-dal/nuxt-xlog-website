@@ -1,17 +1,24 @@
 import type { FeedOptions, Item } from 'feed'
-import type { XLogPost } from '../src/types'
+import type { XLogPost, XLogSite } from '../src/types'
 import { dirname } from 'node:path'
 import { Feed } from 'feed'
 import fs from 'fs-extra'
 import MarkdownIt from 'markdown-it'
+import { buildAbsoluteUrl, resolveAuthorHandle, resolveSiteUrl } from '../src/logics/site-meta'
 import { getAllPostsDirect, getBooksDirect, getSiteInfoDirect } from '../src/logics/xlog-direct'
 
-const DOMAIN = 'https://pi-dal.com'
-const AUTHOR = {
-  name: 'pi-dal',
-  email: 'hi@pi-dal.com',
-  link: DOMAIN,
+interface FeedAuthor {
+  name: string
+  link: string
+  email?: string
 }
+
+interface FeedContext {
+  domain: string
+  author: FeedAuthor
+  site: XLogSite
+}
+
 const markdown = MarkdownIt({
   html: true,
   breaks: true,
@@ -21,194 +28,174 @@ const markdown = MarkdownIt({
 async function run() {
   console.log('🚀 Starting RSS generation...')
 
-  // 获取站点信息
   const siteInfo = await getSiteInfoDirect()
   if (!siteInfo) {
     console.error('❌ Failed to get site info')
     return
   }
 
-  console.log(`📝 Generating RSS for site: ${siteInfo.name}`)
+  const context = createFeedContext(siteInfo)
+  console.log(`📝 Generating RSS for site: ${context.author.name} (${context.domain})`)
 
-  // 生成主要的RSS feeds
-  await buildAllPostsRSS()
-  await buildBlogPostsRSS()
-  await buildReadingNotesRSS()
+  await buildAllPostsRSS(context)
+  await buildBlogPostsRSS(context)
+  await buildReadingNotesRSS(context)
 
   console.log('✅ RSS generation completed!')
 }
 
-/**
- * 生成包含所有内容的RSS (Blog Posts + Reading Notes)
- */
-async function buildAllPostsRSS() {
+function createFeedContext(siteInfo: XLogSite): FeedContext {
+  const domain = resolveSiteUrl(siteInfo, siteInfo.subdomain)
+  const authorHandle = resolveAuthorHandle(siteInfo)
+  const authorEmail = process.env.AUTHOR_EMAIL?.trim()
+
+  const author: FeedAuthor = {
+    name: siteInfo.name || authorHandle,
+    link: domain,
+    ...(authorEmail ? { email: authorEmail } : {}),
+  }
+
+  return {
+    domain,
+    author,
+    site: siteInfo,
+  }
+}
+
+async function buildAllPostsRSS(context: FeedContext) {
   console.log('📚 Building all posts RSS...')
 
   try {
-    console.log('🔍 Fetching blog posts and reading notes...')
     const [blogPosts, readingNotes] = await Promise.all([
       getAllPostsDirect(),
       getBooksDirect(),
     ])
 
-    console.log(`📝 Found ${blogPosts.length} blog posts`)
-    console.log(`📖 Found ${readingNotes.length} reading notes`)
-
-    // 合并所有文章
     const allPosts = [...blogPosts, ...readingNotes]
-    console.log(`📄 Total posts: ${allPosts.length}`)
+    console.log(`📝 Found ${blogPosts.length} blog posts and ${readingNotes.length} reading notes`)
 
-    if (allPosts.length === 0) {
+    if (allPosts.length === 0)
       console.warn('⚠️  No posts found! RSS will be empty.')
-    }
 
-    const options = {
-      title: 'pi-dal',
-      description: 'pi-dal\'s Blog & Reading Notes',
-      id: 'https://pi-dal.com/',
-      link: 'https://pi-dal.com/',
-      copyright: 'CC BY-NC-SA 4.0 2020 © pi-dal',
+    const options: FeedOptions = {
+      title: context.site.name || context.author.name,
+      description: `${context.author.name}'s Blog & Reading Notes`,
+      id: buildAbsoluteUrl(context.domain, '/'),
+      link: buildAbsoluteUrl(context.domain, '/'),
+      copyright: `CC BY-NC-SA 4.0 ${new Date().getFullYear()} © ${context.author.name}`,
       feedLinks: {
-        rss: 'https://pi-dal.com/feed.xml',
+        rss: buildAbsoluteUrl(context.domain, '/feed.xml'),
       },
     }
 
-    const items = await convertXLogPostsToFeedItems(allPosts)
+    const items = await convertXLogPostsToFeedItems(allPosts, context)
     console.log(`🔄 Converted ${items.length} posts to feed items`)
 
-    await writeFeed('feed', options, items)
-
-    console.log(`✅ All posts RSS generated: ${items.length} items`)
+    await writeFeed('feed', options, items, context)
   }
   catch (error) {
     console.error('❌ Error building all posts RSS:', error)
-    console.error('Stack trace:', error.stack)
+    console.error('Stack trace:', (error as Error).stack)
   }
 }
 
-/**
- * 生成Blog Posts RSS
- */
-async function buildBlogPostsRSS() {
+async function buildBlogPostsRSS(context: FeedContext) {
   console.log('📝 Building blog posts RSS...')
 
   try {
-    console.log('🔍 Fetching blog posts...')
     const posts = await getAllPostsDirect()
     console.log(`📝 Found ${posts.length} blog posts`)
 
-    if (posts.length === 0) {
+    if (posts.length === 0)
       console.warn('⚠️  No blog posts found! RSS will be empty.')
-    }
 
-    const options = {
-      title: 'pi-dal - Blog Posts',
-      description: 'pi-dal\'s Blog Posts',
-      id: 'https://pi-dal.com/posts/',
-      link: 'https://pi-dal.com/posts/',
-      copyright: 'CC BY-NC-SA 4.0 2020 © pi-dal',
+    const options: FeedOptions = {
+      title: `${context.author.name} - Blog Posts`,
+      description: `${context.author.name}'s Blog Posts`,
+      id: buildAbsoluteUrl(context.domain, '/posts/'),
+      link: buildAbsoluteUrl(context.domain, '/posts/'),
+      copyright: `CC BY-NC-SA 4.0 ${new Date().getFullYear()} © ${context.author.name}`,
       feedLinks: {
-        rss: 'https://pi-dal.com/blog-feed.xml',
+        rss: buildAbsoluteUrl(context.domain, '/blog-feed.xml'),
       },
     }
 
-    const items = await convertXLogPostsToFeedItems(posts)
+    const items = await convertXLogPostsToFeedItems(posts, context)
     console.log(`🔄 Converted ${items.length} blog posts to feed items`)
 
-    await writeFeed('blog-feed', options, items)
-
-    console.log(`✅ Blog posts RSS generated: ${items.length} items`)
+    await writeFeed('blog-feed', options, items, context)
   }
   catch (error) {
     console.error('❌ Error building blog posts RSS:', error)
-    console.error('Stack trace:', error.stack)
+    console.error('Stack trace:', (error as Error).stack)
   }
 }
 
-/**
- * 生成Reading Notes RSS
- */
-async function buildReadingNotesRSS() {
+async function buildReadingNotesRSS(context: FeedContext) {
   console.log('📖 Building reading notes RSS...')
 
   try {
-    console.log('🔍 Fetching reading notes...')
     const posts = await getBooksDirect()
     console.log(`📖 Found ${posts.length} reading notes`)
 
-    if (posts.length === 0) {
+    if (posts.length === 0)
       console.warn('⚠️  No reading notes found! RSS will be empty.')
-    }
 
-    const options = {
-      title: 'pi-dal - Reading Notes',
-      description: 'pi-dal\'s Reading Notes',
-      id: 'https://pi-dal.com/books/',
-      link: 'https://pi-dal.com/books/',
-      copyright: 'CC BY-NC-SA 4.0 2020 © pi-dal',
+    const options: FeedOptions = {
+      title: `${context.author.name} - Reading Notes`,
+      description: `${context.author.name}'s Reading Notes`,
+      id: buildAbsoluteUrl(context.domain, '/books/'),
+      link: buildAbsoluteUrl(context.domain, '/books/'),
+      copyright: `CC BY-NC-SA 4.0 ${new Date().getFullYear()} © ${context.author.name}`,
       feedLinks: {
-        rss: 'https://pi-dal.com/books-feed.xml',
+        rss: buildAbsoluteUrl(context.domain, '/books-feed.xml'),
       },
     }
 
-    const items = await convertXLogPostsToFeedItems(posts)
+    const items = await convertXLogPostsToFeedItems(posts, context)
     console.log(`🔄 Converted ${items.length} reading notes to feed items`)
 
-    await writeFeed('books-feed', options, items)
-
-    console.log(`✅ Reading notes RSS generated: ${items.length} items`)
+    await writeFeed('books-feed', options, items, context)
   }
   catch (error) {
     console.error('❌ Error building reading notes RSS:', error)
-    console.error('Stack trace:', error.stack)
+    console.error('Stack trace:', (error as Error).stack)
   }
 }
 
-/**
- * 将xLog Posts转换为Feed Items
- */
-async function convertXLogPostsToFeedItems(posts: XLogPost[]): Promise<Item[]> {
+async function convertXLogPostsToFeedItems(posts: XLogPost[], context: FeedContext): Promise<Item[]> {
   const items: Item[] = []
 
   for (const post of posts) {
     try {
-      // 渲染markdown内容
       const content = post.content || ''
 
-      // 使用markdown渲染器处理内容
       const html = markdown.render(content)
-        .replace(/src="\/([^"]+)"/g, `src="${DOMAIN}/$1`)
-        .replace(/href="\/([^"]+)"/g, `href="${DOMAIN}/$1`)
+        .replace(/src="\/([^"]+)"/g, `src="${context.domain}/$1`)
+        .replace(/href="\/([^"]+)"/g, `href="${context.domain}/$1`)
 
-      // 处理封面图片
       let image = post.cover || ''
-      if (image && !image.startsWith('http')) {
-        image = image.startsWith('/') ? DOMAIN + image : `${DOMAIN}/${image}`
-      }
+      if (image && !image.startsWith('http'))
+        image = image.startsWith('/') ? `${context.domain}${image}` : `${context.domain}/${image}`
 
-      // 根据内容类型生成不同的URL
       const isBookReview = post.tags?.includes('微信读书')
       const isPost = post.tags?.includes('post')
 
       let postUrl: string
-      if (isBookReview) {
-        postUrl = `${DOMAIN}/books/${post.slug}`
-      }
-      else if (isPost) {
-        postUrl = `${DOMAIN}/posts/${post.slug}`
-      }
-      else {
-        postUrl = `${DOMAIN}/posts/${post.slug}`
-      }
+      if (isBookReview)
+        postUrl = buildAbsoluteUrl(context.domain, `/books/${post.slug}`)
+      else if (isPost)
+        postUrl = buildAbsoluteUrl(context.domain, `/posts/${post.slug}`)
+      else
+        postUrl = buildAbsoluteUrl(context.domain, `/posts/${post.slug}`)
 
-      // 创建feed item
       const item: Item = {
         title: post.title || 'Untitled',
         id: post.id || postUrl,
         link: postUrl,
         description: post.excerpt || post.content?.substring(0, 200) || '',
         content: html,
-        author: [AUTHOR],
+        author: [context.author],
         date: new Date(post.date_published || post.date_updated || new Date()),
         image: image || undefined,
       }
@@ -220,32 +207,27 @@ async function convertXLogPostsToFeedItems(posts: XLogPost[]): Promise<Item[]> {
     }
   }
 
-  // 按日期排序
   items.sort((a, b) => new Date(b.date!).getTime() - new Date(a.date!).getTime())
 
   return items
 }
 
-async function writeFeed(name: string, options: FeedOptions, items: Item[]) {
-  options.author = AUTHOR
-  options.image = 'https://pi-dal.com/avatar.webp'
-  options.favicon = 'https://pi-dal.com/favicon.ico'
+async function writeFeed(name: string, options: FeedOptions, items: Item[], context: FeedContext) {
+  options.author = context.author
+  options.image = context.site.avatar || buildAbsoluteUrl(context.domain, '/avatar.webp')
+  options.favicon = buildAbsoluteUrl(context.domain, '/favicon.ico')
 
   const feed = new Feed(options)
-
   items.forEach(item => feed.addItem(item))
 
   await fs.ensureDir(dirname(`./dist/${name}`))
-
-  // 只生成RSS XML格式
   await fs.writeFile(`./dist/${name}.xml`, feed.rss2(), 'utf-8')
   console.log(`📝 Generated RSS file: ${name}.xml`)
 
-  // Generate zh/index.xml to maintain compatibility with the former setup (only for main feed)
   if (name === 'feed') {
     await fs.ensureDir('./dist/zh')
     await fs.writeFile('./dist/zh/index.xml', feed.rss2(), 'utf-8')
-    console.log(`📝 Generated compatibility RSS file: zh/index.xml`)
+    console.log('📝 Generated compatibility RSS file: zh/index.xml')
   }
 }
 

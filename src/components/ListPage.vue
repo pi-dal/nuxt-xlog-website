@@ -5,6 +5,8 @@ import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 import ArtPlum from '~/components/ArtPlum.vue'
+import { buildAbsoluteUrl, resolveSiteUrl } from '~/logics/site-meta'
+import { useSiteInfo } from '~/logics/useSiteInfo'
 
 interface Props {
   fetchDataFunction: () => Promise<XLogPost[]>
@@ -24,16 +26,19 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const route = useRoute()
+const { siteInfo } = useSiteInfo()
+const siteUrl = computed(() => resolveSiteUrl(siteInfo.value))
+const siteName = computed(() => siteInfo.value?.name || siteInfo.value?.subdomain || 'xLog')
 
 // 设置页面meta
 useHead(() => {
-  const ogImage = props.ogImage || `https://pi-dal.com/og/${props.basePath.slice(1)}.png`
-  const siteTitle = `${props.title} - pi-dal`
+  const ogImage = props.ogImage || buildAbsoluteUrl(siteUrl.value, `/og/${props.basePath.replace(/^\//, '')}.png`)
+  const siteTitle = `${props.title} - ${siteName.value}`
 
   return {
     title: siteTitle,
     meta: [
-      { name: 'description', content: `All ${props.contentType.toLowerCase()}s from pi-dal` },
+      { name: 'description', content: `All ${props.contentType.toLowerCase()}s from ${siteName.value}` },
       { property: 'og:title', content: siteTitle },
       { property: 'og:description', content: props.description },
       { property: 'og:image', content: ogImage },
@@ -202,7 +207,9 @@ onMounted(fetchData)
           {{ error }}
         </div>
         <button
-          :class="contentType === 'Book' ? 'mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600' : 'text-blue-500 hover:text-blue-600'"
+          :class="contentType === 'Book'
+            ? 'mt-4 px-4 py-2 bg-slate-600 text-white rounded hover:bg-slate-500 transition-colors'
+            : 'text-slate-500 hover:text-slate-400 hover:underline hover:decoration-slate-400/70 transition-colors'"
           @click="fetchData"
         >
           {{ contentType === 'Book' ? 'Retry' : 'Retry' }}
@@ -246,7 +253,7 @@ onMounted(fetchData)
                 class="px-3 py-2 text-sm font-medium rounded-md transition-colors"
                 :class="[
                   item === currentPage
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-slate-600 text-white'
                     : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800',
                 ]"
                 @click="goToPage(item)"

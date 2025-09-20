@@ -7,20 +7,28 @@ import { useRoute } from 'vue-router'
 import ArtPlum from '~/components/ArtPlum.vue'
 import { formatDate } from '~/logics'
 import { useMarkdown } from '~/logics/markdown'
+import { buildAbsoluteUrl, resolveSiteUrl } from '~/logics/site-meta'
+import { useSiteInfo } from '~/logics/useSiteInfo'
 import { getPostsByTagDirect } from '~/logics/xlog-direct'
 
 const route = useRoute()
+const { siteInfo } = useSiteInfo()
+const siteUrl = computed(() => resolveSiteUrl(siteInfo.value))
+const siteName = computed(() => siteInfo.value?.name || siteInfo.value?.subdomain || 'xLog')
+const pageUrl = computed(() => buildAbsoluteUrl(siteUrl.value, route.path))
+const ogImageUrl = computed(() => buildAbsoluteUrl(siteUrl.value, '/og/chat.png'))
 
 // SEO
-useHead({
-  title: 'Chat With Me - pi-dal',
+useHead(() => ({
+  title: `Chat With Me - ${siteName.value}`,
   meta: [
-    { name: 'description', content: 'Chat and consultation with pi-dal' },
-    { property: 'og:title', content: 'Chat With Me - pi-dal' },
+    { name: 'description', content: `Chat and consultation with ${siteName.value}` },
+    { property: 'og:title', content: `Chat With Me - ${siteName.value}` },
     { property: 'og:description', content: 'Let\'s have a meaningful conversation!' },
-    { property: 'og:image', content: 'https://pi-dal.com/og/chat.png' },
+    { property: 'og:url', content: pageUrl.value },
+    { property: 'og:image', content: ogImageUrl.value },
   ],
-})
+}))
 
 // 响应式数据
 const chatPost = ref<XLogPost | null>(null)
@@ -94,7 +102,7 @@ onMounted(fetchChatContent)
       <div class="mb-4 text-sm opacity-75">
         {{ error }}
       </div>
-      <button class="text-blue-500 hover:text-blue-600" @click="fetchChatContent">
+      <button class="text-slate-500 hover:text-slate-400 transition-colors hover:underline hover:decoration-slate-400/70" @click="fetchChatContent">
         Retry
       </button>
     </div>

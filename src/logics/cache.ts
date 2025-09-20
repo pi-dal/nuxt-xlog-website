@@ -180,8 +180,9 @@ export async function withCache<T>(
   // If not in cache, make the API call
   const result = await apiCall()
 
-  // Cache the result
-  cacheManager.set(operation, params, result, ttl)
+  // Cache the result when meaningful (avoid caching null/undefined failures)
+  if (result !== null && result !== undefined)
+    cacheManager.set(operation, params, result, ttl)
 
   return result
 }
@@ -195,8 +196,8 @@ export async function warmCache(): Promise<void> {
 // Cache invalidation helpers
 export function invalidatePostCache(slug?: string): void {
   if (slug) {
-    cacheManager.invalidate('getPostBySlug', { slug })
-    cacheManager.invalidate('getEnhancedPostBySlug', { slug })
+    cacheManager.invalidate('getPostBySlug')
+    cacheManager.invalidate('getEnhancedPostBySlug')
   }
   else {
     cacheManager.invalidate('getAllPosts')

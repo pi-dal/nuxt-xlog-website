@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 import ArtPlum from '~/components/ArtPlum.vue'
+import { useSiteInfo } from '~/logics/useSiteInfo'
 
 const route = useRoute()
 
 // 使用localStorage存储xLog handle
 const xlogHandle = useLocalStorage('xlog-handle', 'pi-dal')
 const isConfigured = computed(() => !!xlogHandle.value)
+const { clearCache } = useSiteInfo()
 
 // 测试连接状态
 const testingConnection = ref(false)
@@ -60,7 +62,7 @@ function saveConfig() {
   xlogHandle.value = xlogHandle.value.trim()
   if (xlogHandle.value) {
     // 清除缓存，强制重新获取数据
-    clearNuxtData()
+    clearCache()
     // 重新加载页面数据
     location.reload()
   }
@@ -116,7 +118,7 @@ useHead({
         <div class="flex gap-3 mb-4">
           <button
             :disabled="testingConnection || !xlogHandle.trim()"
-            class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600
+            class="px-4 py-2 bg-slate-600 text-white rounded-md hover:bg-slate-500
                  disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed
                  flex items-center gap-2"
             @click="testConnection"
@@ -130,7 +132,7 @@ useHead({
 
           <button
             :disabled="!xlogHandle.trim()"
-            class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600
+            class="px-4 py-2 bg-slate-600 text-white rounded-md hover:bg-slate-500
                  disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
             @click="saveConfig"
           >
@@ -169,11 +171,11 @@ useHead({
         </div>
 
         <!-- 帮助信息 -->
-        <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-md">
-          <h3 class="font-medium text-blue-800 dark:text-blue-200 mb-2">
+        <div class="mt-6 p-4 bg-slate-100 dark:bg-slate-800/40 rounded-md">
+          <h3 class="font-medium text-slate-700 dark:text-slate-200 mb-2">
             How to find your xLog handle?
           </h3>
-          <ol class="text-sm text-blue-700 dark:text-blue-300 space-y-1 list-decimal list-inside">
+          <ol class="text-sm text-slate-600 dark:text-slate-300 space-y-1 list-decimal list-inside">
             <li>Visit <a href="https://xlog.app" target="_blank" class="underline">xLog.app</a></li>
             <li>Find your blog URL (e.g., https://your-handle.xlog.app)</li>
             <li>Extract the subdomain part (your-handle)</li>
@@ -199,13 +201,13 @@ useHead({
       <div class="mt-6 flex gap-4">
         <RouterLink
           to="/posts"
-          class="text-blue-500 hover:text-blue-600 underline"
+          class="text-slate-500 hover:text-slate-400 hover:underline hover:decoration-slate-400/70 transition-colors"
         >
           View Posts
         </RouterLink>
         <RouterLink
           to="/"
-          class="text-blue-500 hover:text-blue-600 underline"
+          class="text-slate-500 hover:text-slate-400 hover:underline hover:decoration-slate-400/70 transition-colors"
         >
           Back to Home
         </RouterLink>

@@ -28,7 +28,7 @@ const getPostUrl = (post: any) => `/books/${post.slug}`
             <h2 class="text-xl font-semibold">
               <RouterLink
                 :to="getPostUrl(book)"
-                class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                class="text-gray-900 dark:text-gray-100 transition-colors hover:text-slate-500 dark:hover:text-slate-300 hover:underline hover:decoration-slate-400/70 hover:decoration-2"
               >
                 {{ book.title }}
               </RouterLink>

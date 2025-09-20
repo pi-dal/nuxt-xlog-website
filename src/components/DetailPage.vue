@@ -9,6 +9,8 @@ import { useAnchorNavigation } from '~/composables/useAnchorNavigation'
 import { useMarkdownRenderer } from '~/composables/useMarkdownRenderer'
 import { usePost } from '~/composables/usePost'
 import { formatDate } from '~/logics'
+import { buildAbsoluteUrl, resolveAuthorHandle, resolveSiteUrl } from '~/logics/site-meta'
+import { useSiteInfo } from '~/logics/useSiteInfo'
 
 interface Props {
   contentType: 'Post' | 'Book'
@@ -19,23 +21,34 @@ const props = defineProps<Props>()
 
 const route = useRoute()
 const slug = route.params.slug as string
-
-// Twitter URL
-const tweetUrl = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Reading @pi_dal's https://pi-dal.com${route.path}\n\nI think...`)}`)
+const { siteInfo } = useSiteInfo()
+const siteUrl = computed(() => resolveSiteUrl(siteInfo.value))
+const canonicalUrl = computed(() => buildAbsoluteUrl(siteUrl.value, `${props.basePath}/${slug}`))
+const ogImageUrl = computed(() => buildAbsoluteUrl(siteUrl.value, `/og/${slug}.png`))
+const authorHandle = computed(() => resolveAuthorHandle(siteInfo.value))
 
 // 使用组合式函数
 const { post, pending, error, fetchPost } = usePost(slug)
 const { renderedContent, tocItems, renderContent } = useMarkdownRenderer()
+
+// Twitter URL
+const tweetUrl = computed(() => {
+  const handle = authorHandle.value
+  const readableHandle = handle ? `@${handle}` : (post.value?.author?.name || siteInfo.value?.name || 'xLog')
+  const shareUrl = buildAbsoluteUrl(siteUrl.value, route.path)
+  const text = `Reading ${readableHandle}'s ${shareUrl}\n\nI think...`
+  return `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
+})
 
 // 设置锚点导航
 useAnchorNavigation({ contentSelector: 'article' })
 
 // 设置页面meta
 useHead(() => {
-  const ogImage = `https://pi-dal.com/og/${slug}.png`
   const title = post.value?.title || props.contentType
   const description = post.value?.excerpt || post.value?.summary || ''
-  const url = `https://pi-dal.com${props.basePath}/${slug}`
+  const url = canonicalUrl.value
+  const ogImage = ogImageUrl.value
 
   return {
     title,
@@ -97,11 +110,11 @@ onMounted(async () => {
             {{ error.details || error.message }}
           </div>
           <div class="space-x-4">
-            <RouterLink :to="basePath" class="text-blue-500 hover:text-blue-600">
+            <RouterLink :to="basePath" class="text-slate-500 hover:text-slate-400 hover:underline hover:decoration-slate-400/70 transition-colors">
               ← Back to {{ contentType === 'Post' ? 'Blog' : 'Books' }}
             </RouterLink>
             <button
-              class="text-blue-500 hover:text-blue-600"
+              class="text-slate-500 hover:text-slate-400 hover:underline hover:decoration-slate-400/70 transition-colors"
               @click="fetchPost()"
             >
               Try Again

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>pi-dal - Reading Notes</title>
-        <link>https://pi-dal.com/books/</link>
+        <link>https://pi-dal.xlog.app/books/</link>
         <description>pi-dal's Reading Notes</description>
-        <lastBuildDate>Wed, 23 Jul 2025 00:59:30 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 20 Sep 2025 01:54:55 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
             <title>pi-dal - Reading Notes</title>
-            <url>https://pi-dal.com/avatar.webp</url>
-            <link>https://pi-dal.com/books/</link>
+            <url>https://ipfs.crossbell.io/ipfs/bafkreidoaeybxj5si6tayussqlpbuqsnzgyxghozpzefskcs77oryv7say</url>
+            <link>https://pi-dal.xlog.app/books/</link>
         </image>
-        <copyright>CC BY-NC-SA 4.0 2020 © pi-dal</copyright>
-        <atom:link href="https://pi-dal.com/books-feed.xml" rel="self" type="application/rss+xml"/>
+        <copyright>CC BY-NC-SA 4.0 2025 © pi-dal</copyright>
+        <atom:link href="https://pi-dal.xlog.app/books-feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[《蒂姆·库克传：苹果公司的反思与商业的未来》读书笔记]]></title>
-            <link>https://pi-dal.com/books/蒂姆-库克传-苹果公司的反思与商业的未来</link>
+            <link>https://pi-dal.xlog.app/books/蒂姆-库克传-苹果公司的反思与商业的未来</link>
             <guid>109</guid>
             <pubDate>Mon, 07 Jul 2025 14:17:44 GMT</pubDate>
             <description><![CDATA[每当有人为理想而奋不顾身，或为改善他人的境况而奋斗不息，或为对抗不公而勇往直前时，他都从百万个不同的角落发出了一丝希望的涟漪。这些充满能量和胆量的涟漪彼此激荡，最终汇聚成一股强大的洪流，足以冲垮一切压迫与阻力的围墙。——罗伯特·F.肯尼迪...]]></description>
@@ -101,11 +101,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《创新者的窘境》读书笔记]]></title>
-            <link>https://pi-dal.com/books/创新者的窘境</link>
+            <link>https://pi-dal.xlog.app/books/创新者的窘境</link>
             <guid>108</guid>
             <pubDate>Mon, 07 Jul 2025 14:17:34 GMT</pubDate>
             <description><![CDATA[这也成为创新者面临的一大困境：盲目地遵循“好的管理者应与客户保持密切联系”的箴言，有时可能会是一个致命的错误。...]]></description>
@@ -124,11 +123,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《Clear Thinking: Turning Ordinary Moments into Extraordinary Results》读书笔记]]></title>
-            <link>https://pi-dal.com/books/clear-thinking-turning-ordinary-moments-into-extraordinary-results</link>
+            <link>https://pi-dal.xlog.app/books/clear-thinking-turning-ordinary-moments-into-extraordinary-results</link>
             <guid>107</guid>
             <pubDate>Mon, 07 Jul 2025 14:14:32 GMT</pubDate>
             <description><![CDATA[No one tries to win the moment at the expense of the decade, and yet that is often how it goes....]]></description>
@@ -845,11 +843,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《一九八四（译文经典）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/一九八四-译文经典</link>
+            <link>https://pi-dal.xlog.app/books/一九八四-译文经典</link>
             <guid>106</guid>
             <pubDate>Mon, 07 Jul 2025 14:09:17 GMT</pubDate>
             <description><![CDATA[因此，在黎斯看来，奥威尔首先是一个社会主义者，其次是一个反极权主义者，而他的“反极权主义的斗争是他的社会主义信念的必然结果。他相信，只有击败极权主义，社会主义才有可能胜利”...]]></description>
@@ -1464,11 +1461,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《高敏感是种天赋》读书笔记]]></title>
-            <link>https://pi-dal.com/books/高敏感是种天赋</link>
+            <link>https://pi-dal.xlog.app/books/高敏感是种天赋</link>
             <guid>105</guid>
             <pubDate>Mon, 07 Jul 2025 14:09:05 GMT</pubDate>
             <description><![CDATA[通常，很多高度敏感型人格的人，同时也会被贴上低自尊的标签。因为我们的行为和特质与普世的文化价值观相悖。很多高度敏感型的人都在苦苦挣扎，努力想将自己的生活过成别人眼中期待的样子。或许只有在退休之后，他们才懂得放慢生活的脚步，回味和思考自己的人生。...]]></description>
@@ -1487,11 +1483,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《荒原狼（果麦经典）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/荒原狼-果麦经典</link>
+            <link>https://pi-dal.xlog.app/books/荒原狼-果麦经典</link>
             <guid>104</guid>
             <pubDate>Mon, 07 Jul 2025 14:08:53 GMT</pubDate>
             <description><![CDATA[不，荒原狼的一瞥还看穿了整个时代，看穿了所有浮躁的装腔作势，所有追名逐利、浮华虚荣，所有自负浅薄的精神世界中的游戏——啊！不幸的是，这一瞥还更为深刻地看穿了我们的时代、我们的精神世界、我们在文化上的匮乏和无望。它直逼人性要害，在短短一瞬，就意味深长地道出了一位思想家，或许是位先知对尊严和人类生活意义的怀疑。这一瞥似乎在说：“看！我们就这么蠢！看！这就是人！”一切名誉、才智，一切精神上的成就，一切对...]]></description>
@@ -1848,11 +1843,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《人生的智慧》读书笔记]]></title>
-            <link>https://pi-dal.com/books/人生的智慧</link>
+            <link>https://pi-dal.xlog.app/books/人生的智慧</link>
             <guid>103</guid>
             <pubDate>Mon, 07 Jul 2025 14:08:42 GMT</pubDate>
             <description><![CDATA[“真理是我唯一的指路星辰。”...]]></description>
@@ -1957,11 +1951,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《高敏感人士的幸福清单》读书笔记]]></title>
-            <link>https://pi-dal.com/books/高敏感人士的幸福清单</link>
+            <link>https://pi-dal.xlog.app/books/高敏感人士的幸福清单</link>
             <guid>102</guid>
             <pubDate>Mon, 07 Jul 2025 14:08:32 GMT</pubDate>
             <description><![CDATA[提升幸福感的要点有两个：1.远离成果主义，花时间感受并体会过程。2.充分利用敏感来为自己创造幸福。...]]></description>
@@ -1980,11 +1973,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《活过》读书笔记]]></title>
-            <link>https://pi-dal.com/books/活过</link>
+            <link>https://pi-dal.xlog.app/books/活过</link>
             <guid>101</guid>
             <pubDate>Mon, 07 Jul 2025 14:08:18 GMT</pubDate>
             <description><![CDATA[一向认为经历过，才会随遇而安。...]]></description>
@@ -2015,11 +2007,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《传习录》读书笔记]]></title>
-            <link>https://pi-dal.com/books/传习录</link>
+            <link>https://pi-dal.xlog.app/books/传习录</link>
             <guid>100</guid>
             <pubDate>Mon, 07 Jul 2025 14:08:05 GMT</pubDate>
             <description><![CDATA[君子贤其贤而亲其亲，小人乐其乐而利其利’...]]></description>
@@ -2044,11 +2035,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《最优解人生》读书笔记]]></title>
-            <link>https://pi-dal.com/books/最优解人生</link>
+            <link>https://pi-dal.xlog.app/books/最优解人生</link>
             <guid>99</guid>
             <pubDate>Mon, 07 Jul 2025 14:07:50 GMT</pubDate>
             <description><![CDATA[愿你们拥有最充实的人生，充满冒险与爱...]]></description>
@@ -2145,7 +2135,7 @@
 <hr>
 <h2>4 如何花钱？（不会真的在死前一分不剩）</h2>
 <blockquote>
-<p>他们没有为任何一种特定的计算器背书，而是让我去他们的官网(https: <a href="https://pi-dal.com//www.soa.org>//www.soa.org</a>)看看。这个网站主要是提供专业精算师工具，还推荐了一个非常好用的工具：精算师寿命图解(https: <a href="https://pi-dal.com//www.longevityillustrator.org/>//www.longevityillustrator.org/</a>)</p>
+<p>他们没有为任何一种特定的计算器背书，而是让我去他们的官网(https: <a href="https://pi-dal.xlog.app//www.soa.org>//www.soa.org</a>)看看。这个网站主要是提供专业精算师工具，还推荐了一个非常好用的工具：精算师寿命图解(https: <a href="https://pi-dal.xlog.app//www.longevityillustrator.org/>//www.longevityillustrator.org/</a>)</p>
 </blockquote>
 <blockquote>
 <p>本书的前提是你应该关注自己人生的愉悦感最大化，而不是财富最大化，这是两个非常不同的目标。钱只是达成目标的一种手段，赚钱可帮你实现人生愉悦这个更加重要的目标，但试图实现财富最大化实际上会妨碍这个更重要的目标。</p>
@@ -2154,7 +2144,7 @@
 <p>最低开销以外的所有存款，你都必须“凶猛”地花在自己喜欢的体验上。之所以强调“凶猛”，是因为健康状况下降及兴趣消减意味着，你的活动清单将随着年龄的增长而变短。</p>
 </blockquote>
 <blockquote>
-<p>他们没有为任何一种特定的计算器背书，而是让我去他们的官网(https: <a href="https://pi-dal.com//www.soa.org>//www.soa.org</a>)看看。这个网站主要是提供专业精算师工具，还推荐了一个非常好用的工具：精算师寿命图解(https: <a href="https://pi-dal.com//www.longevityillustrator.org/>//www.longevityillustrator.org/</a>)</p>
+<p>他们没有为任何一种特定的计算器背书，而是让我去他们的官网(https: <a href="https://pi-dal.xlog.app//www.soa.org>//www.soa.org</a>)看看。这个网站主要是提供专业精算师工具，还推荐了一个非常好用的工具：精算师寿命图解(https: <a href="https://pi-dal.xlog.app//www.longevityillustrator.org/>//www.longevityillustrator.org/</a>)</p>
 </blockquote>
 <blockquote>
 <p>本书的前提是你应该关注自己人生的愉悦感最大化，而不是财富最大化，这是两个非常不同的目标。钱只是达成目标的一种手段，赚钱可帮你实现人生愉悦这个更加重要的目标，但试图实现财富最大化实际上会妨碍这个更重要的目标。</p>
@@ -2373,11 +2363,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《人类简史：从动物到上帝》读书笔记]]></title>
-            <link>https://pi-dal.com/books/人类简史-从动物到上帝</link>
+            <link>https://pi-dal.xlog.app/books/人类简史-从动物到上帝</link>
             <guid>98</guid>
             <pubDate>Mon, 07 Jul 2025 14:07:36 GMT</pubDate>
             <description><![CDATA[几千年前佛陀就说过，人世乃梦幻泡影。的确，国家、神祇、公司、金钱、意识形态——都是我们创造并相信的集体幻影，人类历史就是由它们统治的。在人工智能时代，我们相信的故事比以前更加重要，因为我们有了追求幻想的更强大的技术。...]]></description>
@@ -2424,11 +2413,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《穷查理宝典：查理·芒格智慧箴言录（全新增订本）（价值投资圣经，人生智慧宝典。全新升级版发布！97岁的查理•芒格还在不断学习精进 我们怎么能停止自我更新？）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/穷查理宝典-查理-芒格智慧箴言录-全新增订本-价值投资圣经-人生智慧宝典-全新升级版发布-97岁的查理-芒格还在不断学习精进-我们怎么能停止自我更新</link>
+            <link>https://pi-dal.xlog.app/books/穷查理宝典-查理-芒格智慧箴言录-全新增订本-价值投资圣经-人生智慧宝典-全新升级版发布-97岁的查理-芒格还在不断学习精进-我们怎么能停止自我更新</link>
             <guid>97</guid>
             <pubDate>Mon, 07 Jul 2025 14:07:19 GMT</pubDate>
             <description><![CDATA[对于智者而言，一字道天机。...]]></description>
@@ -3637,11 +3625,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《影响力（经典版）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/影响力-经典版</link>
+            <link>https://pi-dal.xlog.app/books/影响力-经典版</link>
             <guid>96</guid>
             <pubDate>Mon, 07 Jul 2025 14:07:01 GMT</pubDate>
             <description><![CDATA[一个众所周知的人类行为原则认为，我们在要别人帮忙的时候，要是能给一个理由，成功的概率会更大。...]]></description>
@@ -3706,11 +3693,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《刷新：重新发现商业与未来》读书笔记]]></title>
-            <link>https://pi-dal.com/books/刷新-重新发现商业与未来</link>
+            <link>https://pi-dal.xlog.app/books/刷新-重新发现商业与未来</link>
             <guid>95</guid>
             <pubDate>Mon, 07 Jul 2025 14:06:46 GMT</pubDate>
             <description><![CDATA[他告诉我，你必须坚信一点，那就是天空是极限，没有什么可以限制你。你必须努力——不是为了不断升迁，而是去做重要的工作。凭着事后觉悟，我现在明白，一个感觉自己是局外人的人也可以取得成功，但需要两个条件：一是开明的管理，二是尽职尽责的员工。经理要有高要求，但同时也要有同理心，懂得如何激励员工。同样，员工要埋头苦干、努力工作，但他们也有权利要求承担更大的责任和得到更高的认可。这之间必须达到平衡。...]]></description>
@@ -3829,11 +3815,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《当下的力量（白金版）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/当下的力量-白金版</link>
+            <link>https://pi-dal.xlog.app/books/当下的力量-白金版</link>
             <guid>94</guid>
             <pubDate>Mon, 07 Jul 2025 14:06:36 GMT</pubDate>
             <description><![CDATA[你生存在这个世界就是要使宇宙的神圣目标得以实现。你看，你是多么重要！...]]></description>
@@ -3878,11 +3863,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《一个瑜伽行者的自传》读书笔记]]></title>
-            <link>https://pi-dal.com/books/一个瑜伽行者的自传</link>
+            <link>https://pi-dal.xlog.app/books/一个瑜伽行者的自传</link>
             <guid>93</guid>
             <pubDate>Mon, 07 Jul 2025 14:06:26 GMT</pubDate>
             <description><![CDATA[“为什么要为物质上的利益高兴？”父亲回答道：“一个追求心灵平静的人，得之不喜，失之不忧。他知道万物生不带来，死不带走。”...]]></description>
@@ -3997,11 +3981,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《Make Something Wonderful》读书笔记]]></title>
-            <link>https://pi-dal.com/books/make-something-wonderful</link>
+            <link>https://pi-dal.xlog.app/books/make-something-wonderful</link>
             <guid>92</guid>
             <pubDate>Mon, 07 Jul 2025 14:05:39 GMT</pubDate>
             <description><![CDATA[I hope these selections ignite in you the understanding that drove him: that everything that makes up what we call life was made by people no smarter, no more capable, than we are; that our world is n...]]></description>
@@ -4466,11 +4449,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《世界在你心中》读书笔记]]></title>
-            <link>https://pi-dal.com/books/世界在你心中</link>
+            <link>https://pi-dal.xlog.app/books/世界在你心中</link>
             <guid>91</guid>
             <pubDate>Mon, 07 Jul 2025 14:05:23 GMT</pubDate>
             <description><![CDATA[世界就是我们本身所有问题的真相最后都会归结到自己...]]></description>
@@ -5345,11 +5327,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《高敏感孩子的内心世界》读书笔记]]></title>
-            <link>https://pi-dal.com/books/高敏感孩子的内心世界</link>
+            <link>https://pi-dal.xlog.app/books/高敏感孩子的内心世界</link>
             <guid>90</guid>
             <pubDate>Mon, 07 Jul 2025 13:56:40 GMT</pubDate>
             <description><![CDATA[有时候，所学内容的意义可能并不太明显。此时你需要将孩子学习的知识与一个远景目标关联起来。孩子要明白“学英语是因为我希望自己未来能胜任国际化的岗位”，或者“我的数学要考得很高分才行，这样我才能去自己心心念念的大学”。有时候，你也要提醒孩子接受现实[插图]——“人不得不做一些自己感到厌烦的事情，比如填报税单。我们做这件事没有别的意义，做它只是因为必须这么做，不然我们就有麻烦了。有些时候做事是没有理由的...]]></description>
@@ -5392,11 +5373,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《苏东坡传（纪念典藏版）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/苏东坡传-纪念典藏版</link>
+            <link>https://pi-dal.xlog.app/books/苏东坡传-纪念典藏版</link>
             <guid>89</guid>
             <pubDate>Mon, 07 Jul 2025 13:54:06 GMT</pubDate>
             <description><![CDATA[当时最使朝廷感到困扰的，其实在中国历史上历代皆然，就是冗吏充斥。读书人太多，而朝廷可给的官位太少。这是中国多年的积弊，人竟认为一个优秀的读书人必然要“学而优则仕”。这个想法如果现在还不改，全国教育普及则国家将亡。我们有多少官位供给四万万五千万人呢？...]]></description>
@@ -5447,11 +5427,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《宝贵的人生建议》读书笔记]]></title>
-            <link>https://pi-dal.com/books/宝贵的人生建议</link>
+            <link>https://pi-dal.xlog.app/books/宝贵的人生建议</link>
             <guid>88</guid>
             <pubDate>Mon, 07 Jul 2025 13:53:54 GMT</pubDate>
             <description><![CDATA[一个值得追求的人生目标是，成为有影响力、行为不能被预测的人。也就是说，要做那些AI难以模仿的事。做一个不能被算法模型化的人，这样你将无可取代。...]]></description>
@@ -5940,11 +5919,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《纳瓦尔宝典》读书笔记]]></title>
-            <link>https://pi-dal.com/books/纳瓦尔宝典</link>
+            <link>https://pi-dal.xlog.app/books/纳瓦尔宝典</link>
             <guid>87</guid>
             <pubDate>Mon, 07 Jul 2025 13:53:40 GMT</pubDate>
             <description><![CDATA[谨以此书献给我的父母，感谢你们尽力给我所有，又不断给予我更多。...]]></description>
@@ -6971,11 +6949,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《QED：光和物质的奇妙理论》读书笔记]]></title>
-            <link>https://pi-dal.com/books/qed-光和物质的奇妙理论</link>
+            <link>https://pi-dal.xlog.app/books/qed-光和物质的奇妙理论</link>
             <guid>86</guid>
             <pubDate>Mon, 07 Jul 2025 13:53:24 GMT</pubDate>
             <description><![CDATA[当然，你还必须再花一年的时间来学怎么“加”。好了，你明白这意思了。这就是你在一所声名显赫的大学里交了学费之后所学到的东西。然而，一位叫费曼的聪明人向你建议说：“嘘……如果你会数数儿，你不必非得学关于进位和加法这套高难度的专业知识。你要做的就是弄来564个罐子，然后往每个罐子里放入263个小卵石。最后，你把所有这些小卵石倒出来，堆成一大堆，数一数有多少，那就是答案。”...]]></description>
@@ -7006,11 +6983,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《一个悲观主义者的积极思考》读书笔记]]></title>
-            <link>https://pi-dal.com/books/一个悲观主义者的积极思考</link>
+            <link>https://pi-dal.xlog.app/books/一个悲观主义者的积极思考</link>
             <guid>85</guid>
             <pubDate>Mon, 07 Jul 2025 13:53:11 GMT</pubDate>
             <description><![CDATA[对人生的快乐和幸福作了基本的划分：人的自身、人的所有和人的地位。另外，对人生的选择和准备作了总体的概括。...]]></description>
@@ -8077,11 +8053,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《悉达多（果麦经典）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/悉达多-果麦经典</link>
+            <link>https://pi-dal.xlog.app/books/悉达多-果麦经典</link>
             <guid>84</guid>
             <pubDate>Mon, 07 Jul 2025 13:53:00 GMT</pubDate>
             <description><![CDATA[内在“我”之源泉，必须拥有自己的阿特曼！其他一切都只是寻觅、走弯路和误入歧途。...]]></description>
@@ -8502,11 +8477,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《看世界（2024年第13期）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/看世界-2024年第13期</link>
+            <link>https://pi-dal.xlog.app/books/看世界-2024年第13期</link>
             <guid>83</guid>
             <pubDate>Mon, 07 Jul 2025 13:52:46 GMT</pubDate>
             <description><![CDATA[周受资借用了前脸书首席运营官（COO）雪莉·桑德伯格这样一句名言来回答：“如果你被告知要登火箭，不要去问应该坐哪个位置，先登上去就好。”...]]></description>
@@ -8525,11 +8499,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《生命是什么》读书笔记]]></title>
-            <link>https://pi-dal.com/books/生命是什么</link>
+            <link>https://pi-dal.xlog.app/books/生命是什么</link>
             <guid>82</guid>
             <pubDate>Mon, 07 Jul 2025 13:52:36 GMT</pubDate>
             <description><![CDATA[自由的人绝少思虑到死；他的智慧，不是死的默念，而是生的沉思。...]]></description>
@@ -8656,11 +8629,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《我看见的世界》读书笔记]]></title>
-            <link>https://pi-dal.com/books/我看见的世界</link>
+            <link>https://pi-dal.xlog.app/books/我看见的世界</link>
             <guid>81</guid>
             <pubDate>Mon, 07 Jul 2025 13:52:25 GMT</pubDate>
             <description><![CDATA[职业生涯的又一个里程碑：到国会做证。我走出酒店，来到人行道上。华盛顿特区的清晨阳光苍...]]></description>
@@ -8843,11 +8815,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《我想太多啦：高敏感人更容易成功》读书笔记]]></title>
-            <link>https://pi-dal.com/books/我想太多啦-高敏感人更容易成功</link>
+            <link>https://pi-dal.xlog.app/books/我想太多啦-高敏感人更容易成功</link>
             <guid>80</guid>
             <pubDate>Mon, 07 Jul 2025 13:43:11 GMT</pubDate>
             <description><![CDATA[在日常生活中，这样的目光往往让那些被注视的人感到被干扰、被探究，甚至被审查。其实他们观察的目的并不是评判，而是理解。对于弗朗索瓦来说，观察可以让他安心。在此过程中，他们观察到的细节也会存储到记忆中。视觉异常灵敏的人还有另一个特质，就是对亮度非常敏感。...]]></description>
@@ -9446,11 +9417,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《UNIX传奇：历史与回忆（UNIX的诞生记与发展史，贝尔实验室的幕后故事！ ）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/unix传奇-历史与回忆-unix的诞生记与发展史-贝尔实验室的幕后故事</link>
+            <link>https://pi-dal.xlog.app/books/unix传奇-历史与回忆-unix的诞生记与发展史-贝尔实验室的幕后故事</link>
             <guid>79</guid>
             <pubDate>Mon, 07 Jul 2025 13:43:02 GMT</pubDate>
             <description><![CDATA[“回忆往往披着玫瑰色的光晕，令人欢欣。回忆常驻于美好而持久的事物上，也常驻于因努力改善人类生活而获得的愉悦之中。”——丹尼斯·里奇...]]></description>
@@ -9629,11 +9599,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《我还能看到多少次满月升起》读书笔记]]></title>
-            <link>https://pi-dal.com/books/我还能看到多少次满月升起</link>
+            <link>https://pi-dal.xlog.app/books/我还能看到多少次满月升起</link>
             <guid>78</guid>
             <pubDate>Mon, 07 Jul 2025 13:42:53 GMT</pubDate>
             <description><![CDATA[我还能看到多少次满月升起？...]]></description>
@@ -9750,11 +9719,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《克林索尔的最后夏天（果麦经典）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/克林索尔的最后夏天-果麦经典</link>
+            <link>https://pi-dal.xlog.app/books/克林索尔的最后夏天-果麦经典</link>
             <guid>77</guid>
             <pubDate>Mon, 07 Jul 2025 13:42:43 GMT</pubDate>
             <description><![CDATA[曾经就是这样的男孩子，在那个不可思议的时代，对他来说世间没什么是不可能的，没有什么是艰难的，克林索尔爱着一切，统领一切，拥有一切。他便一直这样向前进，这样带着九条命活着。就算从未抵达圆满，从未实现澎湃的大合唱，他的歌谣也从不单调贫瘠，相比于别人，他总有更多弹奏的琴弦，更多扔进火里的钢铁，更多背囊里放的塔勒[插图]，更多车上载的玫瑰！谢天谢地！...]]></description>
@@ -10005,11 +9973,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《看世界（2024年第24期）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/看世界-2024年第24期</link>
+            <link>https://pi-dal.xlog.app/books/看世界-2024年第24期</link>
             <guid>76</guid>
             <pubDate>Mon, 07 Jul 2025 13:42:33 GMT</pubDate>
             <description><![CDATA[可矛盾的是，越是如此，他的电影却越显纯真，越有少年气。《功夫》的故事，始于主角阿星那个荒唐的、不着边际的梦，那本武林秘籍，外人一看就是江湖骗术，但他信了：我不入地狱，谁入地狱。尽管这份纯真一度丧失，一度远去，但电影结尾的画面里，他依然是那个孩子。...]]></description>
@@ -10028,11 +9995,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《看世界（2024年第8期）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/看世界-2024年第8期</link>
+            <link>https://pi-dal.xlog.app/books/看世界-2024年第8期</link>
             <guid>75</guid>
             <pubDate>Mon, 07 Jul 2025 13:42:24 GMT</pubDate>
             <description><![CDATA[他则回答称：“我们坚持自己的信念，我们相信这正是正确的答案。”...]]></description>
@@ -10051,11 +10017,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《瓦尔登湖》读书笔记]]></title>
-            <link>https://pi-dal.com/books/瓦尔登湖</link>
+            <link>https://pi-dal.xlog.app/books/瓦尔登湖</link>
             <guid>74</guid>
             <pubDate>Mon, 07 Jul 2025 13:42:11 GMT</pubDate>
             <description><![CDATA[古代希腊的泰勒斯曾向世界表示的：“只要哲学家们愿意，就很容易发财致富，但是他们的雄心却是属于另外的一种。”...]]></description>
@@ -10290,11 +10255,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《美丽新世界（译文经典）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/美丽新世界-译文经典</link>
+            <link>https://pi-dal.xlog.app/books/美丽新世界-译文经典</link>
             <guid>73</guid>
             <pubDate>Mon, 07 Jul 2025 13:42:02 GMT</pubDate>
             <description><![CDATA[所有的道德家都认为长久的悔恨是最要不得的情感。如果你做了坏事，感到后悔，作出能力之内的补偿，下一次提醒自己要做得好一些就行了，但绝不能沉溺于自己的过失。在粪堆里打滚并不能让你变得干净。...]]></description>
@@ -10523,11 +10487,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《我会一直跑，直到太阳下山（抑郁症疗愈手记｜微信读书出品）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/我会一直跑-直到太阳下山-抑郁症疗愈手记-微信读书出品</link>
+            <link>https://pi-dal.xlog.app/books/我会一直跑-直到太阳下山-抑郁症疗愈手记-微信读书出品</link>
             <guid>72</guid>
             <pubDate>Mon, 07 Jul 2025 13:41:49 GMT</pubDate>
             <description><![CDATA[但当我站在古老的加利斯特墓地外，一只手拿着我的尼康相机，另一只手落在墓地的围栏上，看着云团蜂拥而来，我终于明白，并没有什么真正的故事要寻找。这种恍然大悟是可怕的，是一种触电般的醒悟，但与此同时，又是迷人的。我意识到唯一的故事是由我们自己创造的，而正是此刻，真正的冒险开始了。...]]></description>
@@ -10578,11 +10541,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《看天下（2025年第16期）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/看天下-2025年第16期</link>
+            <link>https://pi-dal.xlog.app/books/看天下-2025年第16期</link>
             <guid>71</guid>
             <pubDate>Mon, 07 Jul 2025 13:41:40 GMT</pubDate>
             <description><![CDATA[了解世界的方式有很多种，但真正生活在这个世界上、体验这个世界，又是另一回事。...]]></description>
@@ -10601,11 +10563,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《这就是ChatGPT》读书笔记]]></title>
-            <link>https://pi-dal.com/books/这就是chatgpt</link>
+            <link>https://pi-dal.xlog.app/books/这就是chatgpt</link>
             <guid>70</guid>
             <pubDate>Mon, 07 Jul 2025 13:41:30 GMT</pubDate>
             <description><![CDATA[“你不会理解普通人的想法的，他们对你来说只是傻瓜。”...]]></description>
@@ -10624,11 +10585,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《生命的礼物（关于爱、死亡和存在的意义）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/生命的礼物-关于爱-死亡和存在的意义</link>
+            <link>https://pi-dal.xlog.app/books/生命的礼物-关于爱-死亡和存在的意义</link>
             <guid>69</guid>
             <pubDate>Mon, 07 Jul 2025 13:41:20 GMT</pubDate>
             <description><![CDATA[死亡，是生命最好的礼物。悲伤，是我们为勇敢去爱所付出的代价。...]]></description>
@@ -10673,11 +10633,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《幸福的勇气：“自我启发之父”阿德勒的哲学课2》读书笔记]]></title>
-            <link>https://pi-dal.com/books/幸福的勇气-自我启发之父-阿德勒的哲学课2</link>
+            <link>https://pi-dal.xlog.app/books/幸福的勇气-自我启发之父-阿德勒的哲学课2</link>
             <guid>68</guid>
             <pubDate>Mon, 07 Jul 2025 13:41:11 GMT</pubDate>
             <description><![CDATA[大部分的人爱质疑。当你获得了这一切问题的答案，却发现原因是你需要面对自己童年时受过的伤、用爱而不是恨来对待这个给过你伤害的世界，这种感受是令人震惊的。不是理论没用，而是你自己的病还没治好。相对于爱，人们更愿意选择恨。因为恨比爱容易，操作简单而且责任不在我，甚至让我更有力量！但恨的结果就是相互对抗，两败俱伤。你内心的伤痛永远得不到疗愈的机会，一遇到风吹草动就会沉渣泛起、雷霆万钧。要选择爱，首先要过伤...]]></description>
@@ -11142,11 +11101,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《三体前传：球状闪电》读书笔记]]></title>
-            <link>https://pi-dal.com/books/三体前传-球状闪电</link>
+            <link>https://pi-dal.xlog.app/books/三体前传-球状闪电</link>
             <guid>67</guid>
             <pubDate>Mon, 07 Jul 2025 13:39:40 GMT</pubDate>
             <description><![CDATA[其实，儿子，过一个美妙的人生并不难，听爸爸教你：你选一个公认的世界难题，最好是只用一张纸和一支铅笔的数学难题，比如哥德巴赫猜想或费尔马大定理什么的，或连纸笔都不要的纯自然哲学难题，比如宇宙的本源之类，投入全部身心钻研，只问耕耘不问收获，不知不觉的专注中，一辈子也就过去了。人们常说的寄托，也就是这么回事。或是相反，把挣钱作为唯一的目标，所有的时间都想着怎么挣，也不用问挣来干什么用，到死的时候像葛朗台...]]></description>
@@ -11203,11 +11161,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《How AI Will Revolutionize Education (and Why That's a Good Thing)》读书笔记]]></title>
-            <link>https://pi-dal.com/books/how-ai-will-revolutionize-education-and-why-that-s-a-good-thing</link>
+            <link>https://pi-dal.xlog.app/books/how-ai-will-revolutionize-education-and-why-that-s-a-good-thing</link>
             <guid>66</guid>
             <pubDate>Mon, 07 Jul 2025 13:39:28 GMT</pubDate>
             <description><![CDATA[You can’t cross the sea merely by standing and staring at the water.你不能仅仅站着盯着水过海。 				—Rabindranath Tagore——拉宾德拉纳特·泰戈尔...]]></description>
@@ -11482,11 +11439,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《Idea Makers: Personal Perspectives on the Lives & Ideas of Some Notable People》读书笔记]]></title>
-            <link>https://pi-dal.com/books/idea-makers-personal-perspectives-on-the-lives-ideas-of-some-notable-people</link>
+            <link>https://pi-dal.xlog.app/books/idea-makers-personal-perspectives-on-the-lives-ideas-of-some-notable-people</link>
             <guid>65</guid>
             <pubDate>Mon, 07 Jul 2025 13:39:18 GMT</pubDate>
             <description><![CDATA[“You know, you and I are very lucky. Because whatever else is going on, we’ve always got our physics.”...]]></description>
@@ -11511,11 +11467,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《在轮下》读书笔记]]></title>
-            <link>https://pi-dal.com/books/在轮下</link>
+            <link>https://pi-dal.xlog.app/books/在轮下</link>
             <guid>64</guid>
             <pubDate>Mon, 07 Jul 2025 13:39:09 GMT</pubDate>
             <description><![CDATA[世界上任何书籍都不能带给你好运，但它们能让你悄悄成为你自己。——赫尔曼·黑塞...]]></description>
@@ -11534,11 +11489,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《Total Freedom: The Essential Krishnamurti》读书笔记]]></title>
-            <link>https://pi-dal.com/books/total-freedom-the-essential-krishnamurti</link>
+            <link>https://pi-dal.xlog.app/books/total-freedom-the-essential-krishnamurti</link>
             <guid>63</guid>
             <pubDate>Mon, 07 Jul 2025 13:38:59 GMT</pubDate>
             <description><![CDATA[As we move closer to our time, this problem is inverted. Knowledge overtakes wisdom and culture surrenders to technology. Recordings are comprehensive, but what is recorded is often of lesser value. T...]]></description>
@@ -11629,11 +11583,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《德米安（果麦经典）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/德米安-果麦经典</link>
+            <link>https://pi-dal.xlog.app/books/德米安-果麦经典</link>
             <guid>62</guid>
             <pubDate>Mon, 07 Jul 2025 13:38:47 GMT</pubDate>
             <description><![CDATA[我所想望的，无非是试着依我自发的本性去生活。为何如此之难？...]]></description>
@@ -11836,11 +11789,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《史蒂夫·乔布斯传（修订版）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/史蒂夫-乔布斯传-修订版</link>
+            <link>https://pi-dal.xlog.app/books/史蒂夫-乔布斯传-修订版</link>
             <guid>61</guid>
             <pubDate>Mon, 07 Jul 2025 13:37:30 GMT</pubDate>
             <description><![CDATA[那些疯狂到以为自己能够改变世界的人，才能真正改变世界。...]]></description>
@@ -12259,11 +12211,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《沙丘六部曲（电影《沙丘2》原著小说）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/沙丘六部曲-电影沙丘2原著小说</link>
+            <link>https://pi-dal.xlog.app/books/沙丘六部曲-电影沙丘2原著小说</link>
             <guid>60</guid>
             <pubDate>Mon, 07 Jul 2025 13:37:17 GMT</pubDate>
             <description><![CDATA[生态学的最大功能是理解因果关系。...]]></description>
@@ -12400,11 +12351,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《玻璃球游戏》读书笔记]]></title>
-            <link>https://pi-dal.com/books/玻璃球游戏</link>
+            <link>https://pi-dal.xlog.app/books/玻璃球游戏</link>
             <guid>59</guid>
             <pubDate>Mon, 07 Jul 2025 13:37:08 GMT</pubDate>
             <description><![CDATA[一个柏拉图式的梦，它不是一种永恒有效的理想目标，而只是一种使自己和已知世界相对的可能性。...]]></description>
@@ -12507,11 +12457,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《生命之书:365天的静心冥想【豆瓣评分高达8.8！20世纪伟大的心灵导师克里希那穆提，他的言论和著作无法归属于哪一种宗教，既非东方也非西方，而是属于全世界！】》读书笔记]]></title>
-            <link>https://pi-dal.com/books/生命之书-365天的静心冥想-豆瓣评分高达8-8-20世纪伟大的心灵导师克里希那穆提-他的言论和著作无法归属于哪一种宗教-既非东方也非西方-而是属于全世界</link>
+            <link>https://pi-dal.xlog.app/books/生命之书-365天的静心冥想-豆瓣评分高达8-8-20世纪伟大的心灵导师克里希那穆提-他的言论和著作无法归属于哪一种宗教-既非东方也非西方-而是属于全世界</link>
             <guid>58</guid>
             <pubDate>Mon, 07 Jul 2025 13:36:59 GMT</pubDate>
             <description><![CDATA[我认为实相是无路可循的，你不能通过任何宗教派别或方法而达到它。既然实相是无限、不受任何制约、无路可循的，当然也就不需要人为组织了。没有任何组织有权力强制人依循特定的道路。如果你们做了这件事，实相就会变成僵固的教条，同时也会变成那些懦弱之人和不满足之人的玩物。实相无法屈就于人，人必须通过自己的努力来亲近它。高山无法自动移到你的脚前，你必须不畏艰险地穿越山谷、攀过悬崖峭壁，才能到达山顶……我只关切一件...]]></description>
@@ -14050,11 +13999,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《被讨厌的勇气：“自我启发之父”阿德勒的哲学课》读书笔记]]></title>
-            <link>https://pi-dal.com/books/被讨厌的勇气-自我启发之父-阿德勒的哲学课</link>
+            <link>https://pi-dal.xlog.app/books/被讨厌的勇气-自我启发之父-阿德勒的哲学课</link>
             <guid>57</guid>
             <pubDate>Mon, 07 Jul 2025 13:36:44 GMT</pubDate>
             <description><![CDATA[在阿德勒眼中，理想的人际关系大概是“我爱你，但与你无关”。他认为每个人的课题都是分离又独特的。我怎么爱你，这是我的课题，而你要不要接受我的爱，这是你的课题。...]]></description>
@@ -14671,11 +14619,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《黑塞四季诗文集》读书笔记]]></title>
-            <link>https://pi-dal.com/books/黑塞四季诗文集</link>
+            <link>https://pi-dal.xlog.app/books/黑塞四季诗文集</link>
             <guid>56</guid>
             <pubDate>Mon, 07 Jul 2025 13:36:33 GMT</pubDate>
             <description><![CDATA[你还依旧属于我吗，迷人的世界。长久以来，我只能透过泪水，远远地把你眺望，而我看到的只有空旷？...]]></description>
@@ -14844,11 +14791,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《A Brief History of Information Networks from the Stone Age to AI》读书笔记]]></title>
-            <link>https://pi-dal.com/books/a-brief-history-of-information-networks-from-the-stone-age-to-ai</link>
+            <link>https://pi-dal.xlog.app/books/a-brief-history-of-information-networks-from-the-stone-age-to-ai</link>
             <guid>55</guid>
             <pubDate>Mon, 07 Jul 2025 13:36:23 GMT</pubDate>
             <description><![CDATA[On a path of a thousand dreams, we are looking for reality....]]></description>
@@ -14867,11 +14813,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《人类简史：从动物到上帝（图文精编版） (开放历史系列)》读书笔记]]></title>
-            <link>https://pi-dal.com/books/人类简史-从动物到上帝-图文精编版-开放历史系列</link>
+            <link>https://pi-dal.xlog.app/books/人类简史-从动物到上帝-图文精编版-开放历史系列</link>
             <guid>54</guid>
             <pubDate>Mon, 07 Jul 2025 13:36:14 GMT</pubDate>
             <description><![CDATA[一开始，他们可能待上大约四个星期来收获小麦。等到过了一个世代，小麦数量和面积大增，于是他们得待上五个星期，接着就是六个星期、七个星期，最后终于形成永久的村落。在整个中东地区，都能够发现这种定居下来的证据，特别是在黎凡特地区（Levant，指地中海东部沿岸及岛屿）更是常见。从公元前12500年到公元前9500年，黎凡特曾有十分兴盛的纳图芬（Natufian）文化，纳图芬人属于狩猎采集者，以数十种野生...]]></description>
@@ -15092,11 +15037,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《My Beginnings》读书笔记]]></title>
-            <link>https://pi-dal.com/books/my-beginnings</link>
+            <link>https://pi-dal.xlog.app/books/my-beginnings</link>
             <guid>53</guid>
             <pubDate>Mon, 07 Jul 2025 13:30:38 GMT</pubDate>
             <description><![CDATA[The prize is the pleasure of finding the thing out....]]></description>
@@ -15213,11 +15157,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《黄仁勋：英伟达之芯》读书笔记]]></title>
-            <link>https://pi-dal.com/books/黄仁勋-英伟达之芯</link>
+            <link>https://pi-dal.xlog.app/books/黄仁勋-英伟达之芯</link>
             <guid>52</guid>
             <pubDate>Mon, 07 Jul 2025 13:30:25 GMT</pubDate>
             <description><![CDATA[敢做梦，善思考，能实现。...]]></description>
@@ -15376,11 +15319,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《像哲学家一样生活：斯多葛哲学的生活艺术》读书笔记]]></title>
-            <link>https://pi-dal.com/books/像哲学家一样生活-斯多葛哲学的生活艺术</link>
+            <link>https://pi-dal.xlog.app/books/像哲学家一样生活-斯多葛哲学的生活艺术</link>
             <guid>51</guid>
             <pubDate>Mon, 07 Jul 2025 13:30:17 GMT</pubDate>
             <description><![CDATA[在我研究欲望的过程中，我发现许多有思想的人几乎不约而同地有一个共识，那就是：如果我们不能够克服我们的贪得无厌，我们是不可能有良好、有意义的生活的。还有一个共识就是：驯服我们贪得无厌之倾向的绝妙办法，就是劝说我们去渴求我们已经拥有的东西。...]]></description>
@@ -15413,11 +15355,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《三体全集（全三册）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/三体全集-全三册</link>
+            <link>https://pi-dal.xlog.app/books/三体全集-全三册</link>
             <guid>50</guid>
             <pubDate>Mon, 07 Jul 2025 13:30:04 GMT</pubDate>
             <description><![CDATA[我生性冷淡，对女性，我比周围这些和尚更不感兴趣，但她很特殊，她那最没女人味的女人味吸引了我...]]></description>
@@ -15684,11 +15625,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《天生敏感》读书笔记]]></title>
-            <link>https://pi-dal.com/books/天生敏感</link>
+            <link>https://pi-dal.xlog.app/books/天生敏感</link>
             <guid>49</guid>
             <pubDate>Mon, 07 Jul 2025 13:29:51 GMT</pubDate>
             <description><![CDATA[敏感的身体、敏感的心灵，带给你敏锐的直觉、洞察力、创造力、热情，更带给你灵性。...]]></description>
@@ -16659,11 +16599,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《活出生命的意义》读书笔记]]></title>
-            <link>https://pi-dal.com/books/活出生命的意义</link>
+            <link>https://pi-dal.xlog.app/books/活出生命的意义</link>
             <guid>48</guid>
             <pubDate>Mon, 07 Jul 2025 13:29:39 GMT</pubDate>
             <description><![CDATA[如果在您一生的阅读体验中，能够拥有这样一本书，它其中的某个篇章或者包含的某种思想不仅能触动您的灵魂并且能引领它与之共舞，甚至改变您的日常生活与命运，那这样的书您一定要常常翻阅，并像对待珍宝一样小心呵护。...]]></description>
@@ -16714,11 +16653,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《埃隆·马斯克 - Elon Musk》读书笔记]]></title>
-            <link>https://pi-dal.com/books/埃隆-马斯克-elon-musk</link>
+            <link>https://pi-dal.xlog.app/books/埃隆-马斯克-elon-musk</link>
             <guid>47</guid>
             <pubDate>Mon, 07 Jul 2025 13:29:27 GMT</pubDate>
             <description><![CDATA[To anyone I’ve offended, I just want to say, I reinvented electric cars and I’m sending people to Mars in a rocket ship. Did you think I was also going to be a chill, normal dude?...]]></description>
@@ -16931,11 +16869,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《成为乔布斯》读书笔记]]></title>
-            <link>https://pi-dal.com/books/成为乔布斯</link>
+            <link>https://pi-dal.xlog.app/books/成为乔布斯</link>
             <guid>46</guid>
             <pubDate>Mon, 07 Jul 2025 13:29:15 GMT</pubDate>
             <description><![CDATA[史蒂夫从不轻易妥协，学习任何东西也绝不会浅尝辄止，这几年，他就像一台学习机器，无论学习的内容有多困难，他都会在好奇心的驱使下，全身心地投入到学习中去。...]]></description>
@@ -16992,11 +16929,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《量子怪才：保罗·狄拉克传》读书笔记]]></title>
-            <link>https://pi-dal.com/books/量子怪才-保罗-狄拉克传</link>
+            <link>https://pi-dal.xlog.app/books/量子怪才-保罗-狄拉克传</link>
             <guid>45</guid>
             <pubDate>Mon, 07 Jul 2025 13:27:55 GMT</pubDate>
             <description><![CDATA[一个社会对怪癖的容忍度通常与这个社会拥有的天分、精神活力和道德勇气的多少成正比。现在鲜有人敢行怪诞之事，这正是这个时代的危险之处。——约翰·斯图亚特·穆勒 《论自由》，1869 年...]]></description>
@@ -17071,11 +17007,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《只有偏执狂才能生存:特种经理人的培训手册(新版)》读书笔记]]></title>
-            <link>https://pi-dal.com/books/只有偏执狂才能生存-特种经理人的培训手册-新版</link>
+            <link>https://pi-dal.xlog.app/books/只有偏执狂才能生存-特种经理人的培训手册-新版</link>
             <guid>44</guid>
             <pubDate>Mon, 07 Jul 2025 13:26:58 GMT</pubDate>
             <description><![CDATA[·公司现有竞争对手的实力、活力和能力：竞争对手数量多吗？它们的资本是否雄厚？它们是否清清楚楚地瞄准了你？·公司的供应商的实力、活力和能力：供应商数量是很多，让你的业务有足够的选择余地；还是只有几家，它们可以扼住你的咽喉？它们是充满挑衅，贪得无厌；还是较为谨慎稳妥，并把对客户情况的长远评价作为企业指导？·公司的企业客户的实力、活力和能力：企业客户数量是很多，还是仅仅依靠一两家主要客户做生意？它们是倚...]]></description>
@@ -17278,11 +17213,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《今日简史：人类命运大议题》读书笔记]]></title>
-            <link>https://pi-dal.com/books/今日简史-人类命运大议题</link>
+            <link>https://pi-dal.xlog.app/books/今日简史-人类命运大议题</link>
             <guid>43</guid>
             <pubDate>Mon, 07 Jul 2025 13:26:47 GMT</pubDate>
             <description><![CDATA[所有的“感受”只是所有哺乳动物及鸟类都拥有的生化机制，用来快速运算生存和繁殖的概率。“感受”的基础也不是直觉、灵感或自由，而是运算。...]]></description>
@@ -17613,11 +17547,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《岩田先生:任天堂传奇社长如是说(全球授权10语种!从天才程序员,到世界顶尖企业管理者,扭转颓势,带领公司股价翻番的传奇社长亲授企业经营管理理念!）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/岩田先生-任天堂传奇社长如是说-全球授权10语种-从天才程序员-到世界顶尖企业管理者-扭转颓势-带领公司股价翻番的传奇社长亲授企业经营管理理念</link>
+            <link>https://pi-dal.xlog.app/books/岩田先生-任天堂传奇社长如是说-全球授权10语种-从天才程序员-到世界顶尖企业管理者-扭转颓势-带领公司股价翻番的传奇社长亲授企业经营管理理念</link>
             <guid>42</guid>
             <pubDate>Mon, 07 Jul 2025 13:26:37 GMT</pubDate>
             <description><![CDATA[人呢，终究需要有能赞赏自己所做的事情的人，否则就无法迈向更高的台阶。...]]></description>
@@ -17814,11 +17747,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《心：稻盛和夫的一生嘱托（“稻盛哲学”集大成之作）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/reading-notes-xin-sheng-xue-cheng</link>
+            <link>https://pi-dal.xlog.app/books/reading-notes-xin-sheng-xue-cheng</link>
             <guid>41</guid>
             <pubDate>Mon, 07 Jul 2025 13:21:39 GMT</pubDate>
             <description><![CDATA[提高心性，拓展经营...]]></description>
@@ -18015,11 +17947,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《苏东坡传（纪念典藏版）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/reading-notes-063917</link>
+            <link>https://pi-dal.xlog.app/books/reading-notes-063917</link>
             <guid>37</guid>
             <pubDate>Mon, 07 Jul 2025 12:41:11 GMT</pubDate>
             <description><![CDATA[当时最使朝廷感到困扰的，其实在中国历史上历代皆然，就是冗吏充斥。读书人太多，而朝廷可给的官位太少。这是中国多年的积弊，人竟认为一个优秀的读书人必然要“学而优则仕”。这个想法如果现在还不改，全国教育普及则国家将亡。我们有多少官位供给四万万五千万人呢？...]]></description>
@@ -18070,11 +18001,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《纳瓦尔宝典》读书笔记]]></title>
-            <link>https://pi-dal.com/books/reading-notes-567364</link>
+            <link>https://pi-dal.xlog.app/books/reading-notes-567364</link>
             <guid>36</guid>
             <pubDate>Mon, 07 Jul 2025 12:32:55 GMT</pubDate>
             <description><![CDATA[谨以此书献给我的父母，感谢你们尽力给我所有，又不断给予我更多。...]]></description>
@@ -19101,11 +19031,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《Make Something Wonderful》读书笔记]]></title>
-            <link>https://pi-dal.com/books/reading-notes-makesomethingwonderful</link>
+            <link>https://pi-dal.xlog.app/books/reading-notes-makesomethingwonderful</link>
             <guid>35</guid>
             <pubDate>Mon, 07 Jul 2025 12:26:12 GMT</pubDate>
             <description><![CDATA[I hope these selections ignite in you the understanding that drove him: that everything that makes up what we call life was made by people no smarter, no more capable, than we are; that our world is n...]]></description>
@@ -19570,11 +19499,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《蒂姆·库克传：苹果公司的反思与商业的未来》读书笔记]]></title>
-            <link>https://pi-dal.com/books/《蒂姆·库克传：苹果公司的反思与商业的未来》读书笔记</link>
+            <link>https://pi-dal.xlog.app/books/《蒂姆·库克传：苹果公司的反思与商业的未来》读书笔记</link>
             <guid>34</guid>
             <pubDate>Mon, 07 Jul 2025 07:21:55 GMT</pubDate>
             <description><![CDATA[每当有人为理想而奋不顾身，或为改善他人的境况而奋斗不息，或为对抗不公而勇往直前时，他都从百万个不同的角落发出了一丝希望的涟漪。这些充满能量和胆量的涟漪彼此激荡，最终汇聚成一股强大的洪流，足以冲垮一切压迫与阻力的围墙。——罗伯特·F.肯尼迪...]]></description>
@@ -19659,11 +19587,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《刷新：重新发现商业与未来》读书笔记]]></title>
-            <link>https://pi-dal.com/books/《刷新：重新发现商业与未来》读书笔记</link>
+            <link>https://pi-dal.xlog.app/books/《刷新：重新发现商业与未来》读书笔记</link>
             <guid>33</guid>
             <pubDate>Mon, 07 Jul 2025 06:29:54 GMT</pubDate>
             <description><![CDATA[他告诉我，你必须坚信一点，那就是天空是极限，没有什么可以限制你。你必须努力——不是为了不断升迁，而是去做重要的工作。凭着事后觉悟，我现在明白，一个感觉自己是局外人的人也可以取得成功，但需要两个条件：一是开明的管理，二是尽职尽责的员工。经理要有高要求，但同时也要有同理心，懂得如何激励员工。同样，员工要埋头苦干、努力工作，但他们也有权利要求承担更大的责任和得到更高的认可。这之间必须达到平衡。...]]></description>
@@ -19782,11 +19709,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《世界在你心中》读书笔记]]></title>
-            <link>https://pi-dal.com/books/《世界在你心中》读书笔记</link>
+            <link>https://pi-dal.xlog.app/books/《世界在你心中》读书笔记</link>
             <guid>32</guid>
             <pubDate>Mon, 07 Jul 2025 02:58:36 GMT</pubDate>
             <description><![CDATA[世界就是我们本身所有问题的真相最后都会归结到自己...]]></description>
@@ -20661,11 +20587,10 @@
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《高敏感孩子的内心世界》读书笔记]]></title>
-            <link>https://pi-dal.com/books/《高敏感孩子的内心世界》读书笔记</link>
+            <link>https://pi-dal.xlog.app/books/《高敏感孩子的内心世界》读书笔记</link>
             <guid>31</guid>
             <pubDate>Sun, 06 Jul 2025 14:27:19 GMT</pubDate>
             <description><![CDATA[--- title: 《高敏感孩子的内心世界》读书笔记 datepublished: 2025-07-06T14:27:14.188Z tags: [读书笔记, 微信读书, [法]克莉司德·布提可南] excerpt: [法]克莉司德·布提可南作品《高敏感孩子的内心世界》的读书笔记摘录 ---  《高敏感孩子的内心世界》读书笔记 作者: [法]克莉司德·布提可南 阅读时长: 0 小时 这是我在微信...]]></description>
@@ -20713,11 +20638,10 @@ excerpt: [法]克莉司德·布提可南作品《高敏感孩子的内心世界�
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《一个悲观主义者的积极思考》读书笔记]]></title>
-            <link>https://pi-dal.com/books/《一个悲观主义者的积极思考》读书笔记</link>
+            <link>https://pi-dal.xlog.app/books/《一个悲观主义者的积极思考》读书笔记</link>
             <guid>30</guid>
             <pubDate>Sun, 06 Jul 2025 14:23:17 GMT</pubDate>
             <description><![CDATA[--- title: 《一个悲观主义者的积极思考》读书笔记 datepublished: 2025-07-06T14:23:12.181Z tags: [读书笔记, 微信读书, 叔本华] excerpt: 叔本华作品《一个悲观主义者的积极思考》的读书笔记摘录 ---  《一个悲观主义者的积极思考》读书笔记 作者: 叔本华 阅读时长: 4 小时 这是我在微信读书中阅读《一个悲观主义者的积极思考》时记...]]></description>
@@ -21789,11 +21713,10 @@ excerpt: 叔本华作品《一个悲观主义者的积极思考》的读书笔�
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《看世界（2024年第13期）》读书笔记]]></title>
-            <link>https://pi-dal.com/books/《看世界（2024年第13期）》读书笔记</link>
+            <link>https://pi-dal.xlog.app/books/《看世界（2024年第13期）》读书笔记</link>
             <guid>29</guid>
             <pubDate>Sun, 06 Jul 2025 14:06:37 GMT</pubDate>
             <description><![CDATA[周受资借用了前脸书首席运营官（COO）雪莉·桑德伯格这样一句名言来回答：“如果你被告知要登火箭，不要去问应该坐哪个位置，先登上去就好。”...]]></description>
@@ -21812,11 +21735,10 @@ excerpt: 叔本华作品《一个悲观主义者的积极思考》的读书笔�
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《QED：光和物质的奇妙理论》读书笔记]]></title>
-            <link>https://pi-dal.com/books/qed-光和物质的奇妙理论读书笔记</link>
+            <link>https://pi-dal.xlog.app/books/qed-光和物质的奇妙理论读书笔记</link>
             <guid>28</guid>
             <pubDate>Sun, 06 Jul 2025 07:20:36 GMT</pubDate>
             <description><![CDATA[当然，你还必须再花一年的时间来学怎么“加”。好了，你明白这意思了。这就是你在一所声名显赫的大学里交了学费之后所学到的东西。然而，一位叫费曼的聪明人向你建议说：“嘘……如果你会数数儿，你不必非得学关于进位和加法这套高难度的专业知识。你要做的就是弄来564个罐子，然后往每个罐子里放入263个小卵石。最后，你把所有这些小卵石倒出来，堆成一大堆，数一数有多少，那就是答案。” 有量子物理相伴，谁还需要迷幻药...]]></description>
@@ -21838,11 +21760,10 @@ excerpt: 叔本华作品《一个悲观主义者的积极思考》的读书笔�
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《生命是什么》读书笔记]]></title>
-            <link>https://pi-dal.com/books/生命是什么读书笔记</link>
+            <link>https://pi-dal.xlog.app/books/生命是什么读书笔记</link>
             <guid>27</guid>
             <pubDate>Sun, 06 Jul 2025 07:12:27 GMT</pubDate>
             <description><![CDATA[这是我在微信读书中阅读时记录的笔记和摘录。]]></description>
@@ -21912,11 +21833,10 @@ excerpt: 叔本华作品《一个悲观主义者的积极思考》的读书笔�
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
         <item>
             <title><![CDATA[《我看见的世界》读书笔记]]></title>
-            <link>https://pi-dal.com/books/我看见的世界读书笔记</link>
+            <link>https://pi-dal.xlog.app/books/我看见的世界读书笔记</link>
             <guid>26</guid>
             <pubDate>Sun, 06 Jul 2025 07:07:33 GMT</pubDate>
             <description><![CDATA[这是我在微信读书中阅读时记录的笔记和摘录。]]></description>
@@ -22024,7 +21944,6 @@ excerpt: 叔本华作品《一个悲观主义者的积极思考》的读书笔�
 <hr>
 <p><em>本文由 WeRead-xLog 同步工具自动生成</em></p>
 ]]></content:encoded>
-            <author>hi@pi-dal.com (pi-dal)</author>
         </item>
     </channel>
 </rss>

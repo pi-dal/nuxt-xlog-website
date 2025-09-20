@@ -1,5 +1,7 @@
+import type { XLogSite } from '../src/types'
 import fs from 'fs-extra'
 import { join } from 'pathe'
+import { buildAbsoluteUrl, resolveSiteUrl } from '../src/logics/site-meta'
 import { generateOGImage } from './og'
 
 const publicDir = join(process.cwd(), 'public')
@@ -49,8 +51,45 @@ const GET_CHARACTER_QUERY = `
         content
       }
     }
-  }
+}
 `
+
+function parseMetadata(raw: unknown): Record<string, any> {
+  if (!raw)
+    return {}
+
+  if (typeof raw === 'string') {
+    try {
+      return JSON.parse(raw)
+    }
+    catch {
+      return {}
+    }
+  }
+
+  if (typeof raw === 'object')
+    return raw as Record<string, any>
+
+  return {}
+}
+
+function extractCustomDomain(metadata: Record<string, any>): string | undefined {
+  const candidates = [
+    metadata.custom_domain,
+    metadata.xlog_custom_domain,
+    metadata.xlog_custom_domain_verified,
+    metadata.website,
+    metadata.url,
+    metadata.homepage,
+  ]
+
+  const domain = candidates.find(value => typeof value === 'string' && value.trim())
+  if (!domain)
+    return undefined
+
+  const trimmed = domain.trim()
+  return trimmed.startsWith('http') ? trimmed : `https://${trimmed}`
+}
 
 async function fetchCharacterByHandle(handle: string) {
   const response = await fetch(XLOG_API_URL, {
@@ -156,19 +195,31 @@ async function generateXLogOGImages() {
 
     console.log(`📄 Found ${notes.length} notes`)
 
-    // Parse character metadata to get author name
+    // Parse character metadata to get author name and domain information
     let authorName = xlogHandle
+    let siteUrl = ''
     try {
       if (character.metadata?.content) {
-        const metadata = JSON.parse(character.metadata.content)
+        const metadata = parseMetadata(character.metadata.content)
         authorName = metadata.name || metadata.display_name || authorName
+        const siteStub: XLogSite = {
+          id: String(character.characterId ?? ''),
+          name: authorName,
+          subdomain: character.handle,
+          custom_domain: extractCustomDomain(metadata),
+        }
+        siteUrl = resolveSiteUrl(siteStub, xlogHandle)
       }
     }
     catch {
       // Use default if parsing fails
     }
 
+    if (!siteUrl)
+      siteUrl = resolveSiteUrl({ id: String(character.characterId ?? ''), name: authorName, subdomain: character.handle } as XLogSite, xlogHandle)
+
     console.log(`👤 Author name: ${authorName}`)
+    console.log(`🌐 Using site URL: ${siteUrl}`)
 
     // Generate OG images for each post
     let generated = 0
@@ -241,7 +292,7 @@ async function generateXLogOGImages() {
           title: content.title,
           author: authorName,
           date: note.publishedAt || note.createdAt,
-          ogImage: `https://pi-dal.com/og/${slug}.png`,
+          ogImage: buildAbsoluteUrl(siteUrl, `/og/${slug}.png`),
         }
       }
     }

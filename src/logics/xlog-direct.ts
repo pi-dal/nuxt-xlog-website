@@ -1,4 +1,5 @@
 import type { EnhancedXLogPost, SocialLink, XLogAuthor, XLogComment, XLogPortfolio, XLogPost, XLogSite } from '../types'
+import { CACHE_TTL, withCache } from './cache'
 import { logger } from './logger'
 import { enhancePostsWithMetadata, enhancePostWithMetadata } from './metadata'
 import { useSiteInfo } from './useSiteInfo'
@@ -130,8 +131,45 @@ const GET_PAGE_BY_SLUG_QUERY = `
         content
       }
     }
-  }
+}
 `
+
+function parseMetadataContent(rawContent: unknown): Record<string, any> {
+  if (!rawContent)
+    return {}
+
+  if (typeof rawContent === 'string') {
+    try {
+      return JSON.parse(rawContent)
+    }
+    catch (error) {
+      logger.warn('Failed to parse character metadata content string', { error }, 'XLOG_SITE')
+      return {}
+    }
+  }
+
+  if (typeof rawContent === 'object')
+    return rawContent as Record<string, any>
+
+  return {}
+}
+
+function extractCustomDomain(content: Record<string, any>): string | undefined {
+  const candidates = [
+    content.custom_domain,
+    content.xlog_custom_domain,
+    content.xlog_custom_domain_verified,
+    content.website,
+    content.url,
+    content.homepage,
+  ]
+  const domain = candidates.find(value => typeof value === 'string' && value.trim())
+  if (!domain)
+    return undefined
+
+  const trimmed = domain.trim()
+  return trimmed.startsWith('http') ? trimmed : `https://${trimmed}`
+}
 
 /**
  * 直接调用 xLog GraphQL API
@@ -176,67 +214,71 @@ export async function getSiteInfoDirect(): Promise<XLogSite | null> {
     return null
 
   try {
-    const data = await callXLogAPI(GET_SITE_QUERY, { handle })
-    const characters = data.characters
+    return await withCache(`getSiteInfo:${handle}`, {}, async () => {
+      const data = await callXLogAPI(GET_SITE_QUERY, { handle })
+      const characters = data.characters
 
-    if (!characters || characters.length === 0)
-      return null
+      if (!characters || characters.length === 0)
+        return null
 
-    const character = characters[0] // 取第一个匹配的character
-    const content = character.metadata?.content || {}
+      const character = characters[0]
+      const rawContent = character.metadata?.content
+      const content = parseMetadataContent(rawContent)
 
-    const connectedAccounts = content.connected_accounts || []
-    const socialLinks: SocialLink[] = connectedAccounts.map((account: string) => {
-      // e.g. 'csb://account:handle@platform'
-      const match = account.match(/^csb:\/\/account:([^@]+)@(.+)$/)
-      if (match) {
-        const [, handle, platform] = match
-        let url = ''
-        switch (platform.toLowerCase()) {
-          case 'twitter':
-            url = `https://x.com/${handle}`
-            break
-          case 'github':
-            url = `https://github.com/${handle}`
-            break
-          case 'telegram':
-            url = `https://t.me/${handle}`
-            break
-          case 'bilibili':
-            url = `https://space.bilibili.com/${handle}`
-            break
-          case 'youtube':
-            url = `https://www.youtube.com/@${handle}`
-            break
-          case 'mastodon':
-            if (handle.includes('@')) {
-              const [user, instance] = handle.split('@')
-              url = `https://${instance}/@${user}`
+      const connectedAccounts = content.connected_accounts || []
+      const socialLinks: SocialLink[] = connectedAccounts
+        .map((account: string) => {
+          const match = account.match(/^csb:\/\/account:([^@]+)@(.+)$/)
+          if (match) {
+            const [, accountHandle, platform] = match
+            let url = ''
+            switch (platform.toLowerCase()) {
+              case 'twitter':
+                url = `https://x.com/${accountHandle}`
+                break
+              case 'github':
+                url = `https://github.com/${accountHandle}`
+                break
+              case 'telegram':
+                url = `https://t.me/${accountHandle}`
+                break
+              case 'bilibili':
+                url = `https://space.bilibili.com/${accountHandle}`
+                break
+              case 'youtube':
+                url = `https://www.youtube.com/@${accountHandle}`
+                break
+              case 'mastodon':
+                if (accountHandle.includes('@')) {
+                  const [user, instance] = accountHandle.split('@')
+                  url = `https://${instance}/@${user}`
+                }
+                else {
+                  url = `https://mas.to/@${accountHandle}`
+                }
+                break
             }
-            else {
-              url = `https://mas.to/@${handle}`
-            }
-            break
-        }
-        if (url) {
-          return { platform, url }
-        }
+            if (url)
+              return { platform, url }
+          }
+          return null
+        })
+        .filter(Boolean) as SocialLink[]
+
+      return {
+        id: character.characterId?.toString() || '',
+        name: content.name || handle,
+        subdomain: handle,
+        custom_domain: extractCustomDomain(content),
+        description: content.bio || '',
+        bio: content.bio || '',
+        avatar: (content.avatars?.[0] || '').replace('ipfs://', 'https://ipfs.crossbell.io/ipfs/'),
+        cover: (content.banners?.[0]?.address || '').replace('ipfs://', 'https://ipfs.crossbell.io/ipfs/'),
+        navigation: [],
+        social_platforms: content.connected_accounts || {},
+        social_links: socialLinks,
       }
-      return null
-    }).filter(Boolean) as SocialLink[]
-
-    return {
-      id: character.characterId?.toString() || '',
-      name: content.name || handle,
-      subdomain: handle,
-      description: content.bio || '',
-      bio: content.bio || '',
-      avatar: (content.avatars?.[0] || '').replace('ipfs://', 'https://ipfs.crossbell.io/ipfs/'),
-      cover: (content.banners?.[0]?.address || '').replace('ipfs://', 'https://ipfs.crossbell.io/ipfs/'),
-      navigation: [],
-      social_platforms: content.connected_accounts || {},
-      social_links: socialLinks,
-    }
+    }, CACHE_TTL.SITE_INFO)
   }
   catch (error) {
     logger.error('Error fetching site info:', { error, handle }, 'XLOG_SITE')
@@ -261,35 +303,36 @@ export async function getAllPostsDirect(): Promise<XLogPost[]> {
     return []
 
   try {
-    // 使用缓存的siteInfo获取characterId
-    const { fetchSiteInfo, getCharacterId } = useSiteInfo()
-    await fetchSiteInfo()
-    const characterId = getCharacterId()
+    const posts = await withCache(`getAllPosts:${handle}`, {}, async () => {
+      const { fetchSiteInfo, getCharacterId } = useSiteInfo()
+      await fetchSiteInfo()
+      const characterId = getCharacterId()
 
-    if (!characterId) {
-      logger.warn('No characterId found for handle:', { handle }, 'XLOG_SITE')
-      return []
-    }
+      if (!characterId) {
+        logger.warn('No characterId found for handle:', { handle }, 'XLOG_SITE')
+        return []
+      }
 
-    logger.debug('Using cached characterId:', { characterId }, 'XLOG_POSTS')
+      logger.debug('Using cached characterId:', { characterId }, 'XLOG_POSTS')
 
-    // 然后用characterId获取文章
-    const data = await callXLogAPI(GET_POSTS_QUERY, { characterId })
-    const notes = data.notes || []
+      const data = await callXLogAPI(GET_POSTS_QUERY, { characterId })
+      const notes = data.notes || []
 
-    logger.debug('Raw notes from API:', { count: notes.length }, 'XLOG_POSTS')
+      logger.debug('Raw notes from API:', { count: notes.length }, 'XLOG_POSTS')
 
-    return notes
-      .filter((note: any) => {
-        const content = note.metadata?.content || {}
-        if (!content.title)
-          return false // 必须有标题
+      return notes
+        .filter((note: any) => {
+          const content = note.metadata?.content || {}
+          if (!content.title)
+            return false
 
-        const tags = content.tags || []
-        // 只显示同时有 "post" 标签且不含 "portfolio" 和 "微信读书" 标签的文章
-        return tags.includes('post') && !tags.includes('portfolio') && !tags.includes('微信读书')
-      })
-      .map((note: any) => transformNoteToPost(note))
+          const tags = content.tags || []
+          return tags.includes('post') && !tags.includes('portfolio') && !tags.includes('微信读书')
+        })
+        .map((note: any) => transformNoteToPost(note))
+    }, CACHE_TTL.POSTS)
+
+    return posts ?? []
   }
   catch (error) {
     logger.error('Error fetching posts:', { error, handle }, 'XLOG_POSTS')
@@ -334,42 +377,41 @@ export async function getEnhancedPostBySlugDirect(slug: string): Promise<Enhance
  * 根据slug获取单篇文章
  */
 export async function getPostBySlugDirect(slug: string): Promise<XLogPost | null> {
+  const handle = getXLogHandle()
+  if (!handle)
+    return null
+
   try {
-    const handle = getXLogHandle()
-    if (!handle)
-      return null
+    return await withCache(`getPostBySlug:${handle}`, { slug }, async () => {
+      const { fetchSiteInfo, getCharacterId, siteInfo } = useSiteInfo()
+      await fetchSiteInfo()
+      const characterId = getCharacterId()
 
-    // 使用缓存的siteInfo获取characterId和作者信息
-    const { fetchSiteInfo, getCharacterId, siteInfo } = useSiteInfo()
-    await fetchSiteInfo()
-    const characterId = getCharacterId()
+      if (!characterId || !siteInfo.value) {
+        logger.warn('No characterId or siteInfo found for handle:', { handle }, 'XLOG_SITE')
+        return null
+      }
 
-    if (!characterId || !siteInfo.value) {
-      logger.warn('No characterId or siteInfo found for handle:', { handle }, 'XLOG_SITE')
-      return null
-    }
+      const author: XLogAuthor = {
+        id: siteInfo.value.id,
+        username: siteInfo.value.subdomain,
+        name: siteInfo.value.name,
+        avatar: (siteInfo.value.avatar || '').replace('ipfs://', 'https://ipfs.crossbell.io/ipfs/'),
+        bio: siteInfo.value.bio,
+      }
 
-    const author: XLogAuthor = {
-      id: siteInfo.value.id,
-      username: siteInfo.value.subdomain,
-      name: siteInfo.value.name,
-      avatar: (siteInfo.value.avatar || '').replace('ipfs://', 'https://ipfs.crossbell.io/ipfs/'),
-      bio: siteInfo.value.bio,
-    }
+      const data = await callXLogAPI(GET_PAGE_BY_SLUG_QUERY, { characterId, slug })
+      const notes = data.notes || []
 
-    // 直接通过GraphQL查询特定slug的文章，不受getAllPostsDirect的过滤限制
-    const data = await callXLogAPI(GET_PAGE_BY_SLUG_QUERY, { characterId, slug })
-    const notes = data.notes || []
+      if (notes.length === 0)
+        return null
 
-    if (notes.length === 0) {
-      return null
-    }
+      const post = transformNoteToPost(notes[0])
+      post.characterId = characterId.toString()
+      post.author = author
 
-    const post = transformNoteToPost(notes[0])
-    post.characterId = characterId.toString() // Attach characterId to the post object
-    post.author = author // Attach author info
-
-    return post
+      return post
+    }, CACHE_TTL.SINGLE_POST)
   }
   catch (error) {
     logger.error('Error fetching post by slug:', { error, slug }, 'XLOG_POST')
@@ -586,32 +628,33 @@ export async function getBooksDirect(): Promise<XLogPost[]> {
     return []
 
   try {
-    // 使用缓存的siteInfo获取characterId
-    const { fetchSiteInfo, getCharacterId } = useSiteInfo()
-    await fetchSiteInfo()
-    const characterId = getCharacterId()
+    const books = await withCache(`getBooks:${handle}`, {}, async () => {
+      const { fetchSiteInfo, getCharacterId } = useSiteInfo()
+      await fetchSiteInfo()
+      const characterId = getCharacterId()
 
-    if (!characterId) {
-      logger.warn('No characterId found for handle:', { handle }, 'XLOG_BOOKS')
-      return []
-    }
+      if (!characterId) {
+        logger.warn('No characterId found for handle:', { handle }, 'XLOG_BOOKS')
+        return []
+      }
 
-    const data = await callXLogAPI(GET_POSTS_QUERY, { characterId })
-    const notes = data.notes || []
+      const data = await callXLogAPI(GET_POSTS_QUERY, { characterId })
+      const notes = data.notes || []
 
-    // 过滤出带有 "微信读书" 标签的文章
-    const bookNotes = notes.filter((note: any) => {
-      const content = note.metadata?.content || {}
-      if (!content.title)
-        return false // 必须有标题
+      const bookNotes = notes.filter((note: any) => {
+        const content = note.metadata?.content || {}
+        if (!content.title)
+          return false
 
-      const tags = content.tags || []
-      // 检查是否包含 "微信读书" 标签
-      return tags.includes('微信读书')
-    })
+        const tags = content.tags || []
+        return tags.includes('微信读书')
+      })
 
-    logger.debug(`Found ${bookNotes.length} book item(s) with "微信读书" tag out of ${notes.length} total notes`, { bookCount: bookNotes.length, totalNotes: notes.length }, 'XLOG_BOOKS')
-    return bookNotes.map((note: any) => transformNoteToPost(note))
+      logger.debug(`Found ${bookNotes.length} book item(s) with "微信读书" tag out of ${notes.length} total notes`, { bookCount: bookNotes.length, totalNotes: notes.length }, 'XLOG_BOOKS')
+      return bookNotes.map((note: any) => transformNoteToPost(note))
+    }, CACHE_TTL.POSTS)
+
+    return books ?? []
   }
   catch (error) {
     logger.error('Error fetching books:', { error, handle }, 'XLOG_BOOKS')
@@ -650,35 +693,36 @@ export async function getPostsByTagDirect(tag: string): Promise<XLogPost[]> {
     return []
 
   try {
-    // 使用缓存的siteInfo获取characterId
-    const { fetchSiteInfo, getCharacterId } = useSiteInfo()
-    await fetchSiteInfo()
-    const characterId = getCharacterId()
+    const taggedPosts = await withCache(`getPostsByTag:${handle}`, { tag }, async () => {
+      const { fetchSiteInfo, getCharacterId } = useSiteInfo()
+      await fetchSiteInfo()
+      const characterId = getCharacterId()
 
-    if (!characterId) {
-      logger.warn('No characterId found for handle:', { handle }, 'XLOG_SITE')
-      return []
-    }
+      if (!characterId) {
+        logger.warn('No characterId found for handle:', { handle }, 'XLOG_SITE')
+        return []
+      }
 
-    logger.debug('Using cached characterId:', { characterId, tag }, 'XLOG_TAGS')
+      logger.debug('Using cached characterId:', { characterId, tag }, 'XLOG_TAGS')
 
-    // 然后用characterId获取文章
-    const data = await callXLogAPI(GET_POSTS_QUERY, { characterId })
-    const notes = data.notes || []
+      const data = await callXLogAPI(GET_POSTS_QUERY, { characterId })
+      const notes = data.notes || []
 
-    logger.debug('Raw notes from API:', { count: notes.length }, 'XLOG_POSTS')
+      logger.debug('Raw notes from API:', { count: notes.length }, 'XLOG_POSTS')
 
-    return notes
-      .filter((note: any) => {
-        const content = note.metadata?.content || {}
-        if (!content.title)
-          return false // 必须有标题
+      return notes
+        .filter((note: any) => {
+          const content = note.metadata?.content || {}
+          if (!content.title)
+            return false
 
-        const tags = content.tags || []
-        // 检查是否包含指定标签（不区分大小写）
-        return tags.some((t: string) => t.toLowerCase() === tag.toLowerCase())
-      })
-      .map((note: any) => transformNoteToPost(note))
+          const tags = content.tags || []
+          return tags.some((t: string) => t.toLowerCase() === tag.toLowerCase())
+        })
+        .map((note: any) => transformNoteToPost(note))
+    }, CACHE_TTL.POSTS)
+
+    return taggedPosts ?? []
   }
   catch (error) {
     logger.error('Error fetching posts by tag:', { error, tag }, 'XLOG_TAGS')

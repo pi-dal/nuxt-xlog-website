@@ -11,7 +11,6 @@ import { getAllPostsDirect } from '~/logics/xlog-direct'
     description="My thoughts, experiences, and learnings"
     content-type="Post"
     base-path="/posts"
-    og-image="https://pi-dal.com/og/posts.png"
   >
     <template #default="{ items }">
       <div class="space-y-8">
@@ -26,7 +25,7 @@ import { getAllPostsDirect } from '~/logics/xlog-direct'
           >
             <!-- 文章信息 -->
             <div>
-              <h2 class="text-2xl font-bold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <h2 class="text-2xl font-bold mb-2 transition-colors group-hover:text-slate-500 dark:group-hover:text-slate-300 group-hover:underline group-hover:decoration-slate-400/70 group-hover:decoration-2">
                 {{ post.title }}
               </h2>
 

@@ -64,7 +64,7 @@ onMounted(async () => {
             <div class="flex items-start justify-between">
               <div class="flex-1 min-w-0">
                 <!-- Project Title -->
-                <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <h3 class="font-semibold text-gray-900 dark:text-white transition-colors group-hover:text-slate-500 dark:group-hover:text-slate-300 group-hover:underline group-hover:decoration-slate-400/70 group-hover:decoration-2">
                   {{ project.title }}
                 </h3>
 
@@ -92,7 +92,7 @@ onMounted(async () => {
                   >
                   <div
                     v-else
-                    class="w-6 h-6 rounded bg-blue-500 flex items-center justify-center text-white text-xs font-bold"
+                    class="w-6 h-6 rounded bg-slate-500 flex items-center justify-center text-white text-xs font-bold"
                   >
                     {{ project.title.charAt(0).toUpperCase() }}
                   </div>

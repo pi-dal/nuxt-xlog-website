@@ -50,14 +50,16 @@ class Logger {
   info(message: string, data?: any, context?: string): void {
     if (this.shouldLog(LogLevel.INFO)) {
       const formatted = this.formatMessage(LogLevel.INFO, message, context)
-      console.warn(formatted, data)
+      // eslint-disable-next-line no-console
+      console.info(formatted, data)
     }
   }
 
   debug(message: string, data?: any, context?: string): void {
     if (this.shouldLog(LogLevel.DEBUG)) {
       const formatted = this.formatMessage(LogLevel.DEBUG, message, context)
-      console.warn(formatted, data)
+      // eslint-disable-next-line no-console
+      console.debug(formatted, data)
     }
   }
 

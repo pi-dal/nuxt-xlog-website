@@ -1,6 +1,7 @@
 import type { XLogSite } from '../types'
 import { readonly, ref } from 'vue'
 import { logger } from './logger'
+import { getSiteInfoDirect } from './xlog-direct'
 
 // Global cache state for siteInfo - shared across all composable instances
 const siteInfo = ref<XLogSite | null>(null)
@@ -45,8 +46,6 @@ export function useSiteInfo() {
     try {
       logger.debug('useSiteInfo: Fetching fresh site info from API')
 
-      // Import the original function dynamically to avoid circular dependency
-      const { getSiteInfoDirect } = await import('./xlog-direct')
       const freshSiteInfo = await getSiteInfoDirect()
 
       if (freshSiteInfo) {

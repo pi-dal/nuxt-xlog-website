@@ -329,7 +329,7 @@ async function generateXLogOGImages() {
   }
   catch (error) {
     console.error('❌ Failed to generate xLog OG images:', error)
-    process.exit(1)
+    // Do not fail the entire build pipeline on OG errors
   }
 }
 

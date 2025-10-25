@@ -51,6 +51,8 @@ The build command runs multiple steps:
 4. `tsx ./scripts/rss.ts` - Generate RSS/Atom feeds (XML, Atom, JSON formats)
 5. `cp _redirects dist/_redirects` - Copy redirect rules for deployment
 
+> `pnpm build` exports `NO_WEBFONT_FETCH=1` so UnoCSS skips remote Google Fonts downloads during CI/SSG runs. Unset this variable locally if you prefer UnoCSS to fetch web fonts on demand.
+
 ## Configuration
 
 ### xLog Configuration

@@ -199,11 +199,13 @@ export default defineConfig({
           if (route === 'index' || frontmatter.image || !frontmatter.title)
             return
           const path = `og/${route}.png`
-          promises.push(
-            fs.existsSync(`${id.slice(0, -3)}.png`)
-              ? fs.copy(`${id.slice(0, -3)}.png`, `public/${path}`)
-              : generateOg(frontmatter.title!.trim(), `public/${path}`),
-          )
+          const task = fs.existsSync(`${id.slice(0, -3)}.png`)
+            ? fs.copy(`${id.slice(0, -3)}.png`, `public/${path}`)
+            : generateOg(frontmatter.title!.trim(), `public/${path}`)
+          // Ensure OG generation failures don't break the entire build
+          promises.push(task.catch((err) => {
+            console.warn(`[og] Failed to generate ${path}:`, err)
+          }))
           frontmatter.image = `${SITE_URL}/${path}`
         })()
         const head = defaults(frontmatter, options)

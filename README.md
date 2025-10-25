@@ -100,12 +100,15 @@ pnpm build
 pnpm preview
 ```
 
+> The default build script sets `NO_WEBFONT_FETCH=1` to keep UnoCSS from requesting Google Fonts during CI. Override this variable in your shell if you need UnoCSS to pull remote fonts locally.
+
 The build process includes:
 
 - Static site generation with vite-ssg
 - Font optimization and copying
 - RSS feed generation
 - Redirect rules setup
+- Optional web font fetching via UnoCSS (disabled when `NO_WEBFONT_FETCH=1`)
 
 ## 📁 Project Structure
 

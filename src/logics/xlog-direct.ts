@@ -2,7 +2,6 @@ import type { EnhancedXLogPost, SocialLink, XLogAuthor, XLogComment, XLogPortfol
 import { CACHE_TTL, withCache } from './cache'
 import { logger } from './logger'
 import { enhancePostsWithMetadata, enhancePostWithMetadata } from './metadata'
-import { useSiteInfo } from './useSiteInfo'
 
 // 获取xLog handle配置
 function getXLogHandle(): string {
@@ -286,6 +285,15 @@ export async function getSiteInfoDirect(): Promise<XLogSite | null> {
   }
 }
 
+async function resolveSiteContext() {
+  const site = await getSiteInfoDirect()
+  const parsedId = site?.id ? Number.parseInt(site.id, 10) : Number.NaN
+  return {
+    site,
+    characterId: Number.isNaN(parsedId) ? null : parsedId,
+  }
+}
+
 /**
  * 获取文章列表
  */
@@ -304,9 +312,7 @@ export async function getAllPostsDirect(): Promise<XLogPost[]> {
 
   try {
     const posts = await withCache(`getAllPosts:${handle}`, {}, async () => {
-      const { fetchSiteInfo, getCharacterId } = useSiteInfo()
-      await fetchSiteInfo()
-      const characterId = getCharacterId()
+      const { characterId } = await resolveSiteContext()
 
       if (!characterId) {
         logger.warn('No characterId found for handle:', { handle }, 'XLOG_SITE')
@@ -383,21 +389,19 @@ export async function getPostBySlugDirect(slug: string): Promise<XLogPost | null
 
   try {
     return await withCache(`getPostBySlug:${handle}`, { slug }, async () => {
-      const { fetchSiteInfo, getCharacterId, siteInfo } = useSiteInfo()
-      await fetchSiteInfo()
-      const characterId = getCharacterId()
+      const { site, characterId } = await resolveSiteContext()
 
-      if (!characterId || !siteInfo.value) {
+      if (!characterId || !site) {
         logger.warn('No characterId or siteInfo found for handle:', { handle }, 'XLOG_SITE')
         return null
       }
 
       const author: XLogAuthor = {
-        id: siteInfo.value.id,
-        username: siteInfo.value.subdomain,
-        name: siteInfo.value.name,
-        avatar: (siteInfo.value.avatar || '').replace('ipfs://', 'https://ipfs.crossbell.io/ipfs/'),
-        bio: siteInfo.value.bio,
+        id: site.id,
+        username: site.subdomain,
+        name: site.name,
+        avatar: (site.avatar || '').replace('ipfs://', 'https://ipfs.crossbell.io/ipfs/'),
+        bio: site.bio,
       }
 
       const data = await callXLogAPI(GET_PAGE_BY_SLUG_QUERY, { characterId, slug })
@@ -532,9 +536,7 @@ export async function getPageBySlugDirect(slug: string): Promise<XLogPost | null
 
   try {
     // 使用缓存的siteInfo获取characterId
-    const { fetchSiteInfo, getCharacterId } = useSiteInfo()
-    await fetchSiteInfo()
-    const characterId = getCharacterId()
+    const { characterId } = await resolveSiteContext()
 
     if (!characterId) {
       logger.warn('No characterId found for handle:', { handle }, 'XLOG_SITE')
@@ -589,9 +591,7 @@ export async function getPortfolioDirect(): Promise<XLogPortfolio[]> {
 
   try {
     // 使用缓存的siteInfo获取characterId
-    const { fetchSiteInfo, getCharacterId } = useSiteInfo()
-    await fetchSiteInfo()
-    const characterId = getCharacterId()
+    const { characterId } = await resolveSiteContext()
 
     if (!characterId) {
       logger.warn('No characterId found for handle:', { handle }, 'XLOG_PORTFOLIO')
@@ -629,9 +629,7 @@ export async function getBooksDirect(): Promise<XLogPost[]> {
 
   try {
     const books = await withCache(`getBooks:${handle}`, {}, async () => {
-      const { fetchSiteInfo, getCharacterId } = useSiteInfo()
-      await fetchSiteInfo()
-      const characterId = getCharacterId()
+      const { characterId } = await resolveSiteContext()
 
       if (!characterId) {
         logger.warn('No characterId found for handle:', { handle }, 'XLOG_BOOKS')
@@ -694,9 +692,7 @@ export async function getPostsByTagDirect(tag: string): Promise<XLogPost[]> {
 
   try {
     const taggedPosts = await withCache(`getPostsByTag:${handle}`, { tag }, async () => {
-      const { fetchSiteInfo, getCharacterId } = useSiteInfo()
-      await fetchSiteInfo()
-      const characterId = getCharacterId()
+      const { characterId } = await resolveSiteContext()
 
       if (!characterId) {
         logger.warn('No characterId found for handle:', { handle }, 'XLOG_SITE')

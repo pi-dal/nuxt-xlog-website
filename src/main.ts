@@ -1,3 +1,4 @@
+import { createHead } from '@unhead/vue'
 import dayjs from 'dayjs'
 import LocalizedFormat from 'dayjs/plugin/localizedFormat.js'
 import FloatingVue from 'floating-vue'
@@ -30,6 +31,7 @@ export const createApp = ViteSSG(
 
     app.use(FloatingVue)
     app.use(createPinia())
+    app.use(createHead())
 
     if (isClient) {
       const html = document.querySelector('html')!

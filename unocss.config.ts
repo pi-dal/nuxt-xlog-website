@@ -1,6 +1,7 @@
-import {
-  createLocalFontProcessor,
-} from '@unocss/preset-web-fonts/local'
+// Note: preset-web-fonts/local may fetch fonts at build time.
+// To avoid network timeouts in CI/SSG builds, we allow disabling via NO_WEBFONT_FETCH=1
+// and rely on locally bundled fonts + system fallbacks.
+// import { createLocalFontProcessor } from '@unocss/preset-web-fonts/local'
 import {
   defineConfig,
   presetAttributify,
@@ -10,7 +11,31 @@ import {
   transformerDirectives,
 } from 'unocss'
 
+const enableWebFonts = process.env.NO_WEBFONT_FETCH !== '1'
+const webFontPresets = enableWebFonts
+  ? [
+      presetWebFonts({
+        fonts: {
+          sans: 'Inter',
+          mono: 'DM Mono',
+          condensed: 'Roboto Condensed',
+          wisper: 'Bad Script',
+        },
+        // processors: createLocalFontProcessor(),
+      }),
+    ]
+  : []
+
 export default defineConfig({
+  theme: {
+    fontFamily: {
+      // Keep class mappings consistent even if webfonts preset is disabled
+      sans: 'Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Apple Color Emoji, Segoe UI Emoji',
+      mono: 'DM Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, monospace',
+      condensed: 'Roboto Condensed, Inter, system-ui, sans-serif',
+      wisper: 'Bad Script, Inter, system-ui, sans-serif',
+    },
+  },
   shortcuts: [
     {
       'bg-base': 'bg-white dark:bg-black',
@@ -35,15 +60,7 @@ export default defineConfig({
     }),
     presetAttributify(),
     presetWind3(),
-    presetWebFonts({
-      fonts: {
-        sans: 'Inter',
-        mono: 'DM Mono',
-        condensed: 'Roboto Condensed',
-        wisper: 'Bad Script',
-      },
-      processors: createLocalFontProcessor(),
-    }),
+    ...webFontPresets,
   ],
   transformers: [
     transformerDirectives(),

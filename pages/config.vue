@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { useHead } from '@unhead/vue'
 import { useRoute } from 'vue-router'
 import ArtPlum from '~/components/ArtPlum.vue'
 import { useSiteInfo } from '~/logics/useSiteInfo'
+import { getSiteInfoDirect } from '~/logics/xlog-direct'
 
 const route = useRoute()
 
@@ -24,9 +26,6 @@ async function testConnection() {
   connectionResult.value = null
 
   try {
-    // 使用直接API测试连接
-    const { getSiteInfoDirect } = await import('~/logics/xlog-direct')
-
     // 临时设置handle进行测试
     const originalHandle = localStorage.getItem('xlog-handle')
     localStorage.setItem('xlog-handle', xlogHandle.value.trim())

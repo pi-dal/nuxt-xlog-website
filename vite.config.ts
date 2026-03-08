@@ -17,6 +17,7 @@ import SVG from 'vite-svg-loader'
 import { generateOGImage } from './scripts/og'
 import { resolveRoutePathOverride } from './src/logics/content-route-path'
 import { applyMarkdownPipeline } from './src/logics/markdown-pipeline'
+import { resolveMarkdownWrapperClasses, resolveMarkdownWrapperComponent } from './src/logics/markdown-wrapper'
 
 const promises: Promise<any>[] = []
 const SITE_URL = (process.env.PUBLIC_SITE_URL || process.env.SITE_URL || 'https://pi-dal.com').replace(/\/+$/, '')
@@ -92,12 +93,8 @@ export default defineConfig({
     }),
 
     Markdown({
-      wrapperComponent: id => id.includes('/demo/')
-        ? 'WrapperDemo'
-        : 'WrapperPost',
-      wrapperClasses: (id, code) => code.includes('@layout-full-width')
-        ? ''
-        : 'prose m-auto slide-enter-content',
+      wrapperComponent: resolveMarkdownWrapperComponent,
+      wrapperClasses: resolveMarkdownWrapperClasses,
       headEnabled: true,
       exportFrontmatter: false,
       exposeFrontmatter: false,

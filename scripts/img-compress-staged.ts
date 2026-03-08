@@ -1,6 +1,6 @@
 import prompts from 'prompts'
 import Git from 'simple-git'
-import { compressImages } from './img-compress'
+import { compressImages, isCompressibleImagePath } from './img-compress'
 
 const git = Git()
 const stagedFiles = (await git.diff(['--cached', '--name-only']))
@@ -8,7 +8,7 @@ const stagedFiles = (await git.diff(['--cached', '--name-only']))
   .map(i => i.trim())
   .filter(Boolean)
 
-const images = stagedFiles.filter(i => i.match(/\.(png|jpe?g|webp)$/i))
+const images = stagedFiles.filter(isCompressibleImagePath)
 if (images.length > 0) {
   console.log('Images to compress:\n', images)
   const { confirm } = await prompts({

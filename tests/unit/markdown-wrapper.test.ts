@@ -12,11 +12,11 @@ describe('markdown wrapper resolution', () => {
     expect(resolveMarkdownWrapperClasses('/project/pages/posts/example.md', 'plain content')).toBe('prose m-auto slide-enter-content')
   })
 
-  it('disables wrappers for chunked markdown sections', () => {
+  it('keeps prose classes for chunked markdown sections while skipping WrapperPost', () => {
     const id = '/project/src/content/chunked-posts/example/01-section.md'
 
     expect(resolveMarkdownWrapperComponent(id, '')).toBeNull()
-    expect(resolveMarkdownWrapperClasses(id, 'plain content')).toBe('')
+    expect(resolveMarkdownWrapperClasses(id, 'plain content')).toBe('prose m-auto slide-enter-content')
   })
 
   it('keeps full-width markdown pages wrapper-free when requested in source', () => {

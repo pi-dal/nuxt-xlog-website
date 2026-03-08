@@ -16,7 +16,7 @@ export function resolveMarkdownWrapperComponent(id: string, _code: string) {
 
 export function resolveMarkdownWrapperClasses(id: string, code: string) {
   if (isChunkedMarkdownSection(id))
-    return ''
+    return 'prose m-auto slide-enter-content'
 
   return code.includes('@layout-full-width')
     ? ''

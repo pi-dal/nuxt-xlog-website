@@ -1,6 +1,7 @@
+import MarkdownIt from 'markdown-it'
 import { describe, expect, it } from 'vitest'
 
-import { buildMarkdownPipelineConfig, convertIpfsUrls } from '~/logics/markdown-pipeline'
+import { applyMarkdownPipeline, buildMarkdownPipelineConfig, convertIpfsUrls } from '~/logics/markdown-pipeline'
 
 describe('markdown pipeline', () => {
   it('normalizes ipfs urls to the crossbell gateway', () => {
@@ -20,5 +21,22 @@ describe('markdown pipeline', () => {
     expect(runtimeConfig.markdownItOptions.quotes).toBe('""\'\'')
     expect(runtimeConfig.shiki.transformers).toHaveLength(3)
     expect(buildConfig.shiki.transformers).toHaveLength(4)
+  })
+
+  it('maps obsidian abstract callouts to supported github alerts', async () => {
+    const md = new MarkdownIt({
+      html: true,
+      linkify: true,
+      typographer: true,
+      quotes: '""\'\'',
+    })
+
+    await applyMarkdownPipeline(md)
+
+    const html = md.render('> [!abstract] Summary\n> body\n')
+
+    expect(html).toContain('markdown-alert')
+    expect(html).toContain('markdown-alert-note')
+    expect(html).not.toContain('[!abstract]')
   })
 })

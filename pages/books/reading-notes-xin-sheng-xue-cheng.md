@@ -1,8 +1,9 @@
 ---
-title: "《心：稻盛和夫的一生嘱托（“稻盛哲学”集大成之作）》读书笔记"
-slug: "reading-notes-xin-sheng-xue-cheng"
+title: 《心：稻盛和夫的一生嘱托（“稻盛哲学”集大成之作）》读书笔记
+slug: reading-notes-xin-sheng-xue-cheng
 type: book
-date: "2025-07-07T13:21:30.061Z"
+date: '2025-07-07T13:21:30.061Z'
+summary: 稻盛和夫在这本总结性作品里回顾自己的人生与经营实践，把工作观、利他心、人格修炼与企业经营原则凝练成一套可落实的处世方法。
 ---
 
 # 元数据

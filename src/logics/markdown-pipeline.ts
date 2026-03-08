@@ -16,7 +16,16 @@ export interface MarkdownPipelineOptions {
 }
 
 interface MarkdownPipelineTarget {
+  core?: {
+    ruler: {
+      after: (name: string, ruleName: string, fn: (state: { src: string }) => boolean | void) => unknown
+    }
+  }
   use: (plugin: any, ...args: any[]) => unknown
+}
+
+const OBSIDIAN_CALLOUT_ALIASES: Record<string, string> = {
+  abstract: 'note',
 }
 
 export function convertIpfsUrls(content: string): string {
@@ -41,6 +50,19 @@ export function convertIpfsUrls(content: string): string {
   }
 
   return convertedContent
+}
+
+export function normalizeObsidianCalloutAliases(content: string): string {
+  if (!content)
+    return content
+
+  return content.replace(/(^>\s*\[!)([a-z-]+)(\])/gim, (match, prefix, rawType, suffix) => {
+    const normalizedType = OBSIDIAN_CALLOUT_ALIASES[rawType.toLowerCase()]
+    if (!normalizedType)
+      return match
+
+    return `${prefix}${normalizedType}${suffix}`
+  })
 }
 
 export function buildMarkdownPipelineConfig(options: MarkdownPipelineOptions = {}) {
@@ -132,6 +154,10 @@ export function buildMarkdownPipelineConfig(options: MarkdownPipelineOptions = {
 
 export async function applyMarkdownPipeline(md: MarkdownPipelineTarget, options: MarkdownPipelineOptions = {}) {
   const config = buildMarkdownPipelineConfig(options)
+
+  md.core?.ruler.after('normalize', 'obsidian-callout-aliases', (state) => {
+    state.src = normalizeObsidianCalloutAliases(state.src)
+  })
 
   md.use(MarkdownItKatex, config.katex)
   md.use(await MarkdownItShiki(config.shiki))

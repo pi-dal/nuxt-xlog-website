@@ -1,24 +1,40 @@
 # Test Strategy
 
-This document tracks the testing plan as we introduce a Vitest-based automated suite.
+This directory covers the markdown-first site model and its build helpers.
 
 ## Goals
 
-1. Lock down pure utilities (URL resolution, cache helpers) with unit tests.
-2. Simulate xLog GraphQL fetch flows with mocked responses to validate caching and error paths.
-3. Provide coverage insight (via `vitest --coverage`) to guide future work.
+1. Lock down the shared content types and site configuration.
+2. Verify route-derived content lists for posts and books.
+3. Verify the legacy `Articles/` importer before future content migrations.
+4. Verify Markdown-driven RSS generation and related file loaders.
+5. Keep script-level regressions catchable without relying on the full build.
 
 ## Structure
 
-- `tests/setup/` – shared harness (msw, env shims) to reuse across specs.
-- `tests/unit/` – pure function / cache tests, no network.
-- `tests/integration/` – mocked GraphQL requests, verifying xlog-direct behavior.
+- `tests/fixtures/` contains small legacy article samples and asset fixtures.
+- `tests/unit/` contains unit tests for content typing, route extraction, import behavior, RSS helpers, and site metadata.
 
-## Immediate Next Steps
+## Current Coverage
 
-- [ ] Add `tests/setup/msw.ts` to register a default MSW server (no handlers yet).
-- [ ] Write unit tests for `src/logics/site-meta.ts` (resolveSiteUrl, buildAbsoluteUrl, resolveAuthorHandle).
-- [ ] Write unit tests for `src/logics/cache.ts` (withCache, cacheManager TTL behavior).
-- [ ] Add MSW handlers covering `GET_SITE_QUERY`, `GET_POSTS_QUERY`; assert caching and transformation logic.
+- `content-model.test.ts` validates content type normalization.
+- `site-config.test.ts` validates the local site configuration contract.
+- `content-routes.test.ts` validates route frontmatter extraction and sorting.
+- `import-articles.test.ts` validates legacy article import and asset rewriting.
+- `rss-content.test.ts` validates Markdown file loading for feed generation.
+- `site-meta.test.ts` validates canonical URL and author handle helpers.
 
-Keep this document updated as new suites or helpers are added.
+## Verification Commands
+
+```bash
+pnpm test
+pnpm test:coverage
+```
+
+For release-level verification, also run:
+
+```bash
+pnpm lint
+pnpm typecheck
+pnpm build
+```

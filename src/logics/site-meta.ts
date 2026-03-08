@@ -1,4 +1,5 @@
 import type { SocialLink, XLogSite } from '~/types'
+import { siteConfig } from '~/site/config'
 
 function normalizeSiteUrl(url: string): string {
   let normalized = url.trim()
@@ -23,9 +24,6 @@ function extractWebsite(site?: XLogSite | null): string | undefined {
   const websiteLink = findSocialLink(site.social_links, ['website', 'site', 'blog', 'home'])
   if (websiteLink?.url)
     return websiteLink.url
-
-  if (site.subdomain)
-    return `${site.subdomain}.xlog.app`
 
   return undefined
 }
@@ -61,7 +59,7 @@ export function resolveSiteUrl(site?: XLogSite | null, fallbackHandle: string = 
   if (website)
     return normalizeSiteUrl(website)
 
-  return normalizeSiteUrl(`${fallbackHandle}.xlog.app`)
+  return normalizeSiteUrl(siteConfig.url || fallbackHandle)
 }
 
 export function buildAbsoluteUrl(baseUrl: string, path: string): string {
@@ -98,5 +96,5 @@ export function resolveAuthorHandle(site?: XLogSite | null): string {
   if (site?.subdomain)
     return site.subdomain
 
-  return 'xlog'
+  return siteConfig.author.handle
 }

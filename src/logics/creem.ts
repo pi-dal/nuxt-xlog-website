@@ -1,4 +1,3 @@
-import { withErrorHandling } from './errors'
 import { logger } from './logger'
 
 // Creem API配置
@@ -11,8 +10,7 @@ function getApiBase() {
 }
 
 // 获取API密钥
-function getCreemApiKey(): string {
-  // 首先尝试从环境变量获取
+function getCreemApiKey(): string | undefined {
   if (typeof process !== 'undefined' && process.env?.CREEM_API_KEY) {
     return process.env.CREEM_API_KEY
   }
@@ -25,8 +23,7 @@ function getCreemApiKey(): string {
     }
   }
 
-  // 默认API密钥（你提供的）
-  return 'creem_4qM0a3tkUkZQpKkIb620YS'
+  return undefined
 }
 
 // Creem API响应类型
@@ -72,167 +69,112 @@ export const DEFAULT_PRODUCT_ID = 'prod_2TwzDKCrT7EcwVOSj6BNWg'
 
 // 创建checkout session
 export async function createCheckoutSession(params: CreateCheckoutSessionParams): Promise<CreemCheckoutResponse> {
-  return withErrorHandling(async () => {
-    const apiKey = getCreemApiKey()
+  logger.info('Creating Creem checkout session', {
+    amount: params.amount,
+    customerEmail: params.customerEmail,
+    productId: params.productId,
+  })
 
-    if (!apiKey) {
-      throw new Error('Creem API key not found')
-    }
+  const requestBody: Record<string, any> = {}
 
-    logger.info('Creating Creem checkout session', {
-      productId: params.productId,
-      amount: params.amount,
-      customerEmail: params.customerEmail,
-    })
+  if (params.productId) {
+    requestBody.product_id = params.productId
+    if (params.units && params.units > 0)
+      requestBody.units = params.units
+  }
 
-    // 构建请求体
-    const requestBody: any = {}
+  if (params.customerEmail)
+    requestBody.customer = { email: params.customerEmail }
+  if (params.successUrl)
+    requestBody.success_url = params.successUrl
+  if (params.cancelUrl)
+    requestBody.cancel_url = params.cancelUrl
+  if (params.requestId)
+    requestBody.request_id = params.requestId
+  if (params.discountCode)
+    requestBody.discount_code = params.discountCode
 
-    // 如果有产品ID，使用产品ID
-    if (params.productId) {
-      requestBody.product_id = params.productId
+  const metadata = { ...params.metadata }
+  if (params.message)
+    metadata.message = params.message
+  if (params.amount)
+    metadata.custom_amount = params.amount
+  if (Object.keys(metadata).length > 0)
+    requestBody.metadata = metadata
 
-      // 如果指定了数量，添加units参数
-      if (params.units && params.units > 0) {
-        requestBody.units = params.units
-      }
-    }
+  const url = import.meta.env.DEV
+    ? `${getApiBase()}/checkouts`
+    : `${getApiBase()}/creem-checkout`
 
-    // 添加可选参数
-    if (params.customerEmail) {
-      requestBody.customer = { email: params.customerEmail }
-    }
-
-    if (params.successUrl) {
-      requestBody.success_url = params.successUrl
-    }
-
-    if (params.cancelUrl) {
-      requestBody.cancel_url = params.cancelUrl
-    }
-
-    if (params.requestId) {
-      requestBody.request_id = params.requestId
-    }
-
-    if (params.discountCode) {
-      requestBody.discount_code = params.discountCode
-    }
-
-    // 构建metadata
-    const metadata = { ...params.metadata }
-    if (params.message) {
-      metadata.message = params.message
-    }
-    if (params.amount) {
-      metadata.custom_amount = params.amount
-    }
-
-    if (Object.keys(metadata).length > 0) {
-      requestBody.metadata = metadata
-    }
-
-    const apiBase = getApiBase()
-    let url: string
-    const headers: Record<string, string> = {
+  const response = await fetch(url, {
+    body: JSON.stringify(requestBody),
+    headers: {
       'Content-Type': 'application/json',
-    }
+    },
+    method: 'POST',
+  })
 
-    if (import.meta.env.DEV) {
-      // Development: use proxy
-      url = `${apiBase}/checkouts`
-    }
-    else {
-      // Production: use Cloudflare function
-      url = `${apiBase}/creem-checkout`
-    }
-
-    // Only add API key if using dev proxy (proxy will strip it)
-    if (import.meta.env.DEV) {
-      // API key will be added by proxy
-    }
-    else {
-      // Netlify function handles API key internally
-    }
-
-    const response = await fetch(url, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify(requestBody),
+  if (!response.ok) {
+    const errorText = await response.text()
+    logger.error('Creem API error', {
+      error: errorText,
+      status: response.status,
+      statusText: response.statusText,
     })
+    throw new Error(`Creem API error: ${response.status} ${response.statusText}`)
+  }
 
-    if (!response.ok) {
-      const errorText = await response.text()
-      logger.error('Creem API error', {
-        status: response.status,
-        statusText: response.statusText,
-        error: errorText,
-      })
+  const data = await response.json()
 
-      throw new Error(`Creem API error: ${response.status} ${response.statusText}`)
-    }
+  logger.info('Creem checkout session created successfully', {
+    checkoutId: data.id,
+    checkoutUrl: data.checkout_url,
+  })
 
-    const data = await response.json()
-
-    logger.info('Creem checkout session created successfully', {
-      checkoutId: data.id,
-      checkoutUrl: data.checkout_url,
-    })
-
-    return data
-  }, 'Failed to create Creem checkout session')
+  return data
 }
 
 // 获取产品列表
 export async function getProducts(): Promise<CreemProduct[]> {
-  return withErrorHandling(async () => {
-    const apiKey = getCreemApiKey()
+  const apiKey = getCreemApiKey()
 
-    if (!apiKey) {
+  logger.info('Fetching Creem products')
+
+  let url: string
+  const headers: Record<string, string> = {}
+
+  if (import.meta.env.DEV) {
+    url = `${getApiBase()}/products`
+  }
+  else {
+    if (!apiKey)
       throw new Error('Creem API key not found')
-    }
+    url = 'https://api.creem.io/v1/products'
+    headers['x-api-key'] = apiKey
+  }
 
-    logger.info('Fetching Creem products')
+  const response = await fetch(url, {
+    headers,
+    method: 'GET',
+  })
 
-    const apiBase = getApiBase()
-    let url: string
-    const headers: Record<string, string> = {}
-
-    if (import.meta.env.DEV) {
-      // Development: use proxy
-      url = `${apiBase}/products`
-    }
-    else {
-      // Production: would need a separate Netlify function for products
-      // For now, fallback to direct API (might have CORS issues)
-      url = 'https://api.creem.io/v1/products'
-      headers['x-api-key'] = apiKey
-    }
-
-    const response = await fetch(url, {
-      method: 'GET',
-      headers,
+  if (!response.ok) {
+    const errorText = await response.text()
+    logger.error('Creem API error', {
+      error: errorText,
+      status: response.status,
+      statusText: response.statusText,
     })
+    throw new Error(`Creem API error: ${response.status} ${response.statusText}`)
+  }
 
-    if (!response.ok) {
-      const errorText = await response.text()
-      logger.error('Creem API error', {
-        status: response.status,
-        statusText: response.statusText,
-        error: errorText,
-      })
+  const data = await response.json()
 
-      throw new Error(`Creem API error: ${response.status} ${response.statusText}`)
-    }
+  logger.info('Creem products fetched successfully', {
+    count: data.data?.length || 0,
+  })
 
-    const data = await response.json()
-
-    logger.info('Creem products fetched successfully', {
-      count: data.data?.length || 0,
-    })
-
-    return data.data || []
-  }, 'Failed to fetch Creem products')
+  return data.data || []
 }
 
 // 创建动态金额的checkout session

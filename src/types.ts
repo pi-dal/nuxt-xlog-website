@@ -41,6 +41,14 @@ export interface UpcomingTalk {
   url: string
 }
 
+export type {
+  ContentFrontmatter,
+  ContentType,
+  ImportedArticleRecord,
+  SiteConfig,
+  SiteLink,
+} from './types/content'
+
 // xLog API Types
 export interface XLogPost {
   id: string
@@ -168,6 +176,13 @@ export interface XLogPortfolio {
   author?: XLogAuthor
 }
 
+export interface TocItem {
+  id: string
+  text: string
+  level: number
+  children?: TocItem[]
+}
+
 // Metadata supplements for enhancing xLog posts
 export interface MetadataSupplements {
   title?: string
@@ -226,14 +241,14 @@ export interface XLogClientConfig {
   baseURL?: string
 }
 
-// Constants
-export const XLOG_CONSTANTS = {
+// Legacy constants retained for generic analytics/config helpers
+export const SITE_CONSTANTS = {
   DEFAULT_HANDLE: 'pi-dal',
-  STORAGE_KEY: 'xlog-handle',
-  ENV_KEY: 'XLOG_HANDLE',
+  STORAGE_KEY: 'site-config',
+  ENV_KEY: 'SITE_URL',
   DEFAULT_LIMIT: 10,
   MAX_RETRIES: 3,
   TIMEOUT: 5000,
 } as const
 
-export type XLogConstant = keyof typeof XLOG_CONSTANTS
+export type SiteConstant = keyof typeof SITE_CONSTANTS

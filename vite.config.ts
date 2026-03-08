@@ -1,18 +1,7 @@
 import { basename, resolve } from 'node:path'
-import MarkdownItShiki from '@shikijs/markdown-it'
-import { transformerNotationDiff, transformerNotationHighlight, transformerNotationWordHighlight } from '@shikijs/transformers'
-import { rendererRich, transformerTwoslash } from '@shikijs/twoslash'
-import MarkdownItKatex from '@traptitech/markdown-it-katex'
 import Vue from '@vitejs/plugin-vue'
 import fs from 'fs-extra'
 import matter from 'gray-matter'
-import anchor from 'markdown-it-anchor'
-// @ts-expect-error missing types
-import GitHubAlerts from 'markdown-it-github-alerts'
-import LinkAttributes from 'markdown-it-link-attributes'
-import MarkdownItMagicLink from 'markdown-it-magic-link'
-// @ts-expect-error missing types
-import TOC from 'markdown-it-table-of-contents'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import IconsResolver from 'unplugin-icons/resolver'
@@ -26,12 +15,14 @@ import Inspect from 'vite-plugin-inspect'
 import Exclude from 'vite-plugin-optimize-exclude'
 import SVG from 'vite-svg-loader'
 import { generateOGImage } from './scripts/og'
-import { slugify } from './scripts/slugify'
+import { resolveRoutePathOverride } from './src/logics/content-route-path'
+import { applyMarkdownPipeline } from './src/logics/markdown-pipeline'
 
 const promises: Promise<any>[] = []
 const SITE_URL = (process.env.PUBLIC_SITE_URL || process.env.SITE_URL || 'https://pi-dal.com').replace(/\/+$/, '')
 
 export default defineConfig({
+  assetsInclude: ['**/*.heic', '**/*.HEIC'],
   resolve: {
     alias: [
       { find: '~/', replacement: `${resolve(__dirname, 'src')}/` },
@@ -45,8 +36,9 @@ export default defineConfig({
         rewrite: path => path.replace(/^\/api\/creem/, ''),
         configure: (proxy, _options) => {
           proxy.on('proxyReq', (proxyReq, _req, _res) => {
-            // Add API key to headers
-            const apiKey = process.env.CREEM_API_KEY || 'creem_4qM0a3tkUkZQpKkIb620YS'
+            const apiKey = process.env.CREEM_API_KEY
+            if (!apiKey)
+              return
             proxyReq.setHeader('x-api-key', apiKey)
           })
         },
@@ -81,6 +73,13 @@ export default defineConfig({
 
         if (!path.includes('projects.md') && path.endsWith('.md')) {
           const { data } = matter(fs.readFileSync(path, 'utf-8'))
+          const routePathOverride = resolveRoutePathOverride({
+            filePath: path,
+            frontmatter: data,
+            rootDir: __dirname,
+          })
+          if (routePathOverride)
+            route.path = routePathOverride
           route.addToMeta({
             frontmatter: data,
           })
@@ -107,98 +106,19 @@ export default defineConfig({
         quotes: '""\'\'',
       },
       async markdownItSetup(md) {
-        // 首先添加 LaTeX 数学公式支持 (必须在其他插件之前)
-        md.use(MarkdownItKatex, {
-          throwOnError: false,
-          errorColor: '#cc0000',
-          strict: 'ignore',
-          trust: (context: any) => context.command !== '\\url',
-          displayMode: false,
-          fleqn: false,
-          leqno: false,
-          output: 'html',
-          macros: {
-            '\\text': '\\textrm',
-            '\\RR': '\\mathbb{R}',
-            '\\NN': '\\mathbb{N}',
-            '\\ZZ': '\\mathbb{Z}',
-            '\\QQ': '\\mathbb{Q}',
-            '\\CC': '\\mathbb{C}',
-          },
-        })
-
-        md.use(await MarkdownItShiki({
-          themes: {
-            dark: 'vitesse-dark',
-            light: 'vitesse-light',
-          },
-          defaultColor: false,
-          cssVariablePrefix: '--s-',
-          transformers: [
-            transformerTwoslash({
-              explicitTrigger: true,
-              renderer: rendererRich(),
-            }),
-            transformerNotationDiff(),
-            transformerNotationHighlight(),
-            transformerNotationWordHighlight(),
-          ],
-        }))
-
-        md.use(anchor, {
-          slugify,
-          permalink: anchor.permalink.linkInsideHeader({
-            symbol: '#',
-            renderAttrs: () => ({ 'aria-hidden': 'true' }),
-          }),
-        })
-
-        md.use(LinkAttributes, {
-          matcher: (link: string) => /^https?:\/\//.test(link),
-          attrs: {
-            target: '_blank',
-            rel: 'noopener',
-          },
-        })
-
-        md.use(TOC, {
-          includeLevel: [1, 2, 3, 4],
-          slugify,
-          containerHeaderHtml: '<div class="table-of-contents-anchor"><div class="i-ri-menu-2-fill" /></div>',
-        })
-
-        md.use(MarkdownItMagicLink, {
-          linksMap: {
-            'RSS3': 'https://rss3.io',
-            'NaturalSelectionLabs': 'https://github.com/NaturalSelectionLabs',
-            'RSS3-Network': 'https://github.com/RSS3-Network',
-            'RSSNext': 'https://github.com/RSSNext',
-            'WebisOpen': 'https://github.com/WebisOpen',
-            'Web3Insights': 'https://github.com/Web3Insights/Web3Insights',
-            'RSSHub': 'https://github.com/DIYgod/RSSHub',
-            'Folo': 'https://github.com/RSSNext/Folo',
-            'Node': 'https://github.com/RSS3-Network/Node',
-          },
-          imageOverrides: [
-            ['https://github.com/vuejs/core', 'https://vuejs.org/logo.svg'],
-            ['https://github.com/nuxt/nuxt', 'https://nuxt.com/assets/design-kit/icon-green.svg'],
-            ['https://github.com/vitejs/vite', 'https://vitejs.dev/logo.svg'],
-            ['https://nuxtlabs.com', 'https://github.com/nuxtlabs.png'],
-            [/opencollective\.com\/vite/, 'https://github.com/vitejs.png'],
-            [/opencollective\.com\/elk/, 'https://github.com/elk-zone.png'],
-          ],
-        })
-
-        md.use(GitHubAlerts)
+        await applyMarkdownPipeline(md, { enableTwoslash: true })
       },
       frontmatterPreprocess(frontmatter, options, id, defaults) {
         (() => {
           if (!id.endsWith('.md'))
             return
           const route = basename(id, '.md')
-          if (route === 'index' || frontmatter.image || !frontmatter.title)
+          const slug = typeof frontmatter.slug === 'string' && frontmatter.slug.trim()
+            ? frontmatter.slug.trim()
+            : route
+          if (!slug || frontmatter.image || !frontmatter.title)
             return
-          const path = `og/${route}.png`
+          const path = `og/${slug}.png`
           const task = fs.existsSync(`${id.slice(0, -3)}.png`)
             ? fs.copy(`${id.slice(0, -3)}.png`, `public/${path}`)
             : generateOg(frontmatter.title!.trim(), `public/${path}`)

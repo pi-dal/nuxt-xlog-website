@@ -1,273 +1,149 @@
-# xLog Website
+# Markdown-First Personal Site
 
-A modern static website generator for [xLog](https://xlog.app) blogs, built with Vue 3, Vite, and TypeScript. This project automatically syncs content from xLog (a decentralized blogging platform) and generates optimized static websites with excellent performance and SEO.
+This repository builds a static personal site with Vue 3, Vite, and `vite-ssg`. Content now lives in local Markdown files under `pages/`, not in Crossbell or xLog. The current setup follows the same route-first approach used in [antfu.me](https://github.com/antfu/antfu.me): Markdown files become routes, frontmatter becomes route metadata, and build scripts read local files directly for feeds and OG assets.
 
-## ✨ Features
+## Features
 
-- 🔄 **Auto Sync** - Automatically syncs blog content from xLog
-- ⚡ **Fast Build** - Lightning-fast static site generation with Vite
-- 🎨 **Beautiful Design** - Customizable and responsive design
-- 📱 **Mobile-First** - Optimized for all devices
-- 🔍 **SEO Ready** - Built-in SEO optimization
-- 🌙 **Dark Mode** - Automatic dark/light theme switching
-- 📝 **Markdown Support** - Full markdown processing with syntax highlighting
-- 🏷️ **Tag System** - Organize content with tags
-- 🖼️ **Image Optimization** - Automatic image compression and optimization
-- 📡 **RSS Feeds** - Auto-generated RSS/Atom feeds
-- 🚀 **Performance** - Optimized for Core Web Vitals
+- Markdown-first content model for posts and pages
+- Static site generation with `vite-ssg`
+- Route metadata powered listing pages
+- Local RSS generation from Markdown files
+- Local Open Graph image generation from Markdown files
+- Legacy `Articles/` importer for first-pass migration
+- UnoCSS styling and Vue 3 components
 
-## 🛠️ Tech Stack
+## Content Model
 
-- **Frontend**: [Vue 3](https://vuejs.org/) - Progressive JavaScript framework
-- **Build Tool**: [Vite](https://vitejs.dev/) - Next generation frontend tooling
-- **SSG**: [vite-ssg](https://github.com/antfu/vite-ssg) - Static site generation for Vue
-- **TypeScript**: [TypeScript](https://www.typescriptlang.org/) - Type-safe development
-- **Styling**: [UnoCSS](https://github.com/unocss/unocss) - Instant on-demand atomic CSS
-- **xLog API**: Crossbell GraphQL indexer - direct integration without SDK
-- **Markdown**: [Shiki](https://shiki.matsu.io/) - Syntax highlighting with dual themes
+The site treats Markdown files in `pages/` as the canonical source of content.
 
-## 📦 Installation
+```text
+pages/
+├── chat.md
+├── index.md
+├── projects.md
+├── books/
+│   └── index.md
+└── posts/
+    ├── index.md
+    └── *.md
+```
 
-### Prerequisites
+Each content file uses frontmatter with this schema:
 
-- Node.js 18+
-- pnpm (recommended) or npm/yarn
+```yaml
+---
+title: Example Title
+slug: example-title
+type: post
+date: 2026-03-08
+summary: Short description shown in lists and feeds.
+tags:
+  - notes
+  - vue
+image: /article-assets/example-title/cover.jpg
+draft: false
+---
+```
 
-### Clone and Install
+Supported `type` values are `post`, `book`, `page`, `chat`, and `project`.
+
+For non-`index.md` pages, the route URL now comes from frontmatter `slug`, not the filename. That means `pages/posts/anything.md` can still render at `/posts/my-real-slug` as long as the file contains `slug: my-real-slug`.
+
+## Local Configuration
+
+Site-wide metadata lives in [src/site/config.ts](/Users/pi-dal/Developer/nuxt-xlog-website/src/site/config.ts). Update this file when you want to change:
+
+- Site title and description
+- Canonical URL
+- Avatar path
+- Author name and handle
+- Social links
+
+## Importing Legacy Articles
+
+The repository includes a one-shot importer for the existing export inside `Articles/`.
 
 ```bash
-# Clone the repository
-git clone https://github.com/pi-dal/nuxt-xlog-website.git
-cd nuxt-xlog-website
+pnpm import:articles
+```
 
-# Install dependencies (using pnpm is recommended)
+The importer will:
+
+- read the legacy CSV export for metadata
+- parse the legacy Markdown files in `Articles/pi-dal's Blog`
+- convert pseudo-frontmatter into YAML frontmatter
+- copy static assets into `public/article-assets/<slug>/`
+- rewrite relative asset links to the new public path
+- keep draft entries as local markdown
+- skip `Untitled` files
+- write posts to `pages/posts/*.md`
+- write drafts to `drafts/posts/*.md`
+- write standalone pages such as `about` to `pages/*.md`
+
+## Development
+
+Install dependencies and start the site locally:
+
+```bash
 pnpm install
-
-# Or using npm
-npm install
-
-# Or using yarn
-yarn install
-```
-
-## 🚀 Quick Start
-
-### 1. Configure xLog
-
-There are two ways to configure your xLog integration:
-
-#### Option 1: Web Interface (Recommended)
-
-1. Start the development server:
-
-   ```bash
-   pnpm dev
-   ```
-
-2. Visit `http://localhost:3333/config`
-
-3. Enter your xLog handle (e.g., if your xLog URL is `https://your-handle.xlog.app`, then your handle is `your-handle`)
-
-4. Click "Test Connection" to verify the configuration
-
-5. Save the configuration
-
-#### Option 2: Environment Variables
-
-Create a `.env` file in the root directory:
-
-```bash
-# Your xLog handle
-XLOG_HANDLE=your-xlog-handle
-```
-
-### 2. Development
-
-```bash
-# Start development server
 pnpm dev
-
-# The site will be available at http://localhost:3333
 ```
 
-### 3. Build for Production
+The dev server runs at [http://localhost:3333](http://localhost:3333).
+
+RSS feeds are generated during the production build, not on every dev startup.
+
+## Build
 
 ```bash
-# Build the static site
 pnpm build
-
-# Preview the production build
 pnpm preview
 ```
 
-> The default build script sets `NO_WEBFONT_FETCH=1` to keep UnoCSS from requesting Google Fonts during CI. Override this variable in your shell if you need UnoCSS to pull remote fonts locally.
+The production build runs this pipeline:
 
-The build process includes:
+1. Generate OG images from local Markdown content
+2. Build the static site with `vite-ssg`
+3. Copy optimized fonts into the output directory
+4. Generate RSS, Atom, and JSON feeds from local Markdown content
+5. Copy `_redirects` into `dist/`
 
-- Static site generation with vite-ssg
-- Font optimization and copying
-- RSS feed generation
-- Redirect rules setup
-- Optional web font fetching via UnoCSS (disabled when `NO_WEBFONT_FETCH=1`)
+`NO_WEBFONT_FETCH=1` is enabled in the default build command so CI does not fetch remote fonts.
 
-## 📁 Project Structure
-
-```
-├── src/
-│   ├── components/           # Vue components
-│   │   ├── DetailPage.vue    # Reusable detail page component
-│   │   ├── ListPage.vue      # Reusable list page component
-│   │   └── ...
-│   ├── logics/              # Business logic
-│   │   ├── xlog.ts          # xLog API client
-│   │   ├── site.ts          # Site configuration
-│   │   └── ...
-│   ├── types.ts             # TypeScript type definitions
-│   └── App.vue              # Root component
-├── pages/                   # File-based routing
-│   ├── index.vue            # Homepage
-│   ├── posts/
-│   │   ├── [slug].vue       # Post detail page
-│   │   └── index.md         # Posts listing
-│   ├── config.vue           # Configuration page
-│   └── ...
-├── scripts/                 # Build scripts
-│   ├── rss.ts              # RSS feed generation
-│   ├── og.ts               # Open Graph image generation
-│   └── ...
-├── public/                  # Static assets
-└── dist/                    # Build output
-```
-
-## 🎯 API Integration
-
-The project integrates directly with the xLog GraphQL indexer, enabling:
-
-- **Site Information**: Fetch site metadata and configuration
-- **Posts**: Retrieve all posts with pagination support
-- **Single Post**: Get individual post by slug
-- **Statistics**: Site analytics and metrics
-- **Error Handling**: Robust error handling with fallbacks
-
-## 🎨 Customization
-
-### Styling
-
-The project uses [UnoCSS](https://github.com/unocss/unocss) for styling:
-
-1. **Configuration**: Modify `unocss.config.ts` for custom utilities
-2. **Components**: Use UnoCSS classes directly in Vue components
-3. **Custom CSS**: Add custom styles in `src/styles/`
-
-### Layout
-
-- **Global Layout**: Edit `src/App.vue` for site-wide changes
-- **Page Layouts**: Customize individual pages in the `pages/` directory
-- **Components**: Modify or create new components in `src/components/`
-
-### Adding Features
-
-- **API Calls**: Extend `src/logics/xlog.ts` for new xLog API endpoints
-- **Type Definitions**: Add new types in `src/types.ts`
-- **Components**: Create new Vue components and pages as needed
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
-1. Connect your GitHub repository to Vercel
-2. Set the `XLOG_HANDLE` environment variable
-3. Deploy
-
-### Netlify
-
-1. Connect your GitHub repository to Netlify
-2. Set build command: `pnpm build`
-3. Set publish directory: `dist`
-4. Set environment variable: `XLOG_HANDLE`
-5. Deploy
-
-### Other Platforms
-
-The generated `dist/` directory can be deployed to any static hosting service like:
-
-- GitHub Pages
-- Cloudflare Pages
-- Surge.sh
-- AWS S3 + CloudFront
-
-## 🧪 Development Commands
+## Scripts
 
 ```bash
-# Start development server
 pnpm dev
-
-# Build for production
 pnpm build
-
-# Preview production build
 pnpm preview
-
-# Run linting
 pnpm lint
-
-# Compress images
+pnpm typecheck
+pnpm test
+pnpm test:coverage
+pnpm import:articles
 pnpm compress
-
-# Manage photos with EXIF data
 pnpm photos
 ```
 
-## 📊 Build Features
+## Architecture
 
-The build process includes several optimizations:
+- [vite.config.ts](/Users/pi-dal/Developer/nuxt-xlog-website/vite.config.ts): Vite, Markdown routing, auto imports, SSG setup
+- [src/composables/useContentRoutes.ts](/Users/pi-dal/Developer/nuxt-xlog-website/src/composables/useContentRoutes.ts): derives list data from route frontmatter
+- [src/components/ListContent.vue](/Users/pi-dal/Developer/nuxt-xlog-website/src/components/ListContent.vue): shared Markdown-native list UI
+- [src/content/files.ts](/Users/pi-dal/Developer/nuxt-xlog-website/src/content/files.ts): filesystem loader for RSS and OG scripts
+- [scripts/import-articles.ts](/Users/pi-dal/Developer/nuxt-xlog-website/scripts/import-articles.ts): legacy article migration script
+- [scripts/rss.ts](/Users/pi-dal/Developer/nuxt-xlog-website/scripts/rss.ts): RSS generation from local Markdown files
+- [scripts/generate-og.ts](/Users/pi-dal/Developer/nuxt-xlog-website/scripts/generate-og.ts): OG generation from local Markdown files
 
-- **Static Site Generation**: Pre-renders all pages for optimal performance
-- **Image Optimization**: Automatic compression and WebP conversion
-- **Font Optimization**: Subset and optimize web fonts
-- **RSS Generation**: Creates RSS, Atom, and JSON feeds
-- **SEO Optimization**: Automatic meta tags and Open Graph images
+## Verification
 
-## 🤝 Contributing
+Before shipping changes, run:
 
-Contributions are welcome! Please feel free to submit issues and pull requests.
+```bash
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm build
+```
 
-### Development Setup
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Make your changes
-4. Run tests and linting: `pnpm lint`
-5. Commit your changes: `git commit -m 'Add amazing feature'`
-6. Push to the branch: `git push origin feature/amazing-feature`
-7. Open a Pull Request
-
-### Guidelines
-
-- Follow the existing code style
-- Add TypeScript types for new features
-- Test your changes thoroughly
-- Update documentation as needed
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [xLog](https://xlog.app) - Decentralized blogging platform
-- [Crossbell GraphQL](https://docs.crossbell.io/docs/developer/quick-start/) - xLog indexer API
-- [Original Template](https://github.com/pseudoyu/pseudoyu.com) - Base template project
-- [Vue.js](https://vuejs.org/) - The progressive JavaScript framework
-- [Vite](https://vitejs.dev/) - Next generation frontend tooling
-
-## 🔗 Links
-
-- [xLog Platform](https://xlog.app) - Create your decentralized blog
-- [Crossbell GraphQL Docs](https://docs.crossbell.io/docs/developer/quick-start/) - Learn about the API
-- [Vue 3 Documentation](https://vuejs.org/guide/) - Vue.js guide
-- [Vite Documentation](https://vitejs.dev/guide/) - Vite build tool guide
-
----
-
-Built with ❤️ using modern web technologies. Star ⭐ this repo if you find it helpful!
+If you change imported content, rerun `pnpm import:articles` before building.

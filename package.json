@@ -3,13 +3,15 @@
   "private": true,
   "packageManager": "pnpm@10.6.2",
   "scripts": {
-    "build": "cross-env NODE_ENV=production NO_WEBFONT_FETCH=1 tsx ./scripts/generate-xlog-og.ts && vite-ssg build && tsx ./scripts/copy-fonts.ts && tsx ./scripts/rss.ts && cp _redirects dist/_redirects",
-    "dev": "tsx ./scripts/rss-dev.ts && vite --port 3333 --open",
+    "build": "cross-env-shell NODE_ENV=production NO_WEBFONT_FETCH=1 \"tsx ./scripts/generate-og.ts && vite-ssg build && tsx ./scripts/rss.ts && cp _redirects dist/_redirects\"",
+    "dev": "vite --port 3333 --open",
+    "import:articles": "tsx ./scripts/import-articles.ts",
     "preview": "vite preview",
     "lint": "eslint .",
     "test": "vitest",
     "test:watch": "vitest --watch",
     "test:coverage": "vitest run --coverage",
+    "typecheck": "vue-tsc --noEmit",
     "compress": "tsx scripts/img-compress-staged.ts",
     "photos": "tsx scripts/photos-manage.ts",
     "prepare": "simple-git-hooks"
@@ -70,7 +72,6 @@
     "pathe": "catalog:dev",
     "pnpm": "catalog:dev",
     "prompts": "catalog:dev",
-    "rimraf": "catalog:dev",
     "sharp": "catalog:dev",
     "simple-git": "catalog:dev",
     "simple-git-hooks": "catalog:dev",
@@ -88,7 +89,8 @@
     "vite-plugin-optimize-exclude": "catalog:build",
     "vite-ssg": "catalog:build",
     "vite-svg-loader": "catalog:build",
-    "vitest": "catalog:"
+    "vitest": "catalog:",
+    "vue-tsc": "catalog:"
   },
   "resolutions": {
     "vite": "catalog:build"

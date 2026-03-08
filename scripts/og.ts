@@ -3,10 +3,18 @@ import fs from 'fs-extra'
 import satori from 'satori'
 import sharp from 'sharp'
 
+type SatoriFont = NonNullable<Parameters<typeof satori>[1]['fonts']>[number]
+
 interface OGImageOptions {
   title: string
   author?: string
   website?: string
+}
+
+function createFontOptions(fonts: Array<{ data: Buffer | null, weight: SatoriFont['weight'] }>): SatoriFont[] {
+  return fonts.flatMap(font => font.data
+    ? [{ name: 'Noto Sans SC', data: font.data, style: 'normal' as const, weight: font.weight }]
+    : [])
 }
 
 const LOCAL_FONT_DIR = resolvePath(process.cwd(), 'public', 'assets', 'fonts')
@@ -287,10 +295,10 @@ export async function generateOGImage(options: OGImageOptions, outputPath: strin
     {
       width: 1200,
       height: 630,
-      fonts: [
-        ...(notoSansRegular ? [{ name: 'Noto Sans SC', data: notoSansRegular, weight: 400, style: 'normal' as const }] : []),
-        ...(notoSansBold ? [{ name: 'Noto Sans SC', data: notoSansBold, weight: 700, style: 'normal' as const }] : []),
-      ],
+      fonts: createFontOptions([
+        { data: notoSansRegular, weight: 400 },
+        { data: notoSansBold, weight: 700 },
+      ]),
     },
   )
 
@@ -346,10 +354,10 @@ export async function generateOGImage(options: OGImageOptions, outputPath: strin
       {
         width: 1200,
         height: 630,
-        fonts: [
-          ...(notoSansRegular ? [{ name: 'Noto Sans SC', data: notoSansRegular, weight: 400, style: 'normal' as const }] : []),
-          ...(notoSansBold ? [{ name: 'Noto Sans SC', data: notoSansBold, weight: 700, style: 'normal' as const }] : []),
-        ],
+        fonts: createFontOptions([
+          { data: notoSansRegular, weight: 400 },
+          { data: notoSansBold, weight: 700 },
+        ]),
       },
     )
   }

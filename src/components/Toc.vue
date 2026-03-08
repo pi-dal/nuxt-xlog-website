@@ -1,15 +1,9 @@
 <script setup lang="ts">
+import type { TocItem as TocItemType } from '~/types'
 import { ref } from 'vue'
 import { useFocusTrap } from '~/composables/useFocusTrap'
 import { useTocObserver } from '~/composables/useTocObserver'
 import TocItem from './TocItem.vue'
-
-export interface TocItemType {
-  id: string
-  text: string
-  level: number
-  children?: TocItemType[]
-}
 
 defineProps<{
   items: TocItemType[]

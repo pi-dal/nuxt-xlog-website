@@ -1,5 +1,8 @@
 <script setup lang='ts'>
+import type { TocItem as TocItemType } from '~/types'
 import { formatDate } from '~/logics'
+import { extractTocItems } from '~/logics/toc'
+import Toc from './Toc.vue'
 
 const { frontmatter } = defineProps({
   frontmatter: {
@@ -11,6 +14,11 @@ const { frontmatter } = defineProps({
 const router = useRouter()
 const route = useRoute()
 const content = ref<HTMLDivElement>()
+const tocItems = ref<TocItemType[]>([])
+
+function syncTocItems() {
+  tocItems.value = extractTocItems(content.value?.querySelectorAll('h1, h2, h3, h4') || [])
+}
 
 onMounted(() => {
   const navigate = () => {
@@ -64,21 +72,17 @@ onMounted(() => {
   useEventListener(window, 'hashchange', navigate)
   useEventListener(content.value!, 'click', handleAnchors, { passive: false })
 
+  nextTick(syncTocItems)
+
   setTimeout(() => {
     if (!navigate())
       setTimeout(navigate, 1000)
   }, 1)
 })
 
-const ArtComponent = computed(() => {
-  let art = frontmatter.art
-  if (art === 'random')
-    art = 'plum'
-  if (typeof window !== 'undefined') {
-    if (art === 'plum')
-      return defineAsyncComponent(() => import('./ArtPlum.vue'))
-  }
-  return undefined
+watch(() => route.fullPath, async () => {
+  await nextTick()
+  syncTocItems()
 })
 
 // Add a computed property to determine parent route based on frontmatter type
@@ -94,9 +98,6 @@ const parentRoute = computed(() => {
 
 <template>
   <div>
-    <ClientOnly v-if="ArtComponent">
-      <component :is="ArtComponent" />
-    </ClientOnly>
     <div
       v-if="frontmatter.display ?? frontmatter.title"
       class="prose m-auto mb-8"
@@ -134,6 +135,7 @@ const parentRoute = computed(() => {
         This is a draft post, the content may be incomplete. Please check back later.
       </p>
     </div>
+    <Toc :items="tocItems" />
     <article
       ref="content"
       :lang="frontmatter.lang"
@@ -143,14 +145,6 @@ const parentRoute = computed(() => {
     </article>
 
     <!-- Navigation back -->
-    <div v-if="route.path !== '/'" class="prose m-auto mt-8 mb-8 slide-enter animate-delay-500 print:hidden">
-      <span font-mono op50>> </span>
-      <RouterLink
-        :to="parentRoute"
-        class="font-mono op50 hover:op75"
-      >
-        cd ..
-      </RouterLink>
-    </div>
+    <PageBackLink v-if="route.path !== '/'" :to="parentRoute" wrapper-class="prose m-auto mt-8 mb-8 slide-enter animate-delay-500 print:hidden" />
   </div>
 </template>

@@ -21,11 +21,14 @@ declare module 'vue-router/auto-routes' {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     '/[...404]': RouteRecordInfo<'/[...404]', '/:404(.*)', { 404: ParamValue<true> }, { 404: ParamValue<false> }>,
     '/books/': RouteRecordInfo<'/books/', '/books', Record<never, never>, Record<never, never>>,
-    '/books/[slug]': RouteRecordInfo<'/books/[slug]', '/books/:slug', { slug: ParamValue<true> }, { slug: ParamValue<false> }>,
     '/chat': RouteRecordInfo<'/chat', '/chat', Record<never, never>, Record<never, never>>,
-    '/config': RouteRecordInfo<'/config', '/config', Record<never, never>, Record<never, never>>,
     '/posts/': RouteRecordInfo<'/posts/', '/posts', Record<never, never>, Record<never, never>>,
-    '/posts/[slug]': RouteRecordInfo<'/posts/[slug]', '/posts/:slug', { slug: ParamValue<true> }, { slug: ParamValue<false> }>,
+    '/posts/2022-Hunan-Travelling': RouteRecordInfo<'/posts/2022-Hunan-Travelling', '/posts/2022-Hunan-Travelling', Record<never, never>, Record<never, never>>,
+    '/posts/2023-Hangzhou-Travelling': RouteRecordInfo<'/posts/2023-Hangzhou-Travelling', '/posts/2023-Hangzhou-Travelling', Record<never, never>, Record<never, never>>,
+    '/posts/ArozOS-RPI-Tutorial': RouteRecordInfo<'/posts/ArozOS-RPI-Tutorial', '/posts/ArozOS-RPI-Tutorial', Record<never, never>, Record<never, never>>,
+    '/posts/How-To-Build-A-RPI-NAS-Server': RouteRecordInfo<'/posts/How-To-Build-A-RPI-NAS-Server', '/posts/How-To-Build-A-RPI-NAS-Server', Record<never, never>, Record<never, never>>,
+    '/posts/Summary-Of-Junior-High-School-Life': RouteRecordInfo<'/posts/Summary-Of-Junior-High-School-Life', '/posts/Summary-Of-Junior-High-School-Life', Record<never, never>, Record<never, never>>,
+    '/posts/To-My-16-Year-Old-Self': RouteRecordInfo<'/posts/To-My-16-Year-Old-Self', '/posts/To-My-16-Year-Old-Self', Record<never, never>, Record<never, never>>,
     '/projects': RouteRecordInfo<'/projects', '/projects', Record<never, never>, Record<never, never>>,
   }
 }

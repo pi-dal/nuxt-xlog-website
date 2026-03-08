@@ -90,7 +90,7 @@ class ErrorManager {
     }
 
     this.errorHistory.forEach((error) => {
-      const category = error.category || ErrorCategory.UNKNOWN
+      const category = (error.category as ErrorCategory | undefined) || ErrorCategory.UNKNOWN
       stats[category]++
     })
 

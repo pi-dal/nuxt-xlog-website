@@ -11,8 +11,12 @@ export function useFocusTrap(options: FocusTrapOptions) {
   const { isOpen, containerSelector, onClose } = options
   const firstFocusElement = ref<HTMLElement>()
   const lastFocusElement = ref<HTMLElement>()
+  const isClient = typeof document !== 'undefined'
 
   function handleKeyDown(event: KeyboardEvent) {
+    if (!isClient)
+      return
+
     if (event.key === 'Escape' && isOpen.value) {
       event.stopPropagation()
       onClose()
@@ -56,6 +60,9 @@ export function useFocusTrap(options: FocusTrapOptions) {
 
   // Prevent background scroll and setup keyboard events when modal is open
   watchEffect((onInvalidate) => {
+    if (!isClient)
+      return
+
     if (isOpen.value) {
       document.body.style.overflow = 'hidden'
       document.addEventListener('keydown', handleKeyDown)

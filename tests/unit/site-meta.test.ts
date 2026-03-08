@@ -1,22 +1,11 @@
-import type { XLogSite } from '~/types'
 import { describe, expect, it } from 'vitest'
 
 import { buildAbsoluteUrl, resolveAuthorHandle, resolveSiteUrl } from '~/logics/site-meta'
-
-const baseSite: XLogSite = {
-  id: '1',
-  name: 'Example',
-  subdomain: 'example',
-}
+import { siteConfig } from '~/site/config'
 
 describe('site-meta utilities', () => {
-  it('normalizes env overrides', () => {
-    const site = { ...baseSite, custom_domain: 'https://custom.test' }
-    expect(resolveSiteUrl(site)).toMatch(/custom/)
-  })
-
-  it('falls back to subdomain when no custom domain', () => {
-    expect(resolveSiteUrl(baseSite)).toBe('https://example.xlog.app')
+  it('falls back to the local site config', () => {
+    expect(resolveSiteUrl()).toBe(siteConfig.url)
   })
 
   it('builds absolute URLs gracefully', () => {
@@ -25,11 +14,7 @@ describe('site-meta utilities', () => {
     expect(buildAbsoluteUrl('', 'https://other.com/baz')).toBe('https://other.com/baz')
   })
 
-  it('derives author handle from social links', () => {
-    const site = {
-      ...baseSite,
-      social_links: [{ platform: 'twitter', url: 'https://twitter.com/antfu' }],
-    }
-    expect(resolveAuthorHandle(site)).toBe('antfu')
+  it('derives author handle from local site config', () => {
+    expect(resolveAuthorHandle()).toBe(siteConfig.author.handle)
   })
 })

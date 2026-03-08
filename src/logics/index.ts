@@ -62,15 +62,6 @@ export {
   preloadMetadataConfig,
 } from './metadata'
 
-export {
-  fetchSiteInfo,
-  loading,
-  siteInfo,
-} from './site'
-
-// Note: API functions are now imported directly from xlog-direct.ts where needed
-// The xlog.ts wrapper has been removed as it was unused
-
 /**
  * Credit to [@hooray](https://github.com/hooray)
  * @see https://github.com/vuejs/vitepress/pull/2347
@@ -91,7 +82,6 @@ export function toggleDark(event: MouseEvent) {
     Math.max(x, innerWidth - x),
     Math.max(y, innerHeight - y),
   )
-  // @ts-expect-error: Transition API
   const transition = document.startViewTransition(async () => {
     isDark.value = !isDark.value
     await nextTick()

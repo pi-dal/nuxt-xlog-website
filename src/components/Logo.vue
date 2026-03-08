@@ -1,18 +1,15 @@
 <script setup lang="ts">
-import { fetchSiteInfo, siteInfo } from '~/logics/site'
+import { siteConfig } from '~/site/config'
 
 interface Props {
   variant?: 'default' | 'stroke'
 }
 
 const { variant = 'default' } = defineProps<Props>()
-
-fetchSiteInfo()
 </script>
 
 <template>
-  <img v-if="siteInfo?.avatar" :src="siteInfo.avatar" alt="Avatar" class="avatar" :class="variant">
-  <img v-else src="/avatar.webp" alt="Avatar" class="avatar" :class="variant">
+  <img :src="siteConfig.avatar" alt="Avatar" class="avatar" :class="variant">
 </template>
 
 <style scoped>

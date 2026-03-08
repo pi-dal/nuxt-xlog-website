@@ -1,4 +1,5 @@
 export interface PhotoMate {
+  lang?: string
   text?: string
 }
 

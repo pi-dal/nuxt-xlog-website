@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { TocItemType } from './Toc.vue'
+import type { TocItem as TocItemType } from '~/types'
 
 interface Props {
   item: TocItemType

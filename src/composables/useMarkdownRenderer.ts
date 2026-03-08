@@ -1,6 +1,7 @@
-import type { TocItem } from '~/components/Toc.vue'
+import type { TocItem } from '~/types'
 import { ref } from 'vue'
 import { useMarkdown } from '~/logics/markdown'
+import { extractTocItems } from '~/logics/toc'
 
 export function useMarkdownRenderer() {
   const renderedContent = ref('')
@@ -13,23 +14,7 @@ export function useMarkdownRenderer() {
   function parseTocFromHtml(html: string): TocItem[] {
     const contentEl = document.createElement('div')
     contentEl.innerHTML = html
-
-    const headings = contentEl.querySelectorAll('h1, h2, h3, h4, h5, h6')
-    const items: TocItem[] = []
-
-    headings.forEach((heading) => {
-      // 移除从 markdown-it-anchor 插件来的末尾的 '#'
-      const text = (heading.textContent || '').replace(/#\s*$/, '').trim()
-      if (text && heading.id) {
-        items.push({
-          id: heading.id,
-          text,
-          level: Number.parseInt(heading.tagName.substring(1)),
-        })
-      }
-    })
-
-    return items
+    return extractTocItems(contentEl.querySelectorAll('h1, h2, h3, h4, h5, h6'))
   }
 
   async function renderContent(content: string) {
@@ -77,10 +62,10 @@ export function useMarkdownRenderer() {
   }
 
   return {
-    renderedContent: readonly(renderedContent),
-    tocItems: readonly(tocItems),
-    isRendering: readonly(isRendering),
-    renderError: readonly(renderError),
+    renderedContent,
+    tocItems,
+    isRendering,
+    renderError,
     renderContent,
     reset,
   }

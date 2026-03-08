@@ -4,6 +4,7 @@ dist
 *.local
 .idea
 .presite
+.cache
 dist-ssr
 .vite-ssg-temp
 components.d.ts
@@ -20,6 +21,12 @@ src/data/sponsors-circles.json
 .env.development.local
 .env.test.local
 .env.production.local
+
+# AI Coding Agents
+.claude
+agent
+.agents
+cursorrules
 
 # RSS feeds (build artifacts)
 public/*.xml

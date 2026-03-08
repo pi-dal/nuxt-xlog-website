@@ -29,6 +29,19 @@ export interface UsageMetrics {
   metadata?: Record<string, any>
 }
 
+interface PerformanceStats {
+  averageDuration: Record<XLogOperation, number>
+  slowestOperations: PerformanceMetrics[]
+  cacheHitRate: number
+  totalOperations: number
+}
+
+interface UsageStats {
+  topFeatures: { feature: string, count: number }[]
+  recentActions: UsageMetrics[]
+  timeRange: { start: number, end: number }
+}
+
 class AnalyticsManager {
   private performanceMetrics: PerformanceMetrics[] = []
   private usageMetrics: UsageMetrics[] = []
@@ -84,12 +97,7 @@ class AnalyticsManager {
   }
 
   // Performance analysis
-  getPerformanceStats(): {
-    averageDuration: Record<XLogOperation, number>
-    slowestOperations: PerformanceMetrics[]
-    cacheHitRate: number
-    totalOperations: number
-  } {
+  getPerformanceStats(): PerformanceStats {
     const averageDuration: Partial<Record<XLogOperation, number>> = {}
     const operationCounts: Partial<Record<XLogOperation, number>> = {}
 
@@ -134,11 +142,7 @@ class AnalyticsManager {
   }
 
   // Usage analysis
-  getUsageStats(): {
-    topFeatures: { feature: string, count: number }[]
-    recentActions: UsageMetrics[]
-    timeRange: { start: number, end: number }
-  } {
+  getUsageStats(): UsageStats {
     const featureCounts: Record<string, number> = {}
 
     this.usageMetrics.forEach((usage) => {
@@ -168,9 +172,9 @@ class AnalyticsManager {
 
   // Generate comprehensive report
   generateReport(): {
-    performance: ReturnType<typeof this.getPerformanceStats>
+    performance: PerformanceStats
     errors: { stats: Record<ErrorCategory, number>, recent: ErrorMetrics[] }
-    usage: ReturnType<typeof this.getUsageStats>
+    usage: UsageStats
     summary: {
       totalOperations: number
       errorRate: number
@@ -298,7 +302,7 @@ export function monitored(operation: XLogOperation) {
   ) {
     const originalMethod = descriptor.value!
 
-    descriptor.value = async function (...args: any[]) {
+    descriptor.value = async function (this: ThisParameterType<T>, ...args: Parameters<T>) {
       return withAnalytics(operation, () => originalMethod.apply(this, args))
     } as T
 

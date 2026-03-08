@@ -15,6 +15,12 @@ drafts
 *.log
 src/data/sponsors-circles.json
 
+# Package manager lock files
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+.pnpm-debug.log*
+
 # Environment variables
 .env
 .env.local

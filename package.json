@@ -6,7 +6,6 @@
     "build": "cross-env-shell NODE_ENV=production NO_WEBFONT_FETCH=1 \"tsx ./scripts/generate-og.ts && vite-ssg build && tsx ./scripts/rss.ts && cp _redirects dist/_redirects\"",
     "dev": "vite --port 3333 --open",
     "import:articles": "tsx ./scripts/import-articles.ts",
-    "import:personal": "tsx ./scripts/import-personal-content.ts",
     "preview": "vite preview",
     "lint": "eslint .",
     "test": "vitest",

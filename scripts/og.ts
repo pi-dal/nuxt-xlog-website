@@ -22,54 +22,56 @@ const FONT_URLS = {
   regular: 'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400&display=swap',
   bold: 'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@700&display=swap',
 } as const
+const ALLOW_REMOTE_FONT_FETCH = process.env.NO_WEBFONT_FETCH !== '1'
+const SYSTEM_FONT_FALLBACKS = [
+  '/System/Library/Fonts/Supplemental/Arial Unicode.ttf',
+  '/System/Library/Fonts/Hiragino Sans GB.ttc',
+  '/System/Library/Fonts/STHeiti Light.ttc',
+  '/System/Library/Fonts/STHeiti Medium.ttc',
+  '/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc',
+  '/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc',
+  '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',
+] as const
 
 const localFontCache = new Map<string, Buffer | null>()
 const remoteFontCache = new Map<string, Buffer>()
-let localFontDirEntries: string[] | null = null
 
-async function ensureLocalFontDirEntries(): Promise<string[]> {
-  if (localFontDirEntries)
-    return localFontDirEntries
+export function isSupportedFontData(buffer: Buffer): boolean {
+  if (buffer.length < 4)
+    return false
 
-  if (!await fs.pathExists(LOCAL_FONT_DIR)) {
-    localFontDirEntries = []
-    return localFontDirEntries
+  const signature = buffer.subarray(0, 4).toString('ascii')
+  return signature !== 'wOFF' && signature !== 'wOF2'
+}
+
+export async function readFirstCompatibleFont(paths: string[]): Promise<Buffer | null> {
+  for (const fontPath of paths) {
+    if (!await fs.pathExists(fontPath))
+      continue
+
+    const buffer = await fs.readFile(fontPath)
+    if (isSupportedFontData(buffer))
+      return buffer
   }
 
-  localFontDirEntries = await fs.readdir(LOCAL_FONT_DIR)
-  return localFontDirEntries
+  return null
 }
 
 async function loadLocalFont(key: string, filenames: string[]): Promise<Buffer | null> {
   if (localFontCache.has(key))
     return localFontCache.get(key) ?? null
 
-  for (const filename of filenames) {
-    const fullPath = join(LOCAL_FONT_DIR, filename)
-    if (await fs.pathExists(fullPath)) {
-      const buf = await fs.readFile(fullPath)
-      localFontCache.set(key, buf)
-      return buf
-    }
-  }
-
-  localFontCache.set(key, null)
-  return null
+  const buffer = await readFirstCompatibleFont(filenames.map(filename => join(LOCAL_FONT_DIR, filename)))
+  localFontCache.set(key, buffer)
+  return buffer
 }
 
-async function loadInterFallback(): Promise<Buffer | null> {
-  if (localFontCache.has('inter-fallback'))
-    return localFontCache.get('inter-fallback') ?? null
+async function loadSystemFontFallback(): Promise<Buffer | null> {
+  if (localFontCache.has('system-fallback'))
+    return localFontCache.get('system-fallback') ?? null
 
-  const entries = await ensureLocalFontDirEntries()
-  const candidate = entries.find(file => file.startsWith('inter-') && file.endsWith('.woff2'))
-  if (!candidate) {
-    localFontCache.set('inter-fallback', null)
-    return null
-  }
-
-  const buffer = await fs.readFile(join(LOCAL_FONT_DIR, candidate))
-  localFontCache.set('inter-fallback', buffer)
+  const buffer = await readFirstCompatibleFont([...SYSTEM_FONT_FALLBACKS])
+  localFontCache.set('system-fallback', buffer)
   return buffer
 }
 
@@ -99,6 +101,8 @@ async function fetchFontFromGoogle(fontUrl: string): Promise<Buffer> {
 
   const fontResponse = await withTimeout(signal => fetch(fontFileUrl, { signal }))
   const buf = Buffer.from(await fontResponse.arrayBuffer())
+  if (!isSupportedFontData(buf))
+    throw new Error(`Unsupported remote font format for ${fontUrl}`)
   remoteFontCache.set(fontUrl, buf)
   return buf
 }
@@ -137,7 +141,7 @@ export async function generateOGImage(options: OGImageOptions, outputPath: strin
     })
   }
 
-  if (missingVariants.length) {
+  if (missingVariants.length && ALLOW_REMOTE_FONT_FETCH) {
     const fetchResults = await Promise.allSettled(
       missingVariants.map(({ variant }) => fetchFontFromGoogle(FONT_URLS[variant])),
     )
@@ -150,23 +154,40 @@ export async function generateOGImage(options: OGImageOptions, outputPath: strin
     const rejected = fetchResults.filter((result): result is PromiseRejectedResult => result.status === 'rejected')
     if (rejected.length) {
       const lastError = rejected[rejected.length - 1]?.reason
-      const interFallback = await loadInterFallback()
-      if (interFallback) {
+      const systemFallback = await loadSystemFontFallback()
+      if (systemFallback) {
         if (!notoSansRegular) {
-          notoSansRegular = interFallback
-          localFontCache.set('noto-regular', interFallback)
+          notoSansRegular = systemFallback
+          localFontCache.set('noto-regular', systemFallback)
         }
         if (!notoSansBold) {
-          notoSansBold = interFallback
-          localFontCache.set('noto-bold', interFallback)
+          notoSansBold = systemFallback
+          localFontCache.set('noto-bold', systemFallback)
         }
-        console.warn('[og] Falling back to Inter for fonts; Noto Sans SC unavailable', lastError)
+        console.warn('[og] Falling back to a compatible system font; Noto Sans SC unavailable', lastError)
       }
       else {
         notoSansRegular = null
         notoSansBold = null
         console.warn('[og] Proceeding without embedded fonts due to fetch failure', lastError)
       }
+    }
+  }
+  else if (missingVariants.length) {
+    const systemFallback = await loadSystemFontFallback()
+    if (systemFallback) {
+      if (!notoSansRegular) {
+        notoSansRegular = systemFallback
+        localFontCache.set('noto-regular', systemFallback)
+      }
+      if (!notoSansBold) {
+        notoSansBold = systemFallback
+        localFontCache.set('noto-bold', systemFallback)
+      }
+      console.warn('[og] Using a compatible system font because remote font fetch is disabled')
+    }
+    else {
+      console.warn('[og] Proceeding without embedded fonts because remote font fetch is disabled and no compatible local fallback was found')
     }
   }
 

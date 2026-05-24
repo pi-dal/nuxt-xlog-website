@@ -5,6 +5,14 @@ import { describe, expect, it } from 'vitest'
 const rootDir = resolve(__dirname, '../..')
 
 describe('global performance guards', () => {
+  it('keeps FloatingVue out of the global app shell', () => {
+    const entry = readFileSync(resolve(rootDir, 'src/main.ts'), 'utf-8')
+
+    expect(entry).not.toContain('import FloatingVue from \'floating-vue\'')
+    expect(entry).not.toContain('import \'floating-vue/dist/style.css\'')
+    expect(entry).not.toContain('app.use(FloatingVue)')
+  })
+
   it('does not force-enable twoslash in the Vite markdown pipeline', () => {
     const viteConfig = readFileSync(resolve(rootDir, 'vite.config.ts'), 'utf-8')
 

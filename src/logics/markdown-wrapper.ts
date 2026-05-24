@@ -8,6 +8,9 @@ export function resolveMarkdownWrapperComponent(id: string, _code: string) {
   if (id.includes('/demo/'))
     return 'WrapperDemo'
 
+  if (id.replace(/\\/g, '/').endsWith('/pages/index.md'))
+    return null
+
   if (isChunkedMarkdownSection(id))
     return null
 

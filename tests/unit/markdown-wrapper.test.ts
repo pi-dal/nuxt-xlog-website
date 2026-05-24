@@ -3,6 +3,11 @@ import { describe, expect, it } from 'vitest'
 import { resolveMarkdownWrapperClasses, resolveMarkdownWrapperComponent } from '~/logics/markdown-wrapper'
 
 describe('markdown wrapper resolution', () => {
+  it('skips the post wrapper for the homepage markdown entry', () => {
+    expect(resolveMarkdownWrapperComponent('/project/pages/index.md', '')).toBeNull()
+    expect(resolveMarkdownWrapperClasses('/project/pages/index.md', 'plain content')).toBe('prose m-auto slide-enter-content')
+  })
+
   it('uses the demo wrapper for demo markdown', () => {
     expect(resolveMarkdownWrapperComponent('/project/demo/example.md', '')).toBe('WrapperDemo')
   })

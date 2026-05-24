@@ -107,6 +107,10 @@ function buildCanonicalUrl(path: string): string {
   return buildAbsoluteUrl(resolveSiteUrl(), normalizePagePath(path))
 }
 
+function buildPageTitle(title: string) {
+  return title === siteConfig.title ? title : `${title} - ${siteConfig.title}`
+}
+
 function buildJsonLdScript(payload: Record<string, any>) {
   return {
     type: 'application/ld+json',
@@ -116,7 +120,7 @@ function buildJsonLdScript(payload: Record<string, any>) {
 
 export function buildCollectionPageHead(options: CollectionPageHeadOptions) {
   const url = buildCanonicalUrl(options.path)
-  const title = `${options.title} - ${siteConfig.title}`
+  const title = buildPageTitle(options.title)
   const image = buildAbsoluteUrl(resolveSiteUrl(), `/og/${options.collection}.png`)
 
   return {
@@ -150,7 +154,7 @@ export function buildCollectionPageHead(options: CollectionPageHeadOptions) {
 
 export function buildContentPageHead(options: ContentPageHeadOptions) {
   const url = buildCanonicalUrl(options.path)
-  const title = `${options.title} - ${siteConfig.title}`
+  const title = buildPageTitle(options.title)
   const isArticle = ['book', 'post'].includes(options.type)
 
   return {

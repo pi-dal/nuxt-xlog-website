@@ -19,7 +19,7 @@ const content = ref<HTMLDivElement>()
 const tocItems = ref<TocItemType[]>([])
 const siteUrl = resolveSiteUrl()
 const pageImage = computed(() => frontmatter.image || buildAbsoluteUrl(siteUrl, `/og/${frontmatter.slug}.png`))
-const pageDescription = computed(() => frontmatter.summary || '')
+const pageDescription = computed(() => frontmatter.description || frontmatter.summary || '')
 
 useHead(() => buildContentPageHead({
   date: frontmatter.date,

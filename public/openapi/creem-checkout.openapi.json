@@ -14,7 +14,8 @@
     "/functions/creem-checkout": {
       "post": {
         "summary": "Create a checkout session",
-        "description": "Proxies checkout creation to Creem using the site's configured API key.",
+        "description": "Proxies checkout creation to Creem using the site's configured API key. This endpoint is currently unauthenticated.",
+        "security": [],
         "requestBody": {
           "required": true,
           "content": {

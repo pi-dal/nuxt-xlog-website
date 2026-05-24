@@ -1,7 +1,5 @@
-import { createHead } from '@unhead/vue'
 import dayjs from 'dayjs'
 import LocalizedFormat from 'dayjs/plugin/localizedFormat.js'
-import FloatingVue from 'floating-vue'
 import NProgress from 'nprogress'
 import { createPinia } from 'pinia'
 import { ViteSSG } from 'vite-ssg'
@@ -10,8 +8,6 @@ import { routes } from 'vue-router/auto-routes'
 import App from './App.vue'
 import { registerWebMcpTools } from './logics/webmcp'
 import '@unocss/reset/tailwind.css'
-
-import 'floating-vue/dist/style.css'
 
 import 'markdown-it-github-alerts/styles/github-colors-light.css'
 import 'markdown-it-github-alerts/styles/github-colors-dark-class.css'
@@ -30,9 +26,7 @@ export const createApp = ViteSSG(
   ({ router, app, isClient }) => {
     dayjs.extend(LocalizedFormat)
 
-    app.use(FloatingVue)
     app.use(createPinia())
-    app.use(createHead())
 
     if (isClient) {
       const cleanupWebMcp = registerWebMcpTools()

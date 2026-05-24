@@ -3,8 +3,7 @@ import { useHead } from '@unhead/vue'
 import { useContentRoutes } from '~/composables/useContentRoutes'
 import { formatDate } from '~/logics'
 import { getYearHeadingClassNames, groupContentEntriesByYear } from '~/logics/content-list'
-import { buildAbsoluteUrl, resolveSiteUrl } from '~/logics/site-meta'
-import { siteConfig } from '~/site/config'
+import { buildCollectionPageHead } from '~/logics/site-meta'
 
 interface Props {
   collection: 'books' | 'posts'
@@ -19,17 +18,13 @@ const props = withDefaults(defineProps<Props>(), {
 
 const entries = useContentRoutes({ collection: props.collection })
 const groups = computed(() => groupContentEntriesByYear(entries.value))
-const siteUrl = resolveSiteUrl()
 const yearHeadingClassNames = getYearHeadingClassNames()
 
-useHead(() => ({
-  title: `${props.title} - ${siteConfig.title}`,
-  meta: [
-    { name: 'description', content: props.description },
-    { property: 'og:title', content: `${props.title} - ${siteConfig.title}` },
-    { property: 'og:description', content: props.description },
-    { property: 'og:image', content: buildAbsoluteUrl(siteUrl, `/og/${props.collection}.png`) },
-  ],
+useHead(() => buildCollectionPageHead({
+  collection: props.collection,
+  description: props.description,
+  path: `/${props.collection}`,
+  title: props.title,
 }))
 </script>
 

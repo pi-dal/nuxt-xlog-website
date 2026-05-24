@@ -103,7 +103,7 @@ export default defineConfig({
         quotes: '""\'\'',
       },
       async markdownItSetup(md) {
-        await applyMarkdownPipeline(md, { enableTwoslash: true })
+        await applyMarkdownPipeline(md)
       },
       frontmatterPreprocess(frontmatter, options, id, defaults) {
         (() => {

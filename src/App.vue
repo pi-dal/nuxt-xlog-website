@@ -79,7 +79,7 @@ onKeyStroke('Escape', (e) => {
 <template>
   <!-- Add the animated tree branch background -->
   <ClientOnly>
-    <ArtPlum />
+    <ArtPlum v-if="route.path === '/'" />
   </ClientOnly>
 
   <NavBar />

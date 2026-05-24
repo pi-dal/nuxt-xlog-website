@@ -26,7 +26,18 @@ const webFontPresets = enableWebFonts
     ]
   : []
 
+function isValidArbitraryProperty(candidate: string) {
+  const match = candidate.match(/^\[([^:]+):.+\]$/)
+  if (!match)
+    return true
+
+  return /^-{0,2}[a-z][a-z0-9-]*$/.test(match[1].trim())
+}
+
 export default defineConfig({
+  blocklist: [
+    candidate => candidate.startsWith('[') && candidate.endsWith(']') && !isValidArbitraryProperty(candidate),
+  ],
   theme: {
     fontFamily: {
       // Keep class mappings consistent even if webfonts preset is disabled

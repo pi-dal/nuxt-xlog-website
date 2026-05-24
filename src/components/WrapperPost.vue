@@ -1,6 +1,8 @@
 <script setup lang='ts'>
 import type { TocItem as TocItemType } from '~/types'
+import { useHead } from '@unhead/vue'
 import { formatDate } from '~/logics'
+import { buildAbsoluteUrl, buildContentPageHead, resolveSiteUrl } from '~/logics/site-meta'
 import { extractTocItems } from '~/logics/toc'
 import Toc from './Toc.vue'
 
@@ -15,6 +17,19 @@ const router = useRouter()
 const route = useRoute()
 const content = ref<HTMLDivElement>()
 const tocItems = ref<TocItemType[]>([])
+const siteUrl = resolveSiteUrl()
+const pageImage = computed(() => frontmatter.image || buildAbsoluteUrl(siteUrl, `/og/${frontmatter.slug}.png`))
+const pageDescription = computed(() => frontmatter.summary || '')
+
+useHead(() => buildContentPageHead({
+  date: frontmatter.date,
+  description: pageDescription.value,
+  image: pageImage.value,
+  lang: frontmatter.lang,
+  path: route.path,
+  title: frontmatter.title,
+  type: frontmatter.type,
+}))
 
 function syncTocItems() {
   tocItems.value = extractTocItems(content.value?.querySelectorAll('h1, h2, h3, h4') || [])

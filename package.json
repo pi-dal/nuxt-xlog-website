@@ -3,7 +3,7 @@
   "private": true,
   "packageManager": "pnpm@10.6.2",
   "scripts": {
-    "build": "cross-env-shell NODE_ENV=production NO_WEBFONT_FETCH=1 \"tsx ./scripts/generate-og.ts && vite-ssg build && tsx ./scripts/rss.ts && cp _redirects dist/_redirects\"",
+    "build": "cross-env-shell NODE_ENV=production NO_WEBFONT_FETCH=1 \"tsx ./scripts/generate-og.ts && vite-ssg build && tsx ./scripts/rss.ts && tsx ./scripts/generate-agent-artifacts.ts && cp _redirects dist/_redirects\"",
     "dev": "vite --port 3333 --open",
     "import:articles": "tsx ./scripts/import-articles.ts",
     "preview": "vite preview",

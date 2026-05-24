@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "site-navigation",
+      "type": "skill-md",
+      "description": "Navigate the pi-dal site and discover machine-readable resources.",
+      "url": "https://pi-dal.com/.well-known/agent-skills/site-navigation.md",
+      "digest": "sha256:pending-build"
+    }
+  ]
+}

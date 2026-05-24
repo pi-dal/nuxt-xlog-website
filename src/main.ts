@@ -8,6 +8,7 @@ import { ViteSSG } from 'vite-ssg'
 import { setupRouterScroller } from 'vue-router-better-scroller'
 import { routes } from 'vue-router/auto-routes'
 import App from './App.vue'
+import { registerWebMcpTools } from './logics/webmcp'
 import '@unocss/reset/tailwind.css'
 
 import 'floating-vue/dist/style.css'
@@ -34,6 +35,7 @@ export const createApp = ViteSSG(
     app.use(createHead())
 
     if (isClient) {
+      const cleanupWebMcp = registerWebMcpTools()
       const html = document.querySelector('html')!
       setupRouterScroller(router, {
         selectors: {
@@ -56,6 +58,8 @@ export const createApp = ViteSSG(
       router.afterEach(() => {
         NProgress.done()
       })
+
+      window.addEventListener('beforeunload', cleanupWebMcp, { once: true })
     }
   },
 )

@@ -50,10 +50,22 @@ export async function compressSharp(image: sharp.Sharp, inBuffer: Buffer, inFile
   if (width > maxSize || height > maxSize)
     image = image.resize(maxSize)
 
-  image = image[resolvedFormat]({
-    quality: resolvedFormat === 'png' ? 100 : 80,
-    compressionLevel: 9,
-  })
+  if (resolvedFormat === 'jpeg') {
+    image = image.jpeg({
+      quality: 80,
+    })
+  }
+  else if (resolvedFormat === 'png') {
+    image = image.png({
+      quality: 100,
+      compressionLevel: 9,
+    })
+  }
+  else {
+    image = image.webp({
+      quality: 80,
+    })
+  }
 
   const outBuffer = await image.withMetadata().toBuffer()
   const size = inBuffer.byteLength

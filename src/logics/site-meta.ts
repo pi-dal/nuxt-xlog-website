@@ -1,5 +1,23 @@
 import type { SocialLink, XLogSite } from '~/types'
+import type { ContentType } from '~/types/content'
 import { siteConfig } from '~/site/config'
+
+interface CollectionPageHeadOptions {
+  collection: 'books' | 'posts'
+  description: string
+  path: string
+  title: string
+}
+
+interface ContentPageHeadOptions {
+  date?: string
+  description: string
+  image: string
+  lang?: string
+  path: string
+  title: string
+  type: ContentType
+}
 
 function normalizeSiteUrl(url: string): string {
   let normalized = url.trim()
@@ -76,6 +94,100 @@ export function buildAbsoluteUrl(baseUrl: string, path: string): string {
     path = `/${path}`
 
   return `${baseUrl}${path}`
+}
+
+function normalizePagePath(path: string): string {
+  if (!path)
+    return '/'
+
+  return path.startsWith('/') ? path : `/${path}`
+}
+
+function buildCanonicalUrl(path: string): string {
+  return buildAbsoluteUrl(resolveSiteUrl(), normalizePagePath(path))
+}
+
+function buildJsonLdScript(payload: Record<string, any>) {
+  return {
+    type: 'application/ld+json',
+    textContent: JSON.stringify(payload),
+  }
+}
+
+export function buildCollectionPageHead(options: CollectionPageHeadOptions) {
+  const url = buildCanonicalUrl(options.path)
+  const title = `${options.title} - ${siteConfig.title}`
+  const image = buildAbsoluteUrl(resolveSiteUrl(), `/og/${options.collection}.png`)
+
+  return {
+    title,
+    link: [
+      { rel: 'canonical', href: url },
+    ],
+    meta: [
+      { name: 'description', content: options.description },
+      { property: 'og:title', content: title },
+      { property: 'og:description', content: options.description },
+      { property: 'og:image', content: image },
+      { property: 'og:url', content: url },
+      { property: 'og:type', content: 'website' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: title },
+      { name: 'twitter:description', content: options.description },
+      { name: 'twitter:image', content: image },
+    ],
+    script: [
+      buildJsonLdScript({
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        'name': options.title,
+        'description': options.description,
+        'url': url,
+      }),
+    ],
+  }
+}
+
+export function buildContentPageHead(options: ContentPageHeadOptions) {
+  const url = buildCanonicalUrl(options.path)
+  const title = `${options.title} - ${siteConfig.title}`
+  const isArticle = ['book', 'post'].includes(options.type)
+
+  return {
+    title,
+    link: [
+      { rel: 'canonical', href: url },
+    ],
+    meta: [
+      { name: 'description', content: options.description },
+      { property: 'og:title', content: title },
+      { property: 'og:description', content: options.description },
+      { property: 'og:image', content: options.image },
+      { property: 'og:url', content: url },
+      { property: 'og:type', content: isArticle ? 'article' : 'website' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: title },
+      { name: 'twitter:description', content: options.description },
+      { name: 'twitter:image', content: options.image },
+    ],
+    script: [
+      buildJsonLdScript({
+        '@context': 'https://schema.org',
+        '@type': isArticle ? 'BlogPosting' : 'WebPage',
+        'headline': options.title,
+        'description': options.description,
+        'url': url,
+        'image': [options.image],
+        'datePublished': options.date,
+        'inLanguage': options.lang,
+        'author': {
+          '@type': 'Person',
+          'name': siteConfig.author.name,
+          'url': siteConfig.url,
+        },
+      }),
+    ],
+  }
 }
 
 function extractHandleFromUrl(url: string): string | null {

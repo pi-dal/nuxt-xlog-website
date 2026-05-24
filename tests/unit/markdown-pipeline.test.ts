@@ -14,13 +14,19 @@ describe('markdown pipeline', () => {
     expect(convertIpfsUrls(markdown)).toContain('https://ipfs.crossbell.io/ipfs/QmLegacyCid')
   })
 
-  it('shares one configurable pipeline and toggles twoslash explicitly', () => {
-    const runtimeConfig = buildMarkdownPipelineConfig({ enableTwoslash: false })
-    const buildConfig = buildMarkdownPipelineConfig({ enableTwoslash: true })
+  it('defaults twoslash off unless explicitly enabled', () => {
+    const defaultConfig = buildMarkdownPipelineConfig()
+    const explicitConfig = buildMarkdownPipelineConfig({ enableTwoslash: true })
 
-    expect(runtimeConfig.markdownItOptions.quotes).toBe('""\'\'')
-    expect(runtimeConfig.shiki.transformers).toHaveLength(3)
-    expect(buildConfig.shiki.transformers).toHaveLength(4)
+    expect(defaultConfig.markdownItOptions.quotes).toBe('""\'\'')
+    expect(defaultConfig.shiki.transformers).toHaveLength(3)
+    expect(explicitConfig.shiki.transformers).toHaveLength(4)
+  })
+
+  it('keeps twoslash disabled when explicitly set to false', () => {
+    const config = buildMarkdownPipelineConfig({ enableTwoslash: false })
+
+    expect(config.shiki.transformers).toHaveLength(3)
   })
 
   it('maps obsidian abstract callouts to supported github alerts', async () => {

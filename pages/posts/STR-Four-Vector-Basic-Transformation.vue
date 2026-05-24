@@ -1,18 +1,11 @@
 <script setup lang="ts">
 import type { ContentFrontmatter } from '~/types/content'
-import { useHead } from '@unhead/vue'
 import { defineAsyncComponent, hydrateOnIdle, hydrateOnVisible } from 'vue'
-import { buildAbsoluteUrl, resolveSiteUrl } from '~/logics/site-meta'
-import { siteConfig } from '~/site/config'
 
 type ChunkHydrationMode = 'idle' | 'visible'
 
 const route = useRoute()
 const frontmatter = route.meta.frontmatter as ContentFrontmatter
-const siteUrl = resolveSiteUrl()
-const pageTitle = `${frontmatter.title} - ${siteConfig.title}`
-const pageDescription = frontmatter.summary || siteConfig.description
-const pageImage = frontmatter.image || buildAbsoluteUrl(siteUrl, `/og/${frontmatter.slug}.png`)
 
 function createChunkedSection(
   loader: () => Promise<unknown>,
@@ -32,16 +25,6 @@ const SectionProperties = createChunkedSection(() => import('~/content/chunked-p
 const SectionApplicationsFoundations = createChunkedSection(() => import('~/content/chunked-posts/STR-Four-Vector-Basic-Transformation/03-applications-foundations.md'))
 const SectionApplicationsCollisions = createChunkedSection(() => import('~/content/chunked-posts/STR-Four-Vector-Basic-Transformation/04-applications-collisions.md'))
 const SectionApplicationsScattering = createChunkedSection(() => import('~/content/chunked-posts/STR-Four-Vector-Basic-Transformation/05-applications-scattering.md'))
-
-useHead(() => ({
-  title: pageTitle,
-  meta: [
-    { name: 'description', content: pageDescription },
-    { property: 'og:title', content: pageTitle },
-    { property: 'og:description', content: pageDescription },
-    { property: 'og:image', content: pageImage },
-  ],
-}))
 </script>
 
 <template>

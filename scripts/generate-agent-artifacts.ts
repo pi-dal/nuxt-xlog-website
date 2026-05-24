@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto'
 import { resolve } from 'node:path'
 import fs from 'fs-extra'
-import { collectCanonicalRouteEntries } from '~/logics/agent-readiness'
+import { collectCanonicalRouteEntries } from '~/logics/agent-readiness-build'
 import { siteConfig } from '~/site/config'
 
 const rootDir = process.env.CONTENT_ROOT_DIR || process.cwd()

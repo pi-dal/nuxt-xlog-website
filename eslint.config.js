@@ -6,6 +6,7 @@ export default antfu(
   {
     formatters: true,
     ignores: [
+      '.wrangler/**',
       'Articles/**',
       'docs/plans/**',
     ],

@@ -3,7 +3,7 @@ import { dirname } from 'node:path'
 import { Feed } from 'feed'
 import fs from 'fs-extra'
 import { loadMarkdownContentEntries } from '~/content/files'
-import { collectCanonicalUrls } from '~/logics/agent-readiness'
+import { collectCanonicalUrls } from '~/logics/agent-readiness-build'
 import { siteConfig } from '~/site/config'
 
 const AUTHOR = {

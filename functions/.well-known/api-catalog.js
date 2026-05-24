@@ -1,4 +1,4 @@
-import { createApiCatalog } from '../../src/logics/agent-readiness.ts'
+import { createApiCatalog } from '../../src/logics/agent-readiness-runtime.ts'
 import { siteConfig } from '../../src/site/config.ts'
 
 export async function onRequestGet() {

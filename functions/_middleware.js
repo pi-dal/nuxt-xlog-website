@@ -2,7 +2,7 @@ import {
   estimateMarkdownTokens,
   getDiscoveryLinkHeaderValue,
   htmlToMarkdown,
-} from '../src/logics/agent-readiness.ts'
+} from '../src/logics/agent-readiness-runtime.ts'
 
 function wantsMarkdown(request, response) {
   const accept = request.headers.get('Accept') || ''

@@ -254,6 +254,57 @@ html:not(.dark) [img-dark] {
   opacity: 0;
 }
 
+/* Locale Switcher */
+.locale-switcher {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.locale-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 24px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #999;
+  background: transparent;
+  border: 1px solid #e0e0e0;
+  transition: all 0.2s ease;
+}
+
+html.dark .locale-link {
+  color: #666;
+  border-color: #333;
+}
+
+.locale-link:hover {
+  color: #333;
+  border-color: #999;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+html.dark .locale-link:hover {
+  color: #ccc;
+  border-color: #666;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.locale-link.active {
+  color: var(--toc-primary-color, #3b82f6);
+  border-color: var(--toc-primary-color, #3b82f6);
+  background: rgba(59, 130, 246, 0.08);
+}
+
+html.dark .locale-link.active {
+  background: rgba(59, 130, 246, 0.15);
+}
+
 /* Legacy fade transition (keep for compatibility) */
 .fade-enter-active,
 .fade-leave-active {

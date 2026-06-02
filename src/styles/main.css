@@ -254,7 +254,54 @@ html:not(.dark) [img-dark] {
   opacity: 0;
 }
 
-/* Locale Switcher */
+/* Global Locale Bar */
+.app-locale-bar {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  padding: 6px 0 0;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--c-bg);
+}
+
+.app-locale-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #bbb;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.app-locale-link:hover {
+  color: #666;
+  border-color: #ddd;
+}
+
+html.dark .app-locale-link:hover {
+  color: #aaa;
+  border-color: #444;
+}
+
+.app-locale-link.active {
+  color: var(--toc-primary-color, #3b82f6);
+  border-color: var(--toc-primary-color, #3b82f6);
+  background: rgba(59, 130, 246, 0.08);
+}
+
+html.dark .app-locale-link.active {
+  background: rgba(59, 130, 246, 0.15);
+}
+
+/* Article-level Locale Switcher (inside WrapperPost) */
 .locale-switcher {
   display: flex;
   gap: 6px;

@@ -4,6 +4,36 @@ const route = useRoute()
 const imageModel = ref<HTMLImageElement>()
 const imageAlt = ref<string>()
 
+const LOCALE_LABELS: Record<string, { label: string, short: string }> = {
+  zh: { label: '中文', short: 'ZH' },
+  en: { label: 'English', short: 'EN' },
+  ja: { label: '日本語', short: 'JA' },
+}
+
+const currentLocale = computed(() => {
+  const segs = route.path.split('/').filter(Boolean)
+  if (segs.length >= 1 && ['en', 'zh', 'ja'].includes(segs[0]))
+    return segs[0]
+  return 'zh'
+})
+
+const localeSlug = computed(() => {
+  const segs = route.path.split('/').filter(Boolean)
+  if (segs.length >= 1 && ['en', 'zh', 'ja'].includes(segs[0]))
+    return segs.slice(1).join('/')
+  return route.path.slice(1)
+})
+
+const localeLinks = computed(() => {
+  return Object.keys(LOCALE_LABELS).map(code => ({
+    code,
+    label: LOCALE_LABELS[code].label,
+    short: LOCALE_LABELS[code].short,
+    active: code === currentLocale.value,
+    to: `/${code}/${localeSlug.value}`,
+  }))
+})
+
 // Add the tree branch background animation component
 const ArtPlum = defineAsyncComponent(() => import('./components/ArtPlum.vue'))
 
@@ -83,6 +113,20 @@ onKeyStroke('Escape', (e) => {
   </ClientOnly>
 
   <NavBar />
+
+  <!-- Global locale switcher -->
+  <div class="app-locale-bar">
+    <RouterLink
+      v-for="loc in localeLinks"
+      :key="loc.code"
+      :to="loc.to"
+      class="app-locale-link"
+      :class="{ active: loc.active }"
+    >
+      {{ loc.short }}
+    </RouterLink>
+  </div>
+
   <main class="px-7 py-10">
     <RouterView v-slot="{ Component, route }">
       <Transition name="page" mode="out-in">

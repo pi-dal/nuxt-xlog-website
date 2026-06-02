@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
+import { useRoute } from 'vue-router'
 import { useContentRoutes } from '~/composables/useContentRoutes'
 import { formatDate } from '~/logics'
 import { getYearHeadingClassNames, groupContentEntriesByYear } from '~/logics/content-list'
@@ -21,6 +22,26 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const entries = useContentRoutes({ collection: props.collection, lang: props.lang })
+const route = useRoute()
+
+const localeLabels: Record<string, string> = { zh: 'ZH', en: 'EN', ja: 'JA' }
+
+const currentLocale = computed(() => {
+  const segs = route.path.split('/').filter(Boolean)
+  if (segs.length >= 1 && ['en', 'zh', 'ja'].includes(segs[0]))
+    return segs[0]
+  return 'zh'
+})
+
+const localeSwitcherItems = computed(() => {
+  const base = props.collection
+  return Object.keys(localeLabels).map(code => ({
+    code,
+    label: localeLabels[code],
+    active: code === currentLocale.value,
+    to: `/${code}/${base}`,
+  }))
+})
 const groups = computed(() => groupContentEntriesByYear(entries.value))
 const yearHeadingClassNames = getYearHeadingClassNames()
 
@@ -43,6 +64,19 @@ useHead(() => buildCollectionPageHead({
       <p class="max-w-2xl text-sm md:text-base text-zinc-500 dark:text-zinc-400 leading-relaxed">
         {{ description }}
       </p>
+
+      <!-- Language switcher -->
+      <div class="locale-switcher">
+        <RouterLink
+          v-for="loc in localeSwitcherItems"
+          :key="loc.code"
+          :to="loc.to"
+          class="locale-link"
+          :class="{ active: loc.active }"
+        >
+          {{ loc.label }}
+        </RouterLink>
+      </div>
     </div>
 
     <div v-if="entries.length">

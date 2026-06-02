@@ -100,6 +100,34 @@ watch(() => route.fullPath, async () => {
   syncTocItems()
 })
 
+const LOCALE_LABELS: Record<string, { label: string, short: string }> = {
+  zh: { label: '中文', short: 'ZH' },
+  en: { label: 'English', short: 'EN' },
+  ja: { label: '日本語', short: 'JA' },
+}
+
+const currentLocale = computed(() => {
+  const segments = route.path.split('/').filter(Boolean)
+  if (segments.length >= 2 && ['en', 'zh', 'ja'].includes(segments[0]))
+    return segments[0]
+  return 'zh'
+})
+
+const articleSlug = computed(() => frontmatter.slug || route.path.split('/').pop() || '')
+
+const availableLocales = computed(() => {
+  const slug = articleSlug.value
+  if (!slug)
+    return []
+  return Object.keys(LOCALE_LABELS).map(locale => ({
+    locale,
+    label: LOCALE_LABELS[locale].label,
+    short: LOCALE_LABELS[locale].short,
+    active: locale === currentLocale.value,
+    href: `/${locale}/posts/${slug}`,
+  }))
+})
+
 // Add a computed property to determine parent route based on frontmatter type
 const parentRoute = computed(() => {
   // If it's a note type article, always go to /notes
@@ -134,6 +162,19 @@ const parentRoute = computed(() => {
       >
         {{ formatDate(frontmatter.date, false) }} <span v-if="frontmatter.duration">· {{ frontmatter.duration }}</span>
       </p>
+
+      <!-- Language switcher -->
+      <div class="locale-switcher slide-enter">
+        <RouterLink
+          v-for="loc in availableLocales"
+          :key="loc.locale"
+          :to="loc.href"
+          class="locale-link"
+          :class="{ active: loc.active }"
+        >
+          {{ loc.short }}
+        </RouterLink>
+      </div>
 
       <p v-if="frontmatter.place" class="mt--4!">
         <span op50>at </span>

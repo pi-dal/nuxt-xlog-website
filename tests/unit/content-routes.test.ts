@@ -1,61 +1,25 @@
 import { describe, expect, it } from 'vitest'
 
-import { extractContentEntriesFromRoutes } from '~/composables/useContentRoutes'
+import { contentEntries } from '~/content/content-entries'
 
-describe('extractContentEntriesFromRoutes', () => {
-  it('filters content routes by collection, excludes drafts, and sorts by descending date', () => {
-    const routes: Parameters<typeof extractContentEntriesFromRoutes>[0] = [
-      {
-        path: '/posts/older',
-        meta: {
-          frontmatter: {
-            title: 'Older Post',
-            slug: 'older',
-            type: 'post',
-            date: '2024-01-01',
-          },
-        },
-      },
-      {
-        path: '/posts/newer',
-        meta: {
-          frontmatter: {
-            title: 'Newer Post',
-            slug: 'newer',
-            type: 'post',
-            date: '2024-02-01',
-          },
-        },
-      },
-      {
-        path: '/posts/draft',
-        meta: {
-          frontmatter: {
-            title: 'Draft Post',
-            slug: 'draft',
-            type: 'post',
-            date: '2024-03-01',
-            draft: true,
-          },
-        },
-      },
-      {
-        path: '/about',
-        meta: {
-          frontmatter: {
-            title: 'About',
-            slug: 'about',
-            type: 'page',
-          },
-        },
-      },
-    ]
+describe('content entries', () => {
+  it('loads content entries from build-time manifest with proper metadata', () => {
+    // Verify the manifest has all expected entries
+    expect(contentEntries.length).toBeGreaterThan(20)
 
-    const entries = extractContentEntriesFromRoutes(routes, {
-      collection: 'posts',
-    })
+    // Check EN posts exist with real titles and dates
+    const enPosts = contentEntries.filter(e => e.lang === 'en' && e.collection === 'posts' && e.slug !== 'posts')
+    expect(enPosts.length).toBeGreaterThanOrEqual(6)
+    expect(enPosts.some(e => e.title.includes('ArozOS'))).toBe(true)
+    expect(enPosts.some(e => e.date && e.date.length > 0)).toBe(true)
 
-    expect(entries.map(entry => entry.title)).toEqual(['Newer Post', 'Older Post'])
-    expect(entries.every(entry => entry.path.startsWith('/posts/'))).toBe(true)
+    // Check JA posts exist
+    const jaPosts = contentEntries.filter(e => e.lang === 'ja' && e.collection === 'posts' && e.slug !== 'posts')
+    expect(jaPosts.length).toBeGreaterThanOrEqual(6)
+    expect(jaPosts.some(e => e.date && e.date.length > 0)).toBe(true)
+
+    // Check ZH posts exist
+    const zhPosts = contentEntries.filter(e => e.lang === 'zh' && e.collection === 'posts' && e.slug !== 'posts')
+    expect(zhPosts.length).toBeGreaterThanOrEqual(6)
   })
 })

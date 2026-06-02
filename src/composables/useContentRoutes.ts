@@ -33,12 +33,22 @@ function normalizeRouteEntry(route: RouteLike): ContentRouteEntry | null {
   if (!frontmatter?.title || !frontmatter.slug || !frontmatter.type)
     return null
 
+  // Detect locale from route path as fallback
+  let lang = frontmatter.lang
+  if (!lang || !['zh', 'en', 'ja'].includes(lang)) {
+    const segs = route.path.split('/').filter(Boolean)
+    if (segs.length >= 1 && ['en', 'zh', 'ja'].includes(segs[0]))
+      lang = segs[0]
+    else
+      lang = 'zh'
+  }
+
   return {
     path: route.path,
     title: frontmatter.title,
     slug: frontmatter.slug,
     date: frontmatter.date,
-    lang: frontmatter.lang || 'zh',
+    lang,
     summary: frontmatter.summary,
     image: frontmatter.image,
     type: normalizeContentType(frontmatter.type),

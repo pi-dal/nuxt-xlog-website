@@ -1,27 +1,33 @@
 <script setup lang="ts">
-// 跳转到PayPal
+interface Props {
+  buttonText?: string
+  descriptionText?: string
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  buttonText: 'Support me',
+  descriptionText: 'Pay with PayPal (Thank you for your support)',
+})
+
 function createPayment() {
-  // 直接跳转到PayPal.me页面
   window.open('https://www.paypal.com/paypalme/pidal200', '_blank')
 }
 </script>
 
 <template>
   <div class="pay-me-container">
-    <!-- 简洁的支持按钮 -->
     <button
       class="pay-me-button"
       @click="createPayment"
     >
       <div class="flex items-center gap-2">
         <div class="icon i-ri-heart-line" />
-        <span>Support me</span>
+        <span>{{ props.buttonText }}</span>
       </div>
     </button>
 
-    <!-- 简洁的说明文字 -->
     <p class="pay-me-description">
-      Pay with PayPal (Thank you for your support)
+      {{ props.descriptionText }}
     </p>
   </div>
 </template>
@@ -61,7 +67,6 @@ function createPayment() {
   color: inherit;
 }
 
-/* 响应式设计 */
 @media (max-width: 640px) {
   .pay-me-button {
     font-size: 0.85rem;

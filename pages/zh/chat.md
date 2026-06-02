@@ -17,4 +17,4 @@ lang: zh
 
 你可以通过首页的链接联系我。
 
-<PayMe />
+<PayMe button-text="支持我" description-text="通过 PayPal 支持我，感谢你的支持。" />

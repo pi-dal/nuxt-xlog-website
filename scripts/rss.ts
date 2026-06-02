@@ -89,17 +89,19 @@ async function writeFeed(name: string, options: FeedOptions, items: Item[]) {
 }
 
 export async function buildFeeds() {
+  const postPatterns = ['pages/posts/*.md', 'pages/posts/*.vue', 'pages/en/posts/*.md', 'pages/ja/posts/*.md']
   const [postItems, bookItems] = await Promise.all([
-    loadFeedItems(['pages/posts/*.md', 'pages/posts/*.vue', 'pages/en/posts/*.md']),
+    loadFeedItems(postPatterns),
     loadFeedItems(['pages/books/*.md']),
   ])
   const allItems = [...postItems, ...bookItems]
     .sort((a, b) => +new Date(b.date || 0) - +new Date(a.date || 0))
 
   // Language-specific feeds
-  const [zhPostItems, enPostItems] = await Promise.all([
-    loadFeedItems(['pages/posts/*.md', 'pages/posts/*.vue', 'pages/en/posts/*.md'], 'zh'),
-    loadFeedItems(['pages/posts/*.md', 'pages/posts/*.vue', 'pages/en/posts/*.md'], 'en'),
+  const [zhPostItems, enPostItems, jaPostItems] = await Promise.all([
+    loadFeedItems(postPatterns, 'zh'),
+    loadFeedItems(postPatterns, 'en'),
+    loadFeedItems(postPatterns, 'ja'),
   ])
 
   // Always generate combined feeds
@@ -129,6 +131,11 @@ export async function buildFeeds() {
     'en/feed',
     createFeedOptions(`${siteConfig.author.name} - English Posts`, 'English blog posts from pi-dal', '/en/posts/', '/en/feed.xml'),
     enPostItems,
+  )
+  await writeFeed(
+    'ja/feed',
+    createFeedOptions(`${siteConfig.author.name} - 日本語記事`, 'pi-dal の日本語ブログ記事', '/ja/posts/', '/ja/feed.xml'),
+    jaPostItems,
   )
 
   const canonicalUrls = await collectCanonicalUrls(siteConfig.url, {

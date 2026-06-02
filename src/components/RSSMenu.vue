@@ -85,6 +85,16 @@ onUnmounted(() => {
           </a>
 
           <a
+            href="/ja/feed.xml"
+            target="_blank"
+            class="rss-menu-item"
+            @click="closeMenu"
+          >
+            <div i-ri-article-line class="rss-menu-icon" />
+            <span>日本語記事</span>
+          </a>
+
+          <a
             href="/books-feed.xml"
             target="_blank"
             class="rss-menu-item"

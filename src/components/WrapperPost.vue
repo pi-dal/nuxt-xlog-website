@@ -108,7 +108,7 @@ const parentRoute = computed(() => {
 
   // For locale-prefixed routes (/en/posts/xxx -> /en/posts, /zh/posts/xxx -> /zh/posts)
   const segments = route.path.split('/').filter(Boolean)
-  if (segments.length >= 2 && (segments[0] === 'en' || segments[0] === 'zh')) {
+  if (segments.length >= 2 && (segments[0] === 'en' || segments[0] === 'zh' || segments[0] === 'ja')) {
     return `/${segments[0]}/${segments[1]}` || '/'
   }
 

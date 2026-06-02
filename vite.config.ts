@@ -73,7 +73,11 @@ export default defineConfig({
           return
 
         if (!path.includes('projects.md') && path.endsWith('.md')) {
-          const { data } = matter(fs.readFileSync(path, 'utf-8'))
+          const raw = fs.readFileSync(path, 'utf-8')
+          // Skip Vue-enhanced .md files without frontmatter
+          if (raw.startsWith('<script') || raw.startsWith('<template'))
+            return
+          const { data } = matter(raw)
           const routePathOverride = resolveRoutePathOverride({
             filePath: path,
             frontmatter: data,

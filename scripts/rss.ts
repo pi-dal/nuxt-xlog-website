@@ -89,7 +89,7 @@ async function writeFeed(name: string, options: FeedOptions, items: Item[]) {
 }
 
 export async function buildFeeds() {
-  const postPatterns = ['pages/posts/*.md', 'pages/posts/*.vue', 'pages/en/posts/*.md', 'pages/ja/posts/*.md']
+  const postPatterns = ['pages/posts/*.md', 'pages/posts/*.vue', 'pages/en/posts/*.md', 'pages/en/posts/*.vue', 'pages/ja/posts/*.md', 'pages/ja/posts/*.vue']
   const [postItems, bookItems] = await Promise.all([
     loadFeedItems(postPatterns),
     loadFeedItems(['pages/books/*.md']),

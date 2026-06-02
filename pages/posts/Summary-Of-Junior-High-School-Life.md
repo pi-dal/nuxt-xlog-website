@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: 初中生活总结
 slug: Summary-Of-Junior-High-School-Life
 type: post

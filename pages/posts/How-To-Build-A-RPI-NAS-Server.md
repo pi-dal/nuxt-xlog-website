@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: 树莓派NAS搭建
 slug: How-To-Build-A-RPI-NAS-Server
 type: post

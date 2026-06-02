@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: 树莓派 ArozOS 指北
 slug: ArozOS-RPI-Tutorial
 type: post

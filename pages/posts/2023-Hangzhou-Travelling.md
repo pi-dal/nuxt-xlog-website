@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: 2023年物竞外出培训—杭州行
 slug: 2023-Hangzhou-Travelling
 type: post

@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: 2022湖南之旅
 slug: 2022-Hunan-Travelling
 type: post

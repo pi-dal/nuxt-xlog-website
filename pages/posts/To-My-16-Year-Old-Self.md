@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: 写给16岁的自己
 slug: To-My-16-Year-Old-Self
 type: post

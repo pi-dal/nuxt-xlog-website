@@ -52,8 +52,9 @@ export async function onRequest(context) {
   const url = new URL(context.request.url)
   const request = context.request
 
-  // Root path: redirect based on Accept-Language or cookie
-  if (url.pathname === '/') {
+  // Redirect root, /posts, /books, /projects, /chat to locale-specific pages
+  const REDIRECT_PATHS = ['/', '/posts', '/posts/', '/books', '/books/', '/projects', '/projects/', '/chat', '/chat/']
+  if (REDIRECT_PATHS.includes(url.pathname)) {
     const cookieLocale = getLocaleCookie(request)
     if (cookieLocale && LOCALE_PATHS[cookieLocale]) {
       return new Response(null, {

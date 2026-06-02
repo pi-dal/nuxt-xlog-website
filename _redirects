@@ -9,9 +9,6 @@
 /zh/category/* /posts 301
 /zh/tags/* /posts 301
 
-/posts /zh/posts 302
-/posts/ /zh/posts 302
-
 /en /en/posts 302
 /ja /ja/posts 302
 /zh /zh/posts 302

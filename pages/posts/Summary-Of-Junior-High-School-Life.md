@@ -1,5 +1,4 @@
 ---
-lang: zh
 title: 初中生活总结
 slug: Summary-Of-Junior-High-School-Life
 type: post
@@ -11,7 +10,6 @@ tags:
   - Summary
 ---
 
-lang: zh
 ![](https://images.unsplash.com/photo-1585637071663-799845ad5212?ixlib=rb-1.2.1&q=80&cs=tinysrgb&fm=jpg&crop=entropy)
 
 今天是2022年6月28日，是我中考结束的日子，也是代表我初中生活落下帷幕的日子。

@@ -1,5 +1,4 @@
 ---
-lang: zh
 title: 树莓派NAS搭建
 slug: How-To-Build-A-RPI-NAS-Server
 type: post
@@ -11,7 +10,6 @@ tags:
   - Raspberry Pi
 ---
 
-lang: zh
 ![72FCD024-BF9C-4FFB-897A-A6C38B4DDCAD.jpeg](/article-assets/How-To-Build-A-RPI-NAS-Server/72FCD024-BF9C-4FFB-897A-A6C38B4DDCAD.jpeg)
 
 # 源起（踩坑）

@@ -1,5 +1,4 @@
 ---
-lang: zh
 title: 树莓派 ArozOS 指北
 slug: ArozOS-RPI-Tutorial
 type: post
@@ -12,7 +11,6 @@ tags:
   - Web
 ---
 
-lang: zh
 ![](https://github.com/tobychui/arozos/blob/master/img/banner.png?raw=true)
 
 # 为什么选择ArozOS

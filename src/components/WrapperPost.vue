@@ -106,6 +106,12 @@ const parentRoute = computed(() => {
   if (frontmatter.type === 'note')
     return '/notes'
 
+  // For locale-prefixed routes (/en/posts/xxx -> /en/posts, /zh/posts/xxx -> /zh/posts)
+  const segments = route.path.split('/').filter(Boolean)
+  if (segments.length >= 2 && (segments[0] === 'en' || segments[0] === 'zh')) {
+    return `/${segments[0]}/${segments[1]}` || '/'
+  }
+
   // Original logic for other types
   return route.path.startsWith('/zh/') ? '/posts' : (route.path.split('/').slice(0, -1).join('/') || '/')
 })

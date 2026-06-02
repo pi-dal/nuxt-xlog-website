@@ -10,22 +10,26 @@ interface Props {
   description: string
   emptyMessage?: string
   lang?: string
+  path?: string
   title: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   emptyMessage: 'Nothing here yet.',
   lang: undefined,
+  path: undefined,
 })
 
 const entries = useContentRoutes({ collection: props.collection, lang: props.lang })
 const groups = computed(() => groupContentEntriesByYear(entries.value))
 const yearHeadingClassNames = getYearHeadingClassNames()
 
+const collectionPath = computed(() => props.path || `/${props.collection}`)
+
 useHead(() => buildCollectionPageHead({
   collection: props.collection,
   description: props.description,
-  path: `/${props.collection}`,
+  path: collectionPath.value,
   title: props.title,
 }))
 </script>

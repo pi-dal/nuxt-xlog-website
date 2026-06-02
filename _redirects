@@ -10,6 +10,8 @@
 /zh/tags/* /posts 301
 
 /en /en/posts 302
+/ja /ja/posts 302
+/zh /zh/posts 302
 
 /de /posts 301
 /de/* /zh/:splat 301

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const route = useRoute()
+
 function toTop() {
   window.scrollTo({
     top: 0,
@@ -7,6 +9,19 @@ function toTop() {
 }
 
 const { y: scroll } = useWindowScroll()
+
+const LOCALES = [
+  { code: 'zh', label: '中文', path: '/zh/posts' },
+  { code: 'en', label: 'EN', path: '/en/posts' },
+  { code: 'ja', label: 'JA', path: '/ja/posts' },
+]
+
+const currentLocale = computed(() => {
+  const segs = route.path.split('/').filter(Boolean)
+  if (segs.length >= 1 && ['zh', 'en', 'ja'].includes(segs[0]))
+    return segs[0]
+  return 'zh'
+})
 </script>
 
 <template>
@@ -48,6 +63,20 @@ const { y: scroll } = useWindowScroll()
         <a href="https://photography.pi-dal.com" target="_blank" title="Photos">
           <div i-ri-camera-3-line />
         </a>
+
+        <!-- Locale switcher -->
+        <div class="locale-nav">
+          <RouterLink
+            v-for="loc in LOCALES"
+            :key="loc.code"
+            :to="loc.path"
+            class="locale-nav-link"
+            :class="{ active: loc.code === currentLocale }"
+          >
+            {{ loc.label }}
+          </RouterLink>
+        </div>
+
         <div class="lt-md:hidden">
           <RSSMenu />
         </div>
@@ -136,5 +165,35 @@ const { y: scroll } = useWindowScroll()
 
 .nav .right > * {
   margin: auto;
+}
+
+/* Locale switcher */
+.locale-nav {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.locale-nav-link {
+  font-size: 0.72rem !important;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 2px 5px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.5;
+}
+
+.locale-nav-link:hover {
+  opacity: 1;
+  border-color: currentColor;
+}
+
+.locale-nav-link.active {
+  opacity: 1;
+  border-color: currentColor;
 }
 </style>

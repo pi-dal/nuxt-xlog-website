@@ -15,30 +15,19 @@ const LOCALE_PATHS = {
   'ja-JP': '/ja/posts',
 }
 
-function parseAcceptLanguage(acceptLanguage) {
+function bestLocale(acceptLanguage) {
   if (!acceptLanguage)
     return null
-  const langs = acceptLanguage
-    .split(',')
-    .map((l) => {
-      const [lang, q = 'q=1'] = l.trim().split(';')
-      const quality = Number.parseFloat(q.replace('q=', '')) || 1
-      return { lang: lang.trim(), quality }
-    })
-    .sort((a, b) => b.quality - a.quality)
-  return langs[0]?.lang || null
-}
-
-function resolveLocalePath(acceptLanguage) {
-  const lang = parseAcceptLanguage(acceptLanguage)
-  if (!lang)
-    return null
-  // Try exact match first, then prefix match
-  if (LOCALE_PATHS[lang])
-    return LOCALE_PATHS[lang]
-  const prefix = lang.split('-')[0]
-  if (LOCALE_PATHS[prefix])
-    return LOCALE_PATHS[prefix]
+  const langs = acceptLanguage.split(',')
+  for (const entry of langs) {
+    const [lang] = entry.trim().split(';')
+    const code = lang.trim()
+    if (LOCALE_PATHS[code])
+      return LOCALE_PATHS[code]
+    const prefix = code.split('-')[0]
+    if (LOCALE_PATHS[prefix])
+      return LOCALE_PATHS[prefix]
+  }
   return null
 }
 
@@ -61,45 +50,41 @@ function getLocaleCookie(request) {
 
 export async function onRequest(context) {
   const url = new URL(context.request.url)
+  const request = context.request
 
-  function setLocaleCookie(headers, locale) {
-    if (locale && LOCALE_PATHS[locale]) {
-      headers.append('Set-Cookie', `locale=${locale}; Path=/; Max-Age=31536000; SameSite=Lax`)
-    }
-  }
-
-  // Locale auto-redirect for root path
+  // Root path: redirect based on Accept-Language or cookie
   if (url.pathname === '/') {
-    const cookieLocale = getLocaleCookie(context.request)
+    const cookieLocale = getLocaleCookie(request)
     if (cookieLocale && LOCALE_PATHS[cookieLocale]) {
-      return Response.redirect(new URL(LOCALE_PATHS[cookieLocale], url.origin).href, 302)
+      return new Response(null, {
+        status: 302,
+        headers: { Location: LOCALE_PATHS[cookieLocale] },
+      })
     }
-    const acceptLang = context.request.headers.get('Accept-Language')
-    const localePath = resolveLocalePath(acceptLang)
+    const localePath = bestLocale(request.headers.get('Accept-Language'))
     if (localePath) {
-      const redirectUrl = new URL(localePath, url.origin)
-      redirectUrl.search = url.search
-      const locale = Object.entries(LOCALE_PATHS).find(([, v]) => v === localePath)?.[0]
-      const response = Response.redirect(redirectUrl.href, 302)
-      if (locale)
-        setLocaleCookie(response.headers, locale)
-      return response
+      const locale = Object.keys(LOCALE_PATHS).find(k => LOCALE_PATHS[k] === localePath)
+      const headers = { Location: localePath }
+      if (locale) {
+        headers['Set-Cookie'] = `locale=${locale}; Path=/; Max-Age=31536000; SameSite=Lax`
+      }
+      return new Response(null, { status: 302, headers })
     }
   }
 
   const response = await context.next()
   const headers = new Headers(response.headers)
 
-  // Set locale cookie from URL path for non-root responses
-  const pathSegments = url.pathname.split('/').filter(Boolean)
-  if (pathSegments.length >= 1 && ['en', 'zh', 'ja'].includes(pathSegments[0])) {
-    setLocaleCookie(headers, pathSegments[0])
-  }
-
   if (shouldAttachDiscoveryHeaders(url, response))
     headers.set('Link', getDiscoveryLinkHeaderValue())
 
-  if (!wantsMarkdown(context.request, response))
+  // Set locale cookie from URL for non-root pages
+  const segs = url.pathname.split('/').filter(Boolean)
+  if (segs.length >= 1 && ['en', 'zh', 'ja'].includes(segs[0])) {
+    headers.append('Set-Cookie', `locale=${segs[0]}; Path=/; Max-Age=31536000; SameSite=Lax`)
+  }
+
+  if (!wantsMarkdown(request, response))
     return new Response(response.body, { headers, status: response.status, statusText: response.statusText })
 
   const html = await response.text()

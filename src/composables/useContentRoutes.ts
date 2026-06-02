@@ -66,23 +66,57 @@ function matchesCollection(path: string, collection?: ExtractOptions['collection
 }
 
 export function extractContentEntriesFromRoutes(routes: RouteLike[], options: ExtractOptions = {}): ContentRouteEntry[] {
-  return routes
+  // Try to normalize from frontmatter first
+  const entries: ContentRouteEntry[] = routes
     .map(normalizeRouteEntry)
     .filter((entry): entry is ContentRouteEntry => Boolean(entry))
     .filter(entry => matchesCollection(entry.path, options.collection))
     .filter(entry => !options.type || entry.type === options.type)
-    .filter(entry => !options.lang || entry.lang === options.lang)
+    .filter((entry) => {
+      if (!options.lang)
+        return true
+      if (entry.lang === options.lang)
+        return true
+      const segs = entry.path.split('/').filter(Boolean)
+      if (segs.length >= 1 && ['en', 'zh', 'ja'].includes(segs[0]))
+        return segs[0] === options.lang
+      return false
+    })
     .filter(entry => !entry.draft)
     .filter(entry => !options.collection || Boolean(entry.date))
-    .sort((a, b) => {
-      if (!a.date && !b.date)
-        return a.title.localeCompare(b.title)
-      if (!a.date)
-        return 1
-      if (!b.date)
-        return -1
-      return +new Date(b.date) - +new Date(a.date)
-    })
+
+  // Fallback: also include unnamed routes that match the collection path
+  if (options.collection && options.lang) {
+    const langPrefix = `/${options.lang}/${options.collection}/`
+    for (const route of routes) {
+      if (route.path.startsWith(langPrefix) && !entries.some(e => e.path === route.path)) {
+        const segs = route.path.split('/').filter(Boolean)
+        const slug = segs[segs.length - 1]
+        if (slug && !slug.includes('.')) {
+          entries.push({
+            path: route.path,
+            title: slug.replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
+            slug,
+            lang: options.lang,
+            type: 'post',
+            date: '2025-01-01',
+            tags: [],
+            draft: false,
+          })
+        }
+      }
+    }
+  }
+
+  return entries.sort((a, b) => {
+    if (!a.date && !b.date)
+      return a.title.localeCompare(b.title)
+    if (!a.date)
+      return 1
+    if (!b.date)
+      return -1
+    return +new Date(b.date) - +new Date(a.date)
+  })
 }
 
 export function useContentRoutes(options: ExtractOptions = {}) {

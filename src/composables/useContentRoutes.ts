@@ -6,6 +6,7 @@ export interface ContentRouteEntry {
   date?: string
   draft: boolean
   image?: string
+  lang?: string
   path: string
   slug: string
   summary?: string
@@ -23,6 +24,7 @@ interface RouteLike {
 
 interface ExtractOptions {
   collection?: 'books' | 'posts'
+  lang?: string
   type?: ContentType
 }
 
@@ -36,6 +38,7 @@ function normalizeRouteEntry(route: RouteLike): ContentRouteEntry | null {
     title: frontmatter.title,
     slug: frontmatter.slug,
     date: frontmatter.date,
+    lang: frontmatter.lang || 'zh',
     summary: frontmatter.summary,
     image: frontmatter.image,
     type: normalizeContentType(frontmatter.type),
@@ -58,6 +61,7 @@ export function extractContentEntriesFromRoutes(routes: RouteLike[], options: Ex
     .filter((entry): entry is ContentRouteEntry => Boolean(entry))
     .filter(entry => matchesCollection(entry.path, options.collection))
     .filter(entry => !options.type || entry.type === options.type)
+    .filter(entry => !options.lang || entry.lang === options.lang)
     .filter(entry => !entry.draft)
     .filter(entry => !options.collection || Boolean(entry.date))
     .sort((a, b) => {

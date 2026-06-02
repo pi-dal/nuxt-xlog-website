@@ -9,14 +9,16 @@ interface Props {
   collection: 'books' | 'posts'
   description: string
   emptyMessage?: string
+  lang?: string
   title: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   emptyMessage: 'Nothing here yet.',
+  lang: undefined,
 })
 
-const entries = useContentRoutes({ collection: props.collection })
+const entries = useContentRoutes({ collection: props.collection, lang: props.lang })
 const groups = computed(() => groupContentEntriesByYear(entries.value))
 const yearHeadingClassNames = getYearHeadingClassNames()
 

@@ -42,6 +42,7 @@ meta:
     title: 如何用四维矢量来解决狭义相对论问题（电磁学与动力学）
     slug: STR-Four-Vector-Electromagnetism-and-Dynamics
     type: post
+    lang: zh
     date: 2025-10-07T00:00:00.000Z
     summary: 在上篇文章介绍了基础的时空与碰撞变换之后，本文进一步探讨四维矢量在电磁学与动力学中的应用。从四维电流密度、电磁场张量到麦克斯韦方程的四维形式，再到洛伦兹力的协变性证明，展示了狭义相对论框架下电磁规律的统一之美。
     image: https://pi-dal.com/og/STR-Four-Vector-Electromagnetism-and-Dynamics.png

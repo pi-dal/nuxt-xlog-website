@@ -35,7 +35,7 @@ function escapeXml(value: string) {
     .replaceAll('\'', '&apos;')
 }
 
-async function loadFeedItems(patterns: string[]): Promise<Item[]> {
+async function loadFeedItems(patterns: string[], lang?: string): Promise<Item[]> {
   const entries = await loadMarkdownContentEntries({
     baseUrl: siteConfig.url,
     patterns,
@@ -44,6 +44,7 @@ async function loadFeedItems(patterns: string[]): Promise<Item[]> {
 
   return entries
     .filter(entry => !entry.filePath.endsWith('/index.md'))
+    .filter(entry => !lang || entry.frontmatter.lang === lang)
     .map(entry => ({
       title: entry.frontmatter.title,
       id: entry.url,
@@ -89,12 +90,19 @@ async function writeFeed(name: string, options: FeedOptions, items: Item[]) {
 
 export async function buildFeeds() {
   const [postItems, bookItems] = await Promise.all([
-    loadFeedItems(['pages/posts/*.md']),
+    loadFeedItems(['pages/posts/*.md', 'pages/posts/*.vue']),
     loadFeedItems(['pages/books/*.md']),
   ])
   const allItems = [...postItems, ...bookItems]
     .sort((a, b) => +new Date(b.date || 0) - +new Date(a.date || 0))
 
+  // Language-specific feeds
+  const [zhPostItems, enPostItems] = await Promise.all([
+    loadFeedItems(['pages/posts/*.md', 'pages/posts/*.vue'], 'zh'),
+    loadFeedItems(['pages/posts/*.md', 'pages/posts/*.vue'], 'en'),
+  ])
+
+  // Always generate combined feeds
   await writeFeed(
     'feed',
     createFeedOptions(siteConfig.title, `${siteConfig.author.name}'s blog and reading notes`, '/', '/feed.xml'),
@@ -109,6 +117,18 @@ export async function buildFeeds() {
     'books-feed',
     createFeedOptions(`${siteConfig.author.name} - Reading Notes`, `${siteConfig.author.name}'s reading notes`, '/books/', '/books-feed.xml'),
     bookItems,
+  )
+
+  // Language-specific RSS feeds
+  await writeFeed(
+    'zh/feed',
+    createFeedOptions(`${siteConfig.author.name} - 中文文章`, 'pi-dal 的中文博客文章', '/zh/posts/', '/zh/feed.xml'),
+    zhPostItems,
+  )
+  await writeFeed(
+    'en/feed',
+    createFeedOptions(`${siteConfig.author.name} - English Posts`, 'English blog posts from pi-dal', '/en/posts/', '/en/feed.xml'),
+    enPostItems,
   )
 
   const canonicalUrls = await collectCanonicalUrls(siteConfig.url, {

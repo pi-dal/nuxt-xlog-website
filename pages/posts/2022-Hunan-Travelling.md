@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: 2022湖南之旅
 slug: 2022-Hunan-Travelling
 type: post
@@ -8,6 +9,7 @@ tags:
   - Travelling
 ---
 
+lang: zh
 ![AD28AB24-4BA5-4E9D-AF0D-63D3D4E13DA2.jpeg](/article-assets/2022-Hunan-Travelling/AD28AB24-4BA5-4E9D-AF0D-63D3D4E13DA2.jpeg)
 
 在初三的这个比较特别的暑假，我与外公外婆来到了湖南，开启了一段蛮有意思的旅程。

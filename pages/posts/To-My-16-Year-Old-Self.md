@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: 写给16岁的自己
 slug: To-My-16-Year-Old-Self
 type: post
@@ -9,6 +10,7 @@ tags:
   - Study
 ---
 
+lang: zh
 ![](https://images.unsplash.com/photo-1604134967494-8a9ed3adea0d?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb)
 
 鸽鸽鸽，没想到已经快一年没更新博客啦。主要原因是上高中太忙了（全是借口：D）。

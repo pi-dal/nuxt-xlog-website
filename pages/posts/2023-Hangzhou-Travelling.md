@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: 2023年物竞外出培训—杭州行
 slug: 2023-Hangzhou-Travelling
 type: post
@@ -9,6 +10,7 @@ tags:
   - Travelling
 ---
 
+lang: zh
 ![IMG_1143.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1143.jpeg)
 
 在七月八号学考结束的隔天，我们物理营从高铁站出发，历经8小时来到杭州，开始了18天的杭州行。

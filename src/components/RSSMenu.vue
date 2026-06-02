@@ -63,6 +63,27 @@ onUnmounted(() => {
             <span>Blog Posts</span>
           </a>
 
+          <!-- Language-specific feeds -->
+          <a
+            href="/zh/feed.xml"
+            target="_blank"
+            class="rss-menu-item"
+            @click="closeMenu"
+          >
+            <div i-ri-article-line class="rss-menu-icon" />
+            <span>中文文章</span>
+          </a>
+
+          <a
+            href="/en/feed.xml"
+            target="_blank"
+            class="rss-menu-item"
+            @click="closeMenu"
+          >
+            <div i-ri-article-line class="rss-menu-icon" />
+            <span>English Posts</span>
+          </a>
+
           <a
             href="/books-feed.xml"
             target="_blank"

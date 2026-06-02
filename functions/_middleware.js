@@ -53,6 +53,7 @@ export async function onRequest(context) {
   const request = context.request
 
   // Redirect root, /posts, /books, /projects, /chat to locale-specific pages
+  // Always redirects — never serves these as entity pages
   const REDIRECT_PATHS = ['/', '/posts', '/posts/', '/books', '/books/', '/projects', '/projects/', '/chat', '/chat/']
   if (REDIRECT_PATHS.includes(url.pathname)) {
     const cookieLocale = getLocaleCookie(request)
@@ -71,6 +72,8 @@ export async function onRequest(context) {
       }
       return new Response(null, { status: 302, headers })
     }
+    // Fallback: always redirect, never serve entity page
+    return new Response(null, { status: 302, headers: { Location: '/zh/posts' } })
   }
 
   const response = await context.next()

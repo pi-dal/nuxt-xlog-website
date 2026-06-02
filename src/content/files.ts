@@ -47,6 +47,11 @@ export async function loadMarkdownContentEntries(options: LoadMarkdownContentEnt
 
   const entries = await Promise.all(filePaths.map(async (filePath) => {
     const raw = await readFile(filePath, 'utf8')
+
+    // Skip Vue-enhanced .md files without frontmatter (start with <script setup> or <template>)
+    if (raw.startsWith('<script') || raw.startsWith('<template'))
+      return null
+
     const { data, content } = matter(raw)
     if (data.draft)
       return null

@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: 《心：稻盛和夫的一生嘱托（“稻盛哲学”集大成之作）》读书笔记
 slug: reading-notes-xin-sheng-xue-cheng
 type: book

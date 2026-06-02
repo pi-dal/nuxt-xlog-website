@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: 《埃隆·马斯克 - Elon Musk》读书笔记
 slug: 埃隆-马斯克-elon-musk
 type: book

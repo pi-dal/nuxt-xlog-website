@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: '《Total Freedom: The Essential Krishnamurti》读书笔记'
 slug: total-freedom-the-essential-krishnamurti
 type: book

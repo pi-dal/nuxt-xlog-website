@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: 《Make Something Wonderful》读书笔记
 slug: make-something-wonderful
 type: book

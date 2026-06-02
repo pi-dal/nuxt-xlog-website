@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: 《Empire of AI》读书笔记
 slug: empire-of-ai
 type: book

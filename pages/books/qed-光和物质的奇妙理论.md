@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: "《QED：光和物质的奇妙理论》读书笔记"
 slug: "qed-光和物质的奇妙理论"
 type: book

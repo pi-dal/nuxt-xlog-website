@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: 《manual》读书笔记
 slug: manual
 type: book

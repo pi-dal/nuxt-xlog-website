@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: >-
   《Idea Makers: Personal Perspectives on the Lives & Ideas of Some Notable
   People》读书笔记

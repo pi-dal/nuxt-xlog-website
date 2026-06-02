@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: 《How AI Will Revolutionize Education (and Why That's a Good Thing)》读书笔记
 slug: how-ai-will-revolutionize-education-and-why-that-s-a-good-thing
 type: book

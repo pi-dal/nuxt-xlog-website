@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: 《My Beginnings》读书笔记
 slug: my-beginnings
 type: book

@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: 《A Brief History of Information Networks from the Stone Age to AI》读书笔记
 slug: a-brief-history-of-information-networks-from-the-stone-age-to-ai
 type: book

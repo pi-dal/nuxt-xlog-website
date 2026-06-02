@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: '《Clear Thinking: Turning Ordinary Moments into Extraordinary Results》读书笔记'
 slug: clear-thinking-turning-ordinary-moments-into-extraordinary-results
 type: book

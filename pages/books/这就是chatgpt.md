@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: "《这就是ChatGPT》读书笔记"
 slug: "这就是chatgpt"
 type: book

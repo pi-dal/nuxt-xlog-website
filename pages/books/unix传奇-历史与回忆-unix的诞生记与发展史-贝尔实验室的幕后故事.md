@@ -1,4 +1,5 @@
 ---
+lang: zh
 title: 《UNIX传奇：历史与回忆（UNIX的诞生记与发展史，贝尔实验室的幕后故事！ ）》读书笔记
 slug: unix传奇-历史与回忆-unix的诞生记与发展史-贝尔实验室的幕后故事
 type: book

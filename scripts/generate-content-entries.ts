@@ -102,14 +102,23 @@ async function run() {
       if (!slug)
         continue
 
-      // Determine locale from path
+      // Determine locale and collection from path
       const relPath = file.replace(/^pages\//, '')
       const segs = relPath.split('/')
-      const pathLocale = (segs.length >= 1 && ['en', 'zh', 'ja'].includes(segs[0])) ? segs[0] : 'zh'
-      const collection = (segs.length >= 2 && ['posts', 'books'].includes(segs[1])) ? segs[1] : 'posts'
+      const isLocalePath = segs.length >= 1 && ['en', 'zh', 'ja'].includes(segs[0])
+      const pathLocale = isLocalePath ? segs[0] : 'zh'
+      // Collection is segs[0] for root paths (posts/xxx), segs[1] for locale paths (zh/posts/xxx)
+      const collection = isLocalePath
+        ? (segs[1] || 'posts')
+        : (['posts', 'books'].includes(segs[0]) ? segs[0] : 'posts')
+
+      // Path: use locale prefix for locale paths, no prefix for zh root paths
+      const path = isLocalePath
+        ? `/${relPath.replace(/\.(md|vue)$/, '')}`
+        : `/${relPath.replace(/^pages\//, '').replace(/\.(md|vue)$/, '')}`
 
       entries.push({
-        path: `/${relPath.replace(/\.(md|vue)$/, '')}`,
+        path,
         title: fm.title || slug.replace(/[-_]/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase()),
         slug,
         lang: fm.lang || pathLocale,

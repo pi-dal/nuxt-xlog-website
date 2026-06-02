@@ -100,6 +100,28 @@ html.dark .prose {
   width: 100%;
 }
 
+/* Image loading: fade-in with aspect-ratio placeholder */
+.prose img:not([src*='.svg']) {
+  aspect-ratio: auto;
+  background: #f0f0f0;
+  animation: img-fade-in 0.4s ease-out;
+}
+
+html.dark .prose img:not([src*='.svg']) {
+  background: #1a1a1a;
+}
+
+@keyframes img-fade-in {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
 .prose p > img {
   width: 100%;
   --uno: shadow rounded-lg;

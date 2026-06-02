@@ -87,6 +87,8 @@ function toggleMobileToc() {
       <!-- Mobile TOC content (collapsible) -->
       <div v-if="isMobileOpen" class="mobile-toc-overlay" @click="closeMobileToc">
         <div class="mobile-toc-content" role="dialog" aria-modal="true" aria-labelledby="mobile-toc-title" @click.stop>
+          <!-- Drag handle indicator -->
+          <div class="mobile-toc-handle" />
           <div class="mobile-toc-header">
             <h3 id="mobile-toc-title">
               Table of Contents
@@ -168,7 +170,7 @@ function toggleMobileToc() {
 
 .toc-content {
   opacity: 0;
-  transition: opacity 0.7s ease;
+  transition: opacity 0.25s ease;
   margin-top: 4px;
   max-height: calc(60vh - 40px);
   overflow-y: auto;
@@ -253,7 +255,7 @@ function toggleMobileToc() {
 
 .mobile-toc-button {
   position: fixed;
-  bottom: 20px;
+  bottom: 80px;
   right: 20px;
   width: var(--toc-mobile-button-size);
   height: var(--toc-mobile-button-size);
@@ -264,7 +266,7 @@ function toggleMobileToc() {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   color: #6b7280;
   z-index: var(--toc-z-index-mobile);
@@ -273,7 +275,7 @@ function toggleMobileToc() {
 .mobile-toc-button:hover {
   background: rgba(255, 255, 255, 1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .mobile-toc-button.active {
@@ -302,7 +304,7 @@ function toggleMobileToc() {
   z-index: var(--toc-z-index-overlay);
   display: flex;
   align-items: flex-end;
-  animation: fadeIn 0.3s ease;
+  animation: fadeIn 0.2s ease;
 }
 
 .mobile-toc-content {
@@ -311,13 +313,23 @@ function toggleMobileToc() {
   max-height: 70vh;
   border-radius: 16px 16px 0 0;
   overflow: hidden;
-  animation: slideUp 0.3s ease;
+  animation: slideUp 0.25s cubic-bezier(0.32, 0.72, 0, 1);
   display: flex;
   flex-direction: column;
 }
 
 .dark .mobile-toc-content {
   background: #1f2937;
+}
+
+/* Drag handle indicator for bottom sheet */
+.mobile-toc-handle {
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(156, 163, 175, 0.4);
+  margin: 8px auto 0;
+  flex-shrink: 0;
 }
 
 .mobile-toc-header {
@@ -409,7 +421,7 @@ function toggleMobileToc() {
 
 @keyframes slideUp {
   from {
-    transform: translateY(100%);
+    transform: translateY(80%);
   }
   to {
     transform: translateY(0);

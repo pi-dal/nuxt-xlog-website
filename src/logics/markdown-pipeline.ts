@@ -152,6 +152,29 @@ export function buildMarkdownPipelineConfig(options: MarkdownPipelineOptions = {
   }
 }
 
+export function applyMarkdownImagePlugin(md: any) {
+  const defaultRender = md.renderer.rules.image || ((tokens: any[], idx: number, options: any, env: any, self: any) => {
+    return self.renderToken(tokens, idx, options)
+  })
+
+  md.renderer.rules.image = (tokens: any[], idx: number, options: any, env: any, self: any) => {
+    const token = tokens[idx]
+    // Get existing attrs
+    const srcAttr = token.attrs?.find((a: [string, string]) => a[0] === 'src')
+    const altAttr = token.attrs?.find((a: [string, string]) => a[0] === 'alt')
+
+    if (!srcAttr)
+      return defaultRender(tokens, idx, options, env, self)
+
+    // Build modern img tag with lazy loading and decoding
+    const src = srcAttr[1]
+    const alt = altAttr ? altAttr[1] : ''
+    const cls = token.attrs?.find((a: [string, string]) => a[0] === 'class')?.[1] || ''
+
+    return `<img src="${src}" alt="${alt}" loading="lazy" decoding="async"${cls ? ` class="${cls}"` : ''}>`
+  }
+}
+
 export async function applyMarkdownPipeline(md: MarkdownPipelineTarget, options: MarkdownPipelineOptions = {}) {
   const config = buildMarkdownPipelineConfig(options)
 
@@ -166,4 +189,7 @@ export async function applyMarkdownPipeline(md: MarkdownPipelineTarget, options:
   md.use(TOC, config.toc)
   md.use(MarkdownItMagicLink, config.magicLink)
   md.use(GitHubAlerts)
+
+  // Add lazy loading to all markdown-rendered images
+  applyMarkdownImagePlugin(md)
 }

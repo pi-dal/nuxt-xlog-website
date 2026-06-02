@@ -100,21 +100,15 @@ html.dark .prose {
   width: 100%;
 }
 
-/* Image loading: fade-in with aspect-ratio placeholder */
-.prose img:not([src*='.svg']) {
-  aspect-ratio: auto;
-  background: #f0f0f0;
-  animation: img-fade-in 0.4s ease-out;
+/* Image reveal: subtle fade-in + blur-out for lazy-loaded images */
+.prose img[loading='lazy'] {
+  animation: img-reveal 0.35s ease-out;
 }
 
-html.dark .prose img:not([src*='.svg']) {
-  background: #1a1a1a;
-}
-
-@keyframes img-fade-in {
+@keyframes img-reveal {
   from {
     opacity: 0;
-    filter: blur(4px);
+    filter: blur(3px);
   }
   to {
     opacity: 1;

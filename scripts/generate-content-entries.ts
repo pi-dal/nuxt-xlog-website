@@ -20,32 +20,55 @@ interface ContentEntry {
   collection: string
 }
 
-function extractSlug(filePath: string): string | null {
-  // Try frontmatter first
-  try {
-    const raw = readFileSync(filePath, 'utf8')
-    if (raw.startsWith('---')) {
-      const { data } = matter(raw)
-      if (data.slug)
-        return data.slug
-    }
-  }
-  catch {}
-  // Fall back to filename
-  const name = filePath.split('/').pop() || ''
-  return name.replace(/\.(md|vue)$/, '')
+/** Check if file is a collection index page (e.g., posts/index.md) */
+function isIndexFile(filePath: string): boolean {
+  return /\/index\.[a-z]+$/i.test(filePath)
 }
 
-function extractFrontmatter(filePath: string): Record<string, any> {
+/**
+ * Extract metadata from a content file.
+ * Handles:
+ * - Standard .md files with YAML frontmatter (---
+ * - .vue files with <route lang="yaml"> blocks
+ */
+function extractMeta(filePath: string): { slug: string | null, fm: Record<string, any> } {
   try {
     const raw = readFileSync(filePath, 'utf8')
+
+    // Standard YAML frontmatter
     if (raw.startsWith('---')) {
       const { data } = matter(raw)
-      return data
+      return { slug: data.slug || null, fm: data }
+    }
+
+    // .vue files: parse <route lang="yaml"> blocks for frontmatter
+    if (filePath.endsWith('.vue')) {
+      const routeMatch = raw.match(/<route\s+lang="yaml">([\s\S]*?)<\/route>/)
+      if (routeMatch) {
+        const yaml = routeMatch[1]
+        // Extract frontmatter fields from YAML
+        const fmLine = yaml.match(/frontmatter:\s*\n([\s\S]*?)(?:^\s\S|\n\n|\n$)/m)
+        if (fmLine) {
+          const fmBlock = fmLine[1]
+          const fm: Record<string, any> = {}
+          for (const line of fmBlock.split('\n')) {
+            const match = line.match(/^\s+(\w+):\s*(.*)/)
+            if (match) {
+              const val = match[2].trim()
+              // Remove quotes
+              fm[match[1]] = val.replace(/^['"]|['"]$/g, '')
+            }
+          }
+          return { slug: fm.slug || null, fm }
+        }
+      }
     }
   }
   catch {}
-  return {}
+
+  // Fall back to filename
+  const name = filePath.split('/').pop() || ''
+  return { slug: name.replace(/\.(md|vue)$/, ''), fm: {} }
 }
 
 async function run() {
@@ -70,11 +93,14 @@ async function run() {
     const files = await fg.glob(pattern, { cwd: rootDir })
     for (const file of files) {
       const absPath = resolve(rootDir, file)
-      const slug = extractSlug(absPath)
-      if (!slug)
+
+      // Skip collection index files (posts/index.md, etc.)
+      if (isIndexFile(file))
         continue
 
-      const fm = extractFrontmatter(absPath)
+      const { slug, fm } = extractMeta(absPath)
+      if (!slug)
+        continue
 
       // Determine locale from path
       const relPath = file.replace(/^pages\//, '')

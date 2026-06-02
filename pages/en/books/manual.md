@@ -7,4 +7,4 @@ date: "2026-04-29T00:00:00.000Z"
 summary: "就算你不能让你文章的内容有学术内涵，至少要让它的格式上看上去很学术！"
 ---
 
-Reading notes on manual.
+Reading notes.

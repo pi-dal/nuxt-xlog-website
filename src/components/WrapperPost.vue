@@ -113,18 +113,18 @@ const currentLocale = computed(() => {
   return 'zh'
 })
 
-const articleSlug = computed(() => frontmatter.slug || route.path.split('/').pop() || '')
-
 const availableLocales = computed(() => {
-  const slug = articleSlug.value
-  if (!slug)
-    return []
+  // Build locale path from the current route, swapping locale prefix
+  const segs = route.path.split('/').filter(Boolean)
+  const hasLocale = segs.length >= 1 && ['en', 'zh', 'ja'].includes(segs[0])
+  const pathWithoutLocale = hasLocale ? `/${segs.slice(1).join('/')}` : route.path
+
   return Object.keys(LOCALE_LABELS).map(locale => ({
     locale,
     label: LOCALE_LABELS[locale].label,
     short: LOCALE_LABELS[locale].short,
     active: locale === currentLocale.value,
-    href: `/${locale}/posts/${slug}`,
+    href: `/${locale}${pathWithoutLocale}`,
   }))
 })
 

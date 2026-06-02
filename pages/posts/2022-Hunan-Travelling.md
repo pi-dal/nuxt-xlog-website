@@ -1,7 +1,6 @@
 ---
 lang: zh
 title: 2022湖南之旅
-titleEn: 2022 Hunan Journey
 slug: 2022-Hunan-Travelling
 type: post
 date: July 22, 2022

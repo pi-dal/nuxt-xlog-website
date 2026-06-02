@@ -1,7 +1,6 @@
 ---
 lang: zh
 title: 写给16岁的自己
-titleEn: To My 16-Year-Old Self
 slug: To-My-16-Year-Old-Self
 type: post
 date: April 15, 2023

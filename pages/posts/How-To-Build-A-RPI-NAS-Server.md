@@ -1,7 +1,6 @@
 ---
 lang: zh
 title: 树莓派NAS搭建
-titleEn: Building a Raspberry Pi NAS
 slug: How-To-Build-A-RPI-NAS-Server
 type: post
 date: February 3, 2022

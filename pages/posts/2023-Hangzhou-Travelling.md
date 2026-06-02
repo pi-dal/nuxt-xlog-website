@@ -1,7 +1,6 @@
 ---
 lang: zh
 title: 2023年物竞外出培训—杭州行
-titleEn: 2023 Physics Camp in Hangzhou
 slug: 2023-Hangzhou-Travelling
 type: post
 date: July 27, 2023

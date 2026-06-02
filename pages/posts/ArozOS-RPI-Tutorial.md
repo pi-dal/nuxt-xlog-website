@@ -1,7 +1,6 @@
 ---
 lang: zh
 title: 树莓派 ArozOS 指北
-titleEn: ArozOS on Raspberry Pi — A Guide
 slug: ArozOS-RPI-Tutorial
 type: post
 date: October 22, 2021

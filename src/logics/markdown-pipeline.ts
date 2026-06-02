@@ -159,19 +159,16 @@ export function applyMarkdownImagePlugin(md: any) {
 
   md.renderer.rules.image = (tokens: any[], idx: number, options: any, env: any, self: any) => {
     const token = tokens[idx]
-    // Get existing attrs
-    const srcAttr = token.attrs?.find((a: [string, string]) => a[0] === 'src')
-    const altAttr = token.attrs?.find((a: [string, string]) => a[0] === 'alt')
 
-    if (!srcAttr)
+    // Preserve all existing attrs then add loading/decoding
+    const attrs = (token.attrs || []).map(([k, v]: [string, string]) => `${k}="${v}"`)
+    const hasSrc = token.attrs?.some((a: [string, string]) => a[0] === 'src')
+
+    if (!hasSrc)
       return defaultRender(tokens, idx, options, env, self)
 
-    // Build modern img tag with lazy loading and decoding
-    const src = srcAttr[1]
-    const alt = altAttr ? altAttr[1] : ''
-    const cls = token.attrs?.find((a: [string, string]) => a[0] === 'class')?.[1] || ''
-
-    return `<img src="${src}" alt="${alt}" loading="lazy" decoding="async"${cls ? ` class="${cls}"` : ''}>`
+    attrs.push('loading="lazy"', 'decoding="async"')
+    return `<img ${attrs.join(' ')}>`
   }
 }
 

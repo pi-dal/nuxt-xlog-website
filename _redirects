@@ -9,8 +9,7 @@
 /zh/category/* https://pi-dal.com/posts 301!
 /zh/tags/* https://pi-dal.com/posts 301!
 
-/en https://pi-dal.com/posts 301
-/en/* https://pi-dal.com/zh/:splat 301
+/en /en/posts 302
 
 /de https://pi-dal.com/posts 301
 /de/* https://pi-dal.com/zh/:splat 301

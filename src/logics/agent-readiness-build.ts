@@ -9,6 +9,7 @@ import { buildAbsoluteUrl } from './site-meta'
 export interface CanonicalRouteEntry {
   path: string
   title?: string
+  description?: string
   type: 'content' | 'page' | 'route'
 }
 
@@ -62,20 +63,48 @@ export async function collectCanonicalRouteEntries(options: ContentScanOptions =
 
   const markdownEntries = await Promise.all(markdownFiles.map(async (filePath) => {
     const raw = await readFile(filePath, 'utf8')
-    const { data } = matter(raw)
-    const frontmatter = data as Partial<ContentFrontmatter>
+
+    // Vue-enhanced .md files without frontmatter (start with <script setup> or <template>)
+    // handle them like .vue files using path-based route resolution
+    if (raw.startsWith('<script') || raw.startsWith('<template')) {
+      const path = resolveVueRoutePath(rootDir, filePath)
+      if (!path)
+        return null
+      // Derive a readable title from the file name
+      const slug = path.split('/').pop() || ''
+      const title = slug
+        .replace(/[-_]/g, ' ')
+        .replace(/\b\w/g, c => c.toUpperCase())
+      return {
+        path,
+        title,
+        type: 'content',
+      } satisfies CanonicalRouteEntry
+    }
+
+    const parsed = matter(raw)
+    const frontmatter = parsed.data as Partial<ContentFrontmatter>
+
     if (frontmatter.draft)
       return null
 
-    const path = resolveMarkdownRoutePath({
-      filePath,
-      frontmatter,
-      rootDir,
-    })
+    let path: string
+    try {
+      path = resolveMarkdownRoutePath({
+        filePath,
+        frontmatter,
+        rootDir,
+      })
+    }
+    catch {
+      // Skip files that can't resolve a route path
+      return null
+    }
 
     return {
       path,
       title: frontmatter.title,
+      description: frontmatter.summary,
       type: (frontmatter.date || ['book', 'post'].includes(frontmatter.type || ''))
         ? 'content'
         : 'page',
@@ -87,9 +116,15 @@ export async function collectCanonicalRouteEntries(options: ContentScanOptions =
       const path = resolveVueRoutePath(rootDir, filePath)
       if (!path)
         return null
+      // Derive a readable title from the file name
+      const slug = path.split('/').pop() || ''
+      const title = slug
+        .replace(/[-_]/g, ' ')
+        .replace(/\b\w/g, c => c.toUpperCase())
       return {
         path,
-        type: 'route',
+        title,
+        type: 'content',
       } satisfies CanonicalRouteEntry
     })
 

@@ -45,8 +45,10 @@ export function resolveMarkdownRoutePath(options: MarkdownRoutePathOptions) {
   const rootDir = options.rootDir || process.cwd()
   const relativePath = toRootRelativeMarkdownPath(rootDir, options.filePath)
 
-  if (isIndexFile(options.filePath))
-    return `/${relativePath.replace(/\/index\.md$/i, '')}` || '/'
+  if (isIndexFile(options.filePath)) {
+    const clean = relativePath.replace(/\/?index\.md$/i, '')
+    return clean ? `/${clean}` : '/'
+  }
 
   const slug = requireSlug(options.filePath, options.frontmatter)
   const segments = relativePath.split('/')

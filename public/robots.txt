@@ -1,4 +1,66 @@
+# pi-dal.com - Robots.txt
+# ========================
+# AI crawlers: training bots are disallowed, live retrieval/search bots are allowed.
+# This ensures content appears in AI search results without being used for model training.
+
+# --- Allow all well-behaved crawlers first ---
 User-agent: *
 Allow: /
-Content-Signal: ai-train=no, search=yes, ai-input=no
 Sitemap: https://pi-dal.com/sitemap.xml
+Content-Signal: ai-train=no, search=yes, ai-input=no
+
+# --- AI Training Crawlers (Disallowed) ---
+
+# OpenAI training crawler
+User-agent: GPTBot
+Disallow: /
+
+# Anthropic training crawler
+User-agent: ClaudeBot
+Disallow: /
+
+# Legacy Anthropic training tokens (deprecated but still observed)
+User-agent: anthropic-ai
+Disallow: /
+
+# Google AI training crawler
+User-agent: Google-Extended
+Disallow: /
+
+# Common Crawl (used by many AI training pipelines)
+User-agent: CCBot
+Disallow: /
+
+# Meta AI training
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+# Cohere AI training
+User-agent: cohere-ai
+Disallow: /
+
+# --- Live Retrieval / Search Bots (Allowed) ---
+
+# OpenAI real-time search (used by ChatGPT Search)
+User-agent: OAI-SearchBot
+Allow: /
+
+# OpenAI real-time user-initiated retrieval
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic live user-initiated retrieval
+User-agent: Claude-User
+Allow: /
+
+# Anthropic search index
+User-agent: Claude-SearchBot
+Allow: /
+
+# Perplexity real-time search
+User-agent: PerplexityBot
+Allow: /
+
+# --- Additional resources ---
+# llms.txt: LLM-friendly site guide
+# https://pi-dal.com/llms.txt

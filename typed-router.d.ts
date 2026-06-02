@@ -27,6 +27,7 @@ declare module 'vue-router/auto-routes' {
     '/books/how-ai-will-revolutionize-education-and-why-that-s-a-good-thing': RouteRecordInfo<'/books/how-ai-will-revolutionize-education-and-why-that-s-a-good-thing', '/books/how-ai-will-revolutionize-education-and-why-that-s-a-good-thing', Record<never, never>, Record<never, never>>,
     '/books/idea-makers-personal-perspectives-on-the-lives-ideas-of-some-notable-people': RouteRecordInfo<'/books/idea-makers-personal-perspectives-on-the-lives-ideas-of-some-notable-people', '/books/idea-makers-personal-perspectives-on-the-lives-ideas-of-some-notable-people', Record<never, never>, Record<never, never>>,
     '/books/make-something-wonderful': RouteRecordInfo<'/books/make-something-wonderful', '/books/make-something-wonderful', Record<never, never>, Record<never, never>>,
+    '/books/manual': RouteRecordInfo<'/books/manual', '/books/manual', Record<never, never>, Record<never, never>>,
     '/books/my-beginnings': RouteRecordInfo<'/books/my-beginnings', '/books/my-beginnings', Record<never, never>, Record<never, never>>,
     '/books/qed-光和物质的奇妙理论': RouteRecordInfo<'/books/qed-光和物质的奇妙理论', '/books/qed-光和物质的奇妙理论', Record<never, never>, Record<never, never>>,
     '/books/reading-notes-xin-sheng-xue-cheng': RouteRecordInfo<'/books/reading-notes-xin-sheng-xue-cheng', '/books/reading-notes-xin-sheng-xue-cheng', Record<never, never>, Record<never, never>>,
@@ -115,10 +116,10 @@ declare module 'vue-router/auto-routes' {
     '/posts/2023-Hangzhou-Travelling': RouteRecordInfo<'/posts/2023-Hangzhou-Travelling', '/posts/2023-Hangzhou-Travelling', Record<never, never>, Record<never, never>>,
     '/posts/ArozOS-RPI-Tutorial': RouteRecordInfo<'/posts/ArozOS-RPI-Tutorial', '/posts/ArozOS-RPI-Tutorial', Record<never, never>, Record<never, never>>,
     '/posts/How-To-Build-A-RPI-NAS-Server': RouteRecordInfo<'/posts/How-To-Build-A-RPI-NAS-Server', '/posts/How-To-Build-A-RPI-NAS-Server', Record<never, never>, Record<never, never>>,
-    '/posts/STR-Four-Vector-Electromagnetism-and-Dynamics': RouteRecordInfo<'/posts/STR-Four-Vector-Electromagnetism-and-Dynamics', '/posts/STR-Four-Vector-Electromagnetism-and-Dynamics', Record<never, never>, Record<never, never>>,
     '/posts/Summary-Of-Junior-High-School-Life': RouteRecordInfo<'/posts/Summary-Of-Junior-High-School-Life', '/posts/Summary-Of-Junior-High-School-Life', Record<never, never>, Record<never, never>>,
     '/posts/To-My-16-Year-Old-Self': RouteRecordInfo<'/posts/To-My-16-Year-Old-Self', '/posts/To-My-16-Year-Old-Self', Record<never, never>, Record<never, never>>,
     '/posts/STR-Four-Vector-Basic-Transformation': RouteRecordInfo<'/posts/STR-Four-Vector-Basic-Transformation', '/posts/STR-Four-Vector-Basic-Transformation', Record<never, never>, Record<never, never>>,
+    '/posts/STR-Four-Vector-Electromagnetism-and-Dynamics': RouteRecordInfo<'/posts/STR-Four-Vector-Electromagnetism-and-Dynamics', '/posts/STR-Four-Vector-Electromagnetism-and-Dynamics', Record<never, never>, Record<never, never>>,
     '/projects': RouteRecordInfo<'/projects', '/projects', Record<never, never>, Record<never, never>>,
   }
 }

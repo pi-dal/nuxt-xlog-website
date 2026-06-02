@@ -62,6 +62,12 @@ function getLocaleCookie(request) {
 export async function onRequest(context) {
   const url = new URL(context.request.url)
 
+  function setLocaleCookie(headers, locale) {
+    if (locale && LOCALE_PATHS[locale]) {
+      headers.append('Set-Cookie', `locale=${locale}; Path=/; Max-Age=31536000; SameSite=Lax`)
+    }
+  }
+
   // Locale auto-redirect for root path
   if (url.pathname === '/') {
     const cookieLocale = getLocaleCookie(context.request)
@@ -73,12 +79,22 @@ export async function onRequest(context) {
     if (localePath) {
       const redirectUrl = new URL(localePath, url.origin)
       redirectUrl.search = url.search
-      return Response.redirect(redirectUrl.href, 302)
+      const locale = Object.entries(LOCALE_PATHS).find(([, v]) => v === localePath)?.[0]
+      const response = Response.redirect(redirectUrl.href, 302)
+      if (locale)
+        setLocaleCookie(response.headers, locale)
+      return response
     }
   }
 
   const response = await context.next()
   const headers = new Headers(response.headers)
+
+  // Set locale cookie from URL path for non-root responses
+  const pathSegments = url.pathname.split('/').filter(Boolean)
+  if (pathSegments.length >= 1 && ['en', 'zh', 'ja'].includes(pathSegments[0])) {
+    setLocaleCookie(headers, pathSegments[0])
+  }
 
   if (shouldAttachDiscoveryHeaders(url, response))
     headers.set('Link', getDiscoveryLinkHeaderValue())

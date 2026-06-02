@@ -4,15 +4,30 @@ import {
   htmlToMarkdown,
 } from '../src/logics/agent-readiness-runtime.ts'
 
-const LOCALE_PATHS = {
-  'zh': '/zh/posts',
-  'zh-CN': '/zh/posts',
-  'zh-TW': '/zh/posts',
-  'en': '/en/posts',
-  'en-US': '/en/posts',
-  'en-GB': '/en/posts',
-  'ja': '/ja/posts',
-  'ja-JP': '/ja/posts',
+const LOCALE_MAP = {
+  'zh': 'zh',
+  'zh-CN': 'zh',
+  'zh-TW': 'zh',
+  'en': 'en',
+  'en-US': 'en',
+  'en-GB': 'en',
+  'ja': 'ja',
+  'ja-JP': 'ja',
+}
+
+// Map bare paths to their collection names
+const PATH_COLLECTION = {
+  '/': '',
+  '/home': '',
+  '/home/': '',
+  '/posts': 'posts',
+  '/posts/': 'posts',
+  '/books': 'books',
+  '/books/': 'books',
+  '/projects': 'projects',
+  '/projects/': 'projects',
+  '/chat': 'chat',
+  '/chat/': 'chat',
 }
 
 function bestLocale(acceptLanguage) {
@@ -22,11 +37,11 @@ function bestLocale(acceptLanguage) {
   for (const entry of langs) {
     const [lang] = entry.trim().split(';')
     const code = lang.trim()
-    if (LOCALE_PATHS[code])
-      return LOCALE_PATHS[code]
+    if (LOCALE_MAP[code])
+      return LOCALE_MAP[code]
     const prefix = code.split('-')[0]
-    if (LOCALE_PATHS[prefix])
-      return LOCALE_PATHS[prefix]
+    if (LOCALE_MAP[prefix])
+      return LOCALE_MAP[prefix]
   }
   return null
 }
@@ -52,24 +67,26 @@ export async function onRequest(context) {
   const url = new URL(context.request.url)
   const request = context.request
 
-  // Redirect root, /posts, /books, /projects, /chat to locale-specific pages
+  // Redirect bare entry paths to locale-specific collection pages
   // Always redirects — never serves these as entity pages
-  const REDIRECT_PATHS = ['/', '/posts', '/posts/', '/books', '/books/', '/projects', '/projects/', '/chat', '/chat/']
-  if (REDIRECT_PATHS.includes(url.pathname)) {
+  const collection = PATH_COLLECTION[url.pathname]
+  if (collection !== undefined) {
+    function localePath(locale) {
+      if (!collection)
+        return `/${locale}`
+      return `/${locale}/${collection}`
+    }
     const cookieLocale = getLocaleCookie(request)
-    if (cookieLocale && LOCALE_PATHS[cookieLocale]) {
+    if (cookieLocale && LOCALE_MAP[cookieLocale]) {
       return new Response(null, {
         status: 302,
-        headers: { Location: LOCALE_PATHS[cookieLocale] },
+        headers: { Location: localePath(cookieLocale) },
       })
     }
-    const localePath = bestLocale(request.headers.get('Accept-Language'))
-    if (localePath) {
-      const locale = Object.keys(LOCALE_PATHS).find(k => LOCALE_PATHS[k] === localePath)
-      const headers = { Location: localePath }
-      if (locale) {
-        headers['Set-Cookie'] = `locale=${locale}; Path=/; Max-Age=31536000; SameSite=Lax`
-      }
+    const localeCode = bestLocale(request.headers.get('Accept-Language'))
+    if (localeCode) {
+      const headers = { Location: localePath(localeCode) }
+      headers['Set-Cookie'] = `locale=${localeCode}; Path=/; Max-Age=31536000; SameSite=Lax`
       return new Response(null, { status: 302, headers })
     }
     // Fallback: always redirect, never serve entity page

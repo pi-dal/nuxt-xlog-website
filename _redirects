@@ -1,5 +1,3 @@
-/zh /posts 301
-/zh/ /posts 301
 /zh/search /posts 301
 /zh/search/ /posts 301
 /zh/about /about 301
@@ -8,10 +6,6 @@
 /zh/links/ /friends 301
 /zh/category/* /posts 301
 /zh/tags/* /posts 301
-
-/en /en/posts 302
-/ja /ja/posts 302
-/zh /zh/posts 302
 
 /de /posts 301
 /de/* /zh/:splat 301

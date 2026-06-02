@@ -1,0 +1,30 @@
+---
+title: pi-dal
+slug: home
+type: page
+display: ""
+description: Notes, experiments, and life updates.
+lang: en
+---
+
+<div class="locale-switcher" style="margin-bottom: 12px">
+  <a href="/zh" class="locale-link">ZH</a>
+  <a href="/en" class="locale-link active">EN</a>
+  <a href="/ja" class="locale-link">JA</a>
+</div>
+
+Hey, I'm pi-dal, a student from Guangdong who likes code, mathematics, physics, training, and building little things on the web.
+
+This site is my public notebook. I use it to keep blog posts, study notes, migration experiments, and fragments of life that are worth keeping.
+
+Most of my technical work revolves around Python, Vue, React, CSS, and whatever I need to learn next to make an idea real.
+
+Outside of programming, I spend time with basketball, table tennis, badminton, guitar, astronomy, and side experiments that usually start as curiosity and end as a rabbit hole.
+
+The name `pi-dal` comes from Raspberry Pi, Python, π, and my English name: David Albt Leonardo.
+
+- [GitHub](https://github.com/pi-dal)
+- [X / Twitter](https://x.com/pidal20)
+- [Photography](https://photography.pi-dal.com)
+
+For a better entry point, start from [posts](/en/posts), [books](/en/books), [projects](/en/projects), or [chat](/en/chat).

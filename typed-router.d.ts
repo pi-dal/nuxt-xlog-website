@@ -111,6 +111,7 @@ declare module 'vue-router/auto-routes' {
     '/chat': RouteRecordInfo<'/chat', '/chat', Record<never, never>, Record<never, never>>,
     '/docs/api': RouteRecordInfo<'/docs/api', '/docs/api', Record<never, never>, Record<never, never>>,
     '/embeds': RouteRecordInfo<'/embeds', '/embeds', Record<never, never>, Record<never, never>>,
+    '/en/': RouteRecordInfo<'/en/', '/en', Record<never, never>, Record<never, never>>,
     '/en/about': RouteRecordInfo<'/en/about', '/en/about', Record<never, never>, Record<never, never>>,
     '/en/chat': RouteRecordInfo<'/en/chat', '/en/chat', Record<never, never>, Record<never, never>>,
     '/en/friends': RouteRecordInfo<'/en/friends', '/en/friends', Record<never, never>, Record<never, never>>,
@@ -212,6 +213,7 @@ declare module 'vue-router/auto-routes' {
     '/en/posts/STR-Four-Vector-Basic-Transformation': RouteRecordInfo<'/en/posts/STR-Four-Vector-Basic-Transformation', '/en/posts/STR-Four-Vector-Basic-Transformation', Record<never, never>, Record<never, never>>,
     '/en/posts/STR-Four-Vector-Electromagnetism-and-Dynamics': RouteRecordInfo<'/en/posts/STR-Four-Vector-Electromagnetism-and-Dynamics', '/en/posts/STR-Four-Vector-Electromagnetism-and-Dynamics', Record<never, never>, Record<never, never>>,
     '/en/projects': RouteRecordInfo<'/en/projects', '/en/projects', Record<never, never>, Record<never, never>>,
+    '/ja/': RouteRecordInfo<'/ja/', '/ja', Record<never, never>, Record<never, never>>,
     '/ja/about': RouteRecordInfo<'/ja/about', '/ja/about', Record<never, never>, Record<never, never>>,
     '/ja/chat': RouteRecordInfo<'/ja/chat', '/ja/chat', Record<never, never>, Record<never, never>>,
     '/ja/friends': RouteRecordInfo<'/ja/friends', '/ja/friends', Record<never, never>, Record<never, never>>,
@@ -323,6 +325,9 @@ declare module 'vue-router/auto-routes' {
     '/posts/STR-Four-Vector-Basic-Transformation': RouteRecordInfo<'/posts/STR-Four-Vector-Basic-Transformation', '/posts/STR-Four-Vector-Basic-Transformation', Record<never, never>, Record<never, never>>,
     '/posts/STR-Four-Vector-Electromagnetism-and-Dynamics': RouteRecordInfo<'/posts/STR-Four-Vector-Electromagnetism-and-Dynamics', '/posts/STR-Four-Vector-Electromagnetism-and-Dynamics', Record<never, never>, Record<never, never>>,
     '/projects': RouteRecordInfo<'/projects', '/projects', Record<never, never>, Record<never, never>>,
+    '/zh/': RouteRecordInfo<'/zh/', '/zh', Record<never, never>, Record<never, never>>,
+    '/zh/chat': RouteRecordInfo<'/zh/chat', '/zh/chat', Record<never, never>, Record<never, never>>,
     '/zh/posts/': RouteRecordInfo<'/zh/posts/', '/zh/posts', Record<never, never>, Record<never, never>>,
+    '/zh/projects': RouteRecordInfo<'/zh/projects', '/zh/projects', Record<never, never>, Record<never, never>>,
   }
 }

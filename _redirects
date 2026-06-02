@@ -1,22 +1,22 @@
-/zh https://pi-dal.com/posts 301!
-/zh/ https://pi-dal.com/posts 301!
-/zh/search https://pi-dal.com/posts 301!
-/zh/search/ https://pi-dal.com/posts 301!
-/zh/about https://pi-dal.com/about 301!
-/zh/about/ https://pi-dal.com/about 301!
-/zh/links https://pi-dal.com/friends 301!
-/zh/links/ https://pi-dal.com/friends 301!
-/zh/category/* https://pi-dal.com/posts 301!
-/zh/tags/* https://pi-dal.com/posts 301!
+/zh /posts 301
+/zh/ /posts 301
+/zh/search /posts 301
+/zh/search/ /posts 301
+/zh/about /about 301
+/zh/about/ /about 301
+/zh/links /friends 301
+/zh/links/ /friends 301
+/zh/category/* /posts 301
+/zh/tags/* /posts 301
 
 /en /en/posts 302
 
-/de https://pi-dal.com/posts 301
-/de/* https://pi-dal.com/zh/:splat 301
+/de /posts 301
+/de/* /zh/:splat 301
 
-/photos https://photography.pi-dal.com 301!
+/photos https://photography.pi-dal.com 301
 
-/blog/* /posts/:splat 301!
+/blog/* /posts/:splat 301
 
 /github https://github.com/pi-dal 301
 /gh https://github.com/pi-dal 301

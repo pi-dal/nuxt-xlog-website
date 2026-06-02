@@ -112,6 +112,7 @@ declare module 'vue-router/auto-routes' {
     '/docs/api': RouteRecordInfo<'/docs/api', '/docs/api', Record<never, never>, Record<never, never>>,
     '/embeds': RouteRecordInfo<'/embeds', '/embeds', Record<never, never>, Record<never, never>>,
     '/en/posts/': RouteRecordInfo<'/en/posts/', '/en/posts', Record<never, never>, Record<never, never>>,
+    '/en/posts/How-To-Build-A-RPI-NAS-Server': RouteRecordInfo<'/en/posts/How-To-Build-A-RPI-NAS-Server', '/en/posts/How-To-Build-A-RPI-NAS-Server', Record<never, never>, Record<never, never>>,
     '/posts/': RouteRecordInfo<'/posts/', '/posts', Record<never, never>, Record<never, never>>,
     '/posts/2022-Hunan-Travelling': RouteRecordInfo<'/posts/2022-Hunan-Travelling', '/posts/2022-Hunan-Travelling', Record<never, never>, Record<never, never>>,
     '/posts/2023-Hangzhou-Travelling': RouteRecordInfo<'/posts/2023-Hangzhou-Travelling', '/posts/2023-Hangzhou-Travelling', Record<never, never>, Record<never, never>>,

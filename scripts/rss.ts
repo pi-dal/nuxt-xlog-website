@@ -90,7 +90,7 @@ async function writeFeed(name: string, options: FeedOptions, items: Item[]) {
 
 export async function buildFeeds() {
   const [postItems, bookItems] = await Promise.all([
-    loadFeedItems(['pages/posts/*.md', 'pages/posts/*.vue']),
+    loadFeedItems(['pages/posts/*.md', 'pages/posts/*.vue', 'pages/en/posts/*.md']),
     loadFeedItems(['pages/books/*.md']),
   ])
   const allItems = [...postItems, ...bookItems]
@@ -98,8 +98,8 @@ export async function buildFeeds() {
 
   // Language-specific feeds
   const [zhPostItems, enPostItems] = await Promise.all([
-    loadFeedItems(['pages/posts/*.md', 'pages/posts/*.vue'], 'zh'),
-    loadFeedItems(['pages/posts/*.md', 'pages/posts/*.vue'], 'en'),
+    loadFeedItems(['pages/posts/*.md', 'pages/posts/*.vue', 'pages/en/posts/*.md'], 'zh'),
+    loadFeedItems(['pages/posts/*.md', 'pages/posts/*.vue', 'pages/en/posts/*.md'], 'en'),
   ])
 
   // Always generate combined feeds

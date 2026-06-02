@@ -40,6 +40,7 @@ const SectionForceEnergy = createChunkedSection(() => import('~/content/chunked-
 meta:
   frontmatter:
     title: 如何用四维矢量来解决狭义相对论问题（电磁学与动力学）
+    titleEn: Four-Vectors in Special Relativity — Electromagnetism and Dynamics
     slug: STR-Four-Vector-Electromagnetism-and-Dynamics
     type: post
     lang: zh

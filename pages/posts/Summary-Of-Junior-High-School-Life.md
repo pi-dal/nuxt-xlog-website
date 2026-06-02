@@ -1,6 +1,7 @@
 ---
 lang: zh
 title: 初中生活总结
+titleEn: Summary of Junior High School Life
 slug: Summary-Of-Junior-High-School-Life
 type: post
 date: June 28, 2022

@@ -42,6 +42,7 @@ const SectionApplicationsScattering = createChunkedSection(() => import('~/conte
 meta:
   frontmatter:
     title: 如何用四维矢量来解决狭义相对论问题（基础的时空与碰撞的变换）
+    titleEn: Four-Vectors in Special Relativity — Spacetime and Collisions
     slug: STR-Four-Vector-Basic-Transformation
     type: post
     lang: zh

@@ -155,7 +155,7 @@ const parentRoute = computed(() => {
       :class="[frontmatter.wrapperClass]"
     >
       <h1 class="mb-0 slide-enter-50">
-        {{ frontmatter.display ?? frontmatter.title }}
+        {{ frontmatter.display ?? frontmatter.title }}<span v-if="frontmatter.titleEn && currentLocale === 'zh'" class="opacity-50 font-normal text-base"> ({{ frontmatter.titleEn }})</span>
       </h1>
       <p
         v-if="frontmatter.date"

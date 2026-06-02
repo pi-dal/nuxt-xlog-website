@@ -127,6 +127,8 @@ declare module 'vue-router/auto-routes' {
     '/ja/posts/How-To-Build-A-RPI-NAS-Server': RouteRecordInfo<'/ja/posts/How-To-Build-A-RPI-NAS-Server', '/ja/posts/How-To-Build-A-RPI-NAS-Server', Record<never, never>, Record<never, never>>,
     '/ja/posts/Summary-Of-Junior-High-School-Life': RouteRecordInfo<'/ja/posts/Summary-Of-Junior-High-School-Life', '/ja/posts/Summary-Of-Junior-High-School-Life', Record<never, never>, Record<never, never>>,
     '/ja/posts/To-My-16-Year-Old-Self': RouteRecordInfo<'/ja/posts/To-My-16-Year-Old-Self', '/ja/posts/To-My-16-Year-Old-Self', Record<never, never>, Record<never, never>>,
+    '/ja/posts/STR-Four-Vector-Basic-Transformation': RouteRecordInfo<'/ja/posts/STR-Four-Vector-Basic-Transformation', '/ja/posts/STR-Four-Vector-Basic-Transformation', Record<never, never>, Record<never, never>>,
+    '/ja/posts/STR-Four-Vector-Electromagnetism-and-Dynamics': RouteRecordInfo<'/ja/posts/STR-Four-Vector-Electromagnetism-and-Dynamics', '/ja/posts/STR-Four-Vector-Electromagnetism-and-Dynamics', Record<never, never>, Record<never, never>>,
     '/posts/': RouteRecordInfo<'/posts/', '/posts', Record<never, never>, Record<never, never>>,
     '/posts/2022-Hunan-Travelling': RouteRecordInfo<'/posts/2022-Hunan-Travelling', '/posts/2022-Hunan-Travelling', Record<never, never>, Record<never, never>>,
     '/posts/2023-Hangzhou-Travelling': RouteRecordInfo<'/posts/2023-Hangzhou-Travelling', '/posts/2023-Hangzhou-Travelling', Record<never, never>, Record<never, never>>,

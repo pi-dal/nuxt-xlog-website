@@ -91,11 +91,41 @@ const { y: scroll } = useWindowScroll()
   transition: opacity 0.2s ease;
   opacity: 0.6;
   outline: none;
+  position: relative;
 }
 
 .nav a:hover {
   opacity: 1;
   text-decoration-color: inherit;
+}
+
+.nav a.router-link-active,
+.nav a.router-link-exact-active {
+  opacity: 1;
+}
+
+/* Active indicator: stable underline dot, distinct from hover opacity */
+.nav a.router-link-active::after,
+.nav a.router-link-exact-active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 2px;
+  border-radius: 1px;
+  background: currentColor;
+  opacity: 0.4;
+  transition:
+    width 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.nav a.router-link-active:hover::after,
+.nav a.router-link-exact-active:hover::after {
+  width: 16px;
+  opacity: 0.6;
 }
 
 .nav .right {

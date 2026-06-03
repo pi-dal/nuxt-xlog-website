@@ -104,4 +104,11 @@ Some might find my views twisted, but this is genuinely how I feel. Maybe one da
 
 # Summary
 
+![EE6E7903-1DD3-441A-B516-A7C9DFF8C6D4.jpeg](/article-assets/To-My-16-Year-Old-Self/EE6E7903-1DD3-441A-B516-A7C9DFF8C6D4.jpeg)
+![IMG_2251.JPG](/article-assets/To-My-16-Year-Old-Self/IMG_2251.jpg)
+![IMG_2275.JPG](/article-assets/To-My-16-Year-Old-Self/IMG_2275.jpg)
+![IMG_8744.JPG](/article-assets/To-My-16-Year-Old-Self/IMG_8744.jpg)
+![IMG_9208.JPG](/article-assets/To-My-16-Year-Old-Self/IMG_9208.jpg)
+![刚上高中的我](/article-assets/To-My-16-Year-Old-Self/F543D809-EB57-4963-812D-ACF3A1D300D6.jpeg)
+![一个学期后的我](/article-assets/To-My-16-Year-Old-Self/89306954-1F3A-4D11-AF32-0A99C14EF209.jpeg)
 This past year has been rich and varied. I often feel down, but I'm grateful for the company of my physics classmates — "Bad Uncle" Xiaohui, the aloof funny girl Ax, CAN who's rough on the outside but kind within... It's 11 PM as I write this. I hope my 16-year-old self can lighten up, see more of life's beauty, break into the top 20, and make it to the provincial team!

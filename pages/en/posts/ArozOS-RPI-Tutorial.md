@@ -19,8 +19,12 @@ tags:
 Many makers dream of owning a highly customizable NAS. A number of solutions exist for the Raspberry Pi:
 
 1. **Nextcloud** — The most popular option, with plugins and apps. But it's written in PHP, making it painfully slow.
+
+![](https://raw.githubusercontent.com/nextcloud/screenshots/master/files/Files%20Sharing.png)
+
 2. **Pydio** — Written in Go, fast, relatively feature-complete. Less popular in China.
-3. **Seafile** — Written in C by Chinese developers. Used by top universities. Efficient and feature-rich.
+
+![](https://raw.githubusercontent.com/pydio/cells-dist/master/resources/v3.0.0/home.png) 3. **Seafile** — Written in C by Chinese developers. Used by top universities. Efficient and feature-rich.
 
 So why not use these? Here's why:
 
@@ -100,4 +104,16 @@ ArozOS is actively developed, and I've had the honor of contributing code:
 
 If you have ideas, feel free to open issues, PRs, or join the Telegram group: [ArozOS Dev](https://t.me/ArOZBeta)
 
+![F704EC3F-E286-4464-92E5-CF3B14B1156C.jpeg](/article-assets/ArozOS-RPI-Tutorial/F704EC3F-E286-4464-92E5-CF3B14B1156C.jpeg)
+![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled.jpeg)
+![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled.png)
+![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%201.png)
+![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%202.png)
+![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%203.png)
+![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%201.jpeg)
+![FC5750F6-362A-4084-BA47-97DDAA9FE251.jpeg](/article-assets/ArozOS-RPI-Tutorial/FC5750F6-362A-4084-BA47-97DDAA9FE251.jpeg)
+![2B591461-5043-4AC0-8886-DCCFBA89E627.jpeg](/article-assets/ArozOS-RPI-Tutorial/2B591461-5043-4AC0-8886-DCCFBA89E627.jpeg)
+![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%204.png)
+![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%205.png)
+![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%206.png)
 Thanks for reading!

@@ -47,9 +47,14 @@
    即是
    $$P_1 \circ P_2 = P_3 \circ P_4$$
    又因为
-   $$P_1 \circ P_3 + P_2 \circ P_3 = P_3 \circ P_3 + P_4 \circ P_3 = P_1 \circ P_2$$即是
+   $$P_1 \circ P_3 + P_2 \circ P_3 = P_3 \circ P_3 + P_4 \circ P_3 = P_1 \circ P_2$$
+
+   即
+
    $$\frac{2}{\gamma_2 m c^2} \cdot h \cdot f \cdot h \cdot f' + h \cdot f' \cdot \left(1-\frac{v}{c}\right) = h \cdot f \cdot \left(1+\frac{v}{c}\right) \approx 2 \cdot h \cdot f$$
-   若v接近于c，会有
+
+   若 $v$ 接近于 $c$，会有
+
    $$h \cdot f' \cdot \left(\frac{1}{\gamma_2 m_0 c^2} \cdot h \cdot f + \frac{1}{2} \cdot \left(1-\frac{v}{c}\right)\right) = h \cdot f$$
    这就得到了f与f‘的关系！
 

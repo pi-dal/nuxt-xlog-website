@@ -68,21 +68,21 @@ tags:
 
 部分应用程序
 
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled 1.png)
+![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%201.png)
 
 WebApp管理
 
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled 2.png)
+![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%202.png)
 
 Subservice管理
 
 当然，文件分享、音乐影片播放等基础功能也少不了
 
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled 3.png)
+![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%203.png)
 
 文件分享
 
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled 1.jpeg)
+![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%201.jpeg)
 
 音乐影片播放
 
@@ -254,13 +254,13 @@ Arozos自1.119以来支持了OTA升级，你可以直接在Arozos更新版本
 
 您可以使用git repo URL或zip文件安装WebApp。您可以在“系统设置”>“添加和删除模块”选项卡中找到安装界面
 
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled 4.png)
+![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%204.png)
 
 ### 删除
 
 要删除WebApp，请选择要从WebApp列表中删除的WebApp，然后单击“卸载”
 
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled 5.png)
+![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%205.png)
 
 你也可以手动删除，以下是删除名为“MyWebApp”的子服务的示例。
 
@@ -310,7 +310,7 @@ sudo systemctl start arozos
 
 要启用或禁用子服务，请访问**_System Setting > Subservice_**选项卡，然后选择要启动/禁用的服务。
 
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled 6.png)
+![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%206.png)
 
 当然你也可以手动操作
 

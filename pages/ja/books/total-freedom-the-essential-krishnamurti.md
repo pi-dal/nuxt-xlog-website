@@ -1,10 +1,11 @@
 ---
 lang: ja
-title: "『Total Freedom: The Essential Krishnamurti』読書ノート"
+title: 『完全な自由：クリシュナムルティの本質』読書ノート
 slug: total-freedom-the-essential-krishnamurti
 type: book
-date: "2025-07-07T13:38:50.589Z"
-summary: "克里希那穆提围绕恐惧、欲望、关系、教育与自由展开讨论，强调通过不加评判的观察看见自我与世界，从而触及内在解放。"
+date: '2025-07-07T13:38:50.589Z'
+summary: >-
+  クリシュナムルティは、恐怖、欲望、人間関係、教育、自由について論じ、偏見のない観察を通して自分自身と世界を見ることを強調し、それによって内なる解放に触れます。
 ---
 
 読書ノート。

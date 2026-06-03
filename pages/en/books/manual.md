@@ -1,10 +1,12 @@
 ---
 lang: en
-title: "manual - Reading Notes"
+title: manual - Reading Notes
 slug: manual
 type: book
-date: "2026-04-29T00:00:00.000Z"
-summary: "就算你不能让你文章的内容有学术内涵，至少要让它的格式上看上去很学术！"
+date: 'Wed Apr 29 2026 08:00:00 GMT+0800 (Singapore Standard Time)'
+summary: >-
+  Even if you can’t make the content of your article academic, at least make the
+  format look academic!
 ---
 
 Reading notes.

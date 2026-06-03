@@ -1,10 +1,16 @@
 ---
 lang: en
-title: "这就是ChatGPT - Reading Notes"
+title: This is ChatGPT - Reading Notes
 slug: 这就是chatgpt
 type: book
-date: "2025-07-07T13:41:24.066Z"
-summary: "ChatGPT是OpenAI开发的人工智能聊天机器人程序，于2022年11月推出。它能够自动生成一些表面上看起来像人类写的文字，这是一件很厉害且出乎大家意料的事。那么，它是如何做到的呢？又为何能做到呢？本书会大致介绍ChatGPT的内部机制，然后探讨一下为什么它能很好地生成我们认为有意义的文本。"
+date: '2025-07-07T13:41:24.066Z'
+summary: >-
+  ChatGPT is an artificial intelligence chatbot program developed by OpenAI and
+  launched in November 2022. It can automatically generate text that looks like
+  it was written by humans, which is amazing and unexpected. So, how does it do
+  it? And why can it be done? This book will briefly introduce the internal
+  mechanism of ChatGPT, and then explore why it is so good at generating text
+  that we think is meaningful.
 ---
 
 Reading notes.

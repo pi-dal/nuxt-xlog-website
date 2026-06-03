@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 describe('agent readiness response layer', () => {
-  it('adds discovery Link headers to the homepage response', async () => {
+  it('redirects the bare homepage to a locale homepage', async () => {
     const { onRequest } = await import('../../functions/_middleware.js')
 
     const response = await onRequest({
@@ -11,15 +11,16 @@ describe('agent readiness response layer', () => {
         },
         status: 200,
       }),
-      request: new Request('https://pi-dal.com/'),
+      request: new Request('https://pi-dal.com/', {
+        headers: {
+          'Accept-Language': 'ja,en;q=0.8,zh;q=0.6',
+        },
+      }),
     })
 
-    const linkHeader = response.headers.get('Link') || ''
-
-    expect(linkHeader).toContain('</.well-known/api-catalog>; rel="api-catalog"')
-    expect(linkHeader).toContain('</openapi/creem-checkout.openapi.json>; rel="service-desc"')
-    expect(linkHeader).toContain('</docs/api>; rel="service-doc"')
-    expect(linkHeader).toContain('</.well-known/agent-skills/index.json>; rel="describedby"')
+    expect(response.status).toBe(302)
+    expect(response.headers.get('Location')).toBe('/ja')
+    expect(response.headers.get('Set-Cookie')).toContain('locale=ja')
   })
 
   it('returns markdown when the request prefers text/markdown', async () => {
@@ -29,10 +30,11 @@ describe('agent readiness response layer', () => {
       next: async () => new Response('<html><body><main><h1>Home</h1><p>Hello world.</p></main></body></html>', {
         headers: {
           'Content-Type': 'text/html; charset=utf-8',
+          'Host': 'pi-dal.com',
         },
         status: 200,
       }),
-      request: new Request('https://pi-dal.com/', {
+      request: new Request('https://pi-dal.com/en/posts', {
         headers: {
           Accept: 'text/markdown, text/html;q=0.8',
         },

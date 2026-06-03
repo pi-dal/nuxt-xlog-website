@@ -1,10 +1,17 @@
 ---
 lang: en
-title: "QED：光和物质的奇妙理论 - Reading Notes"
+title: 'QED: The amazing theory of light and matter - Reading Notes'
 slug: qed-光和物质的奇妙理论
 type: book
-date: "2025-07-07T13:53:16.503Z"
-summary: "本书费曼对QED 做出了经典的颇具权威性的讲解。他运用日常语言、空间的意念、具形的想像和他著名的费曼图，而不是高深的数学，就QED的实际内容及其精神向外行读者进行了清楚明白而富于幽默的传授。徐一鸿的新序言将费曼的这本书和他对QED所做的创造性贡献放在历史发展的境遇来考量，并进一步突出了费曼独特的富于"
+date: '2025-07-07T13:53:16.503Z'
+summary: >-
+  In this book, Feynman gives a classic and authoritative explanation of QED. He
+  uses everyday language, spatial ideas, concrete imagination, and his famous
+  Feynman diagrams rather than advanced mathematics to teach lay readers clearly
+  and humorously the actual content and spirit of QED. Xu Yihong's new preface
+  places Feynman's book and his creative contributions to QED in the context of
+  historical development, and further highlights Feynman's unique infectious and
+  inspiring style.
 ---
 
 Reading notes.

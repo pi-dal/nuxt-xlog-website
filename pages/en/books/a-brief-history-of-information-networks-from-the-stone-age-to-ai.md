@@ -1,10 +1,15 @@
 ---
 lang: en
-title: "A Brief History of Information Networks from the Stone Age to AI - Reading Notes"
+title: >-
+  A Brief History of Information Networks from the Stone Age to AI - Reading
+  Notes
 slug: a-brief-history-of-information-networks-from-the-stone-age-to-ai
 type: book
-date: "2025-07-07T13:36:16.891Z"
-summary: "尤瓦尔·赫拉利从神话、文书、印刷、官僚系统一路讲到算法与人工智能，梳理信息网络如何塑造人类合作、权力结构与现代世界。"
+date: '2025-07-07T13:36:16.891Z'
+summary: >-
+  Yuval Harari talks about myths, documents, printing, and bureaucracy all the
+  way to algorithms and artificial intelligence, sorting out how information
+  networks shape human cooperation, power structures, and the modern world.
 ---
 
 Reading notes.

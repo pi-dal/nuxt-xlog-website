@@ -1,10 +1,11 @@
 ---
 lang: ja
-title: "『How AI Will Revolutionize Education (and Why That's a Good Thing)』読書ノート"
+title: 『AI は教育にどのような変革をもたらすのか (そしてそれがなぜ良いことなのか)』読書ノート
 slug: how-ai-will-revolutionize-education-and-why-that-s-a-good-thing
 type: book
-date: "2025-07-07T13:39:21.498Z"
-summary: "Sal Khan 结合可汗学院与教学实践，讨论 AI 如何成为老师和学生的辅助工具，通过个性化反馈、陪练和减负来重塑教育。"
+date: '2025-07-07T13:39:21.498Z'
+summary: >-
+  サル・カーン氏は、カーン・アカデミーと教育実践を組み合わせて、AIがどのように教師と生徒の補助ツールとなり、個別のフィードバック、コーチング、負担軽減を通じて教育を再構築できるかを議論しています。
 ---
 
 読書ノート。

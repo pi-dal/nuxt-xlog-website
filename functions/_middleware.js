@@ -28,6 +28,10 @@ const PATH_COLLECTION = {
   '/projects/': 'projects',
   '/chat': 'chat',
   '/chat/': 'chat',
+  '/about': 'about',
+  '/about/': 'about',
+  '/friends': 'friends',
+  '/friends/': 'friends',
 }
 
 function bestLocale(acceptLanguage) {
@@ -90,7 +94,7 @@ export async function onRequest(context) {
       return new Response(null, { status: 302, headers })
     }
     // Fallback: always redirect, never serve entity page
-    return new Response(null, { status: 302, headers: { Location: '/zh/posts' } })
+    return new Response(null, { status: 302, headers: { Location: localePath('zh') } })
   }
 
   const response = await context.next()

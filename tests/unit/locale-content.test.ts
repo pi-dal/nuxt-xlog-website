@@ -15,6 +15,15 @@ describe('locale content surfaces', () => {
     expect(existsSync(join(process.cwd(), 'pages/zh/books/index.md'))).toBe(true)
   })
 
+  it('does not keep legacy zh redirects that bounce locale pages back to bare paths', () => {
+    const redirects = read('_redirects')
+
+    expect(redirects).not.toContain('/zh/about /about 301')
+    expect(redirects).not.toContain('/zh/about/ /about 301')
+    expect(redirects).not.toContain('/zh/links /friends 301')
+    expect(redirects).not.toContain('/zh/links/ /friends 301')
+  })
+
   it('does not leave obvious English navigation labels hardcoded in NavBar', () => {
     const source = read('src/components/NavBar.vue')
 

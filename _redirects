@@ -1,9 +1,7 @@
 /zh/search /posts 301
 /zh/search/ /posts 301
-/zh/about /about 301
-/zh/about/ /about 301
-/zh/links /friends 301
-/zh/links/ /friends 301
+/zh/links /zh/friends 301
+/zh/links/ /zh/friends 301
 /zh/category/* /posts 301
 /zh/tags/* /posts 301
 

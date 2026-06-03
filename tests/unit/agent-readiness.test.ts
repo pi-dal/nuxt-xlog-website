@@ -23,6 +23,72 @@ describe('agent readiness response layer', () => {
     expect(response.headers.get('Set-Cookie')).toContain('locale=ja')
   })
 
+  it('uses the entry pathname when falling back without cookie or language header', async () => {
+    const { onRequest } = await import('../../functions/_middleware.js')
+
+    const booksResponse = await onRequest({
+      next: async () => new Response('<html><body>Books</body></html>', {
+        headers: {
+          'Content-Type': 'text/html; charset=utf-8',
+        },
+        status: 200,
+      }),
+      request: new Request('https://pi-dal.com/books'),
+    })
+
+    const homeResponse = await onRequest({
+      next: async () => new Response('<html><body>Home</body></html>', {
+        headers: {
+          'Content-Type': 'text/html; charset=utf-8',
+        },
+        status: 200,
+      }),
+      request: new Request('https://pi-dal.com/'),
+    })
+
+    expect(booksResponse.status).toBe(302)
+    expect(booksResponse.headers.get('Location')).toBe('/zh/books')
+    expect(homeResponse.status).toBe(302)
+    expect(homeResponse.headers.get('Location')).toBe('/zh')
+  })
+
+  it('treats about and friends as locale entry paths instead of falling through to the SPA shell', async () => {
+    const { onRequest } = await import('../../functions/_middleware.js')
+
+    const aboutResponse = await onRequest({
+      next: async () => new Response('<html><body>About shell</body></html>', {
+        headers: {
+          'Content-Type': 'text/html; charset=utf-8',
+        },
+        status: 200,
+      }),
+      request: new Request('https://pi-dal.com/about', {
+        headers: {
+          'Accept-Language': 'ja,en;q=0.8,zh;q=0.6',
+        },
+      }),
+    })
+
+    const friendsResponse = await onRequest({
+      next: async () => new Response('<html><body>Friends shell</body></html>', {
+        headers: {
+          'Content-Type': 'text/html; charset=utf-8',
+        },
+        status: 200,
+      }),
+      request: new Request('https://pi-dal.com/friends', {
+        headers: {
+          'Accept-Language': 'en-US,en;q=0.9',
+        },
+      }),
+    })
+
+    expect(aboutResponse.status).toBe(302)
+    expect(aboutResponse.headers.get('Location')).toBe('/ja/about')
+    expect(friendsResponse.status).toBe(302)
+    expect(friendsResponse.headers.get('Location')).toBe('/en/friends')
+  })
+
   it('returns markdown when the request prefers text/markdown', async () => {
     const { onRequest } = await import('../../functions/_middleware.js')
 

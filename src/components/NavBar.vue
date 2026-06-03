@@ -1,4 +1,54 @@
 <script setup lang="ts">
+const route = useRoute()
+
+const LOCALE_LABELS = {
+  default: {
+    blog: 'Blog',
+    books: 'Books',
+    chat: `Let's Chat`,
+    home: '/',
+    photos: 'Photos',
+    projects: 'Projects',
+  },
+  en: {
+    blog: 'Blog',
+    books: 'Books',
+    chat: `Let's Chat`,
+    home: '/en',
+    photos: 'Photos',
+    projects: 'Projects',
+  },
+  ja: {
+    blog: '記事',
+    books: '読書',
+    chat: '連絡',
+    home: '/ja',
+    photos: '写真',
+    projects: 'プロジェクト',
+  },
+  zh: {
+    blog: '文章',
+    books: '读书',
+    chat: '联系',
+    home: '/zh',
+    photos: '摄影',
+    projects: '项目',
+  },
+} as const
+
+const currentLocale = computed(() => {
+  const segs = route.path.split('/').filter(Boolean)
+  const locale = segs[0]
+  return locale === 'zh' || locale === 'en' || locale === 'ja' ? locale : 'default'
+})
+
+const currentLabels = computed(() => LOCALE_LABELS[currentLocale.value])
+
+function toLocalePath(path: string) {
+  const prefix = currentLocale.value === 'default' ? '' : `/${currentLocale.value}`
+  return `${prefix}${path}` || '/'
+}
+
 function toTop() {
   window.scrollTo({
     top: 0,
@@ -13,7 +63,7 @@ const { y: scroll } = useWindowScroll()
   <header class="header z-40">
     <RouterLink
       class="w-12 h-12 absolute xl:fixed m-5 select-none outline-none"
-      to="/"
+      :to="currentLabels.home"
       focusable="false"
     >
       <Logo />
@@ -30,22 +80,22 @@ const { y: scroll } = useWindowScroll()
     <nav class="nav">
       <div class="spacer" />
       <div class="right" print:op0>
-        <RouterLink to="/posts" title="Blog">
-          <span class="lt-md:hidden">Blog</span>
+        <RouterLink :to="toLocalePath('/posts')" :title="currentLabels.blog">
+          <span class="lt-md:hidden">{{ currentLabels.blog }}</span>
           <div i-ri-article-line md:hidden />
         </RouterLink>
-        <RouterLink to="/projects" title="Projects">
-          <span class="lt-md:hidden">Projects</span>
+        <RouterLink :to="toLocalePath('/projects')" :title="currentLabels.projects">
+          <span class="lt-md:hidden">{{ currentLabels.projects }}</span>
           <div i-ri-lightbulb-line class="md:hidden" />
         </RouterLink>
-        <RouterLink to="/chat" title="Let's Chat">
-          <span class="lt-md:hidden">Let's Chat</span>
+        <RouterLink :to="toLocalePath('/chat')" :title="currentLabels.chat">
+          <span class="lt-md:hidden">{{ currentLabels.chat }}</span>
           <div i-ri-chat-1-line class="md:hidden" />
         </RouterLink>
-        <RouterLink to="/books" title="Books">
+        <RouterLink :to="toLocalePath('/books')" :title="currentLabels.books">
           <div i-ri-book-line />
         </RouterLink>
-        <a href="https://photography.pi-dal.com" target="_blank" title="Photos">
+        <a href="https://photography.pi-dal.com" target="_blank" :title="currentLabels.photos">
           <div i-ri-camera-3-line />
         </a>
         <div class="lt-md:hidden">

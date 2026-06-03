@@ -326,7 +326,10 @@ declare module 'vue-router/auto-routes' {
     '/posts/STR-Four-Vector-Electromagnetism-and-Dynamics': RouteRecordInfo<'/posts/STR-Four-Vector-Electromagnetism-and-Dynamics', '/posts/STR-Four-Vector-Electromagnetism-and-Dynamics', Record<never, never>, Record<never, never>>,
     '/projects': RouteRecordInfo<'/projects', '/projects', Record<never, never>, Record<never, never>>,
     '/zh/': RouteRecordInfo<'/zh/', '/zh', Record<never, never>, Record<never, never>>,
+    '/zh/about': RouteRecordInfo<'/zh/about', '/zh/about', Record<never, never>, Record<never, never>>,
     '/zh/chat': RouteRecordInfo<'/zh/chat', '/zh/chat', Record<never, never>, Record<never, never>>,
+    '/zh/friends': RouteRecordInfo<'/zh/friends', '/zh/friends', Record<never, never>, Record<never, never>>,
+    '/zh/books/': RouteRecordInfo<'/zh/books/', '/zh/books', Record<never, never>, Record<never, never>>,
     '/zh/posts/': RouteRecordInfo<'/zh/posts/', '/zh/posts', Record<never, never>, Record<never, never>>,
     '/zh/projects': RouteRecordInfo<'/zh/projects', '/zh/projects', Record<never, never>, Record<never, never>>,
   }

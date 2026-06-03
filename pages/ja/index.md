@@ -25,6 +25,6 @@ lang: ja
 
 - [GitHub](https://github.com/pi-dal)
 - [X / Twitter](https://x.com/pidal20)
-- [Photography](https://photography.pi-dal.com)
+- [写真](https://photography.pi-dal.com)
 
-良い入口として、[posts](/ja/posts)、[books](/ja/books)、[projects](/ja/projects)、[chat](/ja/chat) から始めてみてください。
+良い入口として、[記事](/ja/posts)、[読書](/ja/books)、[プロジェクト](/ja/projects)、[連絡](/ja/chat) から始めてみてください。

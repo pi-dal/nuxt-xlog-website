@@ -1,7 +1,44 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
+
+const route = useRoute()
 
 const isOpen = ref(false)
+
+const LOCALE_LABELS = {
+  default: {
+    allContent: 'All Content',
+    books: 'Reading Notes',
+    posts: 'Blog Posts',
+    title: 'RSS Feeds',
+  },
+  en: {
+    allContent: 'All Content',
+    books: 'Reading Notes',
+    posts: 'Blog Posts',
+    title: 'RSS Feeds',
+  },
+  ja: {
+    allContent: 'すべての内容',
+    books: '読書ノート',
+    posts: '記事',
+    title: 'RSSフィード',
+  },
+  zh: {
+    allContent: '全部内容',
+    books: '读书笔记',
+    posts: '博客文章',
+    title: 'RSS 订阅',
+  },
+} as const
+
+const currentLocale = computed(() => {
+  const segs = route.path.split('/').filter(Boolean)
+  const locale = segs[0]
+  return locale === 'zh' || locale === 'en' || locale === 'ja' ? locale : 'default'
+})
+
+const currentLabels = computed(() => LOCALE_LABELS[currentLocale.value])
 
 function toggleMenu() {
   isOpen.value = !isOpen.value
@@ -34,7 +71,7 @@ onUnmounted(() => {
     <button
       class="rss-trigger"
       :class="{ active: isOpen }"
-      title="RSS Feeds"
+      :title="currentLabels.title"
       @click="toggleMenu"
     >
       <div i-la-rss-square style="font-size:1.25rem; margin: 0 -0.125rem;" />
@@ -50,7 +87,7 @@ onUnmounted(() => {
             @click="closeMenu"
           >
             <div i-ri-global-line class="rss-menu-icon" />
-            <span>All Content</span>
+            <span>{{ currentLabels.allContent }}</span>
           </a>
 
           <a
@@ -60,7 +97,7 @@ onUnmounted(() => {
             @click="closeMenu"
           >
             <div i-ri-article-line class="rss-menu-icon" />
-            <span>Blog Posts</span>
+            <span>{{ currentLabels.posts }}</span>
           </a>
 
           <!-- Language-specific feeds -->
@@ -101,7 +138,7 @@ onUnmounted(() => {
             @click="closeMenu"
           >
             <div i-ri-book-line class="rss-menu-icon" />
-            <span>Reading Notes</span>
+            <span>{{ currentLabels.books }}</span>
           </a>
         </div>
       </div>

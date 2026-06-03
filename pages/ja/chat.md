@@ -17,4 +17,4 @@ lang: ja
 
 トップページのリンクから連絡できます。
 
-<PayMe />
+<PayMe button-text="サポートする" description-text="PayPal でサポートしていただけると嬉しいです。" />

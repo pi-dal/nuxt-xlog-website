@@ -18,4 +18,4 @@ lang: ja
 
 - [GitHub](https://github.com/pi-dal)
 - [X / Twitter](https://x.com/pidal20)
-- [Photography](https://photography.pi-dal.com)
+- [写真](https://photography.pi-dal.com)

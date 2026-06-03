@@ -1,17 +1,10 @@
 ---
-title: pi-dal
-slug: home
+title: 关于
+slug: about
 type: page
-display: ""
-description: 笔记、实验、和生活记录。
+description: 关于 pi-dal —— 一个写代码、读书、做东西的学生。
 lang: zh
 ---
-
-<div class="locale-switcher" style="margin-bottom: 12px">
-  <a href="/zh" class="locale-link active">ZH</a>
-  <a href="/en" class="locale-link">EN</a>
-  <a href="/ja" class="locale-link">JA</a>
-</div>
 
 嗨，我是 pi-dal，一个来自广东的学生。喜欢代码、数学、物理、训练，以及在网络上搭建各种小东西。
 
@@ -26,5 +19,3 @@ lang: zh
 - [GitHub](https://github.com/pi-dal)
 - [X / Twitter](https://x.com/pidal20)
 - [摄影](https://photography.pi-dal.com)
-
-想找一个好的入口？可以从 [文章](/zh/posts)、[读书](/zh/books)、[项目](/zh/projects) 或 [联系](/zh/chat) 开始。

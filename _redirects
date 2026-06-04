@@ -14,8 +14,7 @@
 
 /blog/* /posts/:splat 301
 
-/zh/posts/STR-Four-Vector-Basic-Transformation /posts/STR-Four-Vector-Basic-Transformation 302
-/zh/posts/STR-Four-Vector-Electromagnetism-and-Dynamics /posts/STR-Four-Vector-Electromagnetism-and-Dynamics 302
+
 
 /github https://github.com/pi-dal 301
 /gh https://github.com/pi-dal 301

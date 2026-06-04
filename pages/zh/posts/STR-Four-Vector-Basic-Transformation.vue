@@ -1,0 +1,51 @@
+<script setup lang="ts">
+import type { ContentFrontmatter } from '~/types/content'
+import { defineAsyncComponent, hydrateOnIdle, hydrateOnVisible } from 'vue'
+
+type ChunkHydrationMode = 'idle' | 'visible'
+
+const route = useRoute()
+const frontmatter = route.meta.frontmatter as ContentFrontmatter
+
+function createChunkedSection(
+  loader: () => Promise<unknown>,
+  hydration: ChunkHydrationMode = 'visible',
+) {
+  return defineAsyncComponent({
+    loader: loader as never,
+    hydrate: hydration === 'idle'
+      ? hydrateOnIdle()
+      : hydrateOnVisible({ rootMargin: '1200px 0px' }),
+  })
+}
+
+const SectionIntro = createChunkedSection(() => import('~/content/chunked-posts/STR-Four-Vector-Basic-Transformation/00-intro.md'), 'idle')
+const SectionBasics = createChunkedSection(() => import('~/content/chunked-posts/STR-Four-Vector-Basic-Transformation/01-basics.md'))
+const SectionProperties = createChunkedSection(() => import('~/content/chunked-posts/STR-Four-Vector-Basic-Transformation/02-properties.md'))
+const SectionApplicationsFoundations = createChunkedSection(() => import('~/content/chunked-posts/STR-Four-Vector-Basic-Transformation/03-applications-foundations.md'))
+const SectionApplicationsCollisions = createChunkedSection(() => import('~/content/chunked-posts/STR-Four-Vector-Basic-Transformation/04-applications-collisions.md'))
+const SectionApplicationsScattering = createChunkedSection(() => import('~/content/chunked-posts/STR-Four-Vector-Basic-Transformation/05-applications-scattering.md'))
+</script>
+
+<template>
+  <WrapperPost :frontmatter="frontmatter">
+    <SectionIntro />
+    <SectionBasics />
+    <SectionProperties />
+    <SectionApplicationsFoundations />
+    <SectionApplicationsCollisions />
+    <SectionApplicationsScattering />
+  </WrapperPost>
+</template>
+
+<route lang="yaml">
+meta:
+  frontmatter:
+    title: 如何用四维矢量来解决狭义相对论问题（基础的时空与碰撞的变换）
+    slug: STR-Four-Vector-Basic-Transformation
+    type: post
+    lang: zh
+    date: 2025-07-20T10:58:41.139Z
+    summary: 在学习物理竞赛的过程中，我曾发现中文资料中关于狭义相对论四维矢量的文章乃至书籍都极为稀缺。
+    image: https://pi-dal.com/og/STR-Four-Vector-Basic-Transformation.png
+</route>

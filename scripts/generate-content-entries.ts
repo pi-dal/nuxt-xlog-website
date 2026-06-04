@@ -80,11 +80,14 @@ async function run() {
   const patterns = [
     'pages/posts/*.md',
     'pages/posts/*.vue',
+    'pages/zh/posts/*.md',
+    'pages/zh/posts/*.vue',
     'pages/en/posts/*.md',
     'pages/en/posts/*.vue',
     'pages/ja/posts/*.md',
     'pages/ja/posts/*.vue',
     'pages/books/*.md',
+    'pages/zh/books/*.md',
     'pages/en/books/*.md',
     'pages/ja/books/*.md',
   ]
@@ -113,9 +116,34 @@ async function run() {
         : (['posts', 'books'].includes(segs[0]) ? segs[0] : 'posts')
 
       // Path: use locale prefix for locale paths, no prefix for zh root paths
-      const path = isLocalePath
-        ? `/${relPath.replace(/\.(md|vue)$/, '')}`
-        : `/${relPath.replace(/^pages\//, '').replace(/\.(md|vue)$/, '')}`
+      // For root-level books (pages/books/*.md), generate both bare and locale paths
+      let path
+      if (!isLocalePath && collection === 'books') {
+        path = `/${relPath.replace(/^pages\//, '').replace(/\.(md|vue)$/, '')}`
+      }
+      else if (!isLocalePath && collection === 'posts') {
+        path = `/${relPath.replace(/^pages\//, '').replace(/\.(md|vue)$/, '')}`
+      }
+      else {
+        path = isLocalePath
+          ? `/${relPath.replace(/\.(md|vue)$/, '')}`
+          : `/${relPath.replace(/^pages\//, '').replace(/\.(md|vue)$/, '')}`
+      }
+
+      // For zh books at root, also add a /zh/books/ entry
+      if (!isLocalePath && collection === 'books' && pathLocale === 'zh') {
+        const localePath = `/${pathLocale}/${collection}/${slug}`
+        entries.push({
+          path: localePath,
+          title: fm.title || slug.replace(/[-_]/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase()),
+          slug,
+          lang: pathLocale,
+          date: fm.date || '',
+          summary: fm.summary || '',
+          type: fm.type || 'post',
+          collection,
+        })
+      }
 
       entries.push({
         path,

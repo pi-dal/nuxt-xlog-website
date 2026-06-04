@@ -23,7 +23,8 @@ interface ExtractOptions {
 
 export function useContentRoutes(options: ExtractOptions = {}): import('vue').ComputedRef<ContentRouteEntry[]> {
   const filtered = computed(() => {
-    return contentEntries
+    // Get all matching entries
+    const all = contentEntries
       .filter(entry => !options.collection || entry.collection === options.collection)
       .filter(entry => !options.lang || entry.lang === options.lang)
       .filter(entry => !entry.draft)
@@ -38,6 +39,25 @@ export function useContentRoutes(options: ExtractOptions = {}): import('vue').Co
         tags: [] as string[],
         draft: false,
       }))
+
+    // Deduplicate by slug: prefer locale-prefixed paths
+    const bySlug = new Map<string, ContentRouteEntry>()
+    for (const entry of all) {
+      // Always prefer locale-prefixed paths (/zh/posts/xxx > /posts/xxx)
+      const existing = bySlug.get(entry.slug)
+      if (!existing) {
+        bySlug.set(entry.slug, entry)
+      }
+      else {
+        const entryHasLocale = entry.path.split('/').filter(Boolean).length >= 2 && ['en', 'zh', 'ja'].includes(entry.path.split('/').filter(Boolean)[0])
+        const existingHasLocale = existing.path.split('/').filter(Boolean).length >= 2 && ['en', 'zh', 'ja'].includes(existing.path.split('/').filter(Boolean)[0])
+        // Only replace if the new entry has a locale prefix and the existing doesn't
+        if (entryHasLocale && !existingHasLocale) {
+          bySlug.set(entry.slug, entry)
+        }
+      }
+    }
+    return [...bySlug.values()]
       .sort((a, b) => {
         if (!a.date && !b.date)
           return a.title.localeCompare(b.title)

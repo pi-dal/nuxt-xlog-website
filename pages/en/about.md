@@ -2,19 +2,17 @@
 title: About
 slug: about
 type: page
-description: About pi-dal — a student who codes, reads, and builds things.
+description: About pi-dal — someone learning across a few different worlds.
 lang: en
 ---
 
-Hey, I'm pi-dal, a student from Guangdong who likes code, mathematics, physics, training, and building little things on the web.
+I am pi-dal, a student from Guangdong learning across code, mathematics, physics, and the quiet craft of making things.
 
-This site is my public notebook. I use it to keep blog posts, study notes, migration experiments, and fragments of life that are worth keeping.
+This site is a public notebook. I use it to keep blog posts, reading notes, experiments, and small fragments of life that feel worth preserving.
 
-Most of my technical work revolves around Python, Vue, React, CSS, and whatever I need to learn next to make an idea real.
+I mostly build with Python, Vue, React, and CSS. Outside programming, I spend time on basketball, table tennis, badminton, guitar, astronomy, and the side interests that start from curiosity and slowly become their own commitments.
 
-Outside of programming, I spend time with basketball, table tennis, badminton, guitar, astronomy, and side experiments that usually start as curiosity and end as a rabbit hole.
-
-The name `pi-dal` comes from Raspberry Pi, Python, π, and my English name: David Albt Leonardo.
+The name `pi-dal` comes from Raspberry Pi, Python, π, and my English name, David Albt Leonardo. It reminds me that different interests do not have to stay separate forever.
 
 - [GitHub](https://github.com/pi-dal)
 - [X / Twitter](https://x.com/pidal20)

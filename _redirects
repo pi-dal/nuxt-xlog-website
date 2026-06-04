@@ -1,3 +1,5 @@
+/posts/* /zh/posts/:splat 302
+
 /zh/search /posts 301
 /zh/search/ /posts 301
 /zh/links /zh/friends 301

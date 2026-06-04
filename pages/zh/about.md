@@ -2,19 +2,17 @@
 title: 关于
 slug: about
 type: page
-description: 关于 pi-dal —— 一个写代码、读书、做东西的学生。
+description: 关于 pi-dal —— 一个在不同世界之间学习的人。
 lang: zh
 ---
 
-嗨，我是 pi-dal，一个来自广东的学生。喜欢代码、数学、物理、训练，以及在网络上搭建各种小东西。
+我是 pi-dal，一个来自广东的学生，在代码、数学、物理，以及安静造物的世界之间来回学习。
 
-这个站点是我的公开笔记本。用来存放博客文章、学习笔记、迁移实验，以及值得留存的生活片段。
+这个站点像一册公开的笔记本。我把博客文章、学习笔记、实验记录，以及一些值得留下的生活片段放在这里。
 
-我的技术工作主要围绕 Python、Vue、React、CSS 展开，以及为了实现想法需要学习的任何东西。
+我主要用 Python、Vue、React、CSS 来把想法变成现实；编程之外，我也喜欢篮球、乒乓球、羽毛球、吉他、天文，以及那些始于好奇、后来慢慢长大的旁支兴趣。
 
-编程之外，我喜欢篮球、乒乓球、羽毛球、吉他、天文，还有那些始于好奇、终于深挖的 side project。
-
-`pi-dal` 这个名字来自 Raspberry Pi、Python、π，以及我的英文名 David Albt Leonardo。
+`pi-dal` 这个名字来自 Raspberry Pi、Python、π，以及我的英文名 David Albt Leonardo。它提醒我，不同的兴趣也可以自然地汇到一起。
 
 - [GitHub](https://github.com/pi-dal)
 - [X / Twitter](https://x.com/pidal20)

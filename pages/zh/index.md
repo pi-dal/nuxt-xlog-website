@@ -3,7 +3,7 @@ title: pi-dal
 slug: home
 type: page
 display: ""
-description: 笔记、实验、和生活记录。
+description: 笔记、实验与生活记录。
 lang: zh
 ---
 
@@ -13,18 +13,16 @@ lang: zh
   <a href="/ja" class="locale-link">JA</a>
 </div>
 
-嗨，我是 pi-dal，一个来自广东的学生。喜欢代码、数学、物理、训练，以及在网络上搭建各种小东西。
+我是 pi-dal，一个来自广东的学生，在代码、数学、物理和日常生活之间来回穿行。
 
-这个站点是我的公开笔记本。用来存放博客文章、学习笔记、迁移实验，以及值得留存的生活片段。
+这里是我的公开园地，用来安放笔记、实验，以及一些值得留下的生活片段。它不求完整，只求诚实。
 
-我的技术工作主要围绕 Python、Vue、React、CSS 展开，以及为了实现想法需要学习的任何东西。
+我主要用 Python、Vue、React、CSS 来把想法落地；除此之外，我也把时间花在篮球、乒乓球、羽毛球、吉他、天文，以及那些出于好奇而越走越深的旁支兴趣上。
 
-编程之外，我喜欢篮球、乒乓球、羽毛球、吉他、天文，还有那些始于好奇、终于深挖的 side project。
-
-`pi-dal` 这个名字来自 Raspberry Pi、Python、π，以及我的英文名 David Albt Leonardo。
+`pi-dal` 这个名字来自 Raspberry Pi、Python、π，以及我的英文名 David Albt Leonardo。它只是一个起点，不是边界。
 
 - [GitHub](https://github.com/pi-dal)
 - [X / Twitter](https://x.com/pidal20)
 - [摄影](https://photography.pi-dal.com)
 
-想找一个好的入口？可以从 [文章](/zh/posts)、[读书](/zh/books)、[项目](/zh/projects) 或 [联系](/zh/chat) 开始。
+如果你想找个入口，可以从[文章](/zh/posts)、[读书](/zh/books)、[项目](/zh/projects)或[联系](/zh/chat)开始。

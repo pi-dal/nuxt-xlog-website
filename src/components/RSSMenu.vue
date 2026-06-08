@@ -39,6 +39,10 @@ const currentLocale = computed(() => {
 })
 
 const currentLabels = computed(() => LOCALE_LABELS[currentLocale.value])
+const currentFeedPrefix = computed(() => currentLocale.value === 'default' ? '' : `/${currentLocale.value}`)
+const currentAllContentFeed = computed(() => `${currentFeedPrefix.value}/feed.xml`)
+const currentPostsFeed = computed(() => `${currentFeedPrefix.value}${currentLocale.value === 'default' ? '/blog-feed.xml' : '/blog-feed.xml'}`)
+const currentBooksFeed = computed(() => `${currentFeedPrefix.value}${currentLocale.value === 'default' ? '/books-feed.xml' : '/books-feed.xml'}`)
 
 function toggleMenu() {
   isOpen.value = !isOpen.value
@@ -81,7 +85,7 @@ onUnmounted(() => {
       <div v-if="isOpen" class="rss-menu">
         <div class="rss-menu-content">
           <a
-            href="/feed.xml"
+            :href="currentAllContentFeed"
             target="_blank"
             class="rss-menu-item"
             @click="closeMenu"
@@ -91,7 +95,7 @@ onUnmounted(() => {
           </a>
 
           <a
-            href="/blog-feed.xml"
+            :href="currentPostsFeed"
             target="_blank"
             class="rss-menu-item"
             @click="closeMenu"
@@ -102,7 +106,7 @@ onUnmounted(() => {
 
           <!-- Language-specific feeds -->
           <a
-            href="/zh/feed.xml"
+            href="/zh/blog-feed.xml"
             target="_blank"
             class="rss-menu-item"
             @click="closeMenu"
@@ -112,7 +116,7 @@ onUnmounted(() => {
           </a>
 
           <a
-            href="/en/feed.xml"
+            href="/en/blog-feed.xml"
             target="_blank"
             class="rss-menu-item"
             @click="closeMenu"
@@ -122,7 +126,7 @@ onUnmounted(() => {
           </a>
 
           <a
-            href="/ja/feed.xml"
+            href="/ja/blog-feed.xml"
             target="_blank"
             class="rss-menu-item"
             @click="closeMenu"
@@ -132,7 +136,37 @@ onUnmounted(() => {
           </a>
 
           <a
-            href="/books-feed.xml"
+            href="/zh/books-feed.xml"
+            target="_blank"
+            class="rss-menu-item"
+            @click="closeMenu"
+          >
+            <div i-ri-book-line class="rss-menu-icon" />
+            <span>中文读书笔记</span>
+          </a>
+
+          <a
+            href="/en/books-feed.xml"
+            target="_blank"
+            class="rss-menu-item"
+            @click="closeMenu"
+          >
+            <div i-ri-book-line class="rss-menu-icon" />
+            <span>English Reading Notes</span>
+          </a>
+
+          <a
+            href="/ja/books-feed.xml"
+            target="_blank"
+            class="rss-menu-item"
+            @click="closeMenu"
+          >
+            <div i-ri-book-line class="rss-menu-icon" />
+            <span>日本語読書ノート</span>
+          </a>
+
+          <a
+            :href="currentBooksFeed"
             target="_blank"
             class="rss-menu-item"
             @click="closeMenu"

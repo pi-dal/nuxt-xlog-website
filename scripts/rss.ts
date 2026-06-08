@@ -58,6 +58,10 @@ async function loadFeedItems(patterns: string[], lang?: string): Promise<Item[]>
     .sort((a, b) => +new Date(b.date || 0) - +new Date(a.date || 0))
 }
 
+function sortItems(items: Item[]) {
+  return items.sort((a, b) => +new Date(b.date || 0) - +new Date(a.date || 0))
+}
+
 async function writeSitemap(urls: string[]) {
   const uniqueUrls = [...new Set(urls)]
   const content = [
@@ -92,22 +96,26 @@ export async function buildFeeds() {
   // Original content feeds (Chinese originals only, no locale duplicates)
   const chPostPatterns = ['pages/posts/*.md', 'pages/posts/*.vue', 'pages/zh/posts/*.md', 'pages/zh/posts/*.vue']
   const chBookPatterns = ['pages/books/*.md', 'pages/zh/books/*.md']
-  // All locale patterns for language-specific feeds
-  const localePatterns = ['pages/posts/*.md', 'pages/posts/*.vue', 'pages/zh/posts/*.md', 'pages/zh/posts/*.vue', 'pages/en/posts/*.md', 'pages/en/posts/*.vue', 'pages/ja/posts/*.md', 'pages/ja/posts/*.vue']
+  const localePostPatterns = ['pages/posts/*.md', 'pages/posts/*.vue', 'pages/zh/posts/*.md', 'pages/zh/posts/*.vue', 'pages/en/posts/*.md', 'pages/en/posts/*.vue', 'pages/ja/posts/*.md', 'pages/ja/posts/*.vue']
+  const localeBookPatterns = ['pages/books/*.md', 'pages/zh/books/*.md', 'pages/en/books/*.md', 'pages/ja/books/*.md']
 
   const [chPostItems, bookItems] = await Promise.all([
     loadFeedItems(chPostPatterns, 'zh'),
     loadFeedItems(chBookPatterns, 'zh'),
   ])
-  const allItems = [...chPostItems, ...bookItems]
-    .sort((a, b) => +new Date(b.date || 0) - +new Date(a.date || 0))
+  const allItems = sortItems([...chPostItems, ...bookItems])
 
-  // Language-specific feeds (from all locale patterns, filtered by lang)
-  const [zhPostItems, enPostItems, jaPostItems] = await Promise.all([
-    loadFeedItems(localePatterns, 'zh'),
-    loadFeedItems(localePatterns, 'en'),
-    loadFeedItems(localePatterns, 'ja'),
+  const [zhPostItems, enPostItems, jaPostItems, zhBookItems, enBookItems, jaBookItems] = await Promise.all([
+    loadFeedItems(localePostPatterns, 'zh'),
+    loadFeedItems(localePostPatterns, 'en'),
+    loadFeedItems(localePostPatterns, 'ja'),
+    loadFeedItems(localeBookPatterns, 'zh'),
+    loadFeedItems(localeBookPatterns, 'en'),
+    loadFeedItems(localeBookPatterns, 'ja'),
   ])
+  const zhItems = sortItems([...zhPostItems, ...zhBookItems])
+  const enItems = sortItems([...enPostItems, ...enBookItems])
+  const jaItems = sortItems([...jaPostItems, ...jaBookItems])
 
   // Combined feeds (original Chinese content only)
   await writeFeed(
@@ -126,21 +134,55 @@ export async function buildFeeds() {
     bookItems,
   )
 
-  // Language-specific RSS feeds
+  // Language-specific combined content feeds
   await writeFeed(
     'zh/feed',
-    createFeedOptions(`${siteConfig.author.name} - 中文文章`, 'pi-dal 的中文博客文章', '/zh/posts/', '/zh/feed.xml'),
-    zhPostItems,
+    createFeedOptions(`${siteConfig.author.name} - 中文内容`, 'pi-dal 的中文博客与读书笔记', '/zh/', '/zh/feed.xml'),
+    zhItems,
   )
   await writeFeed(
     'en/feed',
-    createFeedOptions(`${siteConfig.author.name} - English Posts`, 'English blog posts from pi-dal', '/en/posts/', '/en/feed.xml'),
-    enPostItems,
+    createFeedOptions(`${siteConfig.author.name} - English Content`, 'English blog posts and reading notes from pi-dal', '/en/', '/en/feed.xml'),
+    enItems,
   )
   await writeFeed(
     'ja/feed',
-    createFeedOptions(`${siteConfig.author.name} - 日本語記事`, 'pi-dal の日本語ブログ記事', '/ja/posts/', '/ja/feed.xml'),
+    createFeedOptions(`${siteConfig.author.name} - 日本語コンテンツ`, 'pi-dal の日本語ブログ記事と読書ノート', '/ja/', '/ja/feed.xml'),
+    jaItems,
+  )
+
+  // Language-specific post-only feeds
+  await writeFeed(
+    'zh/blog-feed',
+    createFeedOptions(`${siteConfig.author.name} - 中文文章`, 'pi-dal 的中文博客文章', '/zh/posts/', '/zh/blog-feed.xml'),
+    zhPostItems,
+  )
+  await writeFeed(
+    'en/blog-feed',
+    createFeedOptions(`${siteConfig.author.name} - English Posts`, 'English blog posts from pi-dal', '/en/posts/', '/en/blog-feed.xml'),
+    enPostItems,
+  )
+  await writeFeed(
+    'ja/blog-feed',
+    createFeedOptions(`${siteConfig.author.name} - 日本語記事`, 'pi-dal の日本語ブログ記事', '/ja/posts/', '/ja/blog-feed.xml'),
     jaPostItems,
+  )
+
+  // Language-specific book-only feeds
+  await writeFeed(
+    'zh/books-feed',
+    createFeedOptions(`${siteConfig.author.name} - 中文读书笔记`, 'pi-dal 的中文读书笔记', '/zh/books/', '/zh/books-feed.xml'),
+    zhBookItems,
+  )
+  await writeFeed(
+    'en/books-feed',
+    createFeedOptions(`${siteConfig.author.name} - English Reading Notes`, 'English reading notes from pi-dal', '/en/books/', '/en/books-feed.xml'),
+    enBookItems,
+  )
+  await writeFeed(
+    'ja/books-feed',
+    createFeedOptions(`${siteConfig.author.name} - 日本語読書ノート`, 'pi-dal の日本語読書ノート', '/ja/books/', '/ja/books-feed.xml'),
+    jaBookItems,
   )
 
   const canonicalUrls = await collectCanonicalUrls(siteConfig.url, {

@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
+import fg from 'fast-glob'
 import { describe, expect, it } from 'vitest'
 
 function read(rel: string) {
@@ -15,8 +16,35 @@ describe('locale content surfaces', () => {
     expect(existsSync(join(process.cwd(), 'pages/zh/books/index.md'))).toBe(true)
   })
 
+  it('has zh route files for every legacy root post source', () => {
+    const rootPostFiles = fg.sync('pages/posts/*.{md,vue}', {
+      cwd: process.cwd(),
+      onlyFiles: true,
+    })
+
+    const missingLocalizedFiles = rootPostFiles
+      .map(file => file.replace(/^pages\/posts\//, 'pages/zh/posts/'))
+      .filter(file => !existsSync(join(process.cwd(), file)))
+
+    expect(missingLocalizedFiles).toEqual([])
+  })
+
+  it('excludes legacy root collections from file-based routes', () => {
+    const source = read('vite.config.ts')
+
+    expect(source).toContain('pages/posts/**')
+    expect(source).toContain('pages/books/**')
+  })
+
   it('does not keep legacy zh redirects that bounce locale pages back to bare paths', () => {
     const redirects = read('_redirects')
+
+    expect(redirects).toContain('/posts /zh/posts 302')
+    expect(redirects).toContain('/posts/ /zh/posts 302')
+    expect(redirects).toContain('/posts/* /zh/posts/:splat 302')
+    expect(redirects).toContain('/books /zh/books 302')
+    expect(redirects).toContain('/books/ /zh/books 302')
+    expect(redirects).toContain('/books/* /zh/books/:splat 302')
 
     expect(redirects).not.toContain('/zh/about /about 301')
     expect(redirects).not.toContain('/zh/about/ /about 301')

@@ -27,15 +27,52 @@ function requireSlug(filePath: string, frontmatter: Partial<ContentFrontmatter>)
 }
 
 function isIndexFile(filePath: string) {
-  return /\/index\.md$/i.test(filePath.replace(/\\/g, '/'))
+  return /\/index\.(?:md|vue)$/i.test(filePath.replace(/\\/g, '/'))
 }
 
 function toRootRelativeMarkdownPath(rootDir: string, filePath: string) {
   return relative(resolve(rootDir, 'pages'), filePath).replace(/\\/g, '/')
 }
 
+function removePageExtension(path: string) {
+  return path.replace(/\.(md|vue)$/i, '')
+}
+
+export function isLegacyRootCollectionPath(relativePath: string) {
+  return /^(?:posts|books)(?:\/|$)/.test(relativePath)
+}
+
+function localeFromFrontmatter(frontmatter: Partial<ContentFrontmatter>) {
+  return typeof frontmatter.lang === 'string' && frontmatter.lang.trim()
+    ? frontmatter.lang.trim()
+    : 'zh'
+}
+
+function toCanonicalContentPath(relativePath: string, frontmatter: Partial<ContentFrontmatter>, slug?: string) {
+  const segments = relativePath.split('/')
+
+  if (isLegacyRootCollectionPath(relativePath)) {
+    segments.unshift(localeFromFrontmatter(frontmatter))
+  }
+
+  if (slug)
+    segments[segments.length - 1] = slug
+
+  return `/${segments.join('/')}`.replace(/\/+/g, '/')
+}
+
+export function resolvePathBasedRoutePath(options: MarkdownRoutePathOptions) {
+  const rootDir = options.rootDir || process.cwd()
+  const relativePath = removePageExtension(toRootRelativeMarkdownPath(rootDir, options.filePath))
+
+  return toCanonicalContentPath(relativePath, options.frontmatter)
+}
+
 export function resolveRoutePathOverride(options: RoutePathOverrideOptions) {
-  if (isIndexFile(options.filePath))
+  const rootDir = options.rootDir || process.cwd()
+  const relativePath = toRootRelativeMarkdownPath(rootDir, options.filePath)
+
+  if (isIndexFile(options.filePath) && !isLegacyRootCollectionPath(relativePath))
     return undefined
 
   return resolveMarkdownRoutePath(options)
@@ -46,12 +83,10 @@ export function resolveMarkdownRoutePath(options: MarkdownRoutePathOptions) {
   const relativePath = toRootRelativeMarkdownPath(rootDir, options.filePath)
 
   if (isIndexFile(options.filePath)) {
-    const clean = relativePath.replace(/\/?index\.md$/i, '')
-    return clean ? `/${clean}` : '/'
+    const clean = relativePath.replace(/\/?index\.(?:md|vue)$/i, '')
+    return clean ? toCanonicalContentPath(clean, options.frontmatter) : '/'
   }
 
   const slug = requireSlug(options.filePath, options.frontmatter)
-  const segments = relativePath.split('/')
-  segments[segments.length - 1] = slug
-  return `/${segments.join('/')}`.replace(/\/+/g, '/')
+  return toCanonicalContentPath(relativePath, options.frontmatter, slug)
 }

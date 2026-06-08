@@ -1,18 +1,23 @@
+/posts /zh/posts 302
+/posts/ /zh/posts 302
 /posts/* /zh/posts/:splat 302
+/books /zh/books 302
+/books/ /zh/books 302
+/books/* /zh/books/:splat 302
 
-/zh/search /posts 301
-/zh/search/ /posts 301
+/zh/search /zh/posts 301
+/zh/search/ /zh/posts 301
 /zh/links /zh/friends 301
 /zh/links/ /zh/friends 301
-/zh/category/* /posts 301
-/zh/tags/* /posts 301
+/zh/category/* /zh/posts 301
+/zh/tags/* /zh/posts 301
 
-/de /posts 301
+/de /zh/posts 301
 /de/* /zh/:splat 301
 
 /photos https://photography.pi-dal.com 301
 
-/blog/* /posts/:splat 301
+/blog/* /zh/posts/:splat 301
 
 
 

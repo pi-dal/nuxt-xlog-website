@@ -29,7 +29,7 @@ type: post
 
 ![cover](/article-assets/published/cover.png)
 
-[Internal](/posts/published)
+[Internal](/zh/posts/published)
 `)
 
     await writeFile(join(postsDir, 'draft.md'), `---
@@ -51,8 +51,8 @@ Nope
 
     expect(entries).toHaveLength(1)
     expect(entries[0].frontmatter.title).toBe('Published')
-    expect(entries[0].url).toBe('https://pi-dal.com/posts/published')
+    expect(entries[0].url).toBe('https://pi-dal.com/zh/posts/published')
     expect(entries[0].html).toContain('src="https://pi-dal.com/article-assets/published/cover.png"')
-    expect(entries[0].html).toContain('href="https://pi-dal.com/posts/published"')
+    expect(entries[0].html).toContain('href="https://pi-dal.com/zh/posts/published"')
   })
 })

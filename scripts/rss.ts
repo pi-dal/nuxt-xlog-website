@@ -90,13 +90,14 @@ async function writeFeed(name: string, options: FeedOptions, items: Item[]) {
 
 export async function buildFeeds() {
   // Original content feeds (Chinese originals only, no locale duplicates)
-  const chPostPatterns = ['pages/posts/*.md', 'pages/posts/*.vue']
+  const chPostPatterns = ['pages/posts/*.md', 'pages/posts/*.vue', 'pages/zh/posts/*.md', 'pages/zh/posts/*.vue']
+  const chBookPatterns = ['pages/books/*.md', 'pages/zh/books/*.md']
   // All locale patterns for language-specific feeds
-  const localePatterns = ['pages/posts/*.md', 'pages/posts/*.vue', 'pages/en/posts/*.md', 'pages/en/posts/*.vue', 'pages/ja/posts/*.md', 'pages/ja/posts/*.vue']
+  const localePatterns = ['pages/posts/*.md', 'pages/posts/*.vue', 'pages/zh/posts/*.md', 'pages/zh/posts/*.vue', 'pages/en/posts/*.md', 'pages/en/posts/*.vue', 'pages/ja/posts/*.md', 'pages/ja/posts/*.vue']
 
   const [chPostItems, bookItems] = await Promise.all([
-    loadFeedItems(chPostPatterns),
-    loadFeedItems(['pages/books/*.md']),
+    loadFeedItems(chPostPatterns, 'zh'),
+    loadFeedItems(chBookPatterns, 'zh'),
   ])
   const allItems = [...chPostItems, ...bookItems]
     .sort((a, b) => +new Date(b.date || 0) - +new Date(a.date || 0))
@@ -116,12 +117,12 @@ export async function buildFeeds() {
   )
   await writeFeed(
     'blog-feed',
-    createFeedOptions(`${siteConfig.author.name} - Blog Posts`, `${siteConfig.author.name}'s blog posts`, '/posts/', '/blog-feed.xml'),
+    createFeedOptions(`${siteConfig.author.name} - Blog Posts`, `${siteConfig.author.name}'s blog posts`, '/zh/posts/', '/blog-feed.xml'),
     chPostItems,
   )
   await writeFeed(
     'books-feed',
-    createFeedOptions(`${siteConfig.author.name} - Reading Notes`, `${siteConfig.author.name}'s reading notes`, '/books/', '/books-feed.xml'),
+    createFeedOptions(`${siteConfig.author.name} - Reading Notes`, `${siteConfig.author.name}'s reading notes`, '/zh/books/', '/books-feed.xml'),
     bookItems,
   )
 

@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 
 describe('agent readiness response layer', () => {
   it('redirects the bare homepage to a locale homepage', async () => {
+    // @ts-expect-error Cloudflare function entrypoints are JavaScript modules without declarations.
     const { onRequest } = await import('../../functions/_middleware.js')
 
     const response = await onRequest({
@@ -24,6 +25,7 @@ describe('agent readiness response layer', () => {
   })
 
   it('uses the entry pathname when falling back without cookie or language header', async () => {
+    // @ts-expect-error Cloudflare function entrypoints are JavaScript modules without declarations.
     const { onRequest } = await import('../../functions/_middleware.js')
 
     const booksResponse = await onRequest({
@@ -53,6 +55,7 @@ describe('agent readiness response layer', () => {
   })
 
   it('treats about and friends as locale entry paths instead of falling through to the SPA shell', async () => {
+    // @ts-expect-error Cloudflare function entrypoints are JavaScript modules without declarations.
     const { onRequest } = await import('../../functions/_middleware.js')
 
     const aboutResponse = await onRequest({
@@ -90,6 +93,7 @@ describe('agent readiness response layer', () => {
   })
 
   it('returns markdown when the request prefers text/markdown', async () => {
+    // @ts-expect-error Cloudflare function entrypoints are JavaScript modules without declarations.
     const { onRequest } = await import('../../functions/_middleware.js')
 
     const response = await onRequest({
@@ -113,6 +117,7 @@ describe('agent readiness response layer', () => {
   })
 
   it('serves the API catalog as linkset JSON', async () => {
+    // @ts-expect-error Cloudflare function entrypoints are JavaScript modules without declarations.
     const { onRequestGet } = await import('../../functions/.well-known/api-catalog.js')
 
     const response = await onRequestGet({

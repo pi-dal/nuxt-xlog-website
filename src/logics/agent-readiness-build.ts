@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises'
 import { relative, resolve } from 'node:path'
 import fg from 'fast-glob'
 import matter from 'gray-matter'
-import { resolveMarkdownRoutePath } from './content-route-path'
+import { resolveMarkdownRoutePath, resolvePathBasedRoutePath } from './content-route-path'
 import { buildAbsoluteUrl } from './site-meta'
 
 export interface CanonicalRouteEntry {
@@ -35,19 +35,47 @@ function toRootRelativePagePath(rootDir: string, filePath: string) {
   return relative(resolve(rootDir, 'pages'), filePath).replace(/\\/g, '/')
 }
 
-function resolveVueRoutePath(rootDir: string, filePath: string) {
+function extractRouteFrontmatter(raw: string): Partial<ContentFrontmatter> {
+  const routeMatch = raw.match(/<route\s+lang="yaml">([\s\S]*?)<\/route>/)
+  if (!routeMatch)
+    return {}
+
+  const fmLine = routeMatch[1].match(/frontmatter:\s*\n([\s\S]*?)(?:^\s\S|\n\n|\n$)/m)
+  if (!fmLine)
+    return {}
+
+  const frontmatter: Partial<ContentFrontmatter> = {}
+  for (const line of fmLine[1].split('\n')) {
+    const match = line.match(/^\s+(\w+):\s*(.*)/)
+    if (!match)
+      continue
+    const [, key, rawValue] = match
+    frontmatter[key as keyof ContentFrontmatter] = rawValue.trim().replace(/^['"]|['"]$/g, '') as never
+  }
+  return frontmatter
+}
+
+function titleFromPath(path: string) {
+  const slug = path.split('/').pop() || ''
+  return slug
+    .replace(/[-_]/g, ' ')
+    .replace(/\b\w/g, c => c.toUpperCase())
+}
+
+function resolveVueRoutePath(rootDir: string, filePath: string, frontmatter: Partial<ContentFrontmatter> = {}) {
   const relativePath = toRootRelativePagePath(rootDir, filePath)
   if (IGNORED_MARKDOWN_FILES.has(relativePath))
     return null
 
   const withoutExtension = removeExtension(relativePath)
-  if (withoutExtension.endsWith('/index'))
-    return normalizePath(withoutExtension.slice(0, -'/index'.length) || '/')
-
   if (withoutExtension.includes('['))
     return null
 
-  return normalizePath(withoutExtension)
+  return normalizePath(resolvePathBasedRoutePath({
+    filePath,
+    frontmatter,
+    rootDir,
+  }))
 }
 
 export async function collectCanonicalRouteEntries(options: ContentScanOptions = {}): Promise<CanonicalRouteEntry[]> {
@@ -67,17 +95,14 @@ export async function collectCanonicalRouteEntries(options: ContentScanOptions =
     // Vue-enhanced .md files without frontmatter (start with <script setup> or <template>)
     // handle them like .vue files using path-based route resolution
     if (raw.startsWith('<script') || raw.startsWith('<template')) {
-      const path = resolveVueRoutePath(rootDir, filePath)
+      const frontmatter = extractRouteFrontmatter(raw)
+      const path = resolveVueRoutePath(rootDir, filePath, frontmatter)
       if (!path)
         return null
-      // Derive a readable title from the file name
-      const slug = path.split('/').pop() || ''
-      const title = slug
-        .replace(/[-_]/g, ' ')
-        .replace(/\b\w/g, c => c.toUpperCase())
       return {
         path,
-        title,
+        title: frontmatter.title || titleFromPath(path),
+        description: frontmatter.summary,
         type: 'content',
       } satisfies CanonicalRouteEntry
     }
@@ -111,22 +136,20 @@ export async function collectCanonicalRouteEntries(options: ContentScanOptions =
     } satisfies CanonicalRouteEntry
   }))
 
-  const vueEntries = vueFiles
-    .map((filePath) => {
-      const path = resolveVueRoutePath(rootDir, filePath)
+  const vueEntries = await Promise.all(vueFiles
+    .map(async (filePath) => {
+      const raw = await readFile(filePath, 'utf8')
+      const frontmatter = extractRouteFrontmatter(raw)
+      const path = resolveVueRoutePath(rootDir, filePath, frontmatter)
       if (!path)
         return null
-      // Derive a readable title from the file name
-      const slug = path.split('/').pop() || ''
-      const title = slug
-        .replace(/[-_]/g, ' ')
-        .replace(/\b\w/g, c => c.toUpperCase())
       return {
         path,
-        title,
+        title: frontmatter.title || titleFromPath(path),
+        description: frontmatter.summary,
         type: 'content',
       } satisfies CanonicalRouteEntry
-    })
+    }))
 
   const deduped = new Map<string, CanonicalRouteEntry>()
   for (const entry of [...markdownEntries, ...vueEntries]) {
@@ -148,8 +171,12 @@ export async function collectCanonicalUrls(baseUrl: string, options: ContentScan
     urls.add(buildAbsoluteUrl(baseUrl, entry.path))
 
     const segments = entry.path.split('/').filter(Boolean)
-    if (segments.length >= 2)
+    if (segments.length >= 2) {
       urls.add(buildAbsoluteUrl(baseUrl, `/${segments[0]}/`))
+
+      if (['zh', 'en', 'ja'].includes(segments[0]) && ['posts', 'books'].includes(segments[1]))
+        urls.add(buildAbsoluteUrl(baseUrl, `/${segments[0]}/${segments[1]}`))
+    }
   }
 
   return [...urls]

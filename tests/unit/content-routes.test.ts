@@ -22,4 +22,16 @@ describe('content entries', () => {
     const zhPosts = contentEntries.filter(e => e.lang === 'zh' && e.collection === 'posts' && e.slug !== 'posts')
     expect(zhPosts.length).toBeGreaterThanOrEqual(6)
   })
+
+  it('publishes zh posts and books only through locale-prefixed canonical paths', () => {
+    const zhPosts = contentEntries.filter(e => e.lang === 'zh' && e.collection === 'posts' && e.slug !== 'posts')
+    const zhBooks = contentEntries.filter(e => e.lang === 'zh' && e.collection === 'books' && e.slug !== 'books')
+
+    expect(zhPosts.length).toBeGreaterThanOrEqual(6)
+    expect(zhBooks.length).toBeGreaterThanOrEqual(80)
+    expect(zhPosts.every(entry => entry.path.startsWith('/zh/posts/'))).toBe(true)
+    expect(zhBooks.every(entry => entry.path.startsWith('/zh/books/'))).toBe(true)
+    expect(contentEntries.some(entry => entry.path.startsWith('/posts/'))).toBe(false)
+    expect(contentEntries.some(entry => entry.path.startsWith('/books/'))).toBe(false)
+  })
 })

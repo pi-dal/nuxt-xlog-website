@@ -7,7 +7,7 @@
 
     <p>
       This site is my public notebook. I use it to keep
-      <a href="/posts">blog posts</a>,
+      <a href="/en/posts">blog posts</a>,
       study notes, migration experiments, and fragments of life that are worth keeping.
     </p>
 
@@ -41,11 +41,11 @@
 
     <p>
       If you want a better entry point, start from
-      <a href="/posts">posts</a>,
-      <a href="/books">books</a>,
-      <a href="/projects">projects</a>,
+      <a href="/en/posts">posts</a>,
+      <a href="/en/books">books</a>,
+      <a href="/en/projects">projects</a>,
       or
-      <a href="/chat">chat</a>.
+      <a href="/en/chat">chat</a>.
     </p>
   </div>
 </template>

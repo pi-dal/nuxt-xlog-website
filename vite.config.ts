@@ -66,11 +66,23 @@ export default defineConfig({
     VueRouter({
       extensions: ['.vue', '.md'],
       routesFolder: 'pages',
+      exclude: [
+        'pages/posts/**',
+        'pages/books/**',
+      ],
       // logs: true,
       extendRoute(route) {
         const path = route.components.get('default')
         if (!path)
           return
+
+        if (/\/pages\/(?:posts|books)\//.test(path.replace(/\\/g, '/'))) {
+          const localizedPath = path.replace(/\/pages\/(posts|books)\//, '/pages/zh/$1/')
+          if (fs.existsSync(localizedPath)) {
+            route.delete()
+            return
+          }
+        }
 
         if (!path.includes('projects.md') && path.endsWith('.md')) {
           const raw = fs.readFileSync(path, 'utf-8')

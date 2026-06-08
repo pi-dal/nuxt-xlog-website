@@ -50,11 +50,15 @@ async function generateRouteManifest() {
 }
 
 function categorizeEntry(path: string): 'posts' | 'books' | 'other' {
-  if (path.startsWith('/posts/') || path === '/posts')
+  if (/^\/(?:zh|en|ja)\/posts(?:\/|$)/.test(path))
     return 'posts'
-  if (path.startsWith('/books/') || path === '/books')
+  if (/^\/(?:zh|en|ja)\/books(?:\/|$)/.test(path))
     return 'books'
   return 'other'
+}
+
+function isCollectionIndexPath(path: string) {
+  return /^\/(?:zh|en|ja)\/(?:posts|books)$/.test(path)
 }
 
 async function generateLlmsTxt(entries: Awaited<ReturnType<typeof collectCanonicalRouteEntries>>) {
@@ -74,7 +78,7 @@ async function generateLlmsTxt(entries: Awaited<ReturnType<typeof collectCanonic
 
   for (const entry of entries) {
     // Skip index/collection pages
-    if (['/posts', '/books', '/'].includes(entry.path))
+    if (['/posts', '/books', '/'].includes(entry.path) || isCollectionIndexPath(entry.path))
       continue
 
     const cat = categorizeEntry(entry.path)
@@ -82,7 +86,7 @@ async function generateLlmsTxt(entries: Awaited<ReturnType<typeof collectCanonic
       posts.push(entry)
     else if (cat === 'books')
       books.push(entry)
-    else if (entry.path !== '/' && entry.path !== '/posts' && entry.path !== '/books')
+    else if (entry.path !== '/' && entry.path !== '/posts' && entry.path !== '/books' && !isCollectionIndexPath(entry.path))
       pages.push(entry)
   }
 

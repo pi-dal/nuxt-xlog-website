@@ -25,7 +25,6 @@
     "floating-vue": "catalog:frontend",
     "nprogress": "catalog:frontend",
     "pinia": "catalog:frontend",
-    "satori": "catalog:",
     "shiki": "catalog:frontend",
     "shiki-magic-move": "catalog:frontend",
     "vue": "catalog:frontend",

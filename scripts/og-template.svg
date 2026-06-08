@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="glow1" cx="85%" cy="15%" r="45%">
+      <stop offset="0%" stop-color="#1b2030" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#1b2030" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0f1115" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="20%" cy="85%" r="50%">
+      <stop offset="0%" stop-color="#251a1a" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#251a1a" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#0f1115" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0f1115"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+  <!-- Dot pattern -->
+  <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+    <circle cx="15" cy="15" r="0.5" fill="#333" opacity="0.5"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <text fill="#9aa4af" font-family="system-ui, -apple-system, sans-serif" font-size="34" x="80" y="240">{{author}}</text>
+  <text fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="52" x="80" y="310">{{title1}}</text>
+  <text fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="52" x="80" y="378">{{title2}}</text>
+  <rect x="80" y="510" width="210" height="44" rx="22" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="20" x="103" y="538">Ideas &#xB7; Code &#xB7; Photos</text>
+</svg>

@@ -20,9 +20,15 @@ describe('global performance guards', () => {
     expect(viteConfig).toContain('await applyMarkdownPipeline(md)')
   })
 
-  it('only mounts the decorative ArtPlum background on the home route', () => {
+  it('mounts ArtPlum background with viewport-aware gating', () => {
     const appShell = readFileSync(resolve(rootDir, 'src/App.vue'), 'utf-8')
 
-    expect(appShell).toContain('<ArtPlum v-if="route.path === \'/\'" />')
+    // Desktop: all pages show ambient; Mobile: only home page shows
+    expect(appShell).toContain('v-if="isDesktop ? true : route.path === \'/\'"')
+    expect(appShell).toContain(':mode="isDesktop ? \'ambient\' : \'static\'"')
+    expect(appShell).toContain(':duration-ms=')
+    expect(appShell).toContain(':seed-count=')
+    expect(appShell).toContain(':stroke-opacity=')
+    expect(appShell).toContain(':dot-opacity=')
   })
 })

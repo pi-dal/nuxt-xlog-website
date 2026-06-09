@@ -1,5 +1,7 @@
 <script setup lang="ts">
 const route = useRoute()
+const size = reactive(useWindowSize())
+const isDesktop = computed(() => size.width >= 768)
 
 const imageModel = ref<HTMLImageElement>()
 const imageAlt = ref<string>()
@@ -77,9 +79,16 @@ onKeyStroke('Escape', (e) => {
 </script>
 
 <template>
-  <!-- Add the animated tree branch background -->
+  <!-- Animated tree branch background — desktop: ambient on all pages, mobile: subtle on home only -->
   <ClientOnly>
-    <ArtPlum v-if="route.path === '/'" />
+    <ArtPlum
+      v-if="isDesktop ? true : route.path === '/'"
+      :mode="isDesktop ? 'ambient' : 'static'"
+      :duration-ms="isDesktop ? 30000 : 5000"
+      :seed-count="isDesktop ? 4 : 2"
+      :stroke-opacity="isDesktop ? 0.15 : 0.08"
+      :dot-opacity="isDesktop ? 0.3 : 0.15"
+    />
   </ClientOnly>
 
   <NavBar />

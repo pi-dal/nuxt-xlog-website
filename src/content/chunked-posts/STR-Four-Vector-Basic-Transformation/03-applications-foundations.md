@@ -14,7 +14,7 @@ $$ \omega' = \gamma\omega(1 - \frac{v}{c}cos\theta) $$
 
 ### 粒子碰撞堙灭产生光子
 
-![pair_annihilation_hd.gif](/article-assets/STR-Four-Vector-Basic-Transformation/pair_annihilation_hd.gif)
+<img src="/article-assets/STR-Four-Vector-Basic-Transformation/pair_annihilation_hd.gif" alt="“粒子碰撞堙灭产生光子”部分的示意动图" title="粒子碰撞堙灭产生光子示意动图" loading="lazy" decoding="async">
 
 对各个粒子，会有以下四维动量：
 
@@ -60,7 +60,7 @@ $$ \omega' = \gamma\omega(1 - \frac{v}{c}cos\theta) $$
 
 ### 光照射粒子产生新粒子
 
-![pair_production_hd.gif](/article-assets/STR-Four-Vector-Basic-Transformation/pair_production_hd.gif)
+<img src="/article-assets/STR-Four-Vector-Basic-Transformation/pair_production_hd.gif" alt="“光照射粒子产生新粒子”部分的示意动图" title="光照射粒子产生新粒子示意动图" loading="lazy" decoding="async">
 
 对各个粒子，会有以下四维动量：
 

@@ -10,7 +10,7 @@ tags:
   - Study
 ---
 
-![](https://images.unsplash.com/photo-1604134967494-8a9ed3adea0d?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb)
+<img src="https://images.unsplash.com/photo-1604134967494-8a9ed3adea0d?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" alt="写给16岁的自己：鸽鸽鸽，没想到已经快一年没更新博客啦。主要原因是上高中太忙了（全是借口：D）。" title="鸽鸽鸽，没想到已经快一年没更新博客啦。主要原因是上高中太忙了（全是借口：D）。" loading="lazy" decoding="async">
 
 鸽鸽鸽，没想到已经快一年没更新博客啦。主要原因是上高中太忙了（全是借口：D）。
 
@@ -37,9 +37,9 @@ tags:
 
 说点有趣的吧，暑期夏令营为了抚慰我们的情绪甚至组织了一次野炊。
 
-![4B11A1D2-0DFE-47E5-9B3E-8C296F447388.jpeg](/article-assets/To-My-16-Year-Old-Self/4B11A1D2-0DFE-47E5-9B3E-8C296F447388.jpeg)
+<img src="/article-assets/To-My-16-Year-Old-Self/4B11A1D2-0DFE-47E5-9B3E-8C296F447388.jpeg" alt="写给16岁的自己中“暑期夏令营”部分的配图（图2）" title="暑期夏令营部分配图" loading="lazy" decoding="async">
 
-![EE6E7903-1DD3-441A-B516-A7C9DFF8C6D4.jpeg](/article-assets/To-My-16-Year-Old-Self/EE6E7903-1DD3-441A-B516-A7C9DFF8C6D4.jpeg)
+<img src="/article-assets/To-My-16-Year-Old-Self/EE6E7903-1DD3-441A-B516-A7C9DFF8C6D4.jpeg" alt="写给16岁的自己中“暑期夏令营”部分的配图（图3）" title="暑期夏令营部分配图" loading="lazy" decoding="async">
 
 ### 正式开学
 
@@ -53,15 +53,15 @@ tags:
 
 再聊聊CS竞赛班的活动吧。首先，竞赛班学生不能参加社团和学生会（其实你也没时间去搞啦）。不过扫大街，运动会还有春游倒是没落下啦（我甚至还参加了铅球比赛，喝了人生第三杯奶茶）。
 
-![IMG_1322.JPG](/article-assets/To-My-16-Year-Old-Self/IMG_1322.jpg)
+<img src="/article-assets/To-My-16-Year-Old-Self/IMG_1322.jpg" alt="写给16岁的自己中“正式开学”部分的配图（图4）" title="正式开学部分配图" loading="lazy" decoding="async">
 
-![IMG_2251.JPG](/article-assets/To-My-16-Year-Old-Self/IMG_2251.jpg)
+<img src="/article-assets/To-My-16-Year-Old-Self/IMG_2251.jpg" alt="写给16岁的自己中“正式开学”部分的配图（图5）" title="正式开学部分配图" loading="lazy" decoding="async">
 
-![IMG_2275.JPG](/article-assets/To-My-16-Year-Old-Self/IMG_2275.jpg)
+<img src="/article-assets/To-My-16-Year-Old-Self/IMG_2275.jpg" alt="写给16岁的自己中“正式开学”部分的配图（图6）" title="正式开学部分配图" loading="lazy" decoding="async">
 
-![IMG_8744.JPG](/article-assets/To-My-16-Year-Old-Self/IMG_8744.jpg)
+<img src="/article-assets/To-My-16-Year-Old-Self/IMG_8744.jpg" alt="写给16岁的自己中“正式开学”部分的配图（图7）" title="正式开学部分配图" loading="lazy" decoding="async">
 
-![IMG_9208.JPG](/article-assets/To-My-16-Year-Old-Self/IMG_9208.jpg)
+<img src="/article-assets/To-My-16-Year-Old-Self/IMG_9208.jpg" alt="写给16岁的自己：聊点特别的，其实我投铅球的时候我们班同学甚至还放了《猫中毒》（虽然我挺喜欢但是我绝对不是嘉心糖）" title="聊点特别的，其实我投铅球的时候我们班同学甚至还放了《猫中毒》（虽然我挺喜欢但是我绝对不是嘉心糖）" loading="lazy" decoding="async">
 
 聊点特别的，其实我投铅球的时候我们班同学甚至还放了《猫中毒》（虽然我挺喜欢但是我绝对不是嘉心糖）
 
@@ -89,11 +89,11 @@ tags:
 
 总体嘛CS的生活还是蛮不错的，羽毛球该打的打，牛肉该吃得吃，虽然有些人说CS是围城—“外面的人想进去，里面的人想出来。”但是我个人感觉还好，不过瘦了蛮多是真的，有图有真相：
 
-![刚上高中的我](/article-assets/To-My-16-Year-Old-Self/F543D809-EB57-4963-812D-ACF3A1D300D6.jpeg)
+<img src="/article-assets/To-My-16-Year-Old-Self/F543D809-EB57-4963-812D-ACF3A1D300D6.jpeg" alt="刚上高中的我" title="刚上高中的我" loading="lazy" decoding="async">
 
 刚上高中的我
 
-![一个学期后的我](/article-assets/To-My-16-Year-Old-Self/89306954-1F3A-4D11-AF32-0A99C14EF209.jpeg)
+<img src="/article-assets/To-My-16-Year-Old-Self/89306954-1F3A-4D11-AF32-0A99C14EF209.jpeg" alt="一个学期后的我" title="一个学期后的我" loading="lazy" decoding="async">
 
 一个学期后的我
 

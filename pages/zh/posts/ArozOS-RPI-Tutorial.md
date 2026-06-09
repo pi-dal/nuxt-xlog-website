@@ -12,7 +12,7 @@ tags:
   - Web
 ---
 
-![](https://github.com/tobychui/arozos/blob/master/img/banner.png?raw=true)
+<img src="https://github.com/tobychui/arozos/blob/master/img/banner.png?raw=true" alt="树莓派 ArozOS 指北配图（图1）" title="树莓派 ArozOS 指北配图" loading="lazy" decoding="async">
 
 # 为什么选择ArozOS
 
@@ -22,7 +22,7 @@ tags:
 
 [Nextcloud](https://nextcloud.com/)
 
-![](https://raw.githubusercontent.com/nextcloud/screenshots/master/files/Files%20Sharing.png)
+<img src="https://raw.githubusercontent.com/nextcloud/screenshots/master/files/Files%20Sharing.png" alt="树莓派 ArozOS 指北：也许是目前最火的一个应用了，有插件功能，有app，功能十分完善。但有个先天的不足—它使用php编写，奇慢无比。" title="也许是目前最火的一个应用了，有插件功能，有app，功能十分完善。但有个先天的不足—它使用php编写，奇慢无比。" loading="lazy" decoding="async">
 
 也许是目前最火的一个应用了，有插件功能，有app，功能十分完善。但有个先天的不足—它使用php编写，奇慢无比。
 
@@ -30,7 +30,7 @@ tags:
 
 [Pydio](https://pydio.com/)
 
-![](https://raw.githubusercontent.com/pydio/cells-dist/master/resources/v3.0.0/home.png)
+<img src="https://raw.githubusercontent.com/pydio/cells-dist/master/resources/v3.0.0/home.png" alt="树莓派 ArozOS 指北：目前在国内用的还比较少，用Golang编写，速度快，功能较为完整，是我之前一直在纠结的一个选项。" title="目前在国内用的还比较少，用Golang编写，速度快，功能较为完整，是我之前一直在纠结的一个选项。" loading="lazy" decoding="async">
 
 目前在国内用的还比较少，用Golang编写，速度快，功能较为完整，是我之前一直在纠结的一个选项。
 
@@ -38,7 +38,7 @@ tags:
 
 [Seafile - 开源的企业私有网盘 私有云存储软件 企业维基 知识管理](https://www.seafile.com/home/)
 
-![F704EC3F-E286-4464-92E5-CF3B14B1156C.jpeg](/article-assets/ArozOS-RPI-Tutorial/F704EC3F-E286-4464-92E5-CF3B14B1156C.jpeg)
+<img src="/article-assets/ArozOS-RPI-Tutorial/F704EC3F-E286-4464-92E5-CF3B14B1156C.jpeg" alt="树莓派 ArozOS 指北：国人C语言编写，清华北大之选，功能完善，效率奇高。" title="国人C语言编写，清华北大之选，功能完善，效率奇高。" loading="lazy" decoding="async">
 
 国人C语言编写，清华北大之选，功能完善，效率奇高。
 
@@ -58,31 +58,31 @@ tags:
 
 > General purposed Web Desktop Operating Platform / OS for Raspberry Pis, Now written in Go!
 
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled.jpeg)
+<img src="/article-assets/ArozOS-RPI-Tutorial/Untitled.jpeg" alt="树莓派 ArozOS 指北：有些同学会问了，这不是个NAS应用吗，怎么叫OS？" title="有些同学会问了，这不是个NAS应用吗，怎么叫OS？" loading="lazy" decoding="async">
 
 有些同学会问了，这不是个NAS应用吗，怎么叫OS？
 
 没错，你可能想到了，ArozOS的实力要远远大于nextcloud类的网盘应用，它还拥有WebApp与Subservice两大杀器，甚至还是IoT 控制器。
 
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled.png)
+<img src="/article-assets/ArozOS-RPI-Tutorial/Untitled.png" alt="树莓派 ArozOS 指北：部分应用程序" title="部分应用程序" loading="lazy" decoding="async">
 
 部分应用程序
 
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%201.png)
+<img src="/article-assets/ArozOS-RPI-Tutorial/Untitled%201.png" alt="树莓派 ArozOS 指北：WebApp管理" title="WebApp管理" loading="lazy" decoding="async">
 
 WebApp管理
 
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%202.png)
+<img src="/article-assets/ArozOS-RPI-Tutorial/Untitled%202.png" alt="树莓派 ArozOS 指北：Subservice管理" title="Subservice管理" loading="lazy" decoding="async">
 
 Subservice管理
 
 当然，文件分享、音乐影片播放等基础功能也少不了
 
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%203.png)
+<img src="/article-assets/ArozOS-RPI-Tutorial/Untitled%203.png" alt="树莓派 ArozOS 指北：文件分享" title="文件分享" loading="lazy" decoding="async">
 
 文件分享
 
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%201.jpeg)
+<img src="/article-assets/ArozOS-RPI-Tutorial/Untitled%201.jpeg" alt="树莓派 ArozOS 指北：音乐影片播放" title="音乐影片播放" loading="lazy" decoding="async">
 
 音乐影片播放
 
@@ -234,13 +234,13 @@ sudo systemctl start arozos
 
 如果成功的话，在浏览器上打开链接，应该就可以看到效果了
 
-![FC5750F6-362A-4084-BA47-97DDAA9FE251.jpeg](/article-assets/ArozOS-RPI-Tutorial/FC5750F6-362A-4084-BA47-97DDAA9FE251.jpeg)
+<img src="/article-assets/ArozOS-RPI-Tutorial/FC5750F6-362A-4084-BA47-97DDAA9FE251.jpeg" alt="树莓派 ArozOS 指北中“如何迁徙到启动器模式”部分的配图（图11）" title="如何迁徙到启动器模式部分配图" loading="lazy" decoding="async">
 
 ## OTA升级
 
 Arozos自1.119以来支持了OTA升级，你可以直接在Arozos更新版本
 
-![2B591461-5043-4AC0-8886-DCCFBA89E627.jpeg](/article-assets/ArozOS-RPI-Tutorial/2B591461-5043-4AC0-8886-DCCFBA89E627.jpeg)
+<img src="/article-assets/ArozOS-RPI-Tutorial/2B591461-5043-4AC0-8886-DCCFBA89E627.jpeg" alt="树莓派 ArozOS 指北中“OTA升级”部分的配图（图12）" title="OTA升级部分配图" loading="lazy" decoding="async">
 
 # WebApp & Subservice
 
@@ -254,13 +254,13 @@ Arozos自1.119以来支持了OTA升级，你可以直接在Arozos更新版本
 
 您可以使用git repo URL或zip文件安装WebApp。您可以在“系统设置”>“添加和删除模块”选项卡中找到安装界面
 
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%204.png)
+<img src="/article-assets/ArozOS-RPI-Tutorial/Untitled%204.png" alt="树莓派 ArozOS 指北中“安装”部分的配图（图13）" title="安装部分配图" loading="lazy" decoding="async">
 
 ### 删除
 
 要删除WebApp，请选择要从WebApp列表中删除的WebApp，然后单击“卸载”
 
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%205.png)
+<img src="/article-assets/ArozOS-RPI-Tutorial/Untitled%205.png" alt="树莓派 ArozOS 指北：你也可以手动删除，以下是删除名为“MyWebApp”的子服务的示例。" title="你也可以手动删除，以下是删除名为“MyWebApp”的子服务的示例。" loading="lazy" decoding="async">
 
 你也可以手动删除，以下是删除名为“MyWebApp”的子服务的示例。
 
@@ -310,7 +310,7 @@ sudo systemctl start arozos
 
 要启用或禁用子服务，请访问**_System Setting > Subservice_**选项卡，然后选择要启动/禁用的服务。
 
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%206.png)
+<img src="/article-assets/ArozOS-RPI-Tutorial/Untitled%206.png" alt="树莓派 ArozOS 指北：当然你也可以手动操作" title="当然你也可以手动操作" loading="lazy" decoding="async">
 
 当然你也可以手动操作
 

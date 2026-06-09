@@ -9,7 +9,7 @@ tags:
   - Travelling
 ---
 
-![AD28AB24-4BA5-4E9D-AF0D-63D3D4E13DA2.jpeg](/article-assets/2022-Hunan-Travelling/AD28AB24-4BA5-4E9D-AF0D-63D3D4E13DA2.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/AD28AB24-4BA5-4E9D-AF0D-63D3D4E13DA2.jpeg" alt="2022湖南之旅：在初三的这个比较特别的暑假，我与外公外婆来到了湖南，开启了一段蛮有意思的旅程。" title="在初三的这个比较特别的暑假，我与外公外婆来到了湖南，开启了一段蛮有意思的旅程。" loading="lazy" decoding="async">
 
 在初三的这个比较特别的暑假，我与外公外婆来到了湖南，开启了一段蛮有意思的旅程。
 
@@ -17,7 +17,7 @@ tags:
 
 第一天我们从家出发来到了广州南站，在那里度过了非常无聊的两个小时。然后就搭上高铁来到了长沙安定了下来，我们住的是“康莱酒店”，那天晚上的感受大概就是长沙饭菜的量太足了（与广州所崇尚的小碟饭菜形成鲜明对比）。
 
-![83F91C07-F837-4BBC-9E68-0B3361A206AB.jpeg](/article-assets/2022-Hunan-Travelling/83F91C07-F837-4BBC-9E68-0B3361A206AB.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/83F91C07-F837-4BBC-9E68-0B3361A206AB.jpeg" alt="2022湖南之旅中“Day 1”部分的配图（图2）" title="Day 1部分配图" loading="lazy" decoding="async">
 
 # Day 2
 
@@ -25,33 +25,33 @@ tags:
 
 在车上，导游给我们普及了湖南的许多风俗习惯与历史遗迹，在持续的知识输入后，我们来到了红太阳升起的地方—韶山。说到韶山，大家想到的无非是那个人—伟大领袖毛泽东。我们参观了毛泽东故居，知道了毛泽东的家境与家门前的风水，还吃了一餐“毛家饭”，献上了花圈。
 
-![91494972-E1D0-4086-9329-AB6BDB81ADAC.jpeg](/article-assets/2022-Hunan-Travelling/91494972-E1D0-4086-9329-AB6BDB81ADAC.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/91494972-E1D0-4086-9329-AB6BDB81ADAC.jpeg" alt="2022湖南之旅中“Day 2”部分的配图（图3）" title="Day 2部分配图" loading="lazy" decoding="async">
 
-![32EEE577-33B4-4784-A1E7-9CCCD4CF76E8.jpeg](/article-assets/2022-Hunan-Travelling/32EEE577-33B4-4784-A1E7-9CCCD4CF76E8.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/32EEE577-33B4-4784-A1E7-9CCCD4CF76E8.jpeg" alt="2022湖南之旅中“Day 2”部分的配图（图4）" title="Day 2部分配图" loading="lazy" decoding="async">
 
-![2022-07-09 09.40.45.jpg](/article-assets/2022-Hunan-Travelling/2022-07-09_09.40.45.jpg)
+<img src="/article-assets/2022-Hunan-Travelling/2022-07-09_09.40.45.jpg" alt="2022湖南之旅中“Day 2”部分的配图（图5）" title="Day 2部分配图" loading="lazy" decoding="async">
 
-![5A4D0B37-5E12-4894-9EDB-6817F622EA7F.jpeg](/article-assets/2022-Hunan-Travelling/5A4D0B37-5E12-4894-9EDB-6817F622EA7F.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/5A4D0B37-5E12-4894-9EDB-6817F622EA7F.jpeg" alt="2022湖南之旅中“Day 2”部分的配图（图6）" title="Day 2部分配图" loading="lazy" decoding="async">
 
-![D03140AF-8913-4059-9027-2DFDB017AC30.jpeg](/article-assets/2022-Hunan-Travelling/D03140AF-8913-4059-9027-2DFDB017AC30.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/D03140AF-8913-4059-9027-2DFDB017AC30.jpeg" alt="2022湖南之旅中“Day 2”部分的配图（图7）" title="Day 2部分配图" loading="lazy" decoding="async">
 
-![2022-07-09 10.15.33.jpg](/article-assets/2022-Hunan-Travelling/2022-07-09_10.15.33.jpg)
+<img src="/article-assets/2022-Hunan-Travelling/2022-07-09_10.15.33.jpg" alt="2022湖南之旅：在吃完饭后，我们重新回到了大巴车上，前往湘西。一路上听着导游的介绍，看着窗外的美景，这大概便是旅行最好的样子。" title="在吃完饭后，我们重新回到了大巴车上，前往湘西。一路上听着导游的介绍，看着窗外的美景，这大概便是旅行最好的样子。" loading="lazy" decoding="async">
 
 在吃完饭后，我们重新回到了大巴车上，前往湘西。一路上听着导游的介绍，看着窗外的美景，这大概便是旅行最好的样子。
 
-![2022-07-09 16.29.05.jpg](/article-assets/2022-Hunan-Travelling/2022-07-09_16.29.05.jpg)
+<img src="/article-assets/2022-Hunan-Travelling/2022-07-09_16.29.05.jpg" alt="2022湖南之旅中“Day 2”部分的配图（图9）" title="Day 2部分配图" loading="lazy" decoding="async">
 
-![2022-07-09 16.35.14.jpg](/article-assets/2022-Hunan-Travelling/2022-07-09_16.35.14.jpg)
+<img src="/article-assets/2022-Hunan-Travelling/2022-07-09_16.35.14.jpg" alt="2022湖南之旅：不得不说，夏天的湖南日落真的晚，我们晚上8点到达芙蓉镇时，天才刚黑。芙蓉镇是一个建造在瀑布之上的小镇，景色唯美。" title="不得不说，夏天的湖南日落真的晚，我们晚上8点到达芙蓉镇时，天才刚黑。芙蓉镇是一个建造在瀑布之上的小镇，景色唯美。" loading="lazy" decoding="async">
 
 不得不说，夏天的湖南日落真的晚，我们晚上8点到达芙蓉镇时，天才刚黑。芙蓉镇是一个建造在瀑布之上的小镇，景色唯美。
 
-![2022-07-09 20.17.23.jpg](/article-assets/2022-Hunan-Travelling/2022-07-09_20.17.23.jpg)
+<img src="/article-assets/2022-Hunan-Travelling/2022-07-09_20.17.23.jpg" alt="2022湖南之旅中“Day 2”部分的配图（图11）" title="Day 2部分配图" loading="lazy" decoding="async">
 
-![2022-07-09 20.32.55.jpg](/article-assets/2022-Hunan-Travelling/2022-07-09_20.32.55.jpg)
+<img src="/article-assets/2022-Hunan-Travelling/2022-07-09_20.32.55.jpg" alt="2022湖南之旅中“Day 2”部分的配图（图12）" title="Day 2部分配图" loading="lazy" decoding="async">
 
-![2022-07-09 20.37.45.jpg](/article-assets/2022-Hunan-Travelling/2022-07-09_20.37.45.jpg)
+<img src="/article-assets/2022-Hunan-Travelling/2022-07-09_20.37.45.jpg" alt="2022湖南之旅中“Day 2”部分的配图（图13）" title="Day 2部分配图" loading="lazy" decoding="async">
 
-![2022-07-09 21.04.51.jpg](/article-assets/2022-Hunan-Travelling/2022-07-09_21.04.51.jpg)
+<img src="/article-assets/2022-Hunan-Travelling/2022-07-09_21.04.51.jpg" alt="2022湖南之旅中“Day 2”部分的配图（图14）" title="Day 2部分配图" loading="lazy" decoding="async">
 
 # Day 3
 
@@ -61,113 +61,113 @@ tags:
 
 一路上，便看到天门山的奇丽景色。听导游介绍这里还有“天门转向”的不解之谜。
 
-![2CF523A1-12CC-4722-ADB4-0A27BF88C501.jpeg](/article-assets/2022-Hunan-Travelling/2CF523A1-12CC-4722-ADB4-0A27BF88C501.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/2CF523A1-12CC-4722-ADB4-0A27BF88C501.jpeg" alt="2022湖南之旅：到达天门山底，我们乘坐索道B线，一路向上，到达了山腰。" title="到达天门山底，我们乘坐索道B线，一路向上，到达了山腰。" loading="lazy" decoding="async">
 
 到达天门山底，我们乘坐索道B线，一路向上，到达了山腰。
 
-![2C1E7DB1-338A-435E-B13A-D97485219C3F.jpeg](/article-assets/2022-Hunan-Travelling/2C1E7DB1-338A-435E-B13A-D97485219C3F.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/2C1E7DB1-338A-435E-B13A-D97485219C3F.jpeg" alt="2022湖南之旅中“Day 3”部分的配图（图16）" title="Day 3部分配图" loading="lazy" decoding="async">
 
-![64938B92-A7D0-410D-8533-062A763AAF4B.jpeg](/article-assets/2022-Hunan-Travelling/64938B92-A7D0-410D-8533-062A763AAF4B.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/64938B92-A7D0-410D-8533-062A763AAF4B.jpeg" alt="2022湖南之旅：再往前走，到达了天门洞口。" title="再往前走，到达了天门洞口。" loading="lazy" decoding="async">
 
 再往前走，到达了天门洞口。
 
-![0F16AC0B-D0E9-4493-BD35-47D8D2C4F799.jpeg](/article-assets/2022-Hunan-Travelling/0F16AC0B-D0E9-4493-BD35-47D8D2C4F799.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/0F16AC0B-D0E9-4493-BD35-47D8D2C4F799.jpeg" alt="2022湖南之旅中“Day 3”部分的配图（图18）" title="Day 3部分配图" loading="lazy" decoding="async">
 
-![6B16D879-1A96-4699-AD3E-99593E35E8E1.jpeg](/article-assets/2022-Hunan-Travelling/6B16D879-1A96-4699-AD3E-99593E35E8E1.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/6B16D879-1A96-4699-AD3E-99593E35E8E1.jpeg" alt="2022湖南之旅：再向上，来到天门山山顶，走过了玻璃栈道（恐高警告⚠️）" title="再向上，来到天门山山顶，走过了玻璃栈道（恐高警告⚠️）" loading="lazy" decoding="async">
 
 再向上，来到天门山山顶，走过了玻璃栈道（恐高警告⚠️）
 
-![0231F758-A01E-4F38-A0B5-138399052902.jpeg](/article-assets/2022-Hunan-Travelling/0231F758-A01E-4F38-A0B5-138399052902.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/0231F758-A01E-4F38-A0B5-138399052902.jpeg" alt="2022湖南之旅中“Day 3”部分的配图（图20）" title="Day 3部分配图" loading="lazy" decoding="async">
 
-![F74182F7-9F00-411B-BD19-BF7CB3606106.jpeg](/article-assets/2022-Hunan-Travelling/F74182F7-9F00-411B-BD19-BF7CB3606106.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/F74182F7-9F00-411B-BD19-BF7CB3606106.jpeg" alt="2022湖南之旅中“Day 3”部分的配图（图21）" title="Day 3部分配图" loading="lazy" decoding="async">
 
-![00DF4D4C-0898-451C-883F-29BF0DC2319C.jpeg](/article-assets/2022-Hunan-Travelling/00DF4D4C-0898-451C-883F-29BF0DC2319C.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/00DF4D4C-0898-451C-883F-29BF0DC2319C.jpeg" alt="2022湖南之旅中“Day 3”部分的配图（图22）" title="Day 3部分配图" loading="lazy" decoding="async">
 
-![30C5CF75-EB5D-46EA-AB37-A541415BC553.jpeg](/article-assets/2022-Hunan-Travelling/30C5CF75-EB5D-46EA-AB37-A541415BC553.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/30C5CF75-EB5D-46EA-AB37-A541415BC553.jpeg" alt="2022湖南之旅中“Day 3”部分的配图（图23）" title="Day 3部分配图" loading="lazy" decoding="async">
 
-![865D2528-B1DB-4273-9408-AF722358E2B0.jpeg](/article-assets/2022-Hunan-Travelling/865D2528-B1DB-4273-9408-AF722358E2B0.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/865D2528-B1DB-4273-9408-AF722358E2B0.jpeg" alt="2022湖南之旅中“Day 3”部分的配图（图24）" title="Day 3部分配图" loading="lazy" decoding="async">
 
-![FDABF528-3874-4187-81C7-853538DE5F75.jpeg](/article-assets/2022-Hunan-Travelling/FDABF528-3874-4187-81C7-853538DE5F75.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/FDABF528-3874-4187-81C7-853538DE5F75.jpeg" alt="2022湖南之旅：在浏览完天门山后，我们乘坐索道A线下了山来到了市区（没错，就是那条要做20多分钟的索道）。然后我们便乘车来到了张家界国家森林公园黄石寨，在那里看到了夕阳落山。" title="在浏览完天门山后，我们乘坐索道A线下了山来到了市区（没错，就是那条要做20多分钟的索道）。然后我们便乘车来到了张家界国家森林公园黄石寨，在那里看到了夕阳落山。" loading="lazy" decoding="async">
 
 在浏览完天门山后，我们乘坐索道A线下了山来到了市区（没错，就是那条要做20多分钟的索道）。然后我们便乘车来到了张家界国家森林公园黄石寨，在那里看到了夕阳落山。
 
-![3A629F46-6000-4AD9-8556-735C17D37946.jpeg](/article-assets/2022-Hunan-Travelling/3A629F46-6000-4AD9-8556-735C17D37946.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/3A629F46-6000-4AD9-8556-735C17D37946.jpeg" alt="2022湖南之旅中“Day 3”部分的配图（图26）" title="Day 3部分配图" loading="lazy" decoding="async">
 
-![00A629FD-506E-49A3-B832-48B2A5A2D4CF.jpeg](/article-assets/2022-Hunan-Travelling/00A629FD-506E-49A3-B832-48B2A5A2D4CF.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/00A629FD-506E-49A3-B832-48B2A5A2D4CF.jpeg" alt="2022湖南之旅中“Day 3”部分的配图（图27）" title="Day 3部分配图" loading="lazy" decoding="async">
 
-![195E7A71-394B-4A9C-9AD0-F560B3696476.jpeg](/article-assets/2022-Hunan-Travelling/195E7A71-394B-4A9C-9AD0-F560B3696476.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/195E7A71-394B-4A9C-9AD0-F560B3696476.jpeg" alt="2022湖南之旅中“Day 3”部分的配图（图28）" title="Day 3部分配图" loading="lazy" decoding="async">
 
-![CF823A81-7EF9-4B18-A56F-A8B87754FF43.jpeg](/article-assets/2022-Hunan-Travelling/CF823A81-7EF9-4B18-A56F-A8B87754FF43.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/CF823A81-7EF9-4B18-A56F-A8B87754FF43.jpeg" alt="2022湖南之旅中“Day 3”部分的配图（图29）" title="Day 3部分配图" loading="lazy" decoding="async">
 
-![DD93A7FE-6161-4002-8FCF-0A751DBDECAC.jpeg](/article-assets/2022-Hunan-Travelling/DD93A7FE-6161-4002-8FCF-0A751DBDECAC.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/DD93A7FE-6161-4002-8FCF-0A751DBDECAC.jpeg" alt="2022湖南之旅中“Day 3”部分的配图（图30）" title="Day 3部分配图" loading="lazy" decoding="async">
 
-![ADD95CA2-9CC1-479A-B682-76A535E89307.jpeg](/article-assets/2022-Hunan-Travelling/ADD95CA2-9CC1-479A-B682-76A535E89307.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/ADD95CA2-9CC1-479A-B682-76A535E89307.jpeg" alt="2022湖南之旅中“Day 3”部分的配图（图31）" title="Day 3部分配图" loading="lazy" decoding="async">
 
 # Day 4
 
 第四天一大早我们便坐车来到了张家界袁家界景区，在那里乘景区大巴看到了一个大水库（很美，可惜我没拍🤤🤤🤤）。然后便开始了3个多小时的登山之路。
 
-![CA4ED71D-9B09-4EDC-BA7D-50EEE6D2DDEE.jpeg](/article-assets/2022-Hunan-Travelling/CA4ED71D-9B09-4EDC-BA7D-50EEE6D2DDEE.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/CA4ED71D-9B09-4EDC-BA7D-50EEE6D2DDEE.jpeg" alt="2022湖南之旅中“Day 4”部分的配图（图32）" title="Day 4部分配图" loading="lazy" decoding="async">
 
-![FC69C86E-2738-40B6-8941-913D567CFB14.jpeg](/article-assets/2022-Hunan-Travelling/FC69C86E-2738-40B6-8941-913D567CFB14.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/FC69C86E-2738-40B6-8941-913D567CFB14.jpeg" alt="2022湖南之旅中“Day 4”部分的配图（图33）" title="Day 4部分配图" loading="lazy" decoding="async">
 
-![BCCC48BD-9FF4-4E77-B055-A9A0581FF0E8.jpeg](/article-assets/2022-Hunan-Travelling/BCCC48BD-9FF4-4E77-B055-A9A0581FF0E8.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/BCCC48BD-9FF4-4E77-B055-A9A0581FF0E8.jpeg" alt="2022湖南之旅中“Day 4”部分的配图（图34）" title="Day 4部分配图" loading="lazy" decoding="async">
 
-![FE3B9B71-9EF4-4099-ACBB-0FBEF55215DC.jpeg](/article-assets/2022-Hunan-Travelling/FE3B9B71-9EF4-4099-ACBB-0FBEF55215DC.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/FE3B9B71-9EF4-4099-ACBB-0FBEF55215DC.jpeg" alt="2022湖南之旅中“Day 4”部分的配图（图35）" title="Day 4部分配图" loading="lazy" decoding="async">
 
-![C3902A2A-7EFF-4ECE-9F53-7FBCEF7AC825.jpeg](/article-assets/2022-Hunan-Travelling/C3902A2A-7EFF-4ECE-9F53-7FBCEF7AC825.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/C3902A2A-7EFF-4ECE-9F53-7FBCEF7AC825.jpeg" alt="2022湖南之旅中“Day 4”部分的配图（图36）" title="Day 4部分配图" loading="lazy" decoding="async">
 
-![28B1CAFF-78C6-49FD-9DCE-FB591CE10B05.jpeg](/article-assets/2022-Hunan-Travelling/28B1CAFF-78C6-49FD-9DCE-FB591CE10B05.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/28B1CAFF-78C6-49FD-9DCE-FB591CE10B05.jpeg" alt="2022湖南之旅中“Day 4”部分的配图（图37）" title="Day 4部分配图" loading="lazy" decoding="async">
 
-![B4EC64F6-D49A-418B-A748-1025A8094922.jpeg](/article-assets/2022-Hunan-Travelling/B4EC64F6-D49A-418B-A748-1025A8094922.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/B4EC64F6-D49A-418B-A748-1025A8094922.jpeg" alt="2022湖南之旅中“Day 4”部分的配图（图38）" title="Day 4部分配图" loading="lazy" decoding="async">
 
-![9DF93FBC-424C-4F2D-9004-75D053C892D7.jpeg](/article-assets/2022-Hunan-Travelling/9DF93FBC-424C-4F2D-9004-75D053C892D7.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/9DF93FBC-424C-4F2D-9004-75D053C892D7.jpeg" alt="2022湖南之旅：下午，我们来到了黄龙洞，但因为之前已经去过许多溶洞，因而并没很大惊喜。" title="下午，我们来到了黄龙洞，但因为之前已经去过许多溶洞，因而并没很大惊喜。" loading="lazy" decoding="async">
 
 下午，我们来到了黄龙洞，但因为之前已经去过许多溶洞，因而并没很大惊喜。
 
-![78F3EAF3-DF14-4322-8B12-7C15D12C064C.jpeg](/article-assets/2022-Hunan-Travelling/78F3EAF3-DF14-4322-8B12-7C15D12C064C.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/78F3EAF3-DF14-4322-8B12-7C15D12C064C.jpeg" alt="2022湖南之旅中“Day 4”部分的配图（图40）" title="Day 4部分配图" loading="lazy" decoding="async">
 
-![81190F36-33CE-493E-80B4-0D902AD79CCE.jpeg](/article-assets/2022-Hunan-Travelling/81190F36-33CE-493E-80B4-0D902AD79CCE.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/81190F36-33CE-493E-80B4-0D902AD79CCE.jpeg" alt="2022湖南之旅中“Day 4”部分的配图（图41）" title="Day 4部分配图" loading="lazy" decoding="async">
 
 # Day 5
 
 第五天我们来到了土司城，了解了土家族的历史。
 
-![514A677F-3DE1-4CE2-8C16-1EC4D12239A5.jpeg](/article-assets/2022-Hunan-Travelling/514A677F-3DE1-4CE2-8C16-1EC4D12239A5.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/514A677F-3DE1-4CE2-8C16-1EC4D12239A5.jpeg" alt="2022湖南之旅中“Day 5”部分的配图（图42）" title="Day 5部分配图" loading="lazy" decoding="async">
 
-![E69BA8E7-DCB0-4EBE-8FD8-94C6D5B332E1.jpeg](/article-assets/2022-Hunan-Travelling/E69BA8E7-DCB0-4EBE-8FD8-94C6D5B332E1.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/E69BA8E7-DCB0-4EBE-8FD8-94C6D5B332E1.jpeg" alt="2022湖南之旅：下午，我们便乘车去到了凤凰古城。" title="下午，我们便乘车去到了凤凰古城。" loading="lazy" decoding="async">
 
 下午，我们便乘车去到了凤凰古城。
 
-![3FF8C15A-6437-4D64-BEE9-A87DC56F3004.jpeg](/article-assets/2022-Hunan-Travelling/3FF8C15A-6437-4D64-BEE9-A87DC56F3004.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/3FF8C15A-6437-4D64-BEE9-A87DC56F3004.jpeg" alt="2022湖南之旅中“Day 5”部分的配图（图44）" title="Day 5部分配图" loading="lazy" decoding="async">
 
-![9A0A44F6-2E8D-4591-93D1-7FBA7418617C.jpeg](/article-assets/2022-Hunan-Travelling/9A0A44F6-2E8D-4591-93D1-7FBA7418617C.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/9A0A44F6-2E8D-4591-93D1-7FBA7418617C.jpeg" alt="2022湖南之旅中“Day 5”部分的配图（图45）" title="Day 5部分配图" loading="lazy" decoding="async">
 
-![22C85E5E-369E-43A4-B0F5-DE3DA5DBF8E6.jpeg](/article-assets/2022-Hunan-Travelling/22C85E5E-369E-43A4-B0F5-DE3DA5DBF8E6.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/22C85E5E-369E-43A4-B0F5-DE3DA5DBF8E6.jpeg" alt="2022湖南之旅中“Day 5”部分的配图（图46）" title="Day 5部分配图" loading="lazy" decoding="async">
 
-![7C37C0EE-6024-4614-9D44-A845B79C6EC2.jpeg](/article-assets/2022-Hunan-Travelling/7C37C0EE-6024-4614-9D44-A845B79C6EC2.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/7C37C0EE-6024-4614-9D44-A845B79C6EC2.jpeg" alt="2022湖南之旅中“Day 5”部分的配图（图47）" title="Day 5部分配图" loading="lazy" decoding="async">
 
-![FB777FF1-7EBD-49CD-AB16-DF78668D93DE.jpeg](/article-assets/2022-Hunan-Travelling/FB777FF1-7EBD-49CD-AB16-DF78668D93DE.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/FB777FF1-7EBD-49CD-AB16-DF78668D93DE.jpeg" alt="2022湖南之旅中“Day 5”部分的配图（图48）" title="Day 5部分配图" loading="lazy" decoding="async">
 
-![69252F03-70A1-4BDD-BAB4-178F63CE800B.jpeg](/article-assets/2022-Hunan-Travelling/69252F03-70A1-4BDD-BAB4-178F63CE800B.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/69252F03-70A1-4BDD-BAB4-178F63CE800B.jpeg" alt="2022湖南之旅中“Day 5”部分的配图（图49）" title="Day 5部分配图" loading="lazy" decoding="async">
 
-![8226080C-0B71-4CAA-9768-EF532286D43C.jpeg](/article-assets/2022-Hunan-Travelling/8226080C-0B71-4CAA-9768-EF532286D43C.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/8226080C-0B71-4CAA-9768-EF532286D43C.jpeg" alt="2022湖南之旅中“Day 5”部分的配图（图50）" title="Day 5部分配图" loading="lazy" decoding="async">
 
-![8387FD05-494B-4C41-98C8-BD01EDAECA88.jpeg](/article-assets/2022-Hunan-Travelling/8387FD05-494B-4C41-98C8-BD01EDAECA88.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/8387FD05-494B-4C41-98C8-BD01EDAECA88.jpeg" alt="2022湖南之旅中“Day 5”部分的配图（图51）" title="Day 5部分配图" loading="lazy" decoding="async">
 
-![6AED59DC-18C2-46A1-ACD1-AE24F4DD28CF.jpeg](/article-assets/2022-Hunan-Travelling/6AED59DC-18C2-46A1-ACD1-AE24F4DD28CF.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/6AED59DC-18C2-46A1-ACD1-AE24F4DD28CF.jpeg" alt="2022湖南之旅中“Day 5”部分的配图（图52）" title="Day 5部分配图" loading="lazy" decoding="async">
 
-![ACA97205-885D-4109-BC97-4A3226439BBA.jpeg](/article-assets/2022-Hunan-Travelling/ACA97205-885D-4109-BC97-4A3226439BBA.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/ACA97205-885D-4109-BC97-4A3226439BBA.jpeg" alt="2022湖南之旅中“Day 5”部分的配图（图53）" title="Day 5部分配图" loading="lazy" decoding="async">
 
 # Day 6
 
 这是旅行的最后一天，这天的行程非常轻松。早上我们去到了凤凰古城当地的一个文化中心，在那里我认识了设计师安姐姐（人真的超级好，祝她能够成功开办自己的工作室）。然后我们就到了宋祖英老师外婆的苗寨。
 
-![41C6F9F9-9D57-4ED8-9028-4707AF2F779F.jpeg](/article-assets/2022-Hunan-Travelling/41C6F9F9-9D57-4ED8-9028-4707AF2F779F.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/41C6F9F9-9D57-4ED8-9028-4707AF2F779F.jpeg" alt="2022湖南之旅：下午我们便乘车回到了长沙，在车里看到了“超级月亮”，路过了“国防科大”，回到了第一天住的酒店。" title="下午我们便乘车回到了长沙，在车里看到了“超级月亮”，路过了“国防科大”，回到了第一天住的酒店。" loading="lazy" decoding="async">
 
 下午我们便乘车回到了长沙，在车里看到了“超级月亮”，路过了“国防科大”，回到了第一天住的酒店。
 
-![F517C511-63FA-487F-8961-A5CA30B84241.jpeg](/article-assets/2022-Hunan-Travelling/F517C511-63FA-487F-8961-A5CA30B84241.jpeg)
+<img src="/article-assets/2022-Hunan-Travelling/F517C511-63FA-487F-8961-A5CA30B84241.jpeg" alt="2022湖南之旅中“Day 6”部分的配图（图55）" title="Day 6部分配图" loading="lazy" decoding="async">
 
 # Day 7
 

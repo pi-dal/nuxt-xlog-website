@@ -10,7 +10,7 @@ tags:
   - Study
 ---
 
-![](https://images.unsplash.com/photo-1604134967494-8a9ed3adea0d?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb)
+<img src="https://images.unsplash.com/photo-1604134967494-8a9ed3adea0d?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" alt="Illustration from To My 16-Year-Old Self (image 1)" title="Image from To My 16-Year-Old Self" loading="lazy" decoding="async">
 
 Wow, I can't believe it's been almost a year since my last blog post. The main reason is that high school has been keeping me busy (okay, that's just an excuse :D).
 
@@ -37,7 +37,7 @@ My high school journey started in August with the competitive program selection 
 
 One fun thing — the summer camp organized a barbecue to boost our morale.
 
-![4B11A1D2-0DFE-47E5-9B3E-8C296F447388.jpeg](/article-assets/To-My-16-Year-Old-Self/4B11A1D2-0DFE-47E5-9B3E-8C296F447388.jpeg)
+<img src="/article-assets/To-My-16-Year-Old-Self/4B11A1D2-0DFE-47E5-9B3E-8C296F447388.jpeg" alt="Illustration from &quot;Summer Camp&quot; in To My 16-Year-Old Self (image 2)" title="Image from Summer Camp" loading="lazy" decoding="async">
 
 ### School Life
 
@@ -49,7 +49,7 @@ About the competitions — I chose physics. The content is fascinating and I gen
 
 CS competitive program activities: we can't join clubs or student council (not that we'd have the time anyway). But we still had street cleaning, sports day, and spring outings. I even participated in the shot put event and had my third ever bubble tea.
 
-![IMG_1322.JPG](/article-assets/To-My-16-Year-Old-Self/IMG_1322.jpg)
+<img src="/article-assets/To-My-16-Year-Old-Self/IMG_1322.jpg" alt="Illustration from &quot;School Life&quot; in To My 16-Year-Old Self (image 3)" title="Image from School Life" loading="lazy" decoding="async">
 
 # On Learning
 
@@ -104,11 +104,11 @@ Some might find my views twisted, but this is genuinely how I feel. Maybe one da
 
 # Summary
 
-![EE6E7903-1DD3-441A-B516-A7C9DFF8C6D4.jpeg](/article-assets/To-My-16-Year-Old-Self/EE6E7903-1DD3-441A-B516-A7C9DFF8C6D4.jpeg)
-![IMG_2251.JPG](/article-assets/To-My-16-Year-Old-Self/IMG_2251.jpg)
-![IMG_2275.JPG](/article-assets/To-My-16-Year-Old-Self/IMG_2275.jpg)
-![IMG_8744.JPG](/article-assets/To-My-16-Year-Old-Self/IMG_8744.jpg)
-![IMG_9208.JPG](/article-assets/To-My-16-Year-Old-Self/IMG_9208.jpg)
-![刚上高中的我](/article-assets/To-My-16-Year-Old-Self/F543D809-EB57-4963-812D-ACF3A1D300D6.jpeg)
-![一个学期后的我](/article-assets/To-My-16-Year-Old-Self/89306954-1F3A-4D11-AF32-0A99C14EF209.jpeg)
+<img src="/article-assets/To-My-16-Year-Old-Self/EE6E7903-1DD3-441A-B516-A7C9DFF8C6D4.jpeg" alt="Illustration from &quot;Summary&quot; in To My 16-Year-Old Self (image 4)" title="Image from Summary" loading="lazy" decoding="async">
+<img src="/article-assets/To-My-16-Year-Old-Self/IMG_2251.jpg" alt="Illustration from &quot;Summary&quot; in To My 16-Year-Old Self (image 5)" title="Image from Summary" loading="lazy" decoding="async">
+<img src="/article-assets/To-My-16-Year-Old-Self/IMG_2275.jpg" alt="Illustration from &quot;Summary&quot; in To My 16-Year-Old Self (image 6)" title="Image from Summary" loading="lazy" decoding="async">
+<img src="/article-assets/To-My-16-Year-Old-Self/IMG_8744.jpg" alt="Illustration from &quot;Summary&quot; in To My 16-Year-Old Self (image 7)" title="Image from Summary" loading="lazy" decoding="async">
+<img src="/article-assets/To-My-16-Year-Old-Self/IMG_9208.jpg" alt="Illustration from &quot;Summary&quot; in To My 16-Year-Old Self (image 8)" title="Image from Summary" loading="lazy" decoding="async">
+<img src="/article-assets/To-My-16-Year-Old-Self/F543D809-EB57-4963-812D-ACF3A1D300D6.jpeg" alt="刚上高中的我" title="Image from Summary" loading="lazy" decoding="async">
+<img src="/article-assets/To-My-16-Year-Old-Self/89306954-1F3A-4D11-AF32-0A99C14EF209.jpeg" alt="一个学期后的我" title="Image from Summary" loading="lazy" decoding="async">
 This past year has been rich and varied. I often feel down, but I'm grateful for the company of my physics classmates — "Bad Uncle" Xiaohui, the aloof funny girl Ax, CAN who's rough on the outside but kind within... It's 11 PM as I write this. I hope my 16-year-old self can lighten up, see more of life's beauty, break into the top 20, and make it to the provincial team!

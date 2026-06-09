@@ -10,7 +10,7 @@ tags:
   - Travelling
 ---
 
-![IMG_1143.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1143.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1143.jpeg" alt="2023年物竞外出培训—杭州行：在七月八号学考结束的隔天，我们物理营从高铁站出发，历经8小时来到杭州，开始了18天的杭州行。" title="在七月八号学考结束的隔天，我们物理营从高铁站出发，历经8小时来到杭州，开始了18天的杭州行。" loading="lazy" decoding="async">
 
 在七月八号学考结束的隔天，我们物理营从高铁站出发，历经8小时来到杭州，开始了18天的杭州行。
 
@@ -18,15 +18,15 @@ tags:
 
 在七月九号下午3时左右，我们成功坐上高铁，开始了八小时的高铁时间（含换站50分钟）。沿途有着不错的风景，听着播客，看着电子书，这八个小时的时光也是飞逝（ps：大家一定要观察，比如将座位转化方向这种事情一定不要延迟，不然就会和我一样社死：P）
 
-![IMG_0011.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0011.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0011.jpeg" alt="2023年物竞外出培训—杭州行中“启程”部分的配图（图2）" title="启程部分配图" loading="lazy" decoding="async">
 
-![IMG_0012.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0012.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0012.jpeg" alt="2023年物竞外出培训—杭州行中“启程”部分的配图（图3）" title="启程部分配图" loading="lazy" decoding="async">
 
-![IMG_0013.png](/article-assets/2023-Hangzhou-Travelling/IMG_0013.png)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0013.png" alt="2023年物竞外出培训—杭州行中“启程”部分的配图（图4）" title="启程部分配图" loading="lazy" decoding="async">
 
 终于，在晚上11时左右，我们终于到达了杭州，搭上了培训机构的专车，来到了在11:50左右来到了[杭州师范大学仓前校区](https://www.hznu.edu.cn/c/2016-03-16/768080.shtml)（以下简称杭州师大）
 
-![IMG_0022.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0022.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0022.jpeg" alt="2023年物竞外出培训—杭州行中“启程”部分的配图（图5）" title="启程部分配图" loading="lazy" decoding="async">
 
 ## 在杭州师大的时光
 
@@ -42,49 +42,49 @@ tags:
 
 虽然在几次考试中被大佬们暴虐，但对我来说还不算太拉垮，而且学到了不少新东西。
 
-![IMG_1372.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1372.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1372.jpeg" alt="2023年物竞外出培训—杭州行中“教学”部分的配图（图6）" title="教学部分配图" loading="lazy" decoding="async">
 
 ### 美景
 
 仓前校区作为杭州师范大学的主校区,办学实力雄厚,环境优美宜人。校内绿树成荫,花木扶疏,被誉为“杭州最美丽的大学校园”之一。
 
-![IMG_0331.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0331.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0331.jpeg" alt="2023年物竞外出培训—杭州行中“美景”部分的配图（图7）" title="美景部分配图" loading="lazy" decoding="async">
 
-![IMG_0333.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0333.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0333.jpeg" alt="2023年物竞外出培训—杭州行：校内我的最爱便是那片荷塘了，吾独爱莲之出淤泥而不染。" title="校内我的最爱便是那片荷塘了，吾独爱莲之出淤泥而不染。" loading="lazy" decoding="async">
 
 校内我的最爱便是那片荷塘了，吾独爱莲之出淤泥而不染。
 
-![IMG_0223.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0223.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0223.jpeg" alt="2023年物竞外出培训—杭州行中“美景”部分的配图（图9）" title="美景部分配图" loading="lazy" decoding="async">
 
-![IMG_0528.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0528.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0528.jpeg" alt="2023年物竞外出培训—杭州行：校内美景还有很多，建议骑单车一一观赏（我有一天五点骑车骑了两个小时）" title="校内美景还有很多，建议骑单车一一观赏（我有一天五点骑车骑了两个小时）" loading="lazy" decoding="async">
 
 校内美景还有很多，建议骑单车一一观赏（我有一天五点骑车骑了两个小时）
 
 _校内美景欣赏：_
 
-![IMG_0228.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0228.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0228.jpeg" alt="2023年物竞外出培训—杭州行中“美景”部分的配图（图11）" title="美景部分配图" loading="lazy" decoding="async">
 
-![IMG_0233.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0233.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0233.jpeg" alt="2023年物竞外出培训—杭州行中“美景”部分的配图（图12）" title="美景部分配图" loading="lazy" decoding="async">
 
-![IMG_0235.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0235.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0235.jpeg" alt="2023年物竞外出培训—杭州行中“美景”部分的配图（图13）" title="美景部分配图" loading="lazy" decoding="async">
 
-![IMG_0237.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0237.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0237.jpeg" alt="2023年物竞外出培训—杭州行中“美景”部分的配图（图14）" title="美景部分配图" loading="lazy" decoding="async">
 
-![IMG_0245.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0245.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0245.jpeg" alt="2023年物竞外出培训—杭州行中“美景”部分的配图（图15）" title="美景部分配图" loading="lazy" decoding="async">
 
-![IMG_0249.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0249.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0249.jpeg" alt="2023年物竞外出培训—杭州行中“美景”部分的配图（图16）" title="美景部分配图" loading="lazy" decoding="async">
 
-![IMG_0256.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0256.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0256.jpeg" alt="2023年物竞外出培训—杭州行中“美景”部分的配图（图17）" title="美景部分配图" loading="lazy" decoding="async">
 
-![IMG_0320.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0320.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0320.jpeg" alt="2023年物竞外出培训—杭州行中“美景”部分的配图（图18）" title="美景部分配图" loading="lazy" decoding="async">
 
 ### 吃喝住行
 
 我们所居住的是恕圆6号楼，对于一天90元的价格来说这环境确实可以接受啦（吐槽一下晾衣杆上的灰）
 
-![IMG_0146.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0146.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0146.jpeg" alt="2023年物竞外出培训—杭州行中“吃喝住行”部分的配图（图19）" title="吃喝住行部分配图" loading="lazy" decoding="async">
 
-![IMG_0302.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0302.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0302.jpeg" alt="2023年物竞外出培训—杭州行：吃喝的话一般靠三号食堂解决（毕竟我不是很习惯一号食堂民族餐厅的口味）" title="吃喝的话一般靠三号食堂解决（毕竟我不是很习惯一号食堂民族餐厅的口味）" loading="lazy" decoding="async">
 
 吃喝的话一般靠三号食堂解决（毕竟我不是很习惯一号食堂民族餐厅的口味）
 
@@ -100,27 +100,27 @@ _校内美景欣赏：_
 
 在hax的“怂恿“下，我们”几乎“实现了两天一杯奶茶，不得不说古茗yyds！
 
-![IMG_0523.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0523.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0523.jpeg" alt="2023年物竞外出培训—杭州行：还有就是学校的图书馆啦，杭州师大的图书馆还是蛮不错的，特别是数学物理方法我的最爱。" title="还有就是学校的图书馆啦，杭州师大的图书馆还是蛮不错的，特别是数学物理方法我的最爱。" loading="lazy" decoding="async">
 
 还有就是学校的图书馆啦，杭州师大的图书馆还是蛮不错的，特别是数学物理方法我的最爱。
 
-![IMG_0291.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0291.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0291.jpeg" alt="2023年物竞外出培训—杭州行中“娱乐活动”部分的配图（图22）" title="娱乐活动部分配图" loading="lazy" decoding="async">
 
-![IMG_0298.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0298.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0298.jpeg" alt="2023年物竞外出培训—杭州行中“娱乐活动”部分的配图（图23）" title="娱乐活动部分配图" loading="lazy" decoding="async">
 
-![IMG_0296.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0296.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0296.jpeg" alt="2023年物竞外出培训—杭州行中“娱乐活动”部分的配图（图24）" title="娱乐活动部分配图" loading="lazy" decoding="async">
 
-![IMG_0294.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0294.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0294.jpeg" alt="2023年物竞外出培训—杭州行中“娱乐活动”部分的配图（图25）" title="娱乐活动部分配图" loading="lazy" decoding="async">
 
-![IMG_0293.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0293.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0293.jpeg" alt="2023年物竞外出培训—杭州行中“娱乐活动”部分的配图（图26）" title="娱乐活动部分配图" loading="lazy" decoding="async">
 
-![IMG_0295.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_0295.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_0295.jpeg" alt="2023年物竞外出培训—杭州行中“娱乐活动”部分的配图（图27）" title="娱乐活动部分配图" loading="lazy" decoding="async">
 
 ### 花絮
 
 在杭师大的这几天，每天都过得很开心捏，慕老师还为我们送西瓜，赵老师为我们买奶茶，，同学们也都相处得很融洽，特别是hax成功让我克服了“恐女症”（u1s1人真的很好，不过也要好好锻炼保重身体捏）
 
-![dffb5ba5bea0db52560824b7fd57d3d6.jpeg](/article-assets/2023-Hangzhou-Travelling/dffb5ba5bea0db52560824b7fd57d3d6.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/dffb5ba5bea0db52560824b7fd57d3d6.jpeg" alt="2023年物竞外出培训—杭州行：在来师大的这几天最离谱的便是我去了两次诊所" title="在来师大的这几天最离谱的便是我去了两次诊所" loading="lazy" decoding="async">
 
 在来师大的这几天最离谱的便是我去了两次诊所
 
@@ -135,13 +135,13 @@ _校内美景欣赏：_
 
 在傍晚时分，我们就近早了一家杭州菜（吐槽一下杭州是真的美食荒漠），然后到了武林夜市（不得不说人是真的多不适合我这种社恐）。接着便前去西湖步行啦，西湖的人流量很大，而且景区的小卖部也很坑，而且我们非常不巧的错过了游船，就这样走两个多小时，直到十点半左右，步数直逼20000步。西湖的夜景也还行，但是我拍照技术比较烂，只能发几张见丑啦。
 
-![IMG_1127.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1127.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1127.jpeg" alt="2023年物竞外出培训—杭州行中“西湖行”部分的配图（图29）" title="西湖行部分配图" loading="lazy" decoding="async">
 
-![IMG_1131.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1131.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1131.jpeg" alt="2023年物竞外出培训—杭州行中“西湖行”部分的配图（图30）" title="西湖行部分配图" loading="lazy" decoding="async">
 
-![IMG_1134.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1134.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1134.jpeg" alt="2023年物竞外出培训—杭州行中“西湖行”部分的配图（图31）" title="西湖行部分配图" loading="lazy" decoding="async">
 
-![IMG_1137.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1137.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1137.jpeg" alt="2023年物竞外出培训—杭州行：回到酒店，洗了个澡，就和去点甜点啦（hax选的，毕竟她说她腿废了只能瘫着吃甜点啦）。" title="回到酒店，洗了个澡，就和去点甜点啦（hax选的，毕竟她说她腿废了只能瘫着吃甜点啦）。" loading="lazy" decoding="async">
 
 回到酒店，洗了个澡，就和去点甜点啦（hax选的，毕竟她说她腿废了只能瘫着吃甜点啦）。
 
@@ -149,52 +149,52 @@ _校内美景欣赏：_
 
 但是一问hax已经瘫倒了而且马总也头晕就没准备出去玩（原计划是在宿舍里打牌）。但是舍友hly却极力要求出去玩，于是我便“不得不”出去玩啦。我们一路步行，沿途风光正好，柳树盈盈，还见到了不少的鸟类，不得不承认杭州的绿化做的是真的好。
 
-![IMG_1140.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1140.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1140.jpeg" alt="2023年物竞外出培训—杭州行中“西湖行”部分的配图（图33）" title="西湖行部分配图" loading="lazy" decoding="async">
 
-![IMG_1144.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1144.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1144.jpeg" alt="2023年物竞外出培训—杭州行中“西湖行”部分的配图（图34）" title="西湖行部分配图" loading="lazy" decoding="async">
 
-![IMG_1151.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1151.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1151.jpeg" alt="2023年物竞外出培训—杭州行中“西湖行”部分的配图（图35）" title="西湖行部分配图" loading="lazy" decoding="async">
 
-![IMG_1161.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1161.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1161.jpeg" alt="2023年物竞外出培训—杭州行中“西湖行”部分的配图（图36）" title="西湖行部分配图" loading="lazy" decoding="async">
 
-![IMG_1198.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1198.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1198.jpeg" alt="2023年物竞外出培训—杭州行中“西湖行”部分的配图（图37）" title="西湖行部分配图" loading="lazy" decoding="async">
 
-![IMG_1200.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1200.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1200.jpeg" alt="2023年物竞外出培训—杭州行中“西湖行”部分的配图（图38）" title="西湖行部分配图" loading="lazy" decoding="async">
 
-![IMG_1156.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1156.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1156.jpeg" alt="2023年物竞外出培训—杭州行中“西湖行”部分的配图（图39）" title="西湖行部分配图" loading="lazy" decoding="async">
 
-![IMG_1201.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1201.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1201.jpeg" alt="2023年物竞外出培训—杭州行中“西湖行”部分的配图（图40）" title="西湖行部分配图" loading="lazy" decoding="async">
 
-![IMG_1179.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1179.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1179.jpeg" alt="2023年物竞外出培训—杭州行：我们一路走到了雷峰塔，还帮助一位老爷爷买了票，登上高楼，欣赏了西湖壮美之景。（ps：大家一定要把握好时间，不要像我们两个最好急匆匆回酒店退房）" title="我们一路走到了雷峰塔，还帮助一位老爷爷买了票，登上高楼，欣赏了西湖壮美之景。（ps：大家一定要把握好时间，不要像我们两个最好急匆匆回酒店退房）" loading="lazy" decoding="async">
 
 我们一路走到了雷峰塔，还帮助一位老爷爷买了票，登上高楼，欣赏了西湖壮美之景。（ps：大家一定要把握好时间，不要像我们两个最好急匆匆回酒店退房）
 
-![IMG_1208.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1208.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1208.jpeg" alt="2023年物竞外出培训—杭州行中“西湖行”部分的配图（图42）" title="西湖行部分配图" loading="lazy" decoding="async">
 
-![IMG_1213.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1213.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1213.jpeg" alt="2023年物竞外出培训—杭州行中“西湖行”部分的配图（图43）" title="西湖行部分配图" loading="lazy" decoding="async">
 
-![IMG_1225.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1225.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1225.jpeg" alt="2023年物竞外出培训—杭州行中“西湖行”部分的配图（图44）" title="西湖行部分配图" loading="lazy" decoding="async">
 
-![IMG_1234.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1234.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1234.jpeg" alt="2023年物竞外出培训—杭州行中“西湖行”部分的配图（图45）" title="西湖行部分配图" loading="lazy" decoding="async">
 
-![IMG_1274.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1274.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1274.jpeg" alt="2023年物竞外出培训—杭州行中“西湖行”部分的配图（图46）" title="西湖行部分配图" loading="lazy" decoding="async">
 
 ## 返程
 
 在吃完午餐之后，我们便坐了一个小时的地铁来到了萧山国际机场，在傍晚6时坐上飞机离开了杭州（飞记上看到的夕阳真的很美！）
 
-![IMG_1306.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1306.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1306.jpeg" alt="2023年物竞外出培训—杭州行中“返程”部分的配图（图47）" title="返程部分配图" loading="lazy" decoding="async">
 
-![IMG_1326.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1326.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1326.jpeg" alt="2023年物竞外出培训—杭州行中“返程”部分的配图（图48）" title="返程部分配图" loading="lazy" decoding="async">
 
-![IMG_1348.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1348.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1348.jpeg" alt="2023年物竞外出培训—杭州行中“返程”部分的配图（图49）" title="返程部分配图" loading="lazy" decoding="async">
 
-![IMG_1352.jpeg](/article-assets/2023-Hangzhou-Travelling/IMG_1352.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/IMG_1352.jpeg" alt="2023年物竞外出培训—杭州行中“返程”部分的配图（图50）" title="返程部分配图" loading="lazy" decoding="async">
 
 ## 花絮
 
 这次杭州之行诚是一次美好的旅程。除了学到的知识与看到的美景，更重要的是与同学增进了友谊（eg.本来以为我之前刷物竞刷疯了惹得hax不开心捏[这里和她说对不起]，但是经历了这次似乎又成为好朋友了捏[起码对我来说]），更有与许多外校的学生建立了联系（特别是海量高级中学新高一的同学们，祝他们第一年能得到自己想要的成绩捏）
 
-![43ad0ba0e025dea7f3d926cbe7ce1fe9.jpeg](/article-assets/2023-Hangzhou-Travelling/43ad0ba0e025dea7f3d926cbe7ce1fe9.jpeg)
+<img src="/article-assets/2023-Hangzhou-Travelling/43ad0ba0e025dea7f3d926cbe7ce1fe9.jpeg" alt="2023年物竞外出培训—杭州行：最后在这里祝愿物营的各位能学得开心（最重要的捏），复赛取得一个自己想要的成绩！" title="最后在这里祝愿物营的各位能学得开心（最重要的捏），复赛取得一个自己想要的成绩！" loading="lazy" decoding="async">
 
 最后在这里祝愿物营的各位能学得开心（最重要的捏），复赛取得一个自己想要的成绩！

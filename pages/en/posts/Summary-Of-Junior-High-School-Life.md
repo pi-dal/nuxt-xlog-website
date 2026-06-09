@@ -11,7 +11,7 @@ tags:
   - Summary
 ---
 
-![](https://images.unsplash.com/photo-1585637071663-799845ad5212?ixlib=rb-1.2.1&q=80&cs=tinysrgb&fm=jpg&crop=entropy)
+<img src="https://images.unsplash.com/photo-1585637071663-799845ad5212?ixlib=rb-1.2.1&amp;q=80&amp;cs=tinysrgb&amp;fm=jpg&amp;crop=entropy" alt="Illustration from Summary of Junior High School Life (image 1)" title="Image from Summary of Junior High School Life" loading="lazy" decoding="async">
 
 Today is June 28, 2022 — the day my high school entrance exam ended, and the day my junior high school life came to a close.
 
@@ -66,7 +66,7 @@ Overall, I'd say my social life was a complete failure.
 
 # Open Source
 
-![50A54D1C-1A97-468B-A835-090357B87053.jpeg](/article-assets/Summary-Of-Junior-High-School-Life/50A54D1C-1A97-468B-A835-090357B87053.jpeg)
+<img src="/article-assets/Summary-Of-Junior-High-School-Life/50A54D1C-1A97-468B-A835-090357B87053.jpeg" alt="Illustration from &quot;Open Source&quot; in Summary of Junior High School Life (image 2)" title="Image from Open Source" loading="lazy" decoding="async">
 
 Over these three years, I dove deep into the open-source community, learning a ton about computer technology. I developed my first Python package, [**django-vditor**](https://django-vditor.pi-dal.com), and contributed to [**ArozOS**](https://arozos.com).
 

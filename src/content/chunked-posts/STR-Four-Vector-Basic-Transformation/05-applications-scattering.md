@@ -1,6 +1,6 @@
 ### 康普顿散射
 
-![compton_scattering_hd.gif](/article-assets/STR-Four-Vector-Basic-Transformation/compton_scattering_hd.gif)
+<img src="/article-assets/STR-Four-Vector-Basic-Transformation/compton_scattering_hd.gif" alt="“康普顿散射”部分的示意动图" title="康普顿散射示意动图" loading="lazy" decoding="async">
 
 对各个粒子，有以下四维矢量：
 
@@ -28,7 +28,7 @@
 
 ### 逆康普顿散射
 
-![inverse_compton_scattering_hd.gif](/article-assets/STR-Four-Vector-Basic-Transformation/inverse_compton_scattering_hd.gif)
+<img src="/article-assets/STR-Four-Vector-Basic-Transformation/inverse_compton_scattering_hd.gif" alt="“逆康普顿散射”部分的示意动图" title="逆康普顿散射示意动图" loading="lazy" decoding="async">
 
 对各个粒子，有以下四维矢量：
 

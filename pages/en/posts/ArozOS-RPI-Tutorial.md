@@ -12,7 +12,7 @@ tags:
   - Web
 ---
 
-![](https://github.com/tobychui/arozos/blob/master/img/banner.png?raw=true)
+<img src="https://github.com/tobychui/arozos/blob/master/img/banner.png?raw=true" alt="Illustration from ArozOS on Raspberry Pi — A Guide (image 1)" title="Image from ArozOS on Raspberry Pi — A Guide" loading="lazy" decoding="async">
 
 # Why Choose ArozOS
 
@@ -20,11 +20,13 @@ Many makers dream of owning a highly customizable NAS. A number of solutions exi
 
 1. **Nextcloud** — The most popular option, with plugins and apps. But it's written in PHP, making it painfully slow.
 
-![](https://raw.githubusercontent.com/nextcloud/screenshots/master/files/Files%20Sharing.png)
+<img src="https://raw.githubusercontent.com/nextcloud/screenshots/master/files/Files%20Sharing.png" alt="Illustration from &quot;Why Choose ArozOS&quot; in ArozOS on Raspberry Pi — A Guide (image 2)" title="Image from Why Choose ArozOS" loading="lazy" decoding="async">
 
 2. **Pydio** — Written in Go, fast, relatively feature-complete. Less popular in China.
 
-![](https://raw.githubusercontent.com/pydio/cells-dist/master/resources/v3.0.0/home.png) 3. **Seafile** — Written in C by Chinese developers. Used by top universities. Efficient and feature-rich.
+<img src="https://raw.githubusercontent.com/pydio/cells-dist/master/resources/v3.0.0/home.png" alt="Illustration from &quot;Why Choose ArozOS&quot; in ArozOS on Raspberry Pi — A Guide (image 3)" title="Image from Why Choose ArozOS" loading="lazy" decoding="async">
+
+3. **Seafile** — Written in C by Chinese developers. Used by top universities. Efficient and feature-rich.
 
 So why not use these? Here's why:
 
@@ -104,16 +106,16 @@ ArozOS is actively developed, and I've had the honor of contributing code:
 
 If you have ideas, feel free to open issues, PRs, or join the Telegram group: [ArozOS Dev](https://t.me/ArOZBeta)
 
-![F704EC3F-E286-4464-92E5-CF3B14B1156C.jpeg](/article-assets/ArozOS-RPI-Tutorial/F704EC3F-E286-4464-92E5-CF3B14B1156C.jpeg)
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled.jpeg)
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled.png)
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%201.png)
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%202.png)
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%203.png)
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%201.jpeg)
-![FC5750F6-362A-4084-BA47-97DDAA9FE251.jpeg](/article-assets/ArozOS-RPI-Tutorial/FC5750F6-362A-4084-BA47-97DDAA9FE251.jpeg)
-![2B591461-5043-4AC0-8886-DCCFBA89E627.jpeg](/article-assets/ArozOS-RPI-Tutorial/2B591461-5043-4AC0-8886-DCCFBA89E627.jpeg)
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%204.png)
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%205.png)
-![Untitled](/article-assets/ArozOS-RPI-Tutorial/Untitled%206.png)
+<img src="/article-assets/ArozOS-RPI-Tutorial/F704EC3F-E286-4464-92E5-CF3B14B1156C.jpeg" alt="Illustration from &quot;One More Thing&quot; in ArozOS on Raspberry Pi — A Guide (image 3)" title="Image from One More Thing" loading="lazy" decoding="async">
+<img src="/article-assets/ArozOS-RPI-Tutorial/Untitled.jpeg" alt="Illustration from &quot;One More Thing&quot; in ArozOS on Raspberry Pi — A Guide (image 4)" title="Image from One More Thing" loading="lazy" decoding="async">
+<img src="/article-assets/ArozOS-RPI-Tutorial/Untitled.png" alt="Illustration from &quot;One More Thing&quot; in ArozOS on Raspberry Pi — A Guide (image 5)" title="Image from One More Thing" loading="lazy" decoding="async">
+<img src="/article-assets/ArozOS-RPI-Tutorial/Untitled%201.png" alt="Illustration from &quot;One More Thing&quot; in ArozOS on Raspberry Pi — A Guide (image 6)" title="Image from One More Thing" loading="lazy" decoding="async">
+<img src="/article-assets/ArozOS-RPI-Tutorial/Untitled%202.png" alt="Illustration from &quot;One More Thing&quot; in ArozOS on Raspberry Pi — A Guide (image 7)" title="Image from One More Thing" loading="lazy" decoding="async">
+<img src="/article-assets/ArozOS-RPI-Tutorial/Untitled%203.png" alt="Illustration from &quot;One More Thing&quot; in ArozOS on Raspberry Pi — A Guide (image 8)" title="Image from One More Thing" loading="lazy" decoding="async">
+<img src="/article-assets/ArozOS-RPI-Tutorial/Untitled%201.jpeg" alt="Illustration from &quot;One More Thing&quot; in ArozOS on Raspberry Pi — A Guide (image 9)" title="Image from One More Thing" loading="lazy" decoding="async">
+<img src="/article-assets/ArozOS-RPI-Tutorial/FC5750F6-362A-4084-BA47-97DDAA9FE251.jpeg" alt="Illustration from &quot;One More Thing&quot; in ArozOS on Raspberry Pi — A Guide (image 10)" title="Image from One More Thing" loading="lazy" decoding="async">
+<img src="/article-assets/ArozOS-RPI-Tutorial/2B591461-5043-4AC0-8886-DCCFBA89E627.jpeg" alt="Illustration from &quot;One More Thing&quot; in ArozOS on Raspberry Pi — A Guide (image 11)" title="Image from One More Thing" loading="lazy" decoding="async">
+<img src="/article-assets/ArozOS-RPI-Tutorial/Untitled%204.png" alt="Illustration from &quot;One More Thing&quot; in ArozOS on Raspberry Pi — A Guide (image 12)" title="Image from One More Thing" loading="lazy" decoding="async">
+<img src="/article-assets/ArozOS-RPI-Tutorial/Untitled%205.png" alt="Illustration from &quot;One More Thing&quot; in ArozOS on Raspberry Pi — A Guide (image 13)" title="Image from One More Thing" loading="lazy" decoding="async">
+<img src="/article-assets/ArozOS-RPI-Tutorial/Untitled%206.png" alt="ArozOS on Raspberry Pi — A Guide: Thanks for reading!" title="Thanks for reading!" loading="lazy" decoding="async">
 Thanks for reading!

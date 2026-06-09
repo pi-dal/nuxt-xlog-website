@@ -11,7 +11,7 @@ tags:
   - Raspberry Pi
 ---
 
-![72FCD024-BF9C-4FFB-897A-A6C38B4DDCAD.jpeg](/article-assets/How-To-Build-A-RPI-NAS-Server/72FCD024-BF9C-4FFB-897A-A6C38B4DDCAD.jpeg)
+<img src="/article-assets/How-To-Build-A-RPI-NAS-Server/72FCD024-BF9C-4FFB-897A-A6C38B4DDCAD.jpeg" alt="Illustration from Building a Raspberry Pi NAS (image 1)" title="Image from Building a Raspberry Pi NAS" loading="lazy" decoding="async">
 
 # Origins (Pitfalls)
 
@@ -37,21 +37,21 @@ I have to admit, 3D modeling is not my strong suit (okay, I basically can't do i
 
 [61fbef58d45ea](http://tmp.link/f/61fbef58d45ea)
 
-![6FD93060-01C2-4B66-AEE3-7211A350CF06.jpeg](/article-assets/How-To-Build-A-RPI-NAS-Server/6FD93060-01C2-4B66-AEE3-7211A350CF06.jpeg)
+<img src="/article-assets/How-To-Build-A-RPI-NAS-Server/6FD93060-01C2-4B66-AEE3-7211A350CF06.jpeg" alt="Illustration from &quot;3D Modeling&quot; in Building a Raspberry Pi NAS (image 2)" title="Image from 3D Modeling" loading="lazy" decoding="async">
 
-![FA279133-7145-48B2-A70B-6BF27E47764A.jpeg](/article-assets/How-To-Build-A-RPI-NAS-Server/FA279133-7145-48B2-A70B-6BF27E47764A.jpeg)
+<img src="/article-assets/How-To-Build-A-RPI-NAS-Server/FA279133-7145-48B2-A70B-6BF27E47764A.jpeg" alt="Illustration from &quot;3D Modeling&quot; in Building a Raspberry Pi NAS (image 3)" title="Image from 3D Modeling" loading="lazy" decoding="async">
 
-![85AD81ED-1A37-4C77-AA9D-CA57C9EFC23F.jpeg](/article-assets/How-To-Build-A-RPI-NAS-Server/85AD81ED-1A37-4C77-AA9D-CA57C9EFC23F.jpeg)
+<img src="/article-assets/How-To-Build-A-RPI-NAS-Server/85AD81ED-1A37-4C77-AA9D-CA57C9EFC23F.jpeg" alt="Illustration from &quot;3D Modeling&quot; in Building a Raspberry Pi NAS (image 4)" title="Image from 3D Modeling" loading="lazy" decoding="async">
 
-![IMG_A2B2053FA2E5-1.jpeg](/article-assets/How-To-Build-A-RPI-NAS-Server/IMG_A2B2053FA2E5-1.jpeg)
+<img src="/article-assets/How-To-Build-A-RPI-NAS-Server/IMG_A2B2053FA2E5-1.jpeg" alt="Illustration from &quot;3D Modeling&quot; in Building a Raspberry Pi NAS (image 5)" title="Image from 3D Modeling" loading="lazy" decoding="async">
 
 # Hands-on DIY (Straight Into the Pit)
 
 ## Soldering
 
-![32582800-9D23-4E02-87DF-860C5EE93971.jpeg](/article-assets/How-To-Build-A-RPI-NAS-Server/32582800-9D23-4E02-87DF-860C5EE93971.jpeg)
+<img src="/article-assets/How-To-Build-A-RPI-NAS-Server/32582800-9D23-4E02-87DF-860C5EE93971.jpeg" alt="Illustration from &quot;Soldering&quot; in Building a Raspberry Pi NAS (image 6)" title="Image from Soldering" loading="lazy" decoding="async">
 
-![73D87562-C4FE-4F4B-9138-2BD13F04925C.jpeg](/article-assets/How-To-Build-A-RPI-NAS-Server/73D87562-C4FE-4F4B-9138-2BD13F04925C.jpeg)
+<img src="/article-assets/How-To-Build-A-RPI-NAS-Server/73D87562-C4FE-4F4B-9138-2BD13F04925C.jpeg" alt="Illustration from &quot;Soldering&quot; in Building a Raspberry Pi NAS (image 7)" title="Image from Soldering" loading="lazy" decoding="async">
 
 ## Software
 
@@ -59,25 +59,25 @@ For the software side, I went with [ArozOS](https://github.com/tobychui/arozos) 
 
 Installation instructions can be found in my [previous article](https://blog.pi-dal.com/%E9%80%82%E7%94%A8%E4%BA%8E%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E9%80%9A%E7%94%A8Web%E6%A1%8C%E9%9D%A2%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F).
 
-![8B82DA13-160D-4C47-92BD-94967F143B65.jpeg](/article-assets/How-To-Build-A-RPI-NAS-Server/8B82DA13-160D-4C47-92BD-94967F143B65.jpeg)
+<img src="/article-assets/How-To-Build-A-RPI-NAS-Server/8B82DA13-160D-4C47-92BD-94967F143B65.jpeg" alt="Illustration from &quot;Software&quot; in Building a Raspberry Pi NAS (image 8)" title="Image from Software" loading="lazy" decoding="async">
 
 ## Results
 
-![IMG_3292.HEIC](/article-assets/How-To-Build-A-RPI-NAS-Server/IMG_3292.heic)
+<img src="/article-assets/How-To-Build-A-RPI-NAS-Server/IMG_3292.heic" alt="Illustration from &quot;Results&quot; in Building a Raspberry Pi NAS (image 9)" title="Image from Results" loading="lazy" decoding="async">
 
-![IMG_3294.HEIC](/article-assets/How-To-Build-A-RPI-NAS-Server/IMG_3294.heic)
+<img src="/article-assets/How-To-Build-A-RPI-NAS-Server/IMG_3294.heic" alt="Illustration from &quot;Results&quot; in Building a Raspberry Pi NAS (image 10)" title="Image from Results" loading="lazy" decoding="async">
 
-![IMG_3295.HEIC](/article-assets/How-To-Build-A-RPI-NAS-Server/IMG_3295.heic)
+<img src="/article-assets/How-To-Build-A-RPI-NAS-Server/IMG_3295.heic" alt="Illustration from &quot;Results&quot; in Building a Raspberry Pi NAS (image 11)" title="Image from Results" loading="lazy" decoding="async">
 
 [https://player.bilibili.com/player.html?aid=296266066&bvid=BV1sF411J7FD&cid=500715652](https://player.bilibili.com/player.html?aid=296266066&bvid=BV1sF411J7FD&cid=500715652)
 
-![E9DC7B19-42F3-4D05-822F-3C9E13249E46.jpeg](/article-assets/How-To-Build-A-RPI-NAS-Server/E9DC7B19-42F3-4D05-822F-3C9E13249E46.jpeg)
+<img src="/article-assets/How-To-Build-A-RPI-NAS-Server/E9DC7B19-42F3-4D05-822F-3C9E13249E46.jpeg" alt="Illustration from &quot;Results&quot; in Building a Raspberry Pi NAS (image 12)" title="Image from Results" loading="lazy" decoding="async">
 
-![D62A6E7B-0B09-4BE2-9616-3177E12F78F4.jpeg](/article-assets/How-To-Build-A-RPI-NAS-Server/D62A6E7B-0B09-4BE2-9616-3177E12F78F4.jpeg)
+<img src="/article-assets/How-To-Build-A-RPI-NAS-Server/D62A6E7B-0B09-4BE2-9616-3177E12F78F4.jpeg" alt="Illustration from &quot;Results&quot; in Building a Raspberry Pi NAS (image 13)" title="Image from Results" loading="lazy" decoding="async">
 
-![43FA4084-61A0-4546-949F-D5B9FE194568.jpeg](/article-assets/How-To-Build-A-RPI-NAS-Server/43FA4084-61A0-4546-949F-D5B9FE194568.jpeg)
+<img src="/article-assets/How-To-Build-A-RPI-NAS-Server/43FA4084-61A0-4546-949F-D5B9FE194568.jpeg" alt="Illustration from &quot;Results&quot; in Building a Raspberry Pi NAS (image 14)" title="Image from Results" loading="lazy" decoding="async">
 
-![1DA9B3F0-C889-481C-B0FE-DA55A3B59944.jpeg](/article-assets/How-To-Build-A-RPI-NAS-Server/1DA9B3F0-C889-481C-B0FE-DA55A3B59944.jpeg)
+<img src="/article-assets/How-To-Build-A-RPI-NAS-Server/1DA9B3F0-C889-481C-B0FE-DA55A3B59944.jpeg" alt="Illustration from &quot;Results&quot; in Building a Raspberry Pi NAS (image 15)" title="Image from Results" loading="lazy" decoding="async">
 
 # Bonus
 

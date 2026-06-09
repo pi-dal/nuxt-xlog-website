@@ -11,7 +11,7 @@ tags:
   - Summary
 ---
 
-![](https://images.unsplash.com/photo-1585637071663-799845ad5212?ixlib=rb-1.2.1&q=80&cs=tinysrgb&fm=jpg&crop=entropy)
+<img src="https://images.unsplash.com/photo-1585637071663-799845ad5212?ixlib=rb-1.2.1&amp;q=80&amp;cs=tinysrgb&amp;fm=jpg&amp;crop=entropy" alt="中学校生活のまとめ：2022年6月28日、高校入試が終わり、私の中学校生活が幕を閉じました。" title="2022年6月28日、高校入試が終わり、私の中学校生活が幕を閉じました。" loading="lazy" decoding="async">
 
 2022年6月28日、高校入試が終わり、私の中学校生活が幕を閉じました。
 
@@ -65,7 +65,7 @@ RSの中学校部に入ったとき、自分は主人公なのだと思ってい
 
 # オープンソース
 
-![50A54D1C-1A97-468B-A835-090357B87053.jpeg](/article-assets/Summary-Of-Junior-High-School-Life/50A54D1C-1A97-468B-A835-090357B87053.jpeg)
+<img src="/article-assets/Summary-Of-Junior-High-School-Life/50A54D1C-1A97-468B-A835-090357B87053.jpeg" alt="中学校生活のまとめの「オープンソース」セクションの画像（画像2）" title="オープンソースの画像" loading="lazy" decoding="async">
 
 この3年間、私はオープンソースコミュニティに深く関わり、多くのコンピュータ技術を学びました。初めてのPythonパッケージ [**django-vditor**](https://django-vditor.pi-dal.com) を開発し、[**ArozOS**](https://arozos.com) にも貢献しました。
 

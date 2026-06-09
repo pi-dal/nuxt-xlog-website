@@ -11,7 +11,7 @@ tags:
   - Summary
 ---
 
-![](https://images.unsplash.com/photo-1585637071663-799845ad5212?ixlib=rb-1.2.1&q=80&cs=tinysrgb&fm=jpg&crop=entropy)
+<img src="https://images.unsplash.com/photo-1585637071663-799845ad5212?ixlib=rb-1.2.1&amp;q=80&amp;cs=tinysrgb&amp;fm=jpg&amp;crop=entropy" alt="初中生活总结：今天是2022年6月28日，是我中考结束的日子，也是代表我初中生活落下帷幕的日子。" title="今天是2022年6月28日，是我中考结束的日子，也是代表我初中生活落下帷幕的日子。" loading="lazy" decoding="async">
 
 今天是2022年6月28日，是我中考结束的日子，也是代表我初中生活落下帷幕的日子。
 
@@ -66,7 +66,7 @@ tags:
 
 # 开源
 
-![50A54D1C-1A97-468B-A835-090357B87053.jpeg](/article-assets/Summary-Of-Junior-High-School-Life/50A54D1C-1A97-468B-A835-090357B87053.jpeg)
+<img src="/article-assets/Summary-Of-Junior-High-School-Life/50A54D1C-1A97-468B-A835-090357B87053.jpeg" alt="初中生活总结中“开源”部分的配图（图2）" title="开源部分配图" loading="lazy" decoding="async">
 
 在三年的初中生活中，我深度参与了开源社区学习了很多新的计算机技术，开发了个人的第一个python的package [**django-vditor**](https://django-vditor.pi-dal.com)，参与开发了[**ArozOS**](https://arozos.com)。
 

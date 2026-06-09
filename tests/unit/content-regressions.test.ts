@@ -18,7 +18,8 @@ describe('content regressions', () => {
   it('does not leave raw spaces in local article asset image urls', () => {
     const source = read('pages/posts/ArozOS-RPI-Tutorial.md')
 
-    expect(source).not.toMatch(/\/article-assets\/ArozOS-RPI-Tutorial\/[^\n)]* [^\n)]*/)
+    expect(source).not.toMatch(/!\[[^\]]*\]\(\/article-assets\/ArozOS-RPI-Tutorial\/[^\n )]* [^\n)]*\)/)
+    expect(source).not.toMatch(/src="\/article-assets\/ArozOS-RPI-Tutorial\/[^\n "]* [^\n"]*"/)
     expect(source).toContain('/article-assets/ArozOS-RPI-Tutorial/Untitled%206.png')
   })
 })

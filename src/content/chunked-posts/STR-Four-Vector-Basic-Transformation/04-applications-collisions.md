@@ -1,6 +1,6 @@
 ### 粒子的完全非弹性碰撞生成一个新粒子
 
-![relativistic_collision_hd.gif](/article-assets/STR-Four-Vector-Basic-Transformation/relativistic_collision_hd.gif)
+<img src="/article-assets/STR-Four-Vector-Basic-Transformation/relativistic_collision_hd.gif" alt="“粒子的完全非弹性碰撞生成一个新粒子”部分的示意动图" title="完全非弹性碰撞示意动图" loading="lazy" decoding="async">
 
 对各个粒子，有以下四维矢量：
 
@@ -23,7 +23,7 @@
 
 ### 粒子的完全弹性碰撞
 
-![elastic_collision_theta_alpha_hd.gif](/article-assets/STR-Four-Vector-Basic-Transformation/elastic_collision_theta_alpha_hd.gif)
+<img src="/article-assets/STR-Four-Vector-Basic-Transformation/elastic_collision_theta_alpha_hd.gif" alt="“粒子的完全弹性碰撞”部分的示意动图" title="完全弹性碰撞示意动图" loading="lazy" decoding="async">
 
 对各个粒子，有以下四维矢量：
 

@@ -151,7 +151,7 @@ Alma was built by yetone. The more I use it, the more I realize — its memory p
 
 Not hidden in settings, not buried in some secondary menu. You open it and can see what it remembers — something you said long ago, your attitude toward a topic, preferences you've adjusted. Every memory is right there. You can edit it, delete it, tell it "that's not me."
 
-<img src="/assets/knowledge-flow/alma-memory.webp" alt="Alma's memory panel, showing visible and editable short-term memory list and search area." width="900">
+<img src="/assets/knowledge-flow/alma-memory.webp" alt="Alma's memory panel, showing visible and editable short-term memory list and search area." width="900" title="Alma's memory panel, showing visible and editable short-term memory list and search area." loading="lazy" decoding="async">
 
 Once you've used enough memory systems, you realize how luxurious this is.
 
@@ -177,7 +177,7 @@ If Alma is a flowing river, then [Nowledge Mem](https://github.com/nowledge-co/n
 
 [Nowledge Mem](https://github.com/nowledge-co/nowledge-mem) positions itself quietly: a "memory layer." It's not a chat tool, not a note app. It's just a foundation. [Alma](https://alma.now)'s water can flow in, [Claude Code](https://claude.ai/code)'s water can flow in, [Codex](https://github.com/openai/codex)'s water, [Gemini CLI](https://cloud.google.com/gemini-cli)'s water, that random idea you had at midnight — all water converges here.
 
-<img src="/assets/knowledge-flow/nowledge-mem-graph.webp" alt="Nowledge Mem's memory graph view, showing the relationship network between entities, memories, artifacts, and threads." width="1000">
+<img src="/assets/knowledge-flow/nowledge-mem-graph.webp" alt="Nowledge Mem's memory graph view, showing the relationship network between entities, memories, artifacts, and threads." width="1000" title="Nowledge Mem's memory graph view, showing the relationship network between entities, memories, artifacts, and threads." loading="lazy" decoding="async">
 
 Its structure is simple. Three words:
 
@@ -191,7 +191,7 @@ From Trace to Unit to Crystal — it's the process of mud becoming crystal. Not 
 
 Every pebble remembers where it came from. Every crystallization carries the direction of its upstream. Now you can even throw an entire paper in — it will read it itself. And it will grow a wiki from this knowledge — using wiki-links to string related memories together, like a topographical map, telling you what once flowed through each section of the riverbed upstream.
 
-<img src="/assets/knowledge-flow/nowledge-mem-wiki.webp" alt="Nowledge Mem's library or wiki view, showing document entries in the knowledge base and their readable content." width="1000">
+<img src="/assets/knowledge-flow/nowledge-mem-wiki.webp" alt="Nowledge Mem's library or wiki view, showing document entries in the knowledge base and their readable content." width="1000" title="Nowledge Mem's library or wiki view, showing document entries in the knowledge base and their readable content." loading="lazy" decoding="async">
 
 It also does something I failed to do when building my reservoir: it knows what to forget.
 
@@ -301,7 +301,7 @@ Slock isn't a tool — it's a workspace.
 
 But you're underselling it if you use it only as a workspace. What it truly does is let multiple AIs work for you simultaneously, each with their own identity and memory.
 
-<img src="/assets/knowledge-flow/slock-workspace.webp" alt="Slock's channel workspace, where multiple agents collaborate and pass the baton within the same chat and task interface." width="1000">
+<img src="/assets/knowledge-flow/slock-workspace.webp" alt="Slock's channel workspace, where multiple agents collaborate and pass the baton within the same chat and task interface." width="1000" title="Slock's channel workspace, where multiple agents collaborate and pass the baton within the same chat and task interface." loading="lazy" decoding="async">
 
 Each agent in Slock has its own identity. Its own `MEMORY.md`, its own skill configuration, its own accumulated context. They are different "people" — maybe the same model runs underneath, but with different prompts, different personas, and most importantly, different collaboration histories with you, so they see the same problem from completely different angles.
 
@@ -414,7 +414,7 @@ It's not a tool I proactively open. It runs on my desktop, quietly. It's there w
 
 Then it crystallizes these observations into knowledge. Not a log-style record, but structured knowledge that other AIs can use directly — my work habits, my preferences, my common tool chains.
 
-<img src="/assets/knowledge-flow/yansu-knowledge.webp" alt="Yansu's knowledge view, showing organized behavior patterns, knowledge entries, and source statistics." width="1000">
+<img src="/assets/knowledge-flow/yansu-knowledge.webp" alt="Yansu's knowledge view, showing organized behavior patterns, knowledge entries, and source statistics." width="1000" title="Yansu's knowledge view, showing organized behavior patterns, knowledge entries, and source statistics." loading="lazy" decoding="async">
 
 This is what **Yansu.skill** does. It packages observed patterns into a file that can be injected into any AI agent's context. Next time I start a new Claude Code session, I don't need to re-describe my project structure and work habits — Yansu has already prepared them for me.
 
@@ -426,7 +426,7 @@ Yansu is **forward-facing** — what it sees directly becomes the startup contex
 One summarizes the river's direction today from the bank.
 One stands at the river's source, telling every new drop of water how this river likes to flow.
 
-<img src="/assets/knowledge-flow/yansu-memory.webp" alt="Yansu's memory view, showing long-term memory sedimented from daily observations and searchable entries." width="1000">
+<img src="/assets/knowledge-flow/yansu-memory.webp" alt="Yansu's memory view, showing long-term memory sedimented from daily observations and searchable entries." width="1000" title="Yansu's memory view, showing long-term memory sedimented from daily observations and searchable entries." loading="lazy" decoding="async">
 
 But it also talks upstream.
 

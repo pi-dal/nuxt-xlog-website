@@ -30,6 +30,7 @@ const props = withDefaults(defineProps<{
 
 const reducedMotion = usePreferredReducedMotion()
 const isReduced = computed(() => reducedMotion.value === 'reduce')
+const isStatic = computed(() => props.mode === 'static')
 
 const color = computed(() => {
   const alpha = props.strokeOpacity
@@ -81,24 +82,41 @@ watch(
       clearTimeout(resizeTimeout.value)
     resizeTimeout.value = setTimeout(() => {
       if (canvasRef && !isReduced.value) {
-        const init = initCanvas(canvasRef, size.width, size.height)
-        ctxRef = init.ctx
-        start.value()
+        // Re-init with current dimensions — uses current size.width/height, not captured
+        initAnimation(canvasRef, size.width, size.height)
+        if (!isStatic.value)
+          start.value()
       }
     }, 300)
   },
   { flush: 'post' },
 )
 
-onMounted(async () => {
-  if (isReduced.value)
-    return
+const drawBackgroundDots = (ctx: CanvasRenderingContext2D, w: number, h: number) => {
+  ctx.fillStyle = dotColor.value
+  const spacing = 20
+  const dotSize = 1
+  for (let x = spacing; x < w; x += spacing) {
+    for (let y = spacing; y < h; y += spacing) {
+      ctx.beginPath()
+      ctx.arc(x, y, dotSize, 0, 2 * Math.PI)
+      ctx.fill()
+    }
+  }
+}
 
-  const canvas = el.value!
-  canvasRef = canvas
-  const { ctx } = initCanvas(canvas, size.width, size.height)
+function initAnimation(canvas: HTMLCanvasElement, w: number, h: number) {
+  // Stop any existing RAF before reinitializing
+  controls?.pause()
+
+  const { ctx } = initCanvas(canvas, w, h)
   ctxRef = ctx
-  const { width, height } = canvas
+
+  // Static mode: draw background dots only, no RAF, no branching
+  if (isStatic.value) {
+    drawBackgroundDots(ctx, w, h)
+    return
+  }
 
   let steps: Fn[] = []
   let prevSteps: Fn[] = []
@@ -117,16 +135,13 @@ onMounted(async () => {
     const rad1 = rad + random() * r15
     const rad2 = rad - random() * r15
 
-    // out of bounds
-    if (nx < -100 || nx > size.width + 100 || ny < -100 || ny > size.height + 100)
+    if (nx < -100 || nx > w + 100 || ny < -100 || ny > h + 100)
       return
 
     const rate = counter.value <= MIN_BRANCH ? 0.8 : 0.5
 
-    // left branch
     if (random() < rate)
       steps.push(() => step(nx, ny, rad1, counter))
-    // right branch
     if (random() < rate)
       steps.push(() => step(nx, ny, rad2, counter))
   }
@@ -169,34 +184,19 @@ onMounted(async () => {
 
   const randomMiddle = () => random() * 0.6 + 0.2
 
-  const drawBackgroundDots = () => {
-    ctx.fillStyle = dotColor.value
-    const spacing = 20
-    const dotSize = 1
-
-    for (let x = spacing; x < size.width; x += spacing) {
-      for (let y = spacing; y < size.height; y += spacing) {
-        ctx.beginPath()
-        ctx.arc(x, y, dotSize, 0, 2 * Math.PI)
-        ctx.fill()
-      }
-    }
-  }
-
-  start.value = () => {
+  const fullStart = () => {
     controls?.pause()
-    ctx.clearRect(0, 0, width, height)
-    drawBackgroundDots()
+    ctx.clearRect(0, 0, w, h)
+    drawBackgroundDots(ctx, w, h)
     ctx.lineWidth = 1
     ctx.strokeStyle = color.value
     prevSteps = []
     steps = [
-      () => step(randomMiddle() * size.width, -5, r90),
-      () => step(randomMiddle() * size.width, size.height + 5, -r90),
-      () => step(-5, randomMiddle() * size.height, 0),
-      () => step(size.width + 5, randomMiddle() * size.height, r180),
+      () => step(randomMiddle() * w, -5, r90),
+      () => step(randomMiddle() * w, h + 5, -r90),
+      () => step(-5, randomMiddle() * h, 0),
+      () => step(w + 5, randomMiddle() * h, r180),
     ]
-    // Reduce seeds on mobile
     const effectiveSeeds = size.width < 768
       ? Math.min(props.seedCount, 2)
       : props.seedCount
@@ -208,9 +208,20 @@ onMounted(async () => {
     stopped.value = false
   }
 
-  // Start animation after a short delay
+  start.value = fullStart
+}
+
+onMounted(async () => {
+  if (isReduced.value)
+    return
+
+  const canvas = el.value!
+  canvasRef = canvas
+  initAnimation(canvas, size.width, size.height)
+
+  // Start animation after a short delay (only for non-static modes)
   setTimeout(() => {
-    if (!isReduced.value)
+    if (!isReduced.value && !isStatic.value)
       start.value()
   }, 300)
 })

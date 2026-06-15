@@ -279,7 +279,7 @@ Obsidian 在最底层——它不是流水，是河岸。是那些真正需要�
 
 同样的，每一层都知道自己不在的时候该怎么办。
 
-nmem 不可用的时候，短期记忆留在 Slock 的 agent 记忆里，长期记忆直接写进 Obsidian——少了交汇，但水不会断。Obsidian 不可用的时候，nmem 替它做最终的存储——少了人眼的校对，但记忆不会丢。Alma 不在的时候，agent 直接对话 nmem 和 Obsidian——少了那面清澈的窗，但水流不会停。
+Obsidian 不可用的时候，nmem 替它做最终的存储——少了人眼的校对，但记忆不会丢。Alma 不在的时候，agent 直接对话 nmem 和 Obsidian——少了那面清澈的窗，但水流不会停。
 
 没有一条河是完全依赖单一河道的。每条路都有一条备用的路。
 
@@ -295,15 +295,17 @@ Alma 和我的对话是线性的。一个话题接一个话题，一条思路走
 
 我需要的不只是记忆的流动。我需要工作本身的流动。
 
-### [Slock](https://slock.ai)：不止一个大脑
+### [Raft](https://raft.build)：不止一个大脑
 
-Slock 不是一个工具，它是一个 workspace。
+Raft 不是一个工具，它是一个 workspace。
+
+（你也许在别处见过它——它之前叫 Slock。改名字了，河道还是同一条。）
 
 但你把它当 workspace 用就亏了。它真正做的事情是：让多个 AI 以不同的身份和记忆，同时为你工作。
 
-<img src="/assets/knowledge-flow/slock-workspace.webp" alt="Slock 的 channel workspace，多个 agent 在同一聊天与任务界面里协作接力。" width="1000" title="Slock 的 channel workspace，多个 agent 在同一聊天与任务界面里协作接力。" loading="lazy" decoding="async">
+<img src="/assets/knowledge-flow/raft-workspace.webp" alt="Raft 的 channel workspace，多个 agent 在同一聊天与任务界面里协作接力。" width="1000" title="Raft 的 channel workspace，多个 agent 在同一聊天与任务界面里协作接力。" loading="lazy" decoding="async">
 
-每个 agent 在 Slock 里都有自己的身份。有自己的 `MEMORY.md`，有自己的技能配置，有自己积累下来的上下文。它们是不同的「人」——也许底层跑的是同一个模型，但 prompt 不同、persona 不同、以及最重要的，和你的协作历史不同，它们看同一个问题的方式就完全不同。
+每个 agent 在 Raft 里都有自己的身份。有自己的 `MEMORY.md`，有自己的技能配置，有自己积累下来的上下文。它们是不同的「人」——也许底层跑的是同一个模型，但 prompt 不同、persona 不同、以及最重要的，和你的协作历史不同，它们看同一个问题的方式就完全不同。
 
 我在这几个 agent 之间做了分工：
 
@@ -331,7 +333,7 @@ Slock 不是一个工具，它是一个 workspace。
 
 是当它们在 channel 里接力的时候，scope、baseline、下一步行动——这些东西不会因为切换而丢失。研究 agent 分析到一半，发现需要代码验证，它把当前的状态锁住，代码 agent 从它停下的地方接过去。讨论 agent 反驳了一个 premise，需要新的数据，OpenCLI 的 agent 出去捞了回来，接着刚才被打断的那条线继续。
 
-Slock 不是让它们同时说话。Slock 让它们在同一条河里接力，而不必担心上游漂下来的东西和自己手里拿着的是不是同一段水流。
+Raft 不是让它们同时说话。Raft 让它们在同一条河里接力，而不必担心上游漂下来的东西和自己手里拿着的是不是同一段水流。
 
 每一段接力，scope 不变，baseline 不变，下一步行动清楚写在那里。这才是多 agent 真正该做的事——不是并行，是 lossless handoff。
 
@@ -377,11 +379,11 @@ OpenCLI 的每一条 adapter，不只是知道那个页面的结构——它知�
 
 但用到今天，我发现它不止三层了。
 
-Slock 的每个 agent，都有自己的 `MEMORY.md`。那是它们各自的知识角落——研究 agent 记得我最近对哪些方向感兴趣，代码 agent 记得项目的架构偏好，讨论 agent 记得我喜欢从什么角度切入问题。每一份记忆都是私有的、专精的、带着各自 persona 的底色。但当它们需要在 channel 里协作解决一个问题时，这些记忆会在讨论中自然交汇。A 知道背景，B 知道技术细节，C 知道类似的坑以前踩过——它们各自带来的东西拼在一起，才构成完整的上下文。
+Raft 的每个 agent，都有自己的 `MEMORY.md`。那是它们各自的知识角落——研究 agent 记得我最近对哪些方向感兴趣，代码 agent 记得项目的架构偏好，讨论 agent 记得我喜欢从什么角度切入问题。每一份记忆都是私有的、专精的、带着各自 persona 的底色。但当它们需要在 channel 里协作解决一个问题时，这些记忆会在讨论中自然交汇。A 知道背景，B 知道技术细节，C 知道类似的坑以前踩过——它们各自带来的东西拼在一起，才构成完整的上下文。
 
 在这些 agent 之外，还有一个特殊的角色。
 
-我的秘书。它也是 Slock 上的一个 agent，但和其他 agent 不同——它不做研究，不写代码，不和我在 channel 里讨论问题。它的工作是在所有人下班之后，把今天发生在每一条河里的东西捞一遍——Slock 的 agent 们在哪些 channel 里讨论了什么、Nowledge Mem 里新沉淀了哪些知识、Yansu 今天记录的工作轨迹和时间线——然后给我写一份总结。
+我的秘书。它也是 Raft 上的一个 agent，但和其他 agent 不同——它不做研究，不写代码，不和我在 channel 里讨论问题。它的工作是在所有人下班之后，把今天发生在每一条河里的东西捞一遍——Raft 的 agent 们在哪些 channel 里讨论了什么、Nowledge Mem 里新沉淀了哪些知识、Yansu 今天记录的工作轨迹和时间线——然后给我写一份总结。
 
 不是流水账。是一份告诉我还需要知道什么的东西：今天有什么值得跟进的方向，哪些讨论可能被我错过了，哪个 agent 发现了一篇和我之前某个笔记有关的论文。
 
@@ -397,7 +399,7 @@ OpenCLI 在最外面，是入海口。它不负责记忆，它负责把外面世
 
 在最外层，OpenCLI 从互联网上不断把新的水引进来——一篇论文、一条帖子、一个 GitHub Issue。
 
-进来之后，Slock 的 agent 们接手——研究 agent 判断它是否相关，讨论 agent 和它对话、拆解、质疑，代码 agent 验证其中提到的技术点。秘书始终在旁边看着，把值得我知道的东西挑出来。
+进来之后，Raft 的 agent 们接手——研究 agent 判断它是否相关，讨论 agent 和它对话、拆解、质疑，代码 agent 验证其中提到的技术点。秘书始终在旁边看着，把值得我知道的东西挑出来。
 
 而 Alma 在最前面，是我和整条河之间的界面——我通过它发起问题、调整方向、看到水正在往哪里流。
 
@@ -405,7 +407,7 @@ OpenCLI 在最外面，是入海口。它不负责记忆，它负责把外面世
 
 但还有一件事，是上面所有这些工具都做不了的。
 
-它们都在回应我。Alma 等我说话，Slock 的 agent 等我在 channel 里 @ 它们，秘书等我下班了才整理。没有人在我工作的时候，就站在旁边看着。
+它们都在回应我。Alma 等我说话，Raft 的 agent 等我在 channel 里 @ 它们，秘书等我下班了才整理。没有人在我工作的时候，就站在旁边看着。
 
 Yansu 在做这件事。
 
@@ -437,11 +439,11 @@ Yansu 是**向前的**——它看到的东西，直接变成下一个 agent 的
 
 Yansu 在最底部——不是河床，是河床下面的土壤。它不直接参与流动，但它的质地决定了水流的方式。
 
-往上是一层工具层：Alma 是我的界面，Slock 是我的工作区，OpenCLI 是通往外部世界的管道。
+往上是一层工具层：Alma 是我的界面，Raft 是我的工作区，OpenCLI 是通往外部世界的管道。
 
 再往上是记忆层：每个 agent 的 `MEMORY.md` 是各自的知识角落，Nowledge Mem 是所有记忆交汇的河床。
 
-而所有这些 agent——做研究的、写代码的、深度讨论的、当秘书的——都在 Slock 里。有的在水里游，有的在岸上看。
+而所有这些 agent——做研究的、写代码的、深度讨论的、当秘书的——都在 Raft 里。有的在水里游，有的在岸上看。
 
 每一层都有自己的角色。没有一层是多余的。也没有一层需要我来管理。
 
@@ -456,3 +458,25 @@ Yansu 在最底部——不是河床，是河床下面的土壤。它不直接�
 从最初意识到碎片散落一地，到造水库失败，到理解 Agent Native 的意义，到两条河交汇，再到现在这张由不同角色、不同记忆、不同入海口编织起来的网——每一步都不是设计出来的，是被水自己冲出来的。
 
 你不知道水会流到哪里去。但你知道它一直在走。
+
+而你要做的，只是坐在河边，看着它走 XD
+
+## 附录：河床的地质学
+
+你可能不需要知道这些。河流一直在流，已经够了。
+
+但如果你好奇它底下是什么样子——
+
+**六层结构。** 从外到内：[OpenCLI](https://github.com/jackwener/OpenCLI) 是入海口，把互联网的水引进来。[Raft](https://raft.build) 是工作区，agent 在这里接力、碰撞、锁住状态。[Alma](https://alma.now) 是清澈透明的界面层，让我看到水在往哪里走。[nmem](https://github.com/nowledge-co/nowledge-mem) 是河床，所有工具的记忆在这里交汇、沉积、结晶。[Yansu](https://yansu.app) 是土壤，在河床下面安静地观察，把模式变成下一个 agent 的启动上下文。[Obsidian](https://obsidian.md) 是河岸，是那些最终值得被人在多年后坐下来读一遍的东西。
+
+**三类边界。** 每层知道自己的权力——[Alma](https://alma.now) 建议，agent 共识决定什么进 nmem；nmem 建议，你亲自决定什么进 [Obsidian](https://obsidian.md)。每层知道转移的时机——一条信息从短期到共享到人类可读，不是随机的，是经过 review gate 的。每层知道自己丢失了什么——压缩不是无代价的，nmem 的 Unit 丢掉了对话的温度，Obsidian 的笔记丢掉了 agent 讨论的密度。知道丢了什么，比知道存了什么更重要。
+
+**一套降级策略。** 没有一层是必不可少的。nmem 不在，[Raft](https://raft.build) 的 agent 记忆接住短期沉积，[Obsidian](https://obsidian.md) 接住长期。Obsidian 不在，nmem 做最终存储。[Alma](https://alma.now) 不在，agent 直接写 nmem。每一条路都有一条备用的路。不是因为设计得周全，是因为河要一直流下去。
+
+**一条回流。** 但水不只是从上往下走。[Yansu](https://yansu.app) 的观察回流到调度和抓取优先级。河床的沉淀回访上游，告诉它哪里值得多挖。沉积不是终点——它是一条河用来理解自己的方式。
+
+**实战证据。** 这些听起来像理论，但每一条都对应着真实的 channel 讨论串。研究 agent 在 `#papers` 里发现一篇论文→代码 agent 在 `#code` 里验证其方法→讨论 agent 在 `#deep-dive` 里拆解其假设→确认后在 `#all` 里形成 reviewed decision→commit 到 nmem→deploy 到 Obsidian。`#all` 就是知流最直接的实物——每条河都在那里流动。
+
+但，再说一次——你可能不需要知道这些。
+
+河流一直在流。这就够了 :D

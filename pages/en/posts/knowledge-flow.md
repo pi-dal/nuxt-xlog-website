@@ -279,7 +279,7 @@ This isn't just a division of responsibilities. It's how a river prevents itself
 
 Similarly, every layer knows what to do when it's gone.
 
-When nmem is unavailable, short-term memory stays in Slock's agent memory, long-term memory goes directly to Obsidian — less convergence, but water doesn't stop. When Obsidian is unavailable, nmem does the final storage — less human review, but memory doesn't get lost. When Alma is gone, agents talk to nmem and Obsidian directly — less transparent window, but the current doesn't stop.
+When Obsidian is unavailable, nmem does the final storage — less human review, but memory doesn't get lost. When Alma is gone, agents talk to nmem and Obsidian directly — less transparent window, but the current doesn't stop.
 
 No river relies entirely on a single channel. Every path has a backup path.
 
@@ -295,15 +295,17 @@ And the water flowing in from outside wasn't enough. I read papers myself, I cha
 
 I didn't just need the flow of memory. I needed the flow of work itself.
 
-### [Slock](https://slock.ai): More Than One Brain
+### [Raft](https://raft.build): More Than One Brain
 
-Slock isn't a tool — it's a workspace.
+Raft isn't a tool — it's a workspace.
+
+(You may have seen it elsewhere before — it used to be called Slock. The name changed, but the river channel is the same.)
 
 But you're underselling it if you use it only as a workspace. What it truly does is let multiple AIs work for you simultaneously, each with their own identity and memory.
 
-<img src="/assets/knowledge-flow/slock-workspace.webp" alt="Slock's channel workspace, where multiple agents collaborate and pass the baton within the same chat and task interface." width="1000" title="Slock's channel workspace, where multiple agents collaborate and pass the baton within the same chat and task interface." loading="lazy" decoding="async">
+<img src="/assets/knowledge-flow/raft-workspace.webp" alt="Raft's channel workspace, where multiple agents collaborate and pass the baton within the same chat and task interface." width="1000" title="Raft's channel workspace, where multiple agents collaborate and pass the baton within the same chat and task interface." loading="lazy" decoding="async">
 
-Each agent in Slock has its own identity. Its own `MEMORY.md`, its own skill configuration, its own accumulated context. They are different "people" — maybe the same model runs underneath, but with different prompts, different personas, and most importantly, different collaboration histories with you, so they see the same problem from completely different angles.
+Each agent in Raft has its own identity. Its own `MEMORY.md`, its own skill configuration, its own accumulated context. They are different "people" — maybe the same model runs underneath, but with different prompts, different personas, and most importantly, different collaboration histories with you, so they see the same problem from completely different angles.
 
 I divided the work among these agents:
 
@@ -331,7 +333,7 @@ But the real value of multiple agents isn't just the collision of different voic
 
 It's that when they pass the baton in a channel, scope, baseline, next actions — these things don't get lost in the handoff. A research agent analyzes something halfway, realizes code verification is needed, locks the current state, and the code agent picks up where it left off. A discussion agent refutes a premise and needs new data, an OpenCLI agent goes out to fetch it, and then continues the line that was interrupted.
 
-Slock doesn't just let them talk at the same time. Slock lets them pass the baton in the same river, without worrying about whether what's floating downstream is the same section of current they're holding.
+Raft doesn't just let them talk at the same time. Raft lets them pass the baton in the same river, without worrying about whether what's floating downstream is the same section of current they're holding.
 
 Every handoff: scope unchanged, baseline unchanged, next action clearly written. This is what multi-agent is really about — not parallelism, but lossless handoff.
 
@@ -377,11 +379,11 @@ When I started writing this article, my answer was three riverbeds — Alma mana
 
 But after using it until today, I've found it's more than three layers.
 
-Every agent in Slock has its own `MEMORY.md`. Their own knowledge corner — the research agent remembers what directions I've been interested in recently, the code agent remembers the project's architectural preferences, the discussion agent remembers what angles I like to approach problems from. Each memory is private, specialized, carrying the color of its persona. But when they need to collaborate on a problem in a channel, these memories naturally converge in discussion. A knows the background, B knows the technical details, C knows a similar pitfall from before — what each of them brings, pieced together, forms the complete context.
+Every agent in Raft has its own `MEMORY.md`. Their own knowledge corner — the research agent remembers what directions I've been interested in recently, the code agent remembers the project's architectural preferences, the discussion agent remembers what angles I like to approach problems from. Each memory is private, specialized, carrying the color of its persona. But when they need to collaborate on a problem in a channel, these memories naturally converge in discussion. A knows the background, B knows the technical details, C knows a similar pitfall from before — what each of them brings, pieced together, forms the complete context.
 
 Beyond these agents, there's one special role.
 
-My secretary. Also an agent on Slock, but different from the others — it doesn't do research, doesn't write code, doesn't discuss problems with me in channels. Its job is, after everyone else has finished for the day, to go through what happened in every river — what Slock's agents discussed in which channels, what new knowledge sedimented in Nowledge Mem, what Yansu recorded today in terms of work trajectory and timeline — and then write me a summary.
+My secretary. Also an agent on Raft, but different from the others — it doesn't do research, doesn't write code, doesn't discuss problems with me in channels. Its job is, after everyone else has finished for the day, to go through what happened in every river — what Raft's agents discussed in which channels, what new knowledge sedimented in Nowledge Mem, what Yansu recorded today in terms of work trajectory and timeline — and then write me a summary.
 
 Not a log. Something that tells me what I still need to know: what directions are worth following up on, what discussions I might have missed, which agent found a paper related to a note I made before.
 
@@ -397,7 +399,7 @@ So the picture now looks something like this:
 
 At the outermost layer, OpenCLI continuously brings new water in from the internet — a paper, a post, a GitHub Issue.
 
-Once inside, Slock's agents take over — the research agent judges its relevance, the discussion agent converses with it, deconstructs it, questions it, the code agent verifies the technical points mentioned. The secretary watches from the side the whole time, picking out what's worth me knowing.
+Once inside, Raft's agents take over — the research agent judges its relevance, the discussion agent converses with it, deconstructs it, questions it, the code agent verifies the technical points mentioned. The secretary watches from the side the whole time, picking out what's worth me knowing.
 
 And Alma sits at the front, the interface between me and the entire river — through it I raise questions, adjust direction, see where the water is flowing.
 
@@ -406,7 +408,7 @@ And Alma sits at the front, the interface between me and the entire river — th
 But there's one thing none of the above
 tools can do.
 
-They all respond to me. Alma waits for me to speak, Slock's agents wait for me to @ them in channels, the secretary waits until I'm done for the day before organizing. No one just stands by and watches while I work.
+They all respond to me. Alma waits for me to speak, Raft's agents wait for me to @ them in channels, the secretary waits until I'm done for the day before organizing. No one just stands by and watches while I work.
 
 Yansu does this.
 
@@ -438,11 +440,11 @@ So the final picture looks like this:
 
 Yansu sits at the very bottom — not the riverbed, but the soil beneath it. It doesn't directly participate in the flow, but its texture determines how the water flows.
 
-Above it is a tool layer: Alma is my interface, Slock is my workspace, OpenCLI is the pipeline to the outside world.
+Above it is a tool layer: Alma is my interface, Raft is my workspace, OpenCLI is the pipeline to the outside world.
 
 Above that is the memory layer: each agent's `MEMORY.md` is their own knowledge corner, Nowledge Mem is the riverbed where all memories converge.
 
-And all these agents — the researcher, the coder, the deep discusser, the secretary — are in Slock. Some swim in the water, some watch from the bank.
+And all these agents — the researcher, the coder, the deep discusser, the secretary — are in Raft. Some swim in the water, some watch from the bank.
 
 Each layer has its own role. Not one is redundant. Not one needs me to manage it.
 
@@ -457,3 +459,25 @@ This isn't some grand architecture. This is just a river flowing.
 From the first realization that fragments are scattered everywhere, to the failed reservoir, to understanding the meaning of Agent Native, to two rivers meeting, and now to this network woven from different roles, different memories, different estuaries — none of it was designed. It was carved by the water itself.
 
 You don't know where the water will go. But you know it keeps moving.
+
+And what you need to do is simply sit by the river and watch it flow XD
+
+## Appendix: The Geology of the Riverbed
+
+You may not need to know any of this. The river is already flowing. That's enough.
+
+But if you're curious what lies underneath it—
+
+**A six-layer structure.** From the outside in: [OpenCLI](https://github.com/jackwener/OpenCLI) is the estuary, bringing the internet's water inward. [Raft](https://raft.build) is the workspace, where agents hand off, collide, and lock state. [Alma](https://alma.now) is the clear interface layer, letting me see where the water is flowing. [nmem](https://github.com/nowledge-co/nowledge-mem) is the riverbed, where all the tools' memories converge, sediment, and crystallize. [Yansu](https://yansu.app) is the soil, quietly observing beneath the riverbed and turning patterns into startup context for the next agent. [Obsidian](https://obsidian.md) is the riverbank, where the things worth sitting down to read again years later finally rest.
+
+**Three kinds of boundaries.** Each layer knows its authority — [Alma](https://alma.now) can suggest, but agent consensus decides what enters nmem; nmem can suggest, but you personally decide what enters [Obsidian](https://obsidian.md). Each layer knows the timing of transfer — a piece of information moving from short-term to shared to human-readable is not random; it passes through a review gate. Each layer knows what it loses — compression is never free; nmem's Units lose the warmth of dialogue, Obsidian's notes lose the density of agent discussion. Knowing what was lost matters more than knowing what was stored.
+
+**A fallback strategy.** No layer is indispensable. If nmem is unavailable, [Raft](https://raft.build)'s agent memories catch short-term sediment, and [Obsidian](https://obsidian.md) catches the long-term. If Obsidian is unavailable, nmem becomes the final storage. If [Alma](https://alma.now) is unavailable, agents write directly to nmem. Every path has a backup path. Not because the design was perfectly thought through, but because a river that wants to keep flowing cannot bet everything on a single route.
+
+**A backflow.** Water doesn't only move downward. [Yansu](https://yansu.app)'s observations flow back into dispatch and collection priorities. Sediment in the riverbed revisits the upstream and tells it where it is worth digging deeper. Sedimentation is not the end point — it is one of the ways a river learns to understand itself.
+
+**Practical evidence.** These ideas sound theoretical, but every one of them corresponds to real discussion threads in channels. A research agent finds a paper in `#papers` → a code agent verifies its method in `#code` → a discussion agent dissects its assumptions in `#deep-dive` → after confirmation, it becomes a reviewed decision in `#all` → commits to nmem → deploys into Obsidian. `#all` is the most direct physical artifact of the Knowledge Flow — every river is moving there.
+
+But again — you may not need to know any of this.
+
+The river is flowing. That is enough :D

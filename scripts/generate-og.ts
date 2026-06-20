@@ -2,8 +2,8 @@ import fs from 'fs-extra'
 import { join } from 'pathe'
 import { loadMarkdownContentEntries } from '~/content/files'
 import { siteConfig } from '~/site/config'
-import { generateOGImage } from './og'
-import { hashObject, loadManifest, saveManifest } from './utils/manifest'
+import { buildOgManifestSignature, generateOGImage, loadOgTemplateSignature } from './og'
+import { loadManifest, saveManifest } from './utils/manifest'
 
 const publicDir = join(process.cwd(), 'public')
 const ogDir = join(publicDir, 'og')
@@ -20,6 +20,7 @@ async function run() {
 
   const manifest = await loadManifest<OgManifestEntry>('og-manifest.json')
   const nextManifest: Record<string, OgManifestEntry> = {}
+  const templateSignature = await loadOgTemplateSignature()
 
   const entries = await loadMarkdownContentEntries({
     baseUrl: siteConfig.url,
@@ -33,10 +34,11 @@ async function run() {
     if (!slug || !title)
       continue
 
-    const signature = hashObject({
+    const signature = buildOgManifestSignature({
       content: entry.content,
       date: entry.frontmatter.date,
       slug,
+      templateSignature,
       title,
     })
     const outputFile = `${slug}.png`

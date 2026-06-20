@@ -19,9 +19,9 @@
     <circle cx="15" cy="15" r="0.5" fill="#333" opacity="0.5"/>
   </pattern>
   <rect width="1200" height="630" fill="url(#dots)"/>
-  <text fill="#9aa4af" font-family="system-ui, -apple-system, sans-serif" font-size="34" x="80" y="240">{{author}}</text>
-  <text fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="52" x="80" y="310">{{title1}}</text>
-  <text fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="52" x="80" y="378">{{title2}}</text>
-  <rect x="80" y="510" width="210" height="44" rx="22" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-  <text fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="20" x="103" y="538">Ideas &#xB7; Code &#xB7; Photos</text>
+  <text fill="#9aa4af" font-family="system-ui, -apple-system, sans-serif" font-size="34" x="600" y="216" text-anchor="middle">{{author}}</text>
+  <text fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="52" x="600" y="300" text-anchor="middle">{{title1}}</text>
+  <text fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="52" x="600" y="372" text-anchor="middle">{{title2}}</text>
+  <rect x="495" y="448" width="210" height="44" rx="22" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="20" x="600" y="476" text-anchor="middle">Ideas &#xB7; Code &#xB7; Photos</text>
 </svg>

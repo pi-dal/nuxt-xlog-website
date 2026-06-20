@@ -1,7 +1,9 @@
+import { createHash } from 'node:crypto'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import fs from 'fs-extra'
 import sharp from 'sharp'
+import { hashObject } from './utils/manifest'
 
 const _dirname = typeof __dirname !== 'undefined' ? __dirname : dirname(fileURLToPath(import.meta.url))
 const TEMPLATE_PATH = resolve(_dirname, 'og-template.svg')
@@ -10,6 +12,14 @@ interface OGImageOptions {
   title: string
   author?: string
   website?: string
+}
+
+interface OgManifestSignatureInput {
+  content: string
+  date?: string
+  slug: string
+  title: string
+  templateSignature: string
 }
 
 /**
@@ -60,6 +70,16 @@ function splitTitle(title: string): [string, string] {
   ]
 }
 
+export function getOgTemplateSignature(template: string): string {
+  const hash = createHash('sha1')
+  hash.update(template)
+  return hash.digest('hex')
+}
+
+export function buildOgManifestSignature(input: OgManifestSignatureInput): string {
+  return hashObject(input)
+}
+
 export async function generateOGImage(options: OGImageOptions, outputPath: string) {
   const { title, author = 'pi-dal' } = options
 
@@ -86,4 +106,9 @@ export async function generateOGImage(options: OGImageOptions, outputPath: strin
 
   // Write to file
   await fs.writeFile(outputPath, png)
+}
+
+export async function loadOgTemplateSignature(): Promise<string> {
+  const template = await fs.readFile(TEMPLATE_PATH, 'utf8')
+  return getOgTemplateSignature(template)
 }

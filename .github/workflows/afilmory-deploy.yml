@@ -83,5 +83,5 @@ jobs:
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           packageManager: pnpm
           wranglerVersion: 4.110.0
-          workingDirectory: afilmory-source
-          command: pages deploy apps/web/dist --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --branch=main
+          workingDirectory: afilmory-source/apps/web
+          command: pages deploy dist --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --branch=main

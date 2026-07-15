@@ -2,88 +2,86 @@ name: Deploy Afilmory Photos
 
 on:
   push:
-    branches: [main]
-    paths: ['afilmory/**']
+    branches:
+      - main
+    paths:
+      - afilmory/**
+      - .github/workflows/afilmory-deploy.yml
   schedule:
-    - cron: '0 2 * * *'
+    - cron: '17 2 * * *'
   workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: afilmory-production
+  cancel-in-progress: true
+
+env:
+  AFILMORY_REF: 6e54714681b1588aa3980ada030683941dfcd2bf
+  NODE_VERSION: '24'
+  PNPM_VERSION: 11.1.2
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
+
     steps:
-      - name: Checkout config repo
-        uses: actions/checkout@v4
+      - name: Checkout configuration
+        uses: actions/checkout@v7
         with:
           path: config-repo
 
-      - name: Checkout Afilmory source
-        uses: actions/checkout@v4
+      - name: Checkout Afilmory
+        uses: actions/checkout@v7
         with:
           repository: Afilmory/afilmory
+          ref: ${{ env.AFILMORY_REF }}
           path: afilmory-source
 
-      - name: Copy configuration files
-        env:
-          ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      - name: Apply configuration
         run: |
-          echo "Copying configuration files..."
-          cp config-repo/afilmory/builder.config.json afilmory-source/
+          cp config-repo/afilmory/builder.config.ts afilmory-source/
           cp config-repo/afilmory/config.json afilmory-source/
           cp config-repo/afilmory/apps/web/wrangler.jsonc afilmory-source/apps/web/
-          cp config-repo/afilmory/apps/web/vercel.json afilmory-source/apps/web/
 
-          echo "Substituting environment variables..."
-          sed -i "s/\${ACCESS_KEY_ID}/$ACCESS_KEY_ID/g" afilmory-source/builder.config.json
-          sed -i "s/\${SECRET_ACCESS_KEY}/$SECRET_ACCESS_KEY/g" afilmory-source/builder.config.json
-
-          echo "Configuration applied:"
-          cat afilmory-source/builder.config.json
-
-          echo "Applied configuration successfully"
-
-      - name: Skip CORS configuration
-        run: |
-          echo "Note: CORS should be configured manually in Cloudflare Dashboard"
-          echo "Please follow the instructions in afilmory/TROUBLESHOOTING.md"
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
         with:
-          node-version: 'lts/*'
+          version: ${{ env.PNPM_VERSION }}
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+          cache-dependency-path: afilmory-source/pnpm-lock.yaml
 
       - name: Install dependencies
         working-directory: afilmory-source
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Build photos manifest
         working-directory: afilmory-source
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
-        run: |
-          echo "Building photos manifest from R2..."
-          pnpm run build:manifest
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+        run: pnpm build:manifest
 
       - name: Build web application
-        working-directory: afilmory-source
-        run: |
-          echo "Building web application..."
-          cd apps/web
-          pnpm vite build
+        working-directory: afilmory-source/apps/web
+        run: pnpm exec vite build
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
-          directory: afilmory-source/apps/web/dist
-          wranglerVersion: '3'
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          packageManager: pnpm
+          wranglerVersion: 4.110.0
+          workingDirectory: afilmory-source
+          command: pages deploy apps/web/dist --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --branch=main

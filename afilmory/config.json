@@ -13,8 +13,9 @@
     "twitter": "@pidal20",
     "github": "pi-dal"
   },
-  "extra": {
-    "accessRepo": true
-  },
-  "map": ["maplibre"]
+  "map": [
+    "maplibre"
+  ],
+  "mapStyle": "builtin",
+  "mapProjection": "mercator"
 }

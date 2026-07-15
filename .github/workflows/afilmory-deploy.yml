@@ -75,6 +75,10 @@ jobs:
         working-directory: afilmory-source/apps/web
         run: pnpm exec vite build
 
+      - name: Install Wrangler
+        working-directory: afilmory-source/apps/web
+        run: pnpm add --save-dev --ignore-scripts wrangler@4.110.0
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v4
         with:

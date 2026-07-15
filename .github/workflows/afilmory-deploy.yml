@@ -83,9 +83,8 @@ jobs:
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           packageManager: pnpm
           wranglerVersion: 4.110.0
           workingDirectory: afilmory-source/apps/web
-          command: pages deploy dist --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --branch=main
+          command: pages deploy dist --project-name=pi-dal-photography --branch=main

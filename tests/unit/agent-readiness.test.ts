@@ -54,6 +54,22 @@ describe('agent readiness response layer', () => {
     expect(homeResponse.headers.get('Location')).toBe('/zh')
   })
 
+  it('respects Accept-Language quality weights when choosing a locale', async () => {
+    // @ts-expect-error Cloudflare function entrypoints are JavaScript modules without declarations.
+    const { onRequest } = await import('../../functions/_middleware.js')
+
+    const response = await onRequest({
+      next: async () => new Response('unused'),
+      request: new Request('https://pi-dal.com/', {
+        headers: {
+          'Accept-Language': 'en;q=0.4, zh;q=0, ja;q=1',
+        },
+      }),
+    })
+
+    expect(response.headers.get('Location')).toBe('/ja')
+  })
+
   it('treats about and friends as locale entry paths instead of falling through to the SPA shell', async () => {
     // @ts-expect-error Cloudflare function entrypoints are JavaScript modules without declarations.
     const { onRequest } = await import('../../functions/_middleware.js')

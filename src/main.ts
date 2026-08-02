@@ -6,6 +6,12 @@ import { ViteSSG } from 'vite-ssg'
 import { setupRouterScroller } from 'vue-router-better-scroller'
 import { routes } from 'vue-router/auto-routes'
 import App from './App.vue'
+import {
+  buildLocaleCookie,
+  getLocaleFromCookie,
+  getLocaleFromPath,
+  localizeBareEntryPath,
+} from './logics/locale-routing'
 import { registerWebMcpTools } from './logics/webmcp'
 import '@unocss/reset/tailwind.css'
 
@@ -46,11 +52,28 @@ export const createApp = ViteSSG(
         behavior: 'auto',
       })
 
-      router.beforeEach(() => {
+      router.beforeEach((to, from) => {
         NProgress.start()
+
+        const preferredLocale = getLocaleFromPath(from.path)
+          ?? getLocaleFromCookie(document.cookie)
+          ?? 'zh'
+        const localizedPath = localizeBareEntryPath(to.path, preferredLocale)
+
+        if (localizedPath) {
+          return {
+            hash: to.hash,
+            path: localizedPath,
+            query: to.query,
+            replace: true,
+          }
+        }
       })
-      router.afterEach(() => {
+      router.afterEach((to) => {
         NProgress.done()
+        const localeCookie = buildLocaleCookie(to.path)
+        if (localeCookie)
+          document.cookie = localeCookie
       })
 
       window.addEventListener('beforeunload', cleanupWebMcp, { once: true })

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { getLocaleFromPath } from '~/logics/locale-routing'
 
 const route = useRoute()
 
@@ -33,9 +34,7 @@ const LOCALE_LABELS = {
 } as const
 
 const currentLocale = computed(() => {
-  const segs = route.path.split('/').filter(Boolean)
-  const locale = segs[0]
-  return locale === 'zh' || locale === 'en' || locale === 'ja' ? locale : 'default'
+  return getLocaleFromPath(route.path) ?? 'default'
 })
 
 const currentLabels = computed(() => LOCALE_LABELS[currentLocale.value])

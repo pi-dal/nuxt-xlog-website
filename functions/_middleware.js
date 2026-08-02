@@ -37,9 +37,18 @@ const PATH_COLLECTION = {
 function bestLocale(acceptLanguage) {
   if (!acceptLanguage)
     return null
-  const langs = acceptLanguage.split(',')
-  for (const entry of langs) {
-    const [lang] = entry.trim().split(';')
+  const langs = acceptLanguage
+    .split(',')
+    .map((entry, index) => {
+      const [lang, ...parameters] = entry.trim().split(';')
+      const qualityParameter = parameters.find(parameter => parameter.trim().startsWith('q='))
+      const quality = qualityParameter ? Number.parseFloat(qualityParameter.trim().slice(2)) : 1
+      return { index, lang, quality: Number.isFinite(quality) ? quality : 0 }
+    })
+    .filter(entry => entry.quality > 0)
+    .sort((a, b) => b.quality - a.quality || a.index - b.index)
+
+  for (const { lang } of langs) {
     const code = lang.trim()
     if (LOCALE_MAP[code])
       return LOCALE_MAP[code]

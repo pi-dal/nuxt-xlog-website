@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router'
 import { useContentRoutes } from '~/composables/useContentRoutes'
 import { formatDate } from '~/logics'
 import { getYearHeadingClassNames, groupContentEntriesByYear } from '~/logics/content-list'
+import { buildLocaleNavigation, hasConcreteRoute } from '~/logics/locale-routing'
 import { buildCollectionPageHead } from '~/logics/site-meta'
 
 interface Props {
@@ -23,24 +24,16 @@ const props = withDefaults(defineProps<Props>(), {
 
 const entries = useContentRoutes({ collection: props.collection, lang: props.lang })
 const route = useRoute()
+const router = useRouter()
 
-const localeLabels: Record<string, string> = { zh: 'ZH', en: 'EN', ja: 'JA' }
-
-const currentLocale = computed(() => {
-  const segs = route.path.split('/').filter(Boolean)
-  if (segs.length >= 1 && ['en', 'zh', 'ja'].includes(segs[0]))
-    return segs[0]
-  return 'zh'
-})
+const localeLabels = { zh: 'ZH', en: 'EN', ja: 'JA' } as const
 
 const localeSwitcherItems = computed(() => {
-  const base = props.collection
-  return Object.keys(localeLabels).map(code => ({
-    code,
-    label: localeLabels[code],
-    active: code === currentLocale.value,
-    to: `/${code}/${base}`,
-  }))
+  return buildLocaleNavigation({
+    currentFullPath: route.fullPath,
+    labels: localeLabels,
+    routeExists: path => hasConcreteRoute(router.resolve(path)),
+  })
 })
 const groups = computed(() => groupContentEntriesByYear(entries.value))
 const yearHeadingClassNames = getYearHeadingClassNames()
@@ -66,10 +59,10 @@ useHead(() => buildCollectionPageHead({
       </p>
 
       <!-- Language switcher -->
-      <div class="locale-switcher">
+      <div v-if="localeSwitcherItems.length > 1" class="locale-switcher">
         <RouterLink
           v-for="loc in localeSwitcherItems"
-          :key="loc.code"
+          :key="loc.locale"
           :to="loc.to"
           class="locale-link"
           :class="{ active: loc.active }"

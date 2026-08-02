@@ -2,6 +2,7 @@
 import type { TocItem as TocItemType } from '~/types'
 import { useHead } from '@unhead/vue'
 import { formatDate } from '~/logics'
+import { buildLocaleNavigation, hasConcreteRoute } from '~/logics/locale-routing'
 import { buildAbsoluteUrl, buildContentPageHead, resolveSiteUrl } from '~/logics/site-meta'
 import { extractTocItems } from '~/logics/toc'
 import Toc from './Toc.vue'
@@ -100,32 +101,22 @@ watch(() => route.fullPath, async () => {
   syncTocItems()
 })
 
-const LOCALE_LABELS: Record<string, { label: string, short: string }> = {
+const LOCALE_LABELS = {
   zh: { label: '中文', short: 'ZH' },
   en: { label: 'English', short: 'EN' },
   ja: { label: '日本語', short: 'JA' },
 }
 
-const currentLocale = computed(() => {
-  const segments = route.path.split('/').filter(Boolean)
-  if (segments.length >= 2 && ['en', 'zh', 'ja'].includes(segments[0]))
-    return segments[0]
-  return 'zh'
-})
-
 const availableLocales = computed(() => {
-  // Build locale path from the current route, swapping locale prefix
-  const segs = route.path.split('/').filter(Boolean)
-  const hasLocale = segs.length >= 1 && ['en', 'zh', 'ja'].includes(segs[0])
-  const pathWithoutLocale = hasLocale ? `/${segs.slice(1).join('/')}` : route.path
-
-  return Object.keys(LOCALE_LABELS).map(locale => ({
-    locale,
-    label: LOCALE_LABELS[locale].label,
-    short: LOCALE_LABELS[locale].short,
-    active: locale === currentLocale.value,
-    href: `/${locale}${pathWithoutLocale}`,
-  }))
+  return buildLocaleNavigation({
+    currentFullPath: route.fullPath,
+    labels: {
+      en: LOCALE_LABELS.en.short,
+      ja: LOCALE_LABELS.ja.short,
+      zh: LOCALE_LABELS.zh.short,
+    },
+    routeExists: path => hasConcreteRoute(router.resolve(path)),
+  })
 })
 
 // Add a computed property to determine parent route based on frontmatter type
@@ -164,15 +155,15 @@ const parentRoute = computed(() => {
       </p>
 
       <!-- Language switcher -->
-      <div class="locale-switcher slide-enter">
+      <div v-if="availableLocales.length > 1" class="locale-switcher slide-enter">
         <RouterLink
           v-for="loc in availableLocales"
           :key="loc.locale"
-          :to="loc.href"
+          :to="loc.to"
           class="locale-link"
           :class="{ active: loc.active }"
         >
-          {{ loc.short }}
+          {{ loc.label }}
         </RouterLink>
       </div>
 

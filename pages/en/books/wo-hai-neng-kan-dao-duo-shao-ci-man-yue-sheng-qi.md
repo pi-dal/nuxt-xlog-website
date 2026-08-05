@@ -1,0 +1,13 @@
+---
+lang: en
+title: How many more times can I see the full moon rise - Reading Notes
+slug: wo-hai-neng-kan-dao-duo-shao-ci-man-yue-sheng-qi
+type: book
+date: '2025-07-07T13:42:45.840Z'
+summary: >-
+  In the later years of his life, Ryuichi Sakamoto looked back on his music
+  creation, film cooperation, memories of the times and his illness experience,
+  intertwining artistic feelings, daily fragments and thoughts on death.
+---
+
+Reading notes.

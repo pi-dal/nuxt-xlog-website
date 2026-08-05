@@ -1,0 +1,15 @@
+---
+lang: en
+title: The Sixth Patriarch's Altar Sutra (vernacular version) - Reading Notes
+slug: liu-zu-tan-jing
+type: book
+date: 'Tue May 19 2026 08:00:00 GMT+0800 (Singapore Standard Time)'
+summary: >-
+  People in the world are obsessed with appearances on the outside and emptiness
+  on the inside. If you can separate yourself from the phase and the emptiness,
+  you will not be confused about the inside or outside. If you understand this
+  method and open your mind in one thought, it will open your eyes to the
+  Buddha.
+---
+
+Reading notes.

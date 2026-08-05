@@ -1,0 +1,23 @@
+---
+lang: en
+title: >-
+  Tim Cook Biography: Reflections on Apple and the Future of Business - Reading
+  Notes
+slug: di-mu-ku-ke-chuan
+type: book
+date: '2025-07-07T14:17:38.453Z'
+summary: >-
+  In 2018, Apple became the world's technology company with a market value
+  exceeding one trillion U.S. dollars, earning the reputation of "the world's
+  most valuable company" and occupying the top spot on the "World's Most
+  Profitable Companies List" for four consecutive years. From stock prices to
+  company value to product sales, Cook has done more than people give him credit
+  for. Cook's six core values have profoundly changed Apple's culture. Apple
+  has never been as committed to promoting diversity, equality, education and
+  barrier-free use as it is now. Cook believes in the power of hard work and
+  hard work, and he demonstrates how individuals, especially successors, can try
+  to fill an irreplaceable position through strong, humane leadership, savvy
+  supply chain operations, and a commitment to values.
+---
+
+Reading notes.

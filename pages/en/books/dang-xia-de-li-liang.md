@@ -1,0 +1,22 @@
+---
+lang: en
+title: The Power of Now (Platinum Edition) - Reading Notes
+slug: dang-xia-de-li-liang
+type: book
+date: '2025-07-07T14:06:29.828Z'
+summary: >-
+  "The Power of Now (Platinum Edition)" is a spiritual reading classic. Author
+  Eckhart Tolle points out the main source of our daily suffering - being
+  controlled by our brains and worrying about the past and future instead of
+  living in the present. But in fact, we can only live in the present, in this
+  moment. It is through surrendering to the present moment that you find true
+  power, access inner wisdom and true joy. The author puts forward several very
+  practical methods in "The Power of Now" to help yourself recognize the
+  illusion of time and live in the present. "The Power of Now" is a practical
+  and useful book for modern public readers who are generally anxious,
+  depressed, and stressed. It will allow us to recognize the illusion of time,
+  live in the present, find real power, and discover the entrance to peace and
+  tranquility.
+---
+
+Reading notes.

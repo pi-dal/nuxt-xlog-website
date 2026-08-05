@@ -1,0 +1,19 @@
+---
+lang: en
+title: Tome of Navarre - Reading Notes
+slug: na-wa-er-bao-dian
+type: book
+date: '2025-07-07T13:53:31.197Z'
+summary: >-
+  Getting rich does not depend on luck, and happiness does not fall from the
+  sky. Building wealth and living a happy life are skills we can learn. This
+  book collects and compiles the life wisdom shared by Silicon Valley investor
+  Navarre through Twitter, podcasts and interviews over the past ten years, and
+  shares Navarre’s principles and methods on wealth accumulation and happy life
+  with readers. Navarre not only tells readers how to get rich, he also tells
+  readers how to view life and how to obtain happiness. His thoughts on wealth
+  and life will help you follow your own unique path and live a richer, happier
+  life.
+---
+
+Reading notes.

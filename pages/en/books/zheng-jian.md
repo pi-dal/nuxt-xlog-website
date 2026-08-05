@@ -1,0 +1,13 @@
+---
+lang: en
+title: right view - Reading Notes
+slug: zheng-jian
+type: book
+date: 'Tue Nov 25 2025 08:00:00 GMT+0800 (Singapore Standard Time)'
+summary: >-
+  Siddhartha himself said that the best form of worship is simply to recall the
+  principle of impermanence, emotional pain, the selflessness of phenomena, and
+  the transcendent concept of Nirvana.
+---
+
+Reading notes.

@@ -1,0 +1,22 @@
+---
+lang: en
+title: The best solution to life - Reading Notes
+slug: zui-you-jie-ren-sheng
+type: book
+date: '2025-07-07T14:07:40.999Z'
+summary: >-
+  After the epidemic, change your way of life! You need this unique guide to
+  wealth life! This book does not teach you how to make money, but how to spend
+  money so that you can live a life without regrets. Financial experts often
+  warn us to work hard and try to increase our savings, the sooner the better.
+  If we are lucky, one day we will finally be able to relax and reap the fruits
+  of this life's hard work. Bill Perkins was unimpressed. He wants to save you
+  from "over-saving" and "no life." This book proposes a brand new life
+  strategy. Based on his own experience and professional background, the author
+  extracts insights about time, money and happiness from psychology and
+  behavioral finance. He uses vivid cases and methodology to gradually teach you
+  to optimize your life, not to be enslaved by money, to live in the present and
+  enjoy life.
+---
+
+Reading notes.

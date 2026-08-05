@@ -1,0 +1,20 @@
+---
+lang: en
+title: The world is in your heart - Reading Notes
+slug: shi-jie-zai-ni-xin-zhong
+type: book
+date: '2025-07-07T14:05:14.432Z'
+summary: >-
+  This book is a record of Krishnamurti's wonderful lectures and discussions at
+  four universities in the United States: Stanford University, Brandeis
+  University, University of California, Berkeley, and Santa Cruz. In response to
+  the common anxiety among young people, Krishnamurti used a friendly and
+  step-by-step enlightening method to deeply discuss important issues such as
+  life and death, love and fear, thought and freedom, awareness and change. He
+  pointed out that only by observing one's real life and entire existence
+  without presuppositions and resistance can people discover the truth about
+  themselves and the world, not be bound by any authority, and gain complete
+  freedom of the mind. Only in this way can you achieve a complete change.
+---
+
+Reading notes.

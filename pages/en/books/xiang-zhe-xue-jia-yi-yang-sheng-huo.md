@@ -1,0 +1,20 @@
+---
+lang: en
+title: 'Live Like a Philosopher: The Stoic Art of Living - Reading Notes'
+slug: xiang-zhe-xue-jia-yi-yang-sheng-huo
+type: book
+date: '2025-07-07T13:30:08.955Z'
+summary: >-
+  Most philosophical works focus on their theoretical introduction and attempt
+  to study the logic and substantive nature of the school. However, this book
+  "Living Like a Philosopher: The Art of Living in Stoic Philosophy" focuses
+  more on the practical application of Stoic philosophy. Stoic philosophy was
+  the most popular and successful school of thought in ancient Rome. Its art of
+  living can help us reduce anxiety and let go of the past, allowing us to
+  better deal with humiliation, sadness, and aging, and calmly face the
+  temptations of fame and wealth. It can also completely cure the chronic
+  psychological illness that afflicts modern people—the endless dissatisfaction
+  with life, and bring us peace of mind.
+---
+
+Reading notes.

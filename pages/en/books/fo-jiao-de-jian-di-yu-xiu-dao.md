@@ -1,0 +1,13 @@
+---
+lang: en
+title: Buddhist perspective and practice - Reading Notes
+slug: fo-jiao-de-jian-di-yu-xiu-dao
+type: book
+date: 'Wed Feb 18 2026 08:00:00 GMT+0800 (Singapore Standard Time)'
+summary: >-
+  To become a Buddha is to realize the truth. Since it's just a matter of
+  realization, there are degrees of realization from very little realization to
+  complete realization - that is, there are degrees of realization.
+---
+
+Reading notes.

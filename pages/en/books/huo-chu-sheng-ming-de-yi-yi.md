@@ -1,0 +1,20 @@
+---
+lang: en
+title: Live the meaning of life - Reading Notes
+slug: huo-chu-sheng-ming-de-yi-yi
+type: book
+date: '2025-07-07T13:29:30.614Z'
+summary: >-
+  A young soldier who lost his legs in battle fell into depression and attempted
+  suicide. One day, his friends noticed that he had changed. His face changed
+  from depressed to solemn and dignified. It was because of reading the book
+  "Living the Meaning of Life" that the soldier experienced such a huge change.
+  As Frankl said, "Everything a person possesses can be taken away, but the
+  ultimate freedom of human nature - the freedom to choose an attitude and a way
+  of life in any situation - cannot be taken away." After Frankl's death,
+  someone said of him: "Heroes are rare. They appear quietly and shine and leave
+  their mark on the world. When they pass away, humanity as a whole is never the
+  same again."
+---
+
+Reading notes.

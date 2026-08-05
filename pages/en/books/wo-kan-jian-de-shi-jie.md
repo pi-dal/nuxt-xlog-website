@@ -1,0 +1,14 @@
+---
+lang: en
+title: The world I see - Reading Notes
+slug: wo-kan-jian-de-shi-jie
+type: book
+date: '2025-07-07T13:52:18.125Z'
+summary: >-
+  Li Feifei reviewed her growth trajectory from an immigrant family to an AI
+  scientist, and also used her personal experience to discuss computer vision,
+  academic research, medical applications, and the ethical boundaries of
+  artificial intelligence.
+---
+
+Reading notes.

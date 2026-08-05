@@ -1,0 +1,14 @@
+---
+lang: en
+title: The world is a theater - Reading Notes
+slug: ren-jian-shi-ju-chang
+type: book
+date: 'Tue Aug 05 2025 08:00:00 GMT+0800 (Singapore Standard Time)'
+summary: >-
+  Dzongsar Jamyang Khyentse Rinpoche discusses why people are always trapped in
+  expectations and fears from the perspective of Buddhism, the eight dharma of
+  the world, insecurity and samatha meditation, and reminds us to cultivate
+  awareness, concentration and wisdom in our daily lives.
+---
+
+Reading notes.

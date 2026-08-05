@@ -1,0 +1,18 @@
+---
+lang: en
+title: Steppenwolf (Fruit Classic) - Reading Notes
+slug: huang-yuan-lang
+type: book
+date: '2025-07-07T14:08:45.645Z'
+summary: >-
+  "Steppenwolf" is Hesse's novel published in 1927, with a strong
+  autobiographical flavor. It is a literary expression in which Hermann Hesse
+  investigates the protagonist Harry Haller and strives to reveal and resolve
+  his conflicts with popular culture, industrial society and the power class, as
+  well as his deep psychological crisis. The novel switches between creative
+  multiple perspectives, including the anonymous publisher, a manual called "On
+  Steppenwolf", and Harry himself, showing readers a vivid picture of civil
+  society and the marginalized Steppenwolf during the period of dissociation.
+---
+
+Reading notes.

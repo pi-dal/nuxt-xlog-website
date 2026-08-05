@@ -1,0 +1,15 @@
+---
+lang: en
+title: wisdom of life - Reading Notes
+slug: ren-sheng-de-zhi-hui
+type: book
+date: '2025-07-07T14:08:35.430Z'
+summary: >-
+  This book discusses how to achieve happiness in life. The author believes that
+  there are three conditions for obtaining happiness, the first is a person's
+  own health, character, intelligence, etc.; the second is things other than
+  one's own, such as wealth; the third is the image that a person shows to
+  others, such as status, reputation, and fame.
+---
+
+Reading notes.

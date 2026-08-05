@@ -1,0 +1,13 @@
+---
+lang: en
+title: walden - Reading Notes
+slug: wa-er-deng-hu
+type: book
+date: '2025-07-07T13:42:05.694Z'
+summary: >-
+  Thoreau reflected on modern life through his experiment of living alone by
+  Walden Pond, discussed temperance, labor, nature, self-reliance and inner
+  freedom, and asked how people can live more soberly and abundantly.
+---
+
+Reading notes.

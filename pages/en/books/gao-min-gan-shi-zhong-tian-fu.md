@@ -1,0 +1,18 @@
+---
+lang: en
+title: High sensitivity is a gift - Reading Notes
+slug: gao-min-gan-shi-zhong-tian-fu
+type: book
+date: '2025-07-07T14:08:56.826Z'
+summary: >-
+  Why do I often feel that I can’t do things well and am embarrassed in front of
+  others? Everyone says I am too sensitive, glass-hearted, and think too much!
+  Is this my problem? Danish psychotherapist Ilse Sander has captured the hearts
+  of sensitive people around the world with her psychological lessons. The
+  copyrights are sold in 18 languages around the world including the United
+  States, Britain, Germany, France, Japan, and South Korea! Use 19 ways to face
+  yourself and communicate externally, you are you, bravely enjoy your unique
+  natural talents!
+---
+
+Reading notes.

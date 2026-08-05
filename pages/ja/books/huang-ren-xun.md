@@ -1,0 +1,10 @@
+---
+lang: ja
+title: "『Jen-Hsun Huang: NVIDIA の中核』読書ノート"
+slug: huang-ren-xun
+type: book
+date: "2025-07-07T13:30:19.531Z"
+summary: "この伝記は、Jen-Hsun Huang の成長と起業家としての歩みを振り返り、NVIDIA が AI 時代のグラフィックス チップ会社から中核インフラストラクチャ プロバイダーにどのように進化したか、またテクノロジーと組織に対する彼の要件を詳しく調べます。"
+---
+
+読書ノート。

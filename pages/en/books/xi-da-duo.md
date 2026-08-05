@@ -1,0 +1,17 @@
+---
+lang: en
+title: Siddharth (Gomai Classic) - Reading Notes
+slug: xi-da-duo
+type: book
+date: '2025-07-07T13:52:51.816Z'
+summary: >-
+  The young Siddhartha was tired of the Brahmin life and followed his friend
+  Gawinda to practice as a Samana. In Savatthi, they listened to the teachings
+  of Buddha Gautama, Govinda chose to follow Gautama, and Siddhartha continued
+  his spiritual path. He met Kamala, a famous prostitute in the city, and began
+  to pursue lust, fame and fortune until he got tired of everything. He once
+  again left the world behind and resolved to end his life. By the river, in a
+  moment of despair, he heard the sound of the river...
+---
+
+Reading notes.

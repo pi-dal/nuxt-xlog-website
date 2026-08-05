@@ -1,0 +1,28 @@
+---
+lang: en
+title: Brave New World (Translation Classic) - Reading Notes
+slug: mei-li-xin-shi-jie
+type: book
+date: '2025-07-07T13:41:54.457Z'
+summary: >-
+  "Brave New World", published in 1932, is Aldous Huxley's most outstanding
+  masterpiece and one of the most famous anti-utopian literary classics of the
+  20th century. Together with Orwell's "1984" and Zamyatin's "Us", it is known
+  as the "dystopian" trilogy and has a profound influence on domestic and
+  foreign literary and ideological circles. This is an allegorical work that
+  shows the future picture of human society in Huxley's eyes: through the most
+  effective scientific and psychological engineering, human beings have been
+  genetically and genetically designed to be members of various levels of
+  society, completely reduced to docile machines, individuality and freedom have
+  been stifled, and literature and art are on the verge of destruction.
+  Following the masterpiece of allegorical novel "Brave New World", Huxley
+  published the treatise "Return to Brave New World" in 1958. In this eloquent
+  work, the author used his rich sociological and anthropological knowledge to
+  compare modern society with all aspects of the allegorical picture he
+  conceived in "Brave New World", such as overpopulation, propaganda and
+  brainwashing, and chemical persuasion, and believed that his early pessimistic
+  predictions were becoming a reality. This book contains all two of Huxley's
+  most classic works.
+---
+
+Reading notes.

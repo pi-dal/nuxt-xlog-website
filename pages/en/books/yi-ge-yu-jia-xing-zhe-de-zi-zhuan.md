@@ -1,0 +1,17 @@
+---
+lang: en
+title: autobiography of a yogi - Reading Notes
+slug: yi-ge-yu-jia-xing-zhe-de-zi-zhuan
+type: book
+date: '2025-07-07T14:06:16.681Z'
+summary: >-
+  "Autobiography of a Yogi" tells the story of Kriya Yoga master Yogananda's
+  practice of Kriya Yoga and his insights into yoga thoughts. It was first
+  published in 1946. In this book, the author uses a humorous and relaxed style
+  and a series of vivid, interesting and real life stories to tell his
+  experience from birth to traveling to Western countries to spread Kriya Yoga.
+  He writes about the life experience and inner emotional world of an
+  enlightened saint that is rare in the history of literature.
+---
+
+Reading notes.

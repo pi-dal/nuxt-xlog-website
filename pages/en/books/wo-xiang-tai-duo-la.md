@@ -1,0 +1,21 @@
+---
+lang: en
+title: >-
+  I think too much: Highly sensitive people are more likely to succeed - Reading
+  Notes
+slug: wo-xiang-tai-duo-la
+type: book
+date: '2025-07-07T13:43:05.205Z'
+summary: >-
+  Are you the kind of person who has a lot of inner drama? The exquisite
+  double-cover paper book "I Think Too Much" will be released at the same time!
+  In more than 20 years of consulting practice, France's "national psychologist"
+  Christe Buticonan has had direct contact and dialogue with several consultants
+  - "highly sensitive people" and recorded their thoughts. The cases are vivid
+  and lively, making readers feel as if they are writing about themselves. A
+  deep understanding of the mysteries of your own behavior will allow you to
+  clearly realize that you are born "a special one" and that you are not an
+  "other" in the eyes of others.
+---
+
+Reading notes.

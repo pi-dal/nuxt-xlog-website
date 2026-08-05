@@ -1,0 +1,16 @@
+---
+lang: en
+title: 'See the World (Issue 16, 2025) - Reading Notes'
+slug: kan-tian-xia
+type: book
+date: '2025-07-07T13:41:34.380Z'
+summary: >-
+  "Kantianxia" is a comprehensive news magazine founded in 2006. It is also the
+  news journal with the largest circulation in China certified by the global
+  Chinese media BPA. The content is rich and diverse, covering current affairs,
+  finance, science and technology, culture, entertainment, education, psychology
+  and other fields. Determined to show readers a broader world and more
+  possibilities in life.
+---
+
+Reading notes.

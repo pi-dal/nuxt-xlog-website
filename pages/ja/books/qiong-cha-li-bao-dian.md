@@ -1,0 +1,14 @@
+---
+lang: ja
+title: >-
+  『Poor Charlie's Book of Wisdom: Charlie Munger's Wisdom and Proverbs (New and
+  Updated Edition) (バリュー投資のバイブル、人生の知恵の本。新しくアップグレードされたバージョンがリリースされました! 97 歳のチャーリー
+  マンガーはまだ学び、向上しています。どうすれば自分自身を更新するのをやめることができますか?)』読書ノート
+slug: qiong-cha-li-bao-dian
+type: book
+date: '2025-07-07T14:07:06.823Z'
+summary: >-
+  この本は、投資、意思決定、心理的バイアス、生涯学習に焦点を当てたチャーリー・マンガーのスピーチ、記事、思考モデルをまとめ、学際的な枠組みを重視した彼の判断方法を示しています。
+---
+
+読書ノート。

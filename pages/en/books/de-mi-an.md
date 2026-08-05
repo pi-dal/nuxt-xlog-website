@@ -1,0 +1,16 @@
+---
+lang: en
+title: Demian (Gomai Classic) - Reading Notes
+slug: de-mi-an
+type: book
+date: '2025-07-07T13:38:38.326Z'
+summary: >-
+  "Demian" is a novella written by German writer Hermann Hesse in 1919. Readers
+  will accompany the young Emile Sinclair as he grows up, experiencing the
+  temptation of the complex world, experiencing loneliness, timidity,
+  hesitation, rebellion, longing for love and friendship, and falling into
+  doubts about himself and the outside world until he meets his peer Demian.
+  Under his influence, he will find answers step by step and mature.
+---
+
+Reading notes.

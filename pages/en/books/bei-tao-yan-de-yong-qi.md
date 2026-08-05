@@ -1,0 +1,18 @@
+---
+lang: en
+title: >-
+  The Courage to Be Disliked: Philosophical Lessons from Adler, the “Father of
+  Self-Enlightenment” - Reading Notes
+slug: bei-tao-yan-de-yong-qi
+type: book
+date: '2025-07-07T13:36:37.351Z'
+summary: >-
+  A young man who was deeply troubled by low self-esteem, incompetence and
+  unhappiness came to challenge after hearing a philosopher's proposition that
+  "the world is extremely simple and everyone can be happy". The two started
+  thinking and debating back and forth. After night after night, the young man
+  began to think, why "the so-called freedom means being hated by others"? The
+  question is not what the world is like, but what you are like.
+---
+
+Reading notes.

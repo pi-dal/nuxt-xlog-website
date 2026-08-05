@@ -1,0 +1,19 @@
+---
+lang: en
+title: born sensitive - Reading Notes
+slug: tian-sheng-min-gan
+type: book
+date: '2025-07-07T13:29:43.355Z'
+summary: >-
+  This book is a psychological self-help book imported from the United States.
+  This book is written for highly sensitive people. The trait of high
+  sensitivity has long been unrecognized or misunderstood, and is often confused
+  with personality labels with negative connotations such as introversion,
+  shyness, and restraint. As a highly sensitive person, the author Elaine Allen,
+  through her own personal experience and in-depth research, allows readers to
+  realize that sensitive traits exist objectively and have innate genetic
+  tendencies; most importantly, sensitive traits are not a flaw, and highly
+  sensitive people have their own unique talents and creativity!
+---
+
+Reading notes.

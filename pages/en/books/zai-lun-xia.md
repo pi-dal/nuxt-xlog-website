@@ -1,0 +1,22 @@
+---
+lang: en
+title: under the wheel - Reading Notes
+slug: zai-lun-xia
+type: book
+date: '2025-07-07T13:39:02.424Z'
+summary: >-
+  Hesse's work has so far been translated into 53 languages, with 742
+  translations, and sold 140 million copies. This is a novel that indicts
+  Germany's old education system and has a strong autobiographical flavor. Hans,
+  who was born in a small town, was extremely talented and had excellent
+  academic performance since childhood. After passing the state examination he
+  was able to enter the seminary. In the seminary, the taciturn Hans was a
+  solitary person, often attending classes alone. By chance, he met Hermann, and
+  they had a good rapport. Unlike Hans, who was conscientious and obedient,
+  Hermann was rebellious by nature and frequently had verbal conflicts with
+  teachers, so he was expelled from school. After that, Hans felt lonely and the
+  depressive life made him at a loss. After a serious illness, he chose to drop
+  out of school and go home to become an ordinary worker...
+---
+
+Reading notes.

@@ -1,0 +1,21 @@
+---
+lang: en
+title: The Complete Works of Three-Body Problem (all three volumes) - Reading Notes
+slug: san-ti-quan-ji
+type: book
+date: '2025-07-07T13:29:56.340Z'
+summary: >-
+  [Won the World Science Fiction Award "Hugo Award" Novel Award, John Campbell
+  Memorial Award, Galaxy Award Special Award. 】Everyone should have a copy of
+  "The Three-Body Problem" on their bookshelf! The wildest imagination about the
+  universe! That's it! The Chinese science fiction masterpiece that conquered
+  the world! Winning nine of the world's top science fiction awards! Published
+  in 16 languages, reaching readers in 30 countries! Obama, Lei Jun, Ma Huateng,
+  Zhou Hongyi, Pan Shiyi, Zuckerberg...highly recommended! Liu Cixin won the
+  2018 Clark Imagination Contribution to Society Award! Liu Cixin is the most
+  important representative writer of Chinese science fiction novels and the
+  first Asian winner of the Hugo Award, the world's science fiction award. He is
+  known as the leading figure of Chinese science fiction.
+---
+
+Reading notes.

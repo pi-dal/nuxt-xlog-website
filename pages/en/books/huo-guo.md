@@ -1,0 +1,26 @@
+---
+lang: en
+title: lived - Reading Notes
+slug: huo-guo
+type: book
+date: '2025-07-07T14:08:09.083Z'
+summary: >-
+  Cai Lam's autobiography, see Cai Lam's sober life wisdom in the world! This
+  book describes Mr. Cai Lam's "truth" and allows you to appreciate Cai Lam's
+  true temperament, true attitude and true wisdom. In the book, Chua Lam talks
+  about life, writing, money, women, life and death, every word is as frank as
+  an old friend talking to each other. What kind of life do you want to live?
+  Cai Lam tells you what his life is like. Cai Lam said: When people get old,
+  they like to be nostalgic, so it’s better to write more about the past. He
+  calls the book "a collection of happy memories." In the book, Chua Lam recalls
+  his life, including his childhood in Chaozhou and Singapore; his study abroad
+  days in Japan; his chance encounters, the appreciation of Mr. Six, and his
+  experience of working at Shaw Brothers; and his life after settling in Hong
+  Kong. In the book, you can see that Cai Lam lived in different countries
+  because of his film work. During this period, he met countless friends and had
+  interesting conversations with them. The articles in the book are
+  all-inclusive, short, concise, and humorous. Each article embodies Cai Lan's
+  open-minded outlook on life and his wise philosophy of life.
+---
+
+Reading notes.

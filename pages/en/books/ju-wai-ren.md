@@ -1,0 +1,15 @@
+---
+lang: en
+title: outsider - Reading Notes
+slug: ju-wai-ren
+type: book
+date: 'Sun Mar 22 2026 08:00:00 GMT+0800 (Singapore Standard Time)'
+summary: >-
+  I experience that the world is so much like me, so friendly and harmonious,
+  and I feel that I was happy in the past and am still happy now. In order to
+  start well and finish well, to have perfect merits, and not to feel that I am
+  a different person, I hope that on the day of my execution, many people will
+  come to watch the excitement, and they will all yell at me with hatred.
+---
+
+Reading notes.

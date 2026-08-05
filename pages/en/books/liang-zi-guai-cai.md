@@ -1,0 +1,33 @@
+---
+lang: en
+title: 'Quantum Genius: A Biography of Paul Dirac - Reading Notes'
+slug: liang-zi-guai-cai
+type: book
+date: '2025-07-07T13:27:43.862Z'
+summary: >-
+  During the golden age of the development of quantum mechanics in the 1920s and
+  1930s, the eccentric and taciturn British physicist Paul Dirac was definitely
+  a unique figure. As one of the founders of quantum physics, Dirac pioneered
+  the connection between quantum mechanics and Einstein's theory of relativity,
+  explained the nature of matter with perfect mathematical equations, and
+  predicted antimatter. Later string theory and predictions about what happened
+  at the beginning of the universe were all based on his results. He is
+  considered one of the greatest scientists besides Einstein. At the age of 27,
+  he was elected as a fellow of the Royal Society; at the age of 29, he was
+  elected as Lucas Professor of Cambridge University; at the age of 31, he won
+  the Nobel Prize in Physics. In addition to the field of physics, he also left
+  his mark in the field of chemistry, inventing a method for separating chemical
+  isotopes that found application in the nuclear industry. This scientific
+  "eccentric" was emotionally alienated throughout his life. How did he
+  communicate with the scientific giants of his time, such as Feynman,
+  Schrödinger, Heisenberg, and Landau? Why did he not forgive his father
+  throughout his life, but still miss him? How did he move forward in the midst
+  of World War I, World War II, and the Cold War? This book will answer these
+  questions one by one. Today, the concepts he proposed are still being studied
+  and developed by future generations, his ideas still influence countless
+  researchers and scientists, and the equations he proposed that were once
+  considered irrelevant to daily life have become the basis of a multi-billion
+  dollar industry.
+---
+
+Reading notes.

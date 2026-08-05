@@ -1,0 +1,14 @@
+---
+lang: en
+title: 'From 0 to 1: Unlock the secrets of business and the future - Reading Notes'
+slug: cong-0-dao-1
+type: book
+date: 'Mon May 18 2026 08:00:00 GMT+0800 (Singapore Standard Time)'
+summary: >-
+  The greatest danger for founders is becoming too sure of their own mythology
+  and thus losing their way. Likewise, for companies, the greatest danger is to
+  stop believing in the myths of the founders and mistake disbelief in myths for
+  wisdom.
+---
+
+Reading notes.

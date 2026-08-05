@@ -98,6 +98,7 @@
     "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
-    "*": "eslint --fix"
+    "*.{js,ts,vue,jsx,tsx,mjs,cjs}": "eslint --fix",
+    "*.{json,yaml,yml}": "eslint --fix --no-error-on-unmatched-pattern"
   }
 }
